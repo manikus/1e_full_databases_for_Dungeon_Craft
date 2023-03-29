@@ -1,0 +1,31 @@
+\(BEGIN)
+name = Giant Bee
+icon file = DEFAULT // ,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 3
+armor class = 6
+movement rate = 9//30
+hit dice = 3
+treat HD as hit points = yes
+hit dice bonus = 1
+THAC0 = 17
+magic resistance = 0
+size = medium
+morale = 35
+experience point value = 202
+Special Ability = monsterLevel,4
+Class = Fighter
+Race = Monster
+form = animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 3,1,0,stings,monsterPoison
+Undead = none
+\(END)
+// MMII p17
+

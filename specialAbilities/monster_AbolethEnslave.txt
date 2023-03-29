@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_AbolethEnslave
+[InvokeSpellOnTarget] = $IF ($GET_CANBEHELDORCHARMED($TargetContext()) !=# 1){$RETURN;};
+-$SetFriendly($IndexOf($TargetContext()), $GET_COMBATANT_SA($Myself(),"side"));
+-$SET_COMBATANT_SA($TargetContext(),"IsAbolethEnslaved","11");
+-$SET_CHARACTER_SA($TargetContext(),"DispelLevel","11");
+\(END)
+

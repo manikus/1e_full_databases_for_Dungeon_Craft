@@ -1,0 +1,13 @@
+\(BEGIN)
+name = monster_DispelInvisibility
+[SpellLingeringScripts] = $VAR cLvl; $VAR dLvl; $VAR percent; $VAR rndm;
+-$IF ($SpellContext() != ("Improved Invisibility" || "Invisibility" || "Invisibility to Animals" || "Invisibility 10' Radius" || "Mass Invisibility" || "Invisibility to Animals|Ranger" || "Invisibility|Ranger" || "itemPotionInvisibility" || "Invisibility|MonsterOgreMage" || "Invisibility|MonsterMage" || "ImprovedInvisibility|MonsterIllusionist")){$RETURN;};
+-$RUN_CHAR_SCRIPTS(tgt,"Dispel");
+-$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+-$IF ($GET_SPELL_SA($SpellContext(),"Dispelled") != "-?-?-"){ $RETURN "RemoveLinger"; };
+-cLvl = $GET_HOOK_PARAM(7); dLvl = $GET_HOOK_PARAM(6); rndm = $RANDOM(100) +# 1;
+-$IF (dLvl ># cLvl){percent = (dLvl -# cLvl) *# 5 +# 50;}
+-$ELSE{percent = 50 -# (cLvl -# dLvl) *# 2;};
+-$IF (rndm <=# percent){$RETURN "RemoveLinger";};
+\(END)
+

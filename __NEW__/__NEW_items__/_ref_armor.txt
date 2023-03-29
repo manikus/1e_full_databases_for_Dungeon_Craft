@@ -1,0 +1,172 @@
+DMG p164
+
+ARMOR AND SHIELD (1II.F.)
+
+As Dungeon Master you must be fully conversant with the armor gradation system. Because prior game forms worked from a high base number (9) upwards, I have opted to follow the same progression herein for the sake of continuity and familiarity. As a shield is the single common factor, it must be given a + 1 factor, i.e. be 1 class (5%) better than no armor, but listed before the diverse armor types, in order to allow its inclusion as a constant (without over-valuing it). For each + 1 of armor, regardless of the type of armor, the wearer moves upwards (toward or beyond AC 2 to 1 , 0, -1, -2, etc.). Thus, chain mail + 1 is chain mail (AC 5) 1 category better (AC 4), while a shield + 1 is equal to armor class 8 - or 2 places better than the armor worn by its inclusion, rather than but 1 (+1 for bearing shield, +1 for the magical bonus of the shield).
+
+For game purposes all magical armor should be considered as being virtually weightless - equal to normal clothing, let us assume. This gives characters so clad a base movement speed equal to an unarmored man. Magic shields, however, weigh the same as a normal shield of the same size.
+
+Armor of +3 bonus is of special meteorite iron steel, +4 is mithral alloyed steel, +5 is adamantite alloyed steel.
+
+Special items are described below:
+
+leather armor +1 is usable by those characters permitted to wear this
+form of armor.
+
+Plate Mail of Etherealness is seemingly normal +5 armor, but if a
+command word is spoken, the suit enables its wearer and all non-living
+items he or she wears and carries to become ethereal, just as if oil of
+ethereolness (q.v.) had been used. While in the ethereal state the wearer
+cannot attack material creatures. A phase door spell will negote the
+ethereal state and prevent the armor from again so functioning for 1 day.
+There are 20 charges placed upon plate moil of etherealness, and, once
+used, they cannot be replaced or recharged. Furthermore, every 5 uses
+reduces the class of the armor by 1, so if 5 charges ore used to become
+ethereal the ormor is +4, if 10 are used it is +3, +2 if 15 are used, and
+only + 1 if all 20 are exhausted.
+
+Plate Mail of Vulnerability appears to every test to be magical + 1, +2, or
++3 armor, but it is actually -2, -3, or -4 cursed plate mail, whose great
+vulnerability will not be apparent until on enemy successfully strikes a
+blow in anger with desire and intent to kill its wearer. The ormor will fall to
+pieces whenever an opponent strikes the weorer with on unmodified "to
+hit" score of 20
+
+Shield, large, + 1, +4 versus missiles is a typical large shield, but it is four
+times more effective against hand hurled and mechanically propelled
+missiles of all sorts. More importantly, the shield has a 20% chance of
+negating rnogic missile attacks (from a frontal position, of course).
+Shield -1, missile charcter not only makes the bearer equivalent to a
+shieldless person, it also attracts missiles of all sorts to itself, so double or
+treble the bearer's chances of being selected by random die rolling
+according to the size of the party he or she is in. This cursed shield is not
+distinguishable from a useful magical shield.
+
+Note: If you are unfamiliar with medieval armor types, you might find
+Charles ffoulkes' ARMOUR AND WEAPONS (Oxford 1909) a short and
+useful text. The armor types I have selected are fitted into a gorne system.
+Here is what they subsume: LEATHER ARMOR is cuir bouli, consisting of
+coat, leggings, boots, and gauntlets. STUDDED LEATHER adds protective
+plates set in the leather and an extra layer of protection at shoulder area.
+RING MAIL is leather armor sewn with closely set iron rings. SCALE MAIL is
+a suit of leather armor set with small overlapping iron plates. CHAIN MAIL
+needs no explanation. BANDED MAIL is horizontal strips of articulated
+armor plates worn over a suit of chain mail. SPLINT M A I L is a coot of
+vertical plates of armor sandwiched within the layers of the garment and
+worn over chain. PLATE MAIL is a set of pieces of plate (shoulder, breast,
+bock, elbow, groin/hips legs) worn over chain mail. Plote ormor is a late
+development and is not considered, i.e. the full suit of solid plate used c.
+1500 is not an orrnor type used, but the reader should be aware that this
+form of protection was lighter and more mobile than plate mail! It is also
+two or three times more costly . .
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+UA p105
+
+ARMOR AND SHIELD (lll.F.2.)
+
+Except where this obviously does not apply (such as for leather armor
++3), armor of +3 bonus is of special meteorite iron steel, +4 is
+mithral alloyed steel, and + 5 is adamantite alloyed steel.
+Special items from Table lll.F.2. are described below:
+
+Anything Armor can be of any construction, from leather to plate. It
+will originally appear as having a + 1 dweomer, but upon command it
+will become any sort of other normal magical armor - one of the
+types listed on the tables, and not necessarily of the same construction
+as the anything armor in its unchanged form; Le., anything armor
+that appears as leather can change into plate, or vice versa. However,
+each such change is singular; the anything armor will never form into
+a specific type of armor more than once. A change into a non-special
+sort of armor will last for 1 day (24 hours) before the anything armor reverts
+to its usual + 1 status. A change into some special-function type
+of armor (such as plate mail of etherealness) will last but 1 hour. After
+the possessor has commanded the anything armor to change three
+different times, the armor will lose all of its magical properties.
+
+Elfin Chain Mail is magical armor of a sort that is so fine and light that
+it can be worn under normal clothing without revealing that it is there.
+Because of its incredible lightness and flexibility, thieves can utilize it,
+though it may slightly hinder their activities. However, it is rare for
+such mail to be sized to fit anyone other than an elf or a half-elf. If a
+suit of this mail is discovered, roll to ascertain what size of character it
+will fit:
+	Dice Roll Size of Elfin Chain
+	01 - 10 gnomelhalfling (hairfoot)
+	11 - 15 dwarflhalfling (stout or tallfellow)
+	16 - 80 elflhalf-elf
+	81 - 95 man-sized, normal (up to 6’, 200 Ibs.)
+	96 - 00 man-sized, large (up to 6’/2‘, 250 Ibs.)
+
+Plate Armor can be of the fieldplate or fullplate variety, as shown on
+Table lll.F.2. In either case, the dweomer of the armor is such that it
+will perfectly conform to the wearer’s physical dimensions, so long as
+the wearer is of the race for which the armor was manufactured (i.e.,
+any human can wear human-sized armor, any dwarf can wear dwarfsized,
+etc.). In addition, magical plate armor can absorb more damage
+than non-magical armor of the same sort. Fieldplate can absorb
+an additional 10 points of damage per “plus” of the armor, and full
+plate can absorb an additional 16 points per “plus.” Either type must
+be repaired after absorbing its limit of damage, at the same costs in
+money and time as for non-magical plate armor of the same sort (1
+day and 100 gp per point of damage absorption for fieldplate, 2 days
+and 200 gp per point for fullplate), but such repairs can only be made
+by an armorer who is well versed in the creation and repair of magical
+protection.
+
+
+from Tables
+
+								XP Value	GP Value
+Anything Armor					4500		45000
+Bronze Plate Mail +1			500			3000
+Bronze Plate Mail +2			1000		7500
+Buckler +1						150			1500
+Buckler +2						350			3500
+Buckler +3						1000		10000
+Chain Mail +1					600			3500
+Chain Mail +3					2000		12500
+Chain Mail +4					4000		30000
+Chain Moil +2					1200		7500
+Elfin Chain Mail +1				1200		7500
+Elfin Chain Mail +2				2000		12500
+Elfin Chain Mail +3				3000		20000
+Elfin Chain Mail +4				5000		30000
+Elfin Chain Mail +5				7500		50000
+Leather Armor +2				1000		7500
+Leather Armor +3				1750		12500
+leather Rrmor +1				300			2000
+Plate Armor, Full, +1			3000		30000
+Plate Armor; Field, +1			1500		15000
+Plate Armor; Field, +2			3000		30000
+Plate Armor; Field, +3			5000		50000
+Plate Armor; Field, +4			8000		80000
+Plate Armor; Field, +5			12000		120000
+Plate Armor; Full, +2			5000		50000
+Plate Armor; Full, +3			8000		80000
+Plate Armor; Full, +4			12000		120000
+Plate Mail +1					800			5000
+Plate Mail +2					1750		10500
+Plate Mail +3					2750		15500
+Plate Mail +4					3500		25500
+Plate Mail +5					4500		27500
+Plate Mail of Etherealness		5000		30000
+Plate Mail of Vulnerability		---			1500
+Ring Mail +1					400			2500
+Ring Mail +2					1250		6000
+Scale Moil +1					500			3000
+Scale Mail +2					1100		6750
+Scale Mail +3					2500		12000
+Shield +1						250			2500
+Shield +2						500			5000
+Shield +3						800			8000
+Shield +4						1200		12000
+Shield +5						1750		17500
+Shield -1, missile attractor	---			750
+Shield, large, +1, +4 vs. missiles	400		4000
+Splint Mail +1					700			4000
+Splint Mail +2					1500		8500
+Splint Mail +3					2250		14500
+Splint Moil +4					3000		19000
+Studded Leather +1				400			2500
+Studded Leather +2				1250		6500

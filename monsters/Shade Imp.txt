@@ -1,0 +1,34 @@
+\(BEGIN)
+name = Shade Imp
+icon file = icon_ShadeImp.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveWings.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 9
+armor class = 6
+movement rate = 18
+hit dice = 1.200000
+treat HD as hit points = yes
+hit dice bonus = 2
+THAC0 = 16
+magic resistance = 0
+size = small
+morale = 35
+experience point value = 375
+Special Ability = monsterLevel,7
+Special Ability = monster_CombatantAlignment,evil
+Special Ability = monster_ElementalImmunity,fire
+Special Ability = monster_Regeneration,1
+Special Ability = monster_WeaponImmunity,normal
+Special Ability = Summoned,plane
+Class = Fighter
+form = none
+penalty = none
+immunity = confusion + none
+Misc Options = none
+item = none
+attack = 2,1,0,attacks,
+Undead = none
+\(END)
+

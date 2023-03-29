@@ -1,0 +1,16 @@
+\(BEGIN)
+name = IsStrangleWeeded
+[CanCastSpells] = $RETURN "N";
+[GetAdjMaxMovement] = $RETURN 0;
+[StartCombatRound] = $VAR tgt; $VAR par; $VAR hp; $VAR str; $VAR roll;
+-tgt = $IndexOf($CombatantContext()); par = $SA_PARAM_GET();
+-hp = $GET_CHAR_HITPOINTS(tgt); str = $GET_CHAR_LIMITED_STR(tgt); roll = $RANDOM(20) +# 1;
+-$IF (par ># str) {$RETURN $SET_CHAR_HITPOINTS(tgt,hp -# par +# str);};
+-$IF ((str -# par) ># roll)
+-	{
+-		$DELETE_COMBATANT_SA($CombatantContext(),"StrangleLink");
+-		$DELETE_CHARACTER_SA($CombatantContext(),"monster_StrangleWeedConstricted");
+-		$SA_REMOVE();
+-	};
+\(END)
+

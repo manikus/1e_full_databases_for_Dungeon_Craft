@@ -1,0 +1,14 @@
+\(BEGIN)
+name = monkCharmResistance
+[CharDisplayStatus] = $VAR me; $VAR lvl; $VAR base; $VAR adj;
+-me = $IndexOf($CharacterContext()); lvl = $GET_CHAR_Lvl(me,"monk"); base = "50"; adj = (lvl -# 9) *# 5;
+-$SET_HOOK_PARAM( 7,"Resistant to Charm " + (base +# adj)); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesSpellAttackSucceed] = $VAR me; $VAR lvl; $VAR rndm; $VAR base; $VAR adj;
+-me = $IndexOf($TargetContext()); lvl = $GET_CHAR_Lvl(me,"monk");
+-rndm = $RANDOM(100) +# 1; base = "50"; adj = (lvl -# 9) *# 5;
+-$IF ($SA_ITEM_GET("DamageMagical") != "charm")
+-	{$IF ($SA_ITEM_GET("DamageNonMagical") != "charm") {$RETURN;};};
+-$IF (rndm <# (base +# adj)) {$RETURN "N";};
+\(END)
+// level 9
+

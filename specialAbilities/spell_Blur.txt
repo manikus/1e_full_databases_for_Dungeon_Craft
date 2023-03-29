@@ -1,0 +1,5 @@
+\(BEGIN)
+name = spell_Blur
+[InvokeSpellOnTarget] = $SET_COMBATANT_SA($TargetContext(),"IsBlurred","");
+\(END)
+

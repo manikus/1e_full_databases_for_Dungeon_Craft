@@ -1,0 +1,12 @@
+\(BEGIN)
+name = monster_SuccubusGateDemon
+[InvokeSpellOnTarget] = $VAR rdm; $VAR pct; $VAR lst; $VAR cnt; $VAR smn;
+-rdm = $RANDOM(100); pct = $RANDOM(100);
+-lst = "$Baphomet$Demogorgon$Fraz-Urb'luu$Graz'zt$Juiblex$Kostchtchie$Lolth$Orcus$Pazuzu$Yeenoghu";
+-cnt = $DelimitedStringCount(lst); smn = $DelimitedStringSubstring(lst,cnt);
+-$IF (pct ># 40){$RETURN;};
+-$IF (rdm <# 70){$AddCombatant("Type IV Demon",0); $RETURN;};
+-$IF (rdm <# 95){$AddCombatant("Type VI Demon",0); $RETURN;};
+-$IF (rdm >=# 95){$AddCombatant(smn,0); $RETURN;};
+\(END)
+

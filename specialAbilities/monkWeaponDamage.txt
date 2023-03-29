@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monkWeaponDamage
+[GetItemTargetHitBonus] = $VAR atk; $VAR lvl;
+-atk = $IndexOf($AttackerContext()); lvl = $GET_CHAR_Lvl(atk,"monk");
+-$IF ($GET_CHAR_Ready($AttackerContext(),"WEAPON",0) != "") {$RETURN lvl /# 2;};
+\(END)
+

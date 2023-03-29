@@ -1,0 +1,46 @@
+\(BEGIN)
+name = Charonadaemon
+icon file = icon_Charonadaemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 13
+armor class = -1
+movement rate = 18
+hit dice = 10
+treat HD as hit points = yes
+hit dice bonus = 20
+THAC0 = 6
+magic resistance = 90
+size = medium
+morale = 40
+experience point value = 5472
+Special Ability = monsterLevel,16
+Special Ability = elemental_ResistantAcid
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneCharm
+Special Ability = monster_ImmuneParalysis
+Special Ability = monster_ImmunePoison
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Daemon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterCharonodaemonSummonHydrodaemons
+item = monsterCharonConfusionGaze
+attack = 8,2,0,hits,
+Undead = Special
+\(END)
+// MMII p29
+

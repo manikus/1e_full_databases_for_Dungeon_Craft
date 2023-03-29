@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_NabassuSummonGhast
+[InvokeSpellOnTarget] = $VAR rdm;
+-rdm = $RANDOM(4)+#1;
+-$WHILE (rdm >=# 0){$AddCombatant("Ghast",0);rdm = rdm-#1;};
+\(END)
+

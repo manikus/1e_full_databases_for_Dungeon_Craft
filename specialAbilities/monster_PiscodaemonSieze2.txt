@@ -1,0 +1,17 @@
+\(BEGIN)
+name = monster_PiscodaemonSieze2
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-$IF ($GET_COMBATANT_SA($AttackerContext(),"CombatRoundStart") ==# 1)
+-	{
+-		$IF ($GET_COMBATANT_SA($TargetContext(),"IsPiscodaemonSiezed") == "-?-?-")
+-			{
+-				$SET_COMBATANT_SA($AttackerContext(),"SiezeLink",tgt);
+-				$SET_COMBATANT_SA($AttackerContext(),"monster_PiscodaemonSiezing",tgt);
+-				$SET_COMBATANT_SA($AttackerContext(),"piscodaemonSiezeTime",$GET_PARTY_TIME()+#6;);
+-				$SET_COMBATANT_SA($TargetContext(),"monster_PiscodaemonSiezed",atk);
+-				$SET_COMBATANT_SA($TargetContext(),"SiezeLink",atk);
+-				$SET_COMBATANT_SA($TargetContext(),"IsPiscodaemonSiezed",1);
+-			};
+-	};
+\(END)
+

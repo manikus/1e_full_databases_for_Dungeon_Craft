@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkMolecularManipulation
+\(END)
+// level 8
+

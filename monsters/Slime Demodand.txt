@@ -1,0 +1,51 @@
+\(BEGIN)
+name = Slime Demodand|Kelubar
+icon file = icon_SlimeDemodand.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 16
+armor class = -2
+movement rate = 12
+//movement rate = 24
+hit dice = 13
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 8
+magic resistance = 35
+size = medium
+morale = 40
+experience point value = 5165
+Special Ability = monsterLevel,13
+Special Ability = elemental_ImmuneAcid
+Special Ability = elemental_ImmunePoison
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantFire
+Special Ability = IsDetectingGood
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneFear
+Special Ability = monster_ImmuneIllusion
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,2
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demodand
+form = large
+penalty = none
+immunity = none
+Misc Options = can be held/charmed + affected by dispel evil
+item = monsterDemodandRayOfEnfeeblement
+item = monsterDemodandFogCloud
+item = monsterDemodandWeaken
+item = monsterDemodandSummonSlimeDemodand
+attack = 4,2,0,claws,monsterSlimeDemodandAcid1
+attack = 4,2,0,claws,monsterSlimeDemodandAcid2
+attack = 4,4,0,bites,monsterSlimeDemodandAcid3
+Undead = none
+\(END)
+// MMII p34
+

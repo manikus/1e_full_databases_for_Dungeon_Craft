@@ -1,0 +1,36 @@
+\(BEGIN)
+name = Red Urchin
+icon file = icon_RedUrchin.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 3
+armor class = 2
+movement rate = 18
+hit dice = 3
+treat HD as hit points = yes
+hit dice bonus = 1
+THAC0 = 18
+magic resistance = 0
+size = small
+morale = 35
+experience point value = 127
+Special Ability = monsterLevel,3
+Class = Fighter
+Race = Monster
+form = animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = Gem|Red Urchin
+item = monsterRedUrchinSpines
+item = monsterRedUrchinSpines
+item = monsterRedUrchinSpines
+attack = 4,1,1,attacks,
+attack = 4,1,1,attacks,
+attack = 4,1,1,attacks,
+Undead = none
+\(END)
+// FF
+

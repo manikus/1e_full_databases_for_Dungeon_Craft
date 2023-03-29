@@ -1,0 +1,15 @@
+\(BEGIN)
+name = monster_DerghodaemonGrabber
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,$SA_PARAM_GET()); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[GetAdjMaxMovement] = $RETURN 0;
+[GetNumberOfAttacks] = $RETURN 0;
+[OnStartCombatantAction] = $VAR tgt;
+-tgt = $GET_COMBATANT_SA($CombatantContext(),"monster_DerghodaemonGrabLink");
+-// Is Target Dead?
+-$IF ($GET_CHAR_HITPOINTS(tgt) <# 1)
+-	{
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_DerghodaemonGrabber");
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_DerghodaemonGrabLink");
+-	};
+\(END)
+

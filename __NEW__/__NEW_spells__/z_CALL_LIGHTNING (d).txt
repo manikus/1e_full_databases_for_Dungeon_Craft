@@ -1,0 +1,66 @@
+Call Lightning (Alteration)
+
+Level: 3	
+Components: V, S, M
+Range: 0	
+Casting Time: 1 turn
+Duration: 1 turn/level	
+Saving Throw: 1/2
+Area of Effect: 72" diameter
+Explanation/Description: When a call lightning spell is cast, there must be a storm of some sort in the area - a rain shower, clouds and wind, hot and cloudy conditions, or even a tornado. The druid is then able to call down bolts of lightning from sky to ground. Each bolt will cause damage equal to 2 eight-sided dice (2d8) plus 1 like die (d8) for each level of experience of the druid casting the spell. Thus, a 4th level druid calls down a six-die (6d8) bolt. The bolt of lightning flashes down in a perpendicular stroke at whatever distance the spell caster decides, up to the 36" radial distance maximum. Any creature within a 1" radius of the path or the point where the lightning strikes will take full damage, unless a saving throw is made, in which case only one-half damage is taken. Full/half damage refers to the number of hit dice of the lightning bolt, i.e. if it is of eight dice strength, the victim will take either eight dice (8d8) or four dice (4d8), if the saving throw is made, of damage. The druid is able to call one bolt of lightning every 10 melee rounds (1 turn), to a maximum number of turns equal to the level of experience he or she has attained, i.e. 1 bolt/turn for each level of experience. Note: This spell is normally usable outdoors only.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// druid level 3
+\(BEGIN)
+name = Call Lightning
+casting sound = sound_Cast.wav
+cast msg = /c calls down a bolt of lightning.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_LightningBolt.png,150,4,48,48,0,1,2,1,0,0
+target linger art = none
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,electricity
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Attack,1
+targeting type = selectByCount
+target quantity = level/3
+target range = 72
+level = 3
+casting time = 1
+casting time units = rounds
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = $CHAR_HITPOINTS,-(1d8)*level,delta,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

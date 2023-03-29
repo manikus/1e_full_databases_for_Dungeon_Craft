@@ -1,0 +1,17 @@
+\(BEGIN)
+name = monkSpeakWithPlants
+[AURA_Create] = $VAR chr; chr = $IndexOf($CharacterContext());
+-$AURA_Attach("Combatant"); $AURA_Combatant(chr); $AURA_Size(0,10,0,360);
+-$AURA_Shape("AnnularSector"); $AURA_Wavelength("Xray");
+[AURA_Enter] = $VAR plnt;
+=plnt = $SA_COMBATANT_GET("isPlant");
+-$IF (plnt == "-?-?-") {$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsCharmed","");};
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Speak with Plants"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[OnStartCombat] = $VAR me; $VAR lvl;
+-me = $IndexOf($Myself(); lvl = $GET_CHAR_Lvl(me,"monk");
+-$IF (lvl <# 8) {$RETURN;};
+$AURA_Create("baseclass_MonkSpeakWithPlants",me,0,0,0);
+\(END)
+// level 14
+

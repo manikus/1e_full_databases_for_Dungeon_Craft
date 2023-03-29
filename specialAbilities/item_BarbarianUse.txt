@@ -1,0 +1,8 @@
+\(BEGIN)
+name = item_BarbarianUse
+[CanReady] = $VAR me; $VAR lvl;
+-me = $MyIndex(); lvl = $SA_PARAM_GET();
+-$IF ($GetHighestLevelBaseclass(me) != "barbarian") {$RETURN;};
+-$IF ($GET_CHAR_Lvl(me,"barbarian") <# lvl) {$RETURN "N";};
+\(END)
+// level for magic 3: potions, 4: weapons, 5: armor, 7: weapon-like misc, 9: protection scrolls, 10: available to fighters

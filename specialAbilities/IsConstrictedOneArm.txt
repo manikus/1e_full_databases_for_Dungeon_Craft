@@ -1,0 +1,11 @@
+\(BEGIN)
+name = IsConstrictedOneArm
+[CanCastSpells] = $VAR com;
+-com = $IndexOf($CombatantContext());
+-$IF ($GET_CHAR_HITPOINTS(com) <# 1) {$SA_REMOVE();$RETURN;};
+-$RETURN "N";
+[DoesAttackSucceed] = $IF (($GET_HOOK_PARAM(5) -# 3) >=# $GET_HOOK_PARAM(6)){$RETURN "Y";}
+-$ELSE {$RETURN "N";};
+[GetAdjMaxMovement] = $RETURN 0;
+\(END)
+

@@ -1,0 +1,47 @@
+\(BEGIN)
+name = Alu-demon
+icon file = icon_AluDemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 16
+armor class = 5
+movement rate = 12
+hit dice = 6
+treat HD as hit points = yes
+hit dice bonus = 4
+THAC0 = 14
+magic resistance = 30
+size = medium
+morale = 40
+experience point value = 3334
+Special Ability = monsterLevel,7
+Special Ability = elemental_ImmuneSilver
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = elemental_ResistantGas
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_Infravision,240
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = monster_WeaponImmunity,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterDemonDarkness
+item = monsterMageTeleportWithoutError
+item = monsterDemonCharmPerson
+item = monsterDemonSuggestion
+item = monsterDemonDimensionDoor
+item = Long Sword|2
+item = Shield|2
+attack = 2,1,0,attacks,monsterAluDemonDrain
+Undead = Special
+\(END)
+//  MMII p35
+

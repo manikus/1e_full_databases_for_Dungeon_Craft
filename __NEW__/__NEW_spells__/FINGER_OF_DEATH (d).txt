@@ -1,0 +1,67 @@
+Finger Of Death (Enchantment/Charm)
+
+Level: 7	
+Components: V, S, M
+Range: 6"	
+Casting Time: 5 segments
+Duration: Permanent	
+Saving Throw: Neg.
+Area of Effect: One creature
+Explanation/Description:	The finger of death spell causes the victim's heart to stop. The druid utters the incantation, points his or her index finger as the creature to be slain, and unless the victim succeeds in making the appropriate saving throw, death occurs. A successful saving throw negates the spell.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// druid level 7
+\(BEGIN)
+name = Finger of Death
+casting sound = sound_Cast.wav
+cast msg = /c points a finger at /t.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Druid.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = negates
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Attack,1
+targeting type = selectByCount
+target quantity = 1
+target range = 6
+level = 7
+casting time = 5
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = $CHAR_HITPOINTS,-11,absolute,target,yes
+spell effect 2 = $CHAR_STATUS,2,absolute,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

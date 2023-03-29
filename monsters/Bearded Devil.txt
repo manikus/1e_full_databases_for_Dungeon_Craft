@@ -1,0 +1,48 @@
+\(BEGIN)
+name = Bearded Devil
+icon file = icon_BeardedDevil.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 12
+armor class = 1
+movement rate = 15
+hit dice = 6
+treat HD as hit points = yes
+hit dice bonus = 6
+THAC0 = 13
+magic resistance = 45
+size = medium
+morale = 40
+experience point value = 1455
+Special Ability = elemental_ImmuneFire
+Special Ability = elemental_ImmuneIron
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantGas
+Special Ability = monsterLevel,8
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_DevilFearAura
+Special Ability = monster_Infravision
+Special Ability = monster_Regeneration,1
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Devil
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterMageCharmPerson
+item = monsterDevilCommand
+item = monsterMageFear
+item = monsterDevilSummonBeardedDevil
+item = monsterMageTeleportWithoutError
+item = Saw-toothed Glaive-Hook
+attack = 2,1,0,attacks,
+attack = 2,1,0,attacks,
+attack = 8,1,0,attacks,
+Undead = Special
+\(END)
+// MMII p46
+

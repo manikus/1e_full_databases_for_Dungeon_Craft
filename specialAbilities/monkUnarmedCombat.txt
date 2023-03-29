@@ -1,0 +1,29 @@
+\(BEGIN)
+name = monkUnarmedCombat
+[ComputeDamage] = $VAR p5; $VAR p6; $VAR atk; $VAR lvl; $VAR rndm; $VAR kill;
+-$VAR ac; $VAR tgt; $VAR exp;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6); atk = $IndexOf($AttackerContext()); 
+-lvl = $GET_CHAR_Lvl(atk,"monk"); rndm = $RANDOM(100) +# 1; ac = $GET_CHAR_AC(tgt);
+-kill = ac +# lvl -# 7; tgt = $IndexOf($TargetContext()); exp = $GET_PARTY_TIME() +# $RANDOM(6) +# 1;
+-$IF ($GET_CHAR_Ready($AttackerContext(),"WEAPON",0) != "") {$RETURN;};
+-$IF (p5 >=# (p6 +# 5)) {$SET_COMBATANT_SA($TargetContext(),"IsStunned",exp);};
+-$IF (rndm <# kill) {$SET_CHAR_HITPOINTS(tgt,"-11"); $SET_CHAR_STATUS(tgt,"2");$RETURN;};
+-$IF (lvl ==# 1) {$RETURN $RANDOM(3) +# 1;};
+-$IF (lvl ==# 2) {$RETURN $RANDOM(4) +# 1;};
+-$IF (lvl ==# 3) {$RETURN $RANDOM(6) +# 1;};
+-$IF (lvl ==# 4) {$RETURN $RANDOM(3) +# 1 +# $RANDOM(3) +# 1;};
+-$IF (lvl ==# 5) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(3) +# 1;};
+-$IF (lvl ==# 6) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 7) {$RETURN $RANDOM(3) +# 1 +# $RANDOM(3) +# 1 +# $RANDOM(3) +# 1;};
+-$IF (lvl ==# 8) {$RETURN $RANDOM(6) +# 1 +# $RANDOM(6) +# 1;};
+-$IF (lvl ==# 9) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 10) {$RETURN $RANDOM(3) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(6) +# 1;};
+-$IF (lvl ==# 11) {$RETURN $RANDOM(3) +# 1 +# $RANDOM(3) +# 1 +# $RANDOM(3) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 12) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 13) {$RETURN $RANDOM(3) +# 1 +# $RANDOM(3) +# 1 +# $RANDOM(3) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 14) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 15) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+-$IF (lvl ==# 16) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(6) +# 1 +# $RANDOM(6) +# 1 +# $RANDOM(6) +# 1;};
+-$IF (lvl ==# 17) {$RETURN $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1 +# $RANDOM(4) +# 1;};
+\(END)
+

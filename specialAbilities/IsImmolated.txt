@@ -1,0 +1,8 @@
+\(BEGIN)
+name = IsImmolated
+[StartCombatRound] = $VAR tgt; $VAR HP; $VAR imm; $VAR dmg;
+-tgt = $IndexOf($TargetContext()); HP = $GET_CHAR_HITPOINTS(tgt); imm = $RANDOM(6);
+-dmg = $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# 4;
+-$IF (imm <# 4) {$SET_CHAR_HITPOINTS(tgt,HP -# dmg);};
+\(END)
+

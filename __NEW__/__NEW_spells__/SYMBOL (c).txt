@@ -1,0 +1,342 @@
+Symbol (Conjuration/Summoning)
+
+Level: 7
+Components: V, S, M
+Range: Touch	
+Casting Time: 3 segments
+Duration: I turn/level	
+Saving Throw: Neg.
+Area of Effect: Special
+Explanation/Description: The cleric casting this spell inscribes a symbol in the air or upon any surface, according to his or her wish. The symbol glows for 1 turn for each level of experience of the cleric casting it. The particular symbol used can be selected by the cleric at the time of casting, selection being limited to:
+
+HOPELESSNESS
+Creatures seeing it must turn back in dejection and/or surrender to capture or attack unless they save versus magic. Its effects last for 3 to 12 turns.
+
+PAIN
+Creatures affected suffer -4 on "to hit" dice and -2 on dexterity ability scare due to wracking pains. The effects last for 2-20 turns.
+
+PERSUASION
+Creatures seeing the symbol become of the same alignment as and friendly to the cleric who scribed the symbol for from 1 to 20 turns unless a saving throw versus magic is made.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsSymbolHopelessnessed
+[AutoAction] = $VAR atk;
+-atk = $SA_PARAM_GET();
+-$RETURN "F" + atk;
+\(END)
+
+\(BEGIN)
+name = IsSymbolHopelessnessedDone
+[StartCombatRound] = $VAR exp;
+-exp = $SA_PARAM_GET();
+-$IF ($GET_PARTY_TIME() ># exp)
+-	{$SA_REMOVE(); $DELETE_COMBATANT_SA($CombatantContext(),"IsSymbolHopelessnessed");};
+\(END)
+
+\(BEGIN)
+name = IsSymbolPained
+[DoesAttackSucceed] = $VAR p5;
+-p5 = $GET_HOOK_PARAM(5);
+-$RETURN p5 -# 4;
+[StartCombatRound] = $VAR exp; $VAR tgt;
+-exp = $SA_PARAM_GET(); tgt = $IndexOf($TargetContext());
+-$IF ($GET_PARTY_TIME() ># exp){$SA_REMOVE();$REMOVE_CHAR_MODIFICATION(tgt,"Symbol of Pain");};
+\(END)
+
+\(BEGIN)
+name = IsSymbolPersuaded
+[StartCombatRound] = $VAR me; $VAR exp; $VAR sd; $VAR fsd;
+-me = $IndexOf($CombatantContext());
+-exp = $SA_PARAM_GET();
+-sd = $GET_COMBATANT_SA($Myself(),"side")
+-$IF (sd ==# 1){fsd = "2";};
+-$IF (sd ==# 2){fsd = "1";};
+-$IF ($GET_PARTY_TIME() ># exp){$SA_REMOVE();$SetFriendly(me,fsd);};
+\(END)
+
+\(BEGIN)
+name = spell_Symbol
+[OverrideSpellSelection] = $RETURN "$Symbol of Hopelessness$Symbol of Pain$Symbol of Persuasion";
+\(END)
+
+\(BEGIN)
+name = SymbolOfHopelessness
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR rndm; $VAR exp;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-rndm = ($RANDOM(4) +# $RANDOM(4) +# $RANDOM(4) +# 3) *# 10; exp = $GET_PARTY_TIME() +# rndm;
+-$AURA_Create("SymbolOfHopelessnessAURA","",atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = SymbolOfHopelessnessAURA
+[AURA_Create] = $AURA_Attach("XY");
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,15,0,360);
+-$AURA_Spell("Symbol Of Hopelessness");
+-$AURA_Wavelength("Visible");
+[AURA_Enter] = $VAR IR; $VAR atk; $VAR exp;
+-atk = $AURA_GetData(0); exp = $AURA_GetData(2);
+-$SET_COMBATANT_SA($CombatantContext(),"IsSymbolHopelessnessed",atk);
+-$SET_COMBATANT_SA($CombatantContext(),"IsSymbolHopelessnessedDone",exp);
+\(END)
+
+\(BEGIN)
+name = SymbolOfPain
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR rndm; $VAR exp;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-rndm = ($RANDOM(10) +# $RANDOM(10) +# 2) *# 10; exp = $GET_PARTY_TIME() +# rndm;
+-$AURA_Create("SymbolOfPainAURA","",atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = SymbolOfPainAURA
+[AURA_Create] = $AURA_Attach("XY");
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,15,0,360);
+-$AURA_Spell("Symbol Of Pain");
+-$AURA_Wavelength("Visible");
+[AURA_Enter] = $VAR tgt; $VAR exp; $VAR sd;
+-tgt = $AURA_GetData(1); exp = $AURA_GetData(2);
+-$SET_COMBATANT_SA($CombatantContext(),"IsSymbolPained",exp);
+-$SetFriendly(tgt,$GET_COMBATANT_SA($Myself(),"side"));
+\(END)
+
+\(BEGIN)
+name = SymbolOfPersuasion
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR rndm; $VAR exp;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-rndm = ($RANDOM(20) +# 1) *# 10; exp = $GET_PARTY_TIME() +# rndm;
+-$AURA_Create("SymbolOfPersuasionAURA","",atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = SymbolOfPersuasionAURA
+[AURA_Create] = -$AURA_Attach("XY");
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,15,0,360);
+-$AURA_Spell("Symbol Of Persuasion");
+-$AURA_Wavelength("Visible");
+[AURA_Enter] = $VAR tgt; $VAR exp;
+-tgt = $AURA_GetData(1); exp = $AURA_GetData(2);
+-$SET_COMBATANT_SA($CombatantContext(),"IsSymbolPersuaded",exp);
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 7
+\(BEGIN)
+name = Symbol
+casting sound = sound_Cast.wav
+cast msg = 
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = spell_Symbol
+targeting type = self
+target quantity = 1
+level = 7
+casting time = 0
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// spells called by cleric spells
+\(BEGIN)
+name = Symbol of Hopelessness
+casting sound = sound_Cast.wav
+cast msg = /c inscribes a Symbol of Hopelessness.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = no
+allow scribe = no
+auto scribe = no
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = SymbolOfHopelessness
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 1
+level = 7
+casting time = 3
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Symbol of Pain
+casting sound = sound_Cast.wav
+cast msg = /c inscribes a Symbol of Pain.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = no
+allow scribe = no
+auto scribe = no
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = SymbolOfPain
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 1
+level = 7
+casting time = 3
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Symbol of Persuasion
+casting sound = sound_Cast.wav
+cast msg = /c inscribes a Symbol of Persuasion.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = no
+allow scribe = no
+auto scribe = no
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = SymbolOfPersuasion
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 1
+level = 7
+casting time = 3
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+

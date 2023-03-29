@@ -1,0 +1,182 @@
+Aid (Necromantic - Conjuration)
+
+Level: 2	
+Components: V, S, M
+Range: Touch	
+Casting Time: 4 segments
+Duration: 1 round + 1/level	
+Saving Throw: None
+Area of Effect: One person
+Explanation/Description: The recipient of this spell gains the benefit of a bless spell and a special benifit of 1-8 additional hit points. The bless lasts as long as the aid spell, as do the hit points thus gained. The aid allows a character to actually have more hit points than the character's full normal total. The added hit points last only for the duration of the aid spell. Any damage taken by the recipient while the aid spell is in effect is taken off the 1-8 additional hit points before regular ones are lost. Hit points bestowed by an aid spell and then lost cannot be regained by curative magic. Example: A 1st-level fighter has 8 hit points, takes 2 points of damage, and then receives an aid spell which gives 6 additional hit points. The fighter now has 12 hit points, 6 of which are temporary. If he is then hit for 7 points of damage, 1 regular point and all 6 of the temporary points are lost. The material components of this spell are a tiny strip of white cloth with a sticky substance (such as tree sap) on the ends, plus the cleric's holy symbol.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = spell_Aid
+[Dispel] = $SA_REMOVE();
+-$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR adj; $VAR lvl; $VAR exp;
+-$VAR tgt; $VAR rdm; $VAR ohp; $VAR mhp; $VAR dif;
+-atk = $IndexOf($AttackerContext());
+-cls = $SA_PARAM_GET();
+-adj = $GET_MONSTERTYPE_SA($AttackerContext(),"casterLevel");
+-lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
+-$SET_CHARACTER_SA($TargetContext(),"DispelLevel",lvl);
+-exp = $GET_PARTY_TIME() +# lvl +# 1;
+-$SET_CHARACTER_SA($TargetContext(),"IsAided",exp);
+-tgt = $IndexOf($TargetContext()); rdm = $RANDOM(8) +# 1;
+-ohp = $GET_CHAR_HITPOINTS(tgt);
+-mhp = $GET_CHAR_MAXHITPOINTS(tgt);
+-$SET_CHARACTER_SA($TargetContext(),"tempAidOldHP",ohp);
+-$SET_CHAR_HITPOINTS(tgt,ohp + rdm);
+-$IF ((ohp +# rdm) ># mhp)
+-	{
+-		$SET_CHARACTER_SA($TargetContext(),"tempAidOldMaxHP",mhp);
+-		$SET_CHAR_MAXHITPOINTS(tgt,ohp +# rdm);
+-	};
+\(END)
+
+\(BEGIN)
+name = IsAided
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Aided");$SET_HOOK_PARAM( 6,"");$RETURN 1;
+[Dispel] = $VAR ohp; $VAR mhp; $VAR tgt; $VAR hit; $VAR max;
+-tgt = $IndexOf($TargetContext());
+-ohp = $GET_CHARACTER_SA($TargetContext(),"tempAidOldHP");
+-mhp = $GET_CHARACTER_SA($TargetContext(),"tempAidOldMaxHP");
+-hit = $GET_CHAR_HITPOINTS(tgt);
+-max = $GET_CHAR_MAXHITPOINTS(tgt);
+-$SA_REMOVE();
+-$IF (max ># mhp) {$SET_CHAR_MAXHITPOINTS(tgt,mhp);};
+-$IF (hit ># ohp) {$SET_CHAR_HITPOINTS(tgt,ohp);};
+[DoesAttackSucceed] = $IF ($GET_COMBATANT_SA($AttackerContext(),"IsAided") != "-?-?-")
+-  {$SET_HOOK_PARAM(6,$GET_HOOK_PARAM(6) -# 1);};
+-$IF ($GET_HOOK_PARAM(5) >=# $GET_HOOK_PARAM(6)){$RETURN "Y";}
+-$ELSE {$RETURN "N";};
+[StartCombatRound] = $VAR exp; $VAR ohp; $VAR mhp; $VAR tgt; $VAR hit; $VAR max;
+-exp = $SA_PARAM_GET();
+-tgt = $IndexOf($TargetContext());
+-ohp = $GET_CHARACTER_SA($TargetContext(),"tempAidOldHP");
+-mhp = $GET_CHARACTER_SA($TargetContext(),"tempAidOldMaxHP");
+-hit = $GET_CHAR_HITPOINTS(tgt);
+-max = $GET_CHAR_MAXHITPOINTS(tgt);
+-$IF ($GET_PARTY_TIME() ># exp)
+-	{
+-		$SA_REMOVE();
+-		$IF (max ># mhp) {$SET_CHAR_MAXHITPOINTS(tgt,mhp);};
+-		$IF (hit ># ohp) {$SET_CHAR_HITPOINTS(tgt,ohp);};
+-	};
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 2
+\(BEGIN)
+name = Aid
+casting sound = sound_Cast.wav
+cast msg = /c aids /t.
+missile sound = none
+coverage sound = none
+hit sound = sound_hit_Bless.wav
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_Bless.png,150,2,48,48,0,1,4,1,0,0
+target linger art = none
+school = Cleric
+cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = no
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in camp = yes
+in combat = yes
+can be dispelled = yes
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Aid,cleric
+targeting type = areasquare
+target width = 5
+target height = 5
+target range = 6
+level = 2
+casting time = 4
+casting time units = initiative
+duration = level + 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = $CHAR_MORALE,1,delta,target,yes
+activate script 1 = $VAR mySide;$VAR yrSide;mySide \= $GET_COMBATANT_SA($AttackerContext(),"side");yrSide \= $GET_COMBATANT_SA($TargetContext(),"side");$IF (mySide !\= "-?-?-"){$IF (mySide !\=# yrSide){$RETURN;};};$RETURN 1;
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// paladin level 2
+\(BEGIN)
+name = Aid|Paladin
+casting sound = sound_Cast.wav
+cast msg = /c aids /t.
+missile sound = none
+coverage sound = none
+hit sound = sound_hit_Bless.wav
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_Bless.png,150,2,48,48,0,1,4,1,0,0
+target linger art = none
+school = Cleric
+cast by = paladin
+can target friend = yes
+can target enemy = yes
+cumulative = no
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in camp = yes
+in combat = yes
+can be dispelled = yes
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$paladin$8
+Special Ability = spell_Aid,paladin
+targeting type = areasquare
+target width = 5
+target height = 5
+target range = 6
+level = 2
+casting time = 4
+casting time units = initiative
+duration = level + 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = $CHAR_MORALE,1,delta,target,yes
+activate script 1 = $VAR mySide;$VAR yrSide;mySide \= $GET_COMBATANT_SA($AttackerContext(),"side");yrSide \= $GET_COMBATANT_SA($TargetContext(),"side");$IF (mySide !\= "-?-?-"){$IF (mySide !\=# yrSide){$RETURN;};};$RETURN 1;
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

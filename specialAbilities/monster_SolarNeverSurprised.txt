@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_SolarNeverSurprised
+[AdjustInitiative] = $RETURN -9;
+\(END)
+

@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkObjectReading
+\(END)
+// level 16 - for designer use
+

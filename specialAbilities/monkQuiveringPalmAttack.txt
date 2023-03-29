@@ -1,0 +1,13 @@
+\(BEGIN)
+name = monkQuiveringPalmAttack
+[CombatMainMenu] = $VAR cTime; $VAR eTime; $VAR pTime; $VAR tgt; $VAR lvl;
+-cTime = $GET_PARTY_TIME(); pTime = $GET_CHARACTER_SA($CharacterContext(),"monkQuiveringPalm");
+-tgt = $IndexOf($Myself()); lvl = $GET_CHAR_Lvl(tgt,"monk");
+-$IF(pTime != "-?-?-"){eTime = cTime -# pTime;}
+-$ELSE{eTime = "0";};
+-$IF(eTime <# 10080) {$RETURN;};
+-$SET_HOOK_PARAM(6, "QUIVERING PALM"); $SET_HOOK_PARAM(7, 0);
+-$SET_COMBATANT_SA($CombatantContext(),"monkQuiveringPalm",lvl);
+\(END)
+// level 12
+

@@ -1,0 +1,5 @@
+\(BEGIN)
+name = spell_Massmorph
+[InvokeSpellOnTarget] = $SET_CHARACTER_SA($CharacterContext(),"IsMassmorphed",$GET_PARTY_TIME());
+\(END)
+

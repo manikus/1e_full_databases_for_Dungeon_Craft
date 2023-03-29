@@ -1,0 +1,202 @@
+Geas (Enchantment/Charm)
+
+Level: 6	
+Components: V
+Range: Touch	
+Casting Time: 4 segments
+Duration: Special	
+Saving Throw: None
+Area of Effect: Creature touched
+Explanation/Description: A geas spell places a magical command upon she creature (usually human or humanoid) to carry out some service, or refrain from some action or course of activity, as desired by the spell caster. The creature must be intelligent, conscious, and under its own volition. While a geas cannot compel a creature so kill itself, or so perform acts which are likely to result in certain death, it can cause almost any other course of action. The spell causes the geased creature to follow the instructions until she geas is completed. Failure to do so will cause the creature to grow sick and die within 1 to 4 weeks. Deviation from or twisting of the instructions causes corresponding loss of strength points until the deviation ceases. A geas can be done away with by a wish spell, but a dispel magic or remove curse will not negate it. Your referee will instruct you as so any additional details of a geas, for its casting and fulfillment are tricky, and an improperly cast geas is null and void immediately (cf. wish).
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = spell_GeasAttack
+[InvokeSpellOnTarget] = $VAR tgt; $VAR iq;
+-tgt = $IndexOf($TargetContext()); iq = $GET_CHAR_LIMITED_INT(tgt);
+-$IF (iq ># 1) {$SET_COMBATANT_SA($TargetContext(),"IsGeasAttack","F");};
+-$SetFriendly(tgt, $GET_COMBATANT_SA($Myself(),"side"));
+\(END)
+
+\(BEGIN)
+name = IsGeasFlee
+[AutoAction] = $RETURN "F" + $SA_PARAM_GET();
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Geased Fleeing"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+\(END)
+
+\(BEGIN)
+name = spell_Geas
+[OverrideSpellSelection] = $RETURN "$Attack Your Enemies|Geas$Flee Combat|Geas";
+\(END)
+
+\(BEGIN)
+name = spell_GeasFlee
+[InvokeSpellOnTarget] = $VAR tgt; $VAR iq; $VAR me;
+-tgt = $IndexOf($TargetContext()); iq = $GET_CHAR_LIMITED_INT(tgt); 
+-me = $IndexOf($AttackerContext());
+-$IF (iq ># 1) {$SET_COMBATANT_SA($TargetContext(),"IsGeasFlee",me);};
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// magic user level 6
+\(BEGIN)
+name = Geas
+casting sound = sound_Cast.wav
+cast msg = /c compels /t.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_MU.png,150,2,48,48,0,1,4,1,0,0
+target linger art = none
+school = Magic User
+cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = no
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spell_Attack,1
+Special Ability = spell_Geas,magicUser
+targeting type = touch
+target quantity = 1
+level = 6
+casting time = 4
+casting time units = initiative
+duration = 0
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+activate script 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Attack Your Enemies|Geas
+casting sound = sound_Cast.wav
+cast msg = /c compels /t.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_MU.png,150,2,48,48,0,1,4,1,0,0
+target linger art = none
+school = Magic User
+cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = no
+can memorize = no
+allow scribe = no
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spell_Attack,1
+Special Ability = spell_GeasAttack,magicUser
+targeting type = touch
+target quantity = 1
+level = 6
+casting time = 4
+casting time units = initiative
+duration = 0
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+activate script 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Flee Combat|Geas
+casting sound = sound_Cast.wav
+cast msg = /c compels /t.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_MU.png,150,2,48,48,0,1,4,1,0,0
+target linger art = none
+school = Magic User
+cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = no
+can memorize = no
+allow scribe = no
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spell_Attack,1
+Special Ability = spell_GeasFlee,magicUser
+targeting type = touch
+target quantity = 1
+level = 6
+casting time = 4
+casting time units = initiative
+duration = 0
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+activate script 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+

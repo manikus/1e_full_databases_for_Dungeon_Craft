@@ -1,0 +1,6 @@
+\(BEGIN)
+name = monster_ImmuneFeeblemind
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Immune Feeblemind"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesSpellAttackSucceed] = $IF ($SpellContext() == ("Feeblemind" || "Feeblemind|Druid" || "Feeblemind|MonsterMage")){$RETURN "N";};
+\(END)
+

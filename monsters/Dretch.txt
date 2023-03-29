@@ -1,0 +1,45 @@
+\(BEGIN)
+name = Dretch
+icon file = icon_Dretch.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 3
+armor class = 2
+movement rate = 9
+hit dice = 4
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 17
+magic resistance = 30
+size = small
+morale = 40
+experience point value = 247
+Special Ability = monsterLevel,4
+Special Ability = elemental_ImmuneSilver
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = elemental_ResistantGas
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_Infravision
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterDemonDarkness
+item = monsterMageStinkingCloud
+item = monsterMageTeleportWithoutError
+item = monsterDretchGateDemon
+attack = 4,1,0,claws,
+attack = 4,1,0,claws,
+attack = 4,1,1,bites,
+Undead = Special
+\(END)
+//  MMII p38
+

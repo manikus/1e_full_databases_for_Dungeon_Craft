@@ -1,0 +1,17 @@
+\(BEGIN)
+name = Demodand
+BaseMovement = 12
+AbilityRequirement = Strength 3/19
+AbilityRequirement = Intelligence 8/19
+AbilityRequirement = Wisdom 3/19
+AbilityRequirement = Dexterity 3/19
+AbilityRequirement = Constitution 3/19
+AbilityRequirement = Charisma 3/19
+ChangeClass = no
+DwarfResistance = no
+GnomeResistance = no
+FindSecretDoor = 1
+FindSecretDoorSearching = 2
+Special Ability = race_RaceSuppress,"Y"
+\(END)
+

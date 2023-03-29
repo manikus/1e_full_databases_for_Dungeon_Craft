@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monkDodgeNormalMissiles
+[DoesAttackSucceed] = $VAR stp; $VAR r20;
+-r20 = $RANDOM(20) +# 1; stp = $SkillAdj($TargetContext(),"Save Vs PPDM","","F","");
+-$IF (stp >=# r20) {$RETURN "N";};
+\(END)
+

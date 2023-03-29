@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_DemodandSummonSlimeDemodand
+[InvokeSpellOnTarget] = $VAR rdm; $VAR rd1; $VAR pct;
+-pct = $RANDOM(100); rd1 = $RANDOM(2);
+-$IF (pct >=# 50){$RETURN;};
+-$WHILE (rd1 >=# 0) {$AddCombatant("Slime Demodand|Kelubar",0); rd1 = rd1 -# 1;};
+\(END)
+

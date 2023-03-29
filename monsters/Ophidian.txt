@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Ophidian
+icon file = icon_Ophidian.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 9
+armor class = 5
+movement rate = 18
+hit dice = 4
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 16
+magic resistance = 0
+size = medium
+morale = 35
+experience point value = 197
+Special Ability = monsterLevel,4
+Class = Fighter
+Race = Monster
+form = mammal + animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 3,1,0,attacks,
+attack = 3,1,0,bites,monsterOphidianPoison
+Undead = none
+\(END)
+// MMII
+

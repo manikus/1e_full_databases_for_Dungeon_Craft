@@ -1,0 +1,161 @@
+Command (Enchantment/Charm)
+
+Level: 1	
+Components: V
+Range: 1"	
+Casting Time: 1 segment
+Duration: 1 round	
+Saving Throw: Special
+Area of Effect: One creature
+Explanation/Description:	This spell enables the cleric to issue a command of a single word. The command must be uttered in a language which the spell recipient is able to understand. The individual will obey to the best of his/her/its ability only so long as the command is absolutely clear and unequivocal, i.e. "Suicidel" could be a noun, so the creature would ignore the command. A command to "Diel" would cause the recipient to fall in a faint or cataleptic state for 1 round, but thereafter the creature would be alive and well. Typical command words are: back, halt, flee, run, stop, fall, fly, go, leave, surrender, sleep, rest, etc. Undead are not affected by a command. Creatures with intelligence of 13 or more, and creatures with 6 or more hit dice (or experience levels) are entitled to a saving throw versus magic. (Creatures with 13 or higher intelligence and 6 hit dice/levels do not get 2 saving throws!)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsCommanded
+[AutoAction] = $RETURN "F" + $SA_PARAM_GET();
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Commanded");$SET_HOOK_PARAM( 6,"");$RETURN 1;
+\(END)
+
+\(BEGIN)
+name = spell_Command
+[Dispel] = $SA_REMOVE();
+-$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR adj; $VAR lvl;
+-$VAR tgt; $VAR eLvl; $VAR sav; $VAR rdm; $VAR eIQ; $VAR eCls;
+-atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET();
+-adj =  $GET_CHARACTER_SA($AttackerContext(),"casterLevel");
+-lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
+-tgt = $IndexOf($TargetContext());
+-eLvl = $GET_COMBATANT_SA($TargetContext(),"monsterLevel");
+-sav = $SkillAdj($CombatantContext(), "Save Vs SP", "", "F", "");
+-rdm = $RANDOM(20) +# 1;
+-eIQ = $GET_CHAR_LIMITED_INT(tgt);
+-eCls = $GET_CHAR_CLASS(tgt);
+-$IF ($GET_CHAR_UNDEAD(tgt) != "none") {$RETURN;};
+-$IF (eLvl != "-?-?-")
+-	{
+-		$IF (eLvl ># 6){$IF (rdm >=# sav) {$RETURN;};};
+-	}
+-$ELSE
+-	{
+		eLvl = $GET_CHAR_Lvl(tgt,eCls);
+-		$IF (eLvl ># 6){$IF (rdm >=# sav) {$RETURN;};};
+-	};
+-$IF (eIQ ># 12)
+-	{
+-		$IF (rdm >=# sav) {$RETURN;};
+-	};
+-$SET_CHARACTER_SA($TargetContext(),"DispelLevel",lvl);
+-$SET_CHARACTER_SA($TargetContext(),"IsCommanded",atk);
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 1
+\(BEGIN)
+name = Command|Cleric
+casting sound = sound_Cast.wav
+cast msg = /c issues a command.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_Attack,1
+Special Ability = DamageMagical,charm
+Special Ability = spell_Command,Cleric
+Special Ability = casterLevel,$cleric$0
+targeting type = selectByCount
+target quantity = 1
+target range = 12
+level = 1
+casting time = 1
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// paladin level 1
+\(BEGIN)
+name = Command|Paladin
+casting sound = sound_Cast.wav
+cast msg = /c issues a command.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_Attack,1
+Special Ability = DamageMagical,charm
+Special Ability = spell_Command,Cleric
+Special Ability = casterLevel,$paladin$8
+targeting type = selectByCount
+target quantity = 1
+target range = 12
+level = 1
+casting time = 1
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

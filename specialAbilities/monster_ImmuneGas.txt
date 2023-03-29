@@ -1,0 +1,20 @@
+\(BEGIN)
+name = monster_ImmuneGas
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Immune Gas"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[ComputeDamage] = $VAR itm; $VAR itmNon; $VAR mon; $VAR monNon; $VAR immune;
+-itm = $SA_ITEM_GET("DamageMagical"); itmNon = $SA_ITEM_GET("DamageNonMagical");
+-mon = $SA_MONSTERTYPE_GET("DamageMagical"); monNon = $SA_MONSTERTYPE_GET("DamageNonMagical");
+-$IF (itm == "-?-?-") && (itmNon == "-?-?-") && (mon == "-?-?-") && (monNon == "-?-?-")) {$RETURN;};
+-$IF (itm != "-?-?-") {immune = itm;};
+-$IF (itmNon != "-?-?-") {immune = itmNon;};
+-$IF (mon != "-?-?-") {immune = mon;};
+-$IF (monNon != "-?-?-") {immune = monNon;};
+-$IF (immune == "gas") {$RETURN 0;};
+[ComputeSpellDamage] = $VAR spell; $VAR splNon; $VAR immune;
+-spell = $SA_SPELL_GET("DamageMagical"); splNon = $SA_SPELL_GET("DamageNonMagical");
+-$IF ((spell == "-?-?-") && (splNon == "-?-?-")){$RETURN;};
+-$IF (spell != "-?-?-") {immune = spell;};
+-$IF (splNon != "-?-?-") {immune = splNon;};
+-$IF (immune == "gas") {$RETURN 0;};
+\(END)
+

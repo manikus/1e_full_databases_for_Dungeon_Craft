@@ -1,0 +1,12 @@
+\(BEGIN)
+name = class_Barbarian
+[PostCreateCharacter] = $VAR me; $VAR DEX; $VAR CON; $VAR AC; $VAR HP; $VAR maxHP; $VAR dAdj; $VAR cAdj;
+-me = $IndexOf($CharacterContext()); DEX = $GET_CHAR_PERM_DEX(me); CON = $GET_CHAR_PERM_CON(me);
+-dAdj = (DEX -# 14) *# 2; AC = $GET_CHAR_AC(me); HP = $GET_CHAR_HITPOINTS(me);
+-maxHP = $GET_CHAR_MAXHITPOINTS(me); cAdj = (CON -# 14) *# 2;
+-$SET_CHAR_AC(me,AC -# adj); $SET_CHAR_MAXHITPOINTS(me,maxHP +# cAdj); $SET_CHAR_HITPOINTS(me,HP +# cAdj);
+-$SET_CHAR_MAXMOVE(me,15);
+[TrainingCharacter] = 
+\(END)
+// used to add abilities at certain levels
+

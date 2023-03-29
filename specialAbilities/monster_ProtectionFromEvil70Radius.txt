@@ -1,0 +1,12 @@
+\(BEGIN)
+name = monster_ProtectionFromEvil70'Radius
+[OnStartCombat] = $VAR me;
+-me = $MyIndex();
+-$AURA_Create("monster_ProtectionFromEvil40'RadiusAURA",me,"","","");
+-$SkillAdj($TargetContext(),"Save Vs BR","monsterProtectedEvil","-","2");
+-$SkillAdj($TargetContext(),"Save Vs PP","monsterProtectedEvil","-","2");
+-$SkillAdj($TargetContext(),"Save Vs PPDM","monsterProtectedEvil","-","2");
+-$SkillAdj($TargetContext(),"Save Vs RSW","monsterProtectedEvil","-","2");
+-$SkillAdj($TargetContext(),"Save Vs SP","monsterProtectedEvil","-","2");
+\(END)
+

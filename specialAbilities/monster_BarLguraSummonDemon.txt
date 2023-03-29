@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_BarLguraSummonDemon
+[InvokeSpellOnTarget] = $VAR pct;
+-pct = $RANDOM(100);
+-$IF (pct >=# 25){$RETURN;};
+-$AddCombatant("Bar-Lgura",0);
+\(END)
+

@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_DretchGateDemon
+[InvokeSpellOnTarget] = $VAR pct;
+-pct = $RANDOM(100);
+-$IF (pct >=# 5){$RETURN;};
+-$AddCombatant("Type I Demon",0);
+\(END)
+

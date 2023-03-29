@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_NereidBlind
+[InvokeSpellOnTarget] = $VAR rnd; $VAR exp;
+-rnd = $GetCombatRound(); exp = rnd +# $RANDOM(6) +# $RANDOM(6) +# 2;
+-$SET_COMBATANT_SA($TargetContext(),"IsNereidBlind",exp);
+\(END)
+

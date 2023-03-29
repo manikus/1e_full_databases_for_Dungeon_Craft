@@ -1,0 +1,8 @@
+\(BEGIN)
+name = IsInsane
+[CanCastSpells] = $RETURN "N";
+[Dispel] = $SA_REMOVE();
+[GetAdjMaxMovement] = $RETURN 0;
+[IsCombatReady] = $RETURN "N";
+\(END)
+

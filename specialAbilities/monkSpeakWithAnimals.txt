@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monkSpeakWithAnimals
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Speak With Animals"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesAttackSucceed] = $VAR atk; $VAR tgt; $VAR lvl;
+-$IF ($GET_ISMAMMAL($TargetContext()) != 1){$RETURN;};
+-atk = $IndexOf($AttackerContext());  tgt = $IndexOf($TargetContext()); lvl = $GET_CHAR_Lvl(atk,"monk");
+-$SetFriendly(tgt, $GET_COMBATANT_SA($TargetContext(),"side")); $SET_COMBATANT_SA($TargetContext(),"IsCharmed",lvl);
+\(END)
+// level 3
+

@@ -1,0 +1,45 @@
+\(BEGIN)
+name = Yqorl - Lord of Entropy
+icon file = icon_Ygorl.png,0,2,48,48,0,1,2
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 20
+armor class = -7
+movement rate = 18
+hit dice = 210
+treat HD as hit points = no
+hit dice bonus = 0
+THAC0 = 4
+magic resistance = 85
+size = large
+morale = 40
+experience point value = 28950
+Special Ability = monsterLevel,36
+Special Ability = IsBlinking
+Special Ability = IsSeeingInvisible
+Special Ability = monster_Infravision
+Special Ability = monster_WeaponImmunity,3
+Special Ability = monster_YgorlCommandUndead,13
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Slaad
+form = large
+penalty = none
+immunity = none
+Misc Options = can be held/charmed + affected by dispel evil
+item = Ygorl's Death Sickle
+item = monsterSlaadDarkness15r
+item = monsterSlaadSymbolFear
+item = monsterMageSleep
+item = monsterClericSymbol
+item = monsterClericFlameStrike
+item = monsterSlaadGateYgorl
+item = monsterClericUnholyWord
+item = monsterMagePowerWordKill
+attack = 4,1,0,attacks,
+attack = 4,1,0,attacks,
+Undead = none
+\(END)
+// FF p82
+

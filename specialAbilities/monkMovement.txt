@@ -1,0 +1,27 @@
+\(BEGIN)
+name = monkMovement
+[GetAdjMaxMovement] = $VAR me; $VAR lvl;
+-me = $IndexOf($CharacterContext()); lvl = $GET_CHAR_Lvl(me,"monk");
+-$IF (lvl ==# 1)  {$SET_CHAR_MAXMOVE(me,"15"); $RETURN 15;};
+-$IF (lvl ==# 2)  {$SET_CHAR_MAXMOVE(me,"15"); $RETURN 15;};
+-$IF (lvl ==# 3)  {$SET_CHAR_MAXMOVE(me,"16"); $RETURN 16;};
+-$IF (lvl ==# 4)  {$SET_CHAR_MAXMOVE(me,"16"); $RETURN 16;};
+-$IF (lvl ==# 5)  {$SET_CHAR_MAXMOVE(me,"17"); $RETURN 17;};
+-$IF (lvl ==# 6)  {$SET_CHAR_MAXMOVE(me,"17"); $RETURN 17;};
+-$IF (lvl ==# 7)  {$SET_CHAR_MAXMOVE(me,"18"); $RETURN 18;};
+-$IF (lvl ==# 8)  {$SET_CHAR_MAXMOVE(me,"18"); $RETURN 18;};
+-$IF (lvl ==# 9)  {$SET_CHAR_MAXMOVE(me,"19"); $RETURN 19;};
+-$IF (lvl ==# 10) {$SET_CHAR_MAXMOVE(me,"19"); $RETURN 19;};
+-$IF (lvl ==# 11) {$SET_CHAR_MAXMOVE(me,"20"); $RETURN 20;};
+-$IF (lvl ==# 12) {$SET_CHAR_MAXMOVE(me,"21"); $RETURN 21;};
+-$IF (lvl ==# 13) {$SET_CHAR_MAXMOVE(me,"22"); $RETURN 22;};
+-$IF (lvl ==# 14) {$SET_CHAR_MAXMOVE(me,"23"); $RETURN 23;};
+-$IF (lvl ==# 15) {$SET_CHAR_MAXMOVE(me,"24"); $RETURN 24;};
+-$IF (lvl ==# 16) {$SET_CHAR_MAXMOVE(me,"25"); $RETURN 25;};
+-$IF (lvl ==# 17) {$SET_CHAR_MAXMOVE(me,"26"); $RETURN 26;};
+-$IF (lvl ==# 18) {$SET_CHAR_MAXMOVE(me,"27"); $RETURN 27;};
+-$IF (lvl ==# 19) {$SET_CHAR_MAXMOVE(me,"28"); $RETURN 28;};
+-$IF (lvl ==# 20) {$SET_CHAR_MAXMOVE(me,"29"); $RETURN 29;};
+-$IF (lvl ==# 21) {$SET_CHAR_MAXMOVE(me,"30"); $RETURN 30;};
+\(END)
+

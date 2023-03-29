@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_CharonSummonCharonodaemons
+[InvokeSpellOnTarget] = $VAR rdm; $VAR rnd; $VAR exp;
+-rdm = $RANDOM(3)+#1; rnd = $GetCombatRound(); exp = rdm +# rnd;
+-$SET_COMBATANT_SA($AttackerContext(),"monster_CharonSummonCharonodaemonsTime",exp);
+\(END)
+

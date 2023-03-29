@@ -1,0 +1,9 @@
+\(BEGIN)
+name = IsPitFiendConstricted
+[StartCombatRound] = $VAR com; $VAR prm; $VAR rnd; $VAR HP; $VAR rdm;
+-com = $IndexOf($CombatantContext()); prm = $SA_PARAM_GET(); rnd = $GetCombatRound();
+-HP = $GET_CHAR_HITPOINTS(com); rdm = $RANDOM(4) +# $RANDOM(4) +# 2;
+-$IF ((rnd %# prm) ==# 0) {$SET_CHAR_HITPOINTS(com,HP -# rdm);};
+[GetAdjMaxMovement] = $RETURN 0;
+\(END)
+

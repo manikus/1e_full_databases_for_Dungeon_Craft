@@ -1,0 +1,22 @@
+\(BEGIN)
+name = monster_AuraElectricEelDischarge
+[AURA_Create] = $VAR chr; chr = $IndexOf($CharacterContext());
+-$AURA_Attach("Combatant"); $AURA_Combatant(chr); $AURA_Size(0,3,0,360); $AURA_Shape("AnnularSector"); $AURA_Wavelength("Xray");
+[AURA_Effect] = $VAR dst; $VAR dmg1; $VAR dmg2; $VAR dmg3; $VAR rnd; $VAR atk; $VAR tgt; $VAR hp;
+-dmg1 = $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# 3; dmg2 = $RANDOM(8) +# $RANDOM(8) +# 2; dmg3 = $RANDOM(8) +# 1;
+-rnd = $GetCombatRound(); atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-dst = $VisualDistance(atk,tgt); hp = $GET_CHAR_HITPOINTS(tgt);
+-$IF (rnd  ==# "5")
+-	{
+-		$IF (dst ==# 1) {$RETURN $SET_CHAR_HITPOINTS(tgt,hp -# dmg1);};
+-		$IF (dst ==# 2) {$RETURN $SET_CHAR_HITPOINTS(tgt,hp -# dmg2);};
+-		$IF (dst ==# 3) {$RETURN $SET_CHAR_HITPOINTS(tgt,hp -# dmg3);};
+-	};
+[AURA_Round] = $VAR rnd;
+-rnd = $GetCombatRound();
+-$IF (rnd >=# "6") {$RETURN $AURA_Destroy();};
+[CreateMonsterCombatant] = $VAR prm;
+-prm = $SA_PARAM_GET();
+-$AURA_Create("monster_AuraElectricEelDischarge",prm,0,0,0);
+\(END)
+

@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_FloatingEyeHypnotism
+[InvokeSpellOnTarget]= $SET_COMBATANT_SA($TargetContext(),"IsFloatingEyeHypnotized","Hypnotyzed");
+\(END)
+

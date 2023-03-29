@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monster_AnthraxusGateDaemons
+[InvokeSpellOnTarget] = $VAR lst; $VAR cnt; $VAR smn; $VAR rdm;
+-lst = "$Arcanadaemon$Charonodaemon$Derghodaemon$Hydrodaemon$Mezzodaemon$Nycadaemon$Piscodaemon$Ultrodaemon$Yagnodaemon";
+-rdm = $RANDOM(3);
+-cnt = $RANDOM($DelimitedStringCount(lst)); smn = $DelimitedStringSubstring(lst,cnt);
+-$WHILE (rdm >=# 0) {$AddCombatant(smn,0); rdm = rdm -# 1;};
+\(END)
+

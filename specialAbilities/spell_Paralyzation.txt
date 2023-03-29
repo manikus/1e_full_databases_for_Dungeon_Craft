@@ -1,0 +1,5 @@
+\(BEGIN)
+name = spell_Paralyzation
+[InvokeSpellOnTarget] = $SET_CHARACTER_SA($CharacterContext(),"IsParalyzationed",$GET_PARTY_TIME());
+\(END)
+

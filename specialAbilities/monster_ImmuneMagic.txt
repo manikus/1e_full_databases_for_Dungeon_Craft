@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_ImmuneMagic
+[DoesSpellAttackSucceed] = $RETURN "N";
+\(END)
+

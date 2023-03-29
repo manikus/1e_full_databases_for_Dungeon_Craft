@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Blue Whale
+icon file = icon_BlueWhale.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 6
+armor class = 4
+movement rate = 18
+hit dice = 39
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 7
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 2260
+Special Ability = monsterLevel,39
+Special Ability = monster_AuraWhaleTailSmash,20
+Special Ability = baseForMonster,Humpback Whale
+Class = Fighter
+Race = Monster
+form = mammal + animal
+penalty = none
+immunity = vorpal weapon
+Misc Options = can be held/charmed
+item = none
+attack = 10,5,0,attacks,
+Undead = none
+\(END)
+

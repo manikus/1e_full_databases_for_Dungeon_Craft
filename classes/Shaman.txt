@@ -1,0 +1,11 @@
+\(BEGIN)
+name = Shaman
+HitDiceLevelBonus = shaman,Constitution,0,0,-2,-1,-1,-1,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2
+HitDiceBaseclass = *Average*
+StrengthBonusDice = 
+Starting Equipment = 
+baseclass = shaman
+Special Ability = class_baseName,$shaman
+// Special Ability = class_ClassSuppress,"Y"
+\(END)
+

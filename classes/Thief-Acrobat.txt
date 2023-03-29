@@ -1,0 +1,16 @@
+\(BEGIN)
+name = Thief-Acrobat
+HitDiceLevelBonus = acrobat,Constitution,0,0,-2,-1,-1,-1,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2
+HitDiceBaseclass = *Average*
+StrengthBonusDice = 
+Starting Equipment = Sling
+Starting Equipment = Leather Armor
+Starting Equipment = Short Sword
+baseclass = acrobat
+Special Ability = ChangeClassThief-Acrobat
+Special Ability = class_AcrobaticSkills,Acrobat
+Special Ability = class_baseName,$acrobat
+Special Ability = class_NoSpells,Acrobat
+//Special Ability = class_ClassSuppress,"Y"
+\(END)
+

@@ -1,0 +1,16 @@
+\(BEGIN)
+name = IsColorSleep
+[CanCastSpells] = $RETURN "N";
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,$SA_PARAM_GET());
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[Dispel] = $SA_REMOVE();
+[DoesAttackSucceed] = $RETURN "Y";
+[GetAdjMaxMovement] = $RETURN 0;
+[GetItemTargetHitBonus] = $RETURN $GET_CHAR_HITPOINTS($IndexOf($TargetContext())) +# 15;
+[IsCombatReady] = $RETURN "N";
+[StartCombatRound] = $VAR prm; $VAR exp;
+-prm = $SA_PARAM_GET(); exp = $GET_PARTY_TIME();
+-$IF (prm ># exp){$RETURN $SA_REMOVE();};
+\(END)
+

@@ -1,0 +1,29 @@
+\(BEGIN)
+name = monster_LampreyDrain
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,$SA_PARAM_GET());
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[GetAdjMaxMovement] = $RETURN 0;
+[GetNumberOfAttacks] = $RETURN 0;
+[OnStartCombatantAction] = $VAR tgt; $VAR nom; $VAR dmg;
+-// Test Target and Compute & Apply Drain
+-tgt = $GET_COMBATANT_SA($CombatantContext(),"monster_LampreyLink"); nom = $GET_CHAR_NAME(tgt); dmg = "2";
+-$IF ($GET_CHAR_STATUS(tgt) ==# 0) 
+-  {
+-    $SET_CHAR_HITPOINTS(tgt, $GET_CHAR_HITPOINTS(tgt) -# dmg);
+-    $IF ($GET_CHAR_HITPOINTS(tgt) <# 1)
+-      {
+-			$SET_CHAR_STATUS(tgt,1);
+-			$DELETE_COMBATANT_SA($CombatantContext(),"monster_LampreyDrain");
+-			$DELETE_COMBATANT_SA($CombatantContext(),"monster_LampreyLink");
+-			$DELETE_CHARACTER_SA($Name(nom),"IsHugged");
+-		};
+-  }
+-$ELSE
+-	{
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_LampreyDrain");
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_LampreyLink");
+-		$DELETE_CHARACTER_SA($Name(nom),"IsHugged");
+-	};
+\(END)
+

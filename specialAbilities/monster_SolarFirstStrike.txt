@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_SolarFirstStrike
+[AdjustInitiative] = $RETURN -9;
+\(END)
+

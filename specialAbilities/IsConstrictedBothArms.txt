@@ -1,0 +1,10 @@
+\(BEGIN)
+name = IsConstrictedBothArms
+[CanCastSpells] = $VAR com;
+-com = $IndexOf($CombatantContext());
+-$IF ($GET_CHAR_HITPOINTS(com) <# 1) {$SA_REMOVE();$RETURN;};
+-$RETURN "N";
+[GetAdjMaxMovement] = $RETURN 0;
+[IsCombatReady] = $RETURN "N";
+\(END)
+

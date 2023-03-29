@@ -1,0 +1,11 @@
+\(BEGIN)
+name = spell_HoldElemental
+[InvokeSpellOnTarget] = $VAR tgt; $VAR el; $VAR atk; $VAR cls; $VAR lvl; $VAR exp; 
+-$IF ($GET_CHARACTER_SA($TargetContext(),"saved")){$RETURN;};
+-el = $MonsterTypeContext();
+-$IF )(el != "Air Elemental") || (el != "Earth Elemental") || (el != "Fire Elemental") || (el != "Water Elemental") || (el != "Lesser Air Elemental") || (el != "Lesser Earth Elemental") || (el != "Lesser Fire Elemental") || (el != "Lesser Water Elemental")){$RETURN;};
+-atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET();
+-lvl = $GET_CHAR_Lvl(atk,cls); exp = $GET_PARTY_TIME() +# lvl;
+-$SET_CHARACTER_SA($TargetContext(),"IsHeld",exp);
+\(END)
+

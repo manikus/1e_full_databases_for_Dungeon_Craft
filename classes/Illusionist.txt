@@ -1,0 +1,13 @@
+\(BEGIN)
+name = Illusionist
+HitDiceLevelBonus = illusionist,Constitution,0,0,-2,-1,-1,-1,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2
+HitDiceBaseclass = *Average*
+StrengthBonusDice = 
+Starting Equipment = Dagger
+baseclass = illusionist
+Special Ability = class_IllusionScribe,illusionist
+Special Ability = class_baseName,$illusionist
+Special Ability = ChangeClassIllusionist
+// Special Ability = class_ClassSuppress,"Y"
+\(END)
+

@@ -1,0 +1,430 @@
+DMG p168
+
+MISCELLANEOUS WEAPONS (I1I.H.)
+
+The various items listed generally have their bonus applied to both "to hit"
+and damage dice, whether it is +1, f 2 , +3, or +4. Any miscellaneous
+weapon which is not totally self-explanatory is detailed in one of the
+special paragraphs below:
+
+Magic arrows which miss their target are 50% likely to be broken or otherwise
+rendered useless. All which hit are destroyed.
+
+Arrow of Slaying is a +3 arrow with some unusual characteristics - a
+shaft of some special material, feathers of some rare creature, a head of
+strange design, a rune carved on the nock, etc. - which will distinguish it
+as fell against some creature type. If the arrow is employed against the
+kind of creature it has been enchanted to slay, the missile will kill it
+instantly if it hits the target creature. The following list comprises only a
+portion of the possible kinds of these arrows:
+1) arachnids	9) elementals		17) monks
+2) avians		10) fighters		18) paladins
+3) bards		11) giants			19) rangers
+4) clerics		12) golems			20) reptiles
+5) demons		13) illusionists	21) sea monsters
+6) devils		14) ki-rin			22) thieves
+7) dragons		15) magic-users		23) titans
+8) druids		16) mammals			24) undead
+Develop your own types and modify and/or limit the foregoing as fits your
+campaign.
+
+Axes (hand, not battle) can be thrown up to 3" with the hit probability
+bonus, but no damage bonus.
+
+Axe +2, throwing, is a hand axe which can be thrown up to 6" at the
+same hit probability as if it were swung by the character, and the standard
+damage bonus.
+
+Bow + 1 gives + 1 "to hit" and + 1 damage potential to arrows fired from
+it. If magic arrows are used, the bonus is the total of the bow's and the
+arrows'. The type of bow found should be based on the circumstances of
+your campaign, i.e. composite, short, long, etc. according to the nature of
+the area.
+
+Crossbow of accuracy, +3, gives a +3 bonus to its missiles and all ranges
+are considered ahort. 10% of these weapons will be heavy crossbows.
+Crossbow of Distance has double range in a11 categories. 10% of these
+weapons will be heavy crossbows. It is otherwise +1 "to hit" and for
+damage.
+
+Crossbow of speed allows its possessor to double the rate of fire normal
+for the weapon. If it is grasped, the crossbow of speed will automatically
+cock itself. In surprise situations it is of no help, but in complete surprise
+situations the held crossbow will enable its user to fire in the 2nd segment
+portion. Otherwise, it allows first fire in any melee round, and end of
+round fire also, when applicable. 10% of these weapons are heavy crossbows.
+The weapon has a + 1 bonus.
+
+Dagger of Venom appears to be a standard + 1 type of dagger, but its hilt
+holds a hidden store of poison. Any hit on a score of 20 injects fatal poison
+into the opponent unless a saving throw versus poison is successful. The
+dagger of venom holds 6 doses of poison, and more can be poured within
+when less than that amount is within the hilt. (Use of this weapon by good
+- particularly lawful good - characters must be carefully monitored.)
+
+Hammer +3, dwarven thrower appears to be a standard +2 hammer;
+but, if in the hands of a dwarven fighter, and a special command word is
+spoken, its full potential is realized. The +3 bonus is gained and the following
+characteristics: The hammer has a 6" range and it will return to its
+wielder's hand in much the same manner as a boomerang would. It has
++3 bonus "to hit" and on damage. When so hurled, the hammer does
+double damage against a11 opponents save giants (including ogres, ogre
+magi, trolls and ettins), against which it causes triple damage (plus bonus
+Of 3).
+
+Hammer of Thunderbolts appears to be a regular hammer of largish size
+and extra weight. It will be toa imbalanced, somehow, to wield properly in
+combat, unless the character has 18/01 or better strength and a height of
+over 6'. The hammer then functions as +3 and gains double damage dice
+an any hit. If the wielder wears any girdle of giant strength and gauntlets
+of ogre power in addition, he or she may properly wield the weapon if the
+hammer's true name is known. When swung or hurled it gains a +5,
+double damage dice, all girdle and gauntlets bonuses, and strikes dead
+any giant' upon which it scores a hit. When hurled and successfully hitting,
+a great noise as if a clap of thunder broke overhead will resound, stunning
+all creotures within 3” for 1 round. Throwing range is 1” + %”/point of
+strength bonus for the gauntlets and girdle, i.e. 6 + 7 to 12 = 13 to 18 X
+%” = 6%”, 7”, 7%”, 8‘, 8%”, 9”. (Thor would throw the hammer obout
+double the above ranges . . . ). The hammer of thunderbolts is very difficult
+to hurl, so only 1 throw every other round can be mode, and after 5
+throws within the spoce of any 2 turn period, the wielder must rest for 1
+turn.
+* Depending on your campaign, you might wish to limit the effect to
+exclude storm giants and include ogres, ogre magi, trolls, ettins, and
+clay, flesh, and stone golems.
+hammers can be hurled iust os hand axes are.
+
+Mace of Disruption appears to be a + 1 mace, but it has a neutral good
+alignment, and ony evil character touching it will take 5-20 points of
+damage due to the powerful enchantments loid upon the weapon. If a
+mace of disruption strikes any undead creature or evil creature from one
+of the lower planes it functions similarly to a cleric turning undead (see
+AlTACK MATRICES). The mace causes such creatures to roll on matrix Ill.,
+MATRIX FOR CLERICS AFFECTING UNDEAD, as if the wielder were 12th
+level, and if the creature struck scores equal to or below the number
+shown, it is disrupted and slain. Thus, skeletons, zombies, ghouls,
+shadows, and wights are instantly blasted out of existence, as ore ghosts
+and even wraiths; and mummies have only a 20% chance, spectres 35%,
+vampires 50%, ghosts 65%, liches 80%, and other affected evil creatures
+95% chance of soving. Even if these saving throws are effective, the moce
+of disruption scores double damage upon opponents of this sort, i.e., 2 X
+bonus and 2 X dice.
+
+Scimitar +2 is optionally treated the same as a magic sword - especially
+if your campaign is Asian in flavor or the activity area borders near such a
+notion. The possibilities are then rolled as follows:
+	01 -45 scimitar + 1
+	46-65 scimitar +2
+	66-80 scimitar +3
+	81 -90 scimitar +4
+	91 -95 scimitar +5
+	96-98 scimitar of wounding
+	99-00 scimitar of sharpness
+Then roll for unusual characteristics as usual.
+
+Sling of seeking +2 gives its user a +2 bonus for both “to hit” and
+damage dice, but missiles from such a weapon are only regarded os +1
+with respect to determination of whether or not certain creatures are
+affected by the weapon, i.e. o special defense of ”+2 or better weapon to
+hit“ meons the creature is impervious to normal missiles from this sling.
+Spears can be used as hand or missile weapons. In the latter employment
+they might be broken by any creature with 18/00 or greater strength or
+against or by one that is massive, i.e. cave bear, hippo, rhino, etc. Intelligent
+creatures will be 70% likely to use the hurled spear against the hurler
+if struck by the weapon, 25% likely to break it (the spear must save versus
+crushing blow). Unintelligent creatures will be 25% likely to break it (save
+as above).
+
+Spear, Cursed Backbiter, is to a11 tests a magic spear with o + 1 bonus (or
+at your option +2 or +3). Even when it is used in combat against a deadly
+enemy it will possibly perform properly, but each time it is used in melee
+in anger against a foe, there is a 5% (1 in 20) cumulative chance that it will
+function ogainst its wielder, and once so functioning it cannot be loosed
+without a remove curse spell. When functioning, the spear will curl to
+strike its wielder in the bock, having a hit probability which negates any
+shield and/or dexterity bonuses to armor closs, and doing normal
+damage. Bockbiting includes hurling, but if the wielder has hurled the
+spear, he or she is, of course, loosed from grasping it; the damage done to
+the hurler will be double, however.
+
+Trident (military fork) +3 is a short-hafted weapon about 6’ length
+overall. Upon command, the middle tine of the trident will retract into the
+pole while the shaft of the weapon lengthens to 9’, thus creating a military
+fork with a short center spike. The changing of the form of the weapon
+from trident to fork or vice verso requires 1 round.
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+UA p105
+
+MISCELLANEOUS WEAPONS (lll.H.2.)
+
+Axe of Hurling appears to be a normal hand axe. With familiarity and
+practice, however, the possessor will eventually discover that the axe
+can be hurled up to 6”distance, and it will return to the thrower in the
+same round whether or not it scores a hit. Damage inflicted by the
+magical throwing attack is twice normal (2-12v s. S or M, 2-8v s. L),
+with the weapon’s magic bonus added thereafter; for instance, an axe
+of hurling + 3 will do 5-1 5 points of damage vs. S or M sized creatures
+and 5-1 1 points of damage vs. creatures of size L if it hits the target after
+being thrown. The same axe will do only normal damage (plus its
+magic bonus) when used as a hand-held weapon. After each week of
+using the weapon, the possessor has a 121/~c%h ance of discovering
+the full properties of the weapon (roll pf 1 on d8). In any event, the
+magical properties of the weapon will be fully known to the possessor
+after 8 full weeks of such familiarization. The magical bonus of an axe
+ofhurling is determined by rolling d20 and referring to the table below.
+The experience-point value of such an item is 1,500 x.p. per each
+point of magical bonus, and the gold piece sale value is 15,000 gp per
+point of bonus.
+Die Roll Magic Bonus
+1-5 + 1
+6-10 +2
+11 -15 +3
+16- 19 +4
+20 +5
+
+Bullet, Sling, of Impact originally appears to be little more than a
+well-cast sling bullet. Close examination will reveal minute runes engraved
+upon these missiles, and they radiate an aura of enchantment.
+Composed of a mixed iron, silver, and lead alloy, each bullet is
+equal to a + 1 missile for purposes of “to hit” determination only.
+Thus, if one of these missiles is launched from a + 2 magic sling, the
+total chance to hit would be + 3, or equal to a + 3 magic weapon, but
+damage is determined exclusive of this + 3 bonus. The unadjusted
+score to hit is the base determinant of whether additional damage is
+done by one of these missiles. That is, if one of these bullets impacts
+its target, the sling-user’s base chance to hit (exclusive of magical bonuses)
+must be determined. For example, assume that the target
+could be hit normally on a 12 or better. If the die score to hit, without
+adjustment for any bonus for the sling used or for the bullet itself, is
+above the minimum required to hit, then the missile does 2 additional
+points of damage for each point of difference between the die roll and
+the minimum required to hit. A die score of 13 in this example indicates
++ 2 to damage, a roll of 14 would add + 4, a roll of 15 indicates
++ 6, and so on, while a die roll of 12 or less means that no extra damage
+is scored on that hit. The extra damage (if such applies) is added
+to the base damage figure (2-92-7fo)r a sling bullet.
+
+Dagger + 2, Longtooth appears to be a normal weapon, or perhaps
+a magical weapon of the standard (non-special) sort. However, when
+this broad-bladed weapon is wielded by a small demi-human (gnome
+or halfling), it will actually lengthen and function as a short sword as
+its wielder strikes blows (retaining its + 2 bonus in this form), yet it will
+be as light and handy to use as a dagger would be in the hands of the
+same character. The weapon will actually penetrate wood or stone as
+easily as if it were softer material when used by a gnome or halfling,
+inflicting maximum damage against either substance.
+
+Dagger of Throwing appears as a normal weapon, but will radiate a
+strong dweomer when magic is checked for. The balance of this
+sturdy blade is perfect, such that when it is thrown by anyone, the
+dagger will demonstrate superb characteristics as a ranged weapon.
+The magic of the dagger enables it to be hurled up to 6” distance
+(shortlmedium range = 2”/4”)A.n y successful hit when it is thrown
+will inflict twice normal dagger damage, plus the dweomer of the
+blade, which will range from + 1 to + 4 (roll dl 00 and consult table below).
+The experience-point value of a dagger of throwing is a base of
+150, plus 100 points per magical plus. The gold piece sale value is
+1,500 plus 1,000 gp per magical plus.
+Dice Roll Magic Bonus
+01 -35 +1
+36 - 65 +2
+66 - 90 +3
+91 -00 +4
+
+Hornblade is a magical weapon that originally appears as a sicklelike
+blade resembling some sort of animal horn, ranging in size from
+that of a knife to somewhat less than the length of a short sword. Even
+a close visual and manual inspection is 90% unlikely to reveal it as
+anything other than a piece of horn of VZ’ to 1%’ in length, set in
+some sort of handle or grip. (If magic is detected for, a hornblade will
+radiate a faint dweomer of the enchantment sort.) However, if the
+proper pressure is applied in the correct place, a curved blade of
+great strength and sharpness will spring out. The small versions
+(knife-sized and dagger-sized) are usually enchanted to + 1 or + 2,
+and the largest version (scimitar-sized) commonly has a bonus of + 2
+or + 3. A hornblade of one of the smaller versions can be thrown, and
+its bonus applies for both “to hit” and damage determination. A member
+of any character class permitted to use sickle-like weapons may
+use a hornblade. The magic of the weapon enables its possessor to
+employ it as if it were a weapon of known type, providing that the possessor
+has proficiency with a weapon in the appropriate category
+(knife, dagger, or scimitar). The hornblade is retractable between
+uses. The experience-point value and gold piece sale value of a
+hornblade depend upon its size and the amount of its magical bonus:
+Dice Result X.P. Value G.P. Value
+01-20 Knife-sized, + 1 500 1,500
+21-35 Knife-sized, + 2 1,000 3,000
+36-50 Dagger-sized, + 1 750 2,000
+51-70 Dagger-sized, + 2 1,500 4,000
+71-90 Scimitar-sized, + 2 2,000 6,000
+91-00 Scimitar-sized, + 3 3,000 9,000
+Darts of Homing appear to be normal projectiles, but are actually
+magic weapons of + 3 value. If magic is detected for, they will radiate
+a dweomer of alteration and enchantment. If a dart of this nature hits
+the target it is thrown at, it will magically return to the thrower in the
+same round and can be re-used. A dart of homing does 4-9 points of
+damage on a successful hit against any size of creature - a base figure
+of 1-6 plus its magical bonus. If the dart misses its intended target,
+it loses its dweomer. These weapons have twice the range of ordinary
+darts - 3” short, 6“ medium, and 9” long.
+
+Knife, Buckle is a magical blade having a hilt which exactly resembles
+an ornament on a large belt buckle or a complete buckle of a
+smaller sort. Its hilt can esaily be grasped and the weapon drawn from
+its belt-sheath. The knife blade is short but has a very sharp point, so
+that it inflicts damage just as does a larger knife. This weapon comes
+in four varieties (roll d10):
+Die Roll Type X.P. Value G.P. Sale Value
+1 - 4 +1 100 1,000
+5 - 7 +2 200 2,000
+8 - 9 +3 300 3,000
+10 +4 400 4,000
+
+Quarterstaff, Magic appears to be a normal bronzewood staff shod
+and banded with iron. The shaft is actually as strong as steel, and the
+weapon has two magical qualities. Upon command the staff will alter
+its length from as short as 6‘ to as long as 12’ (or any length in between).
+lt inflicts damage as a quarterstaff (base amount of 1-6
+points), with additions “to hit” and damage based upon its magical
+bonus. The five varieties of magic quarterstaff are as follows:
+Die Roll Type X.P. Value G.P. Sale Value
+1 - 5 +1 250 1,500
+6 - 9 +2 500 3,000
+10 - 13 +3 750 4,500
+14- 17 +4 1,000 6,000
+18 - 20 +5 1,250 7,500
+
+Scimitar of Speed is a magical weapon, usually of + 2 power, that enables
+its wielder to always make the first attack in a melee round,
+even though some magical effect might have otherwise slowed his or
+her speed and reaction time. This initial attack will come in the first
+segment of the round, ahead of any other action that may also take
+place in that segment. The scimitar of speed also allows more than
+one strike in some rounds; it increases the wielder’s figure for attacks
+per melee round by one place, so that if 1 attack is normal, the improved
+figure is 3/2, and if 3/2 is normal, then the improvement is to 2
+attacks per round. This increase in attacks is cumulative with any
+other bonus attacks (such as those provided by ahaste spell). The order
+of attacks in the round is determined normally after the wielder of
+the scimitar of speed has made his or her first attack to begin activity
+in the round. It is possible, for instance, that a wielder entitled to 3 attacks
+in the round will attack once before any other action takes
+place, and then (because of poor initiative rolls or other factors) take
+his or her remaining two attacks at the very end of the round. There
+are versions of this weapon which are cutlasses, tulwars, and yatagans
+(30% overall probability for a variant form, 10% chance for any
+specific type). There is also a chance (25%) that the weapon will have
+a bonus of something other than + 2; if this occurs, roll percentile dice
+and refer to the following table to determine the appropriate bonus:
+Dice Roll Type X.P. Value G.P. Sale Value
+01 -50 +1 2,500 9,000
+(normal form) +2 3,000 12,000
+51 -75 +3 3,500 15,000
+76 - 90 +4 4,000 18,000
+91 -00 +5 4,500 21,000
+
+
+from Tables
+
+									XP Value	GP Value
+Arrow +1, 2-24 in number			20			120
+Arrow +2, 2-16 in number			50			300
+Arrow +3, 2-12 in number			75			450
+Arrow +4, 2-8 in number				100			800
+Arrow of Slaying					250			2500
+Axe +1								300			1750
+Axe +2								600			3750
+Axe +2, Throwing					750			4500
+Axe +3								1000		7000
+Axe +4								1,500		12,000
+Axe of Hurling +1					1,500		15,000
+Axe of Hurling +2					3,000		30,000
+Axe of Hurling +3					4,500		45,000
+Axe of Hurling +4					6,000		60,000
+Axe of Hurling +5					7,500		75,000
+Battle Axe +1						400			2500
+Battle Axe +2						800			5,000
+Battle Axe +3						1,200		9,000
+Bolt +1, 6-36 in number				20			120
+Bolt +2,2-20 in number				50			300
+Bolt +3, 3-12 in number				75			450
+Bow +1								500			3500
+Bullet, Sling, +1, 5-20 in number	20			120
+Bullet, Sling, +2, 3-12 in number	50			300
+Bullet, Sling, +3, 2-8 in number	75			450
+Bullet, Sling, of Impact, +4 in number 100		750
+Crossbow of Accuracy, +3			2000		12000
+Crossbow of Distance				1500		7500
+Crossbow of Speed					1500		7500
+Dagger +1							75			500
+Dagger +1, +2 vs. creatures
+	smaller than man-sized			100			750
+Dagger +2							200			1,500
+Dagger +2, +3 vs. creatures
+	larger than man-sized			250			2000
+Dagger +2, Longtooth				250			2,500
+Dagger +3							350			2,500
+Dagger of Throwing +1				250			2500
+Dagger of Throwing +2				350			3500
+Dagger of Throwing +3				450			4500
+Dagger of Throwing +4				550			550
+Dagger of Venom						350			3000
+Dart +1, 3-12 in number				50			500
+Dart +2, 2-8 in number				125			1,250
+Dart +3, 1-4 in number				300			3,000
+Dart of Homing, 1-2 in number		450			4,500
+Flail +1							450			4000
+Flail +2							1,000		9,000
+Hammer +1							300			2500
+Hammer +2							650			6000
+Hammer +3, Dwarven Thrower			1500		15000
+Hammer +4							1,500		10,000
+Hammer of Thunderbolts				2500		25000
+Hornblade, Knife-sized, +1			500			1,500
+Hornblade, Knife-sized, +2			1,000		3,000
+Hornblade, Dagger-sized, +1			750			2,000
+Hornblade, Dagger-sized, +2			1,500		4,000
+Hornblade, Scimitar-sized, +2		2,000		6,000
+Hornblade, Scimitar-sized, +3		3,000		9,000
+Javelin +1							300			2,000
+Javelin +2							750			5000
+Javelin +3							1,250		7,500
+Knife +1							50			350
+Knife +2							125			1,000
+Knife, Buckle +1					100			1,000
+Knife, Buckle +2					200			2,000
+Knife, Buckle +3					300			3,000
+Knife, Buckle +4					400			4,000
+Lance +1							600			3,500
+Mace +1								350			3000
+Mace +2								700			4500
+Mace +3								1,000		10,000
+Mace +4								1500		15000
+Mace of Disruption					1700		17500
+Military Pick +1					350			2500
+Morning Star +1						400			3000
+Morning Star +2						900			7,000
+PoleArm +1							500			3,000
+Quarterstaff, Magic +1				250			1,500
+Quarterstaff, Magic +2				500			3,000
+Quarterstaff, Magic +3				750			4,500
+Quarterstaff, Magic +4				1,000		6,000
+Quarterstaff, Magic +5				1,250		7,500
+Scimitar +1							300			2,000
+Scimitar +2							750			6000
+Scimitar +3							1,250		10,000
+Scimitar +4							2,000		20,000
+Scimitar of Speed +1				2,500		9,000
+Scimitar of Speed +2				3,000		12,000
+Scimitar of Speed +3				3,500		15,000
+Scimitar of Speed +4				4,000		18,000
+Scimitar of Speed +5				4,500		21,000
+Sling of Seeking +2					700			7000
+Spear +1							500			3000
+Spear +2							1000		6500
+Spear +3							1750		15000
+Spear +4							2,500		25,000
+Spear +5							3,000		30,000
+Spear, Cursed Backbiter				---			1000
+Trident (Military Fork) +3			1500		12500

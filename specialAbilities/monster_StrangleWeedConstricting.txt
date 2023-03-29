@@ -1,0 +1,17 @@
+\(BEGIN)
+name = monster_StrangleWeedConstricting
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Consticting");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[GetAdjMaxMovement] = $RETURN 0;
+[OnStartCombatantAction] = $VAR tgt;
+-tgt = $SA_PARAM_GET();
+-$IF ($GET_CHAR_HITPOINTS(tgt) <# 1) 
+-	{
+-		$IF ($GET_CHAR_HITPOINTS(tgt) <# "-9")  {$SET_CHAR_STATUS(tgt,2);}
+-		$ELSE {$SET_CHAR_STATUS(tgt,9);};
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_StrangleWeedConstricting");
+-		$DELETE_COMBATANT_SA($CombatantContext(),"StrangleLink");
+-	};
+\(END)
+

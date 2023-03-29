@@ -1,0 +1,52 @@
+\(BEGIN)
+name = Pit Fiend
+icon file = icon_PitFiend.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 16
+armor class = -3
+movement rate = 15
+hit dice = 13
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 8
+magic resistance = 65
+size = large
+morale = 40
+experience point value = 8944
+Special Ability = elemental_ImmuneFire
+Special Ability = elemental_ImmuneIron
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantGas
+Special Ability = IsSeeingInvisible
+Special Ability = monsterLevel,13
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_DevilFearAura,4
+Special Ability = monster_Infravision
+Special Ability = monster_Regeneration,2
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = monster_WeaponImmunity,2
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Devil
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = Saw-toothed Club
+item = monsterMageCharmPerson
+item = monsterDevilGatePitFiend
+item = monsterMagePyrotechnics
+item = monsterSymbolOfSleep
+item = monsterSymbolOfStunning
+item = monsterMageHoldPerson
+item = monsterMageTeleportWithoutError
+item = monsterMageWallOfFire
+attack = 4,1,4,attacks,monsterPitFiendConstriction
+attack = 6,1,6,attacks,
+Undead = Special
+\(END)
+// MM p23
+

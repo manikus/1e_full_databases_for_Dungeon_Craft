@@ -1,0 +1,19 @@
+\(BEGIN)
+name = item_BoneHook
+[DoesAttackSucceed] = $VAR p5; $VAR p6;
+-$VAR hld; $VAR tgt; $VAR STR; $VAR dmg; $VAR strLoss; $VAR SvP; $VAR HP; $VAR exp; $VAR roll;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$IF (p5 <=# p6) {$RETURN;};
+-hld = $RANDOM(2); tgt = $IndexOf($TargetContext()); STR = $GET_CHAR_LIMITED_STR(tgt); dmg = $RANDOM(4) +# $RANDOM(4) +# 2;
+-strLoss = $RANDOM(4) -# 4; SvP = $SkillAdj($CombatantContext(),"Save Vs PPDM","ghast","F",0);
+-HP = $GET_CHAR_HITPOINTS(tgt); roll = $RANDOM(20) +# 1; exp = $GET_PARTY_TIME() +# 10;
+-$IF (hld ==# 1) {$RETURN;};
+-$SET_CHAR_HITPOINTS(tgt,HP -# dmg); $SET_COMBATANT_SA($TargetContext(),"IsBoneHoooked","0");
+-$IF (roll <# SvP)
+-	{
+-		$MODIFY_CHAR_ATTRIBUTE(tgt,"STR",strLoss, "MINUTES", 1, "Bone Devil Strength Loss","MONSTER Bone Devil Strength Loss");
+-		$SET_COMBATANT_SA($TargetContext(),"tempSTRLoss",exp);
+-	};
+-$RETURN "0";
+\(END)
+

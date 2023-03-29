@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkAstralProjection
+\(END)
+// level 18 - for designer use
+

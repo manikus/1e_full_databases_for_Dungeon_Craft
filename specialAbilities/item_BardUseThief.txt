@@ -1,0 +1,7 @@
+\(BEGIN)
+name = item_BardUseThief
+[CanReady] = $VAR me; me = $MyIndex();
+-$IF ($GET_CHAR_Lvl(me,"bard") <# 9){$RETURN "N";};
+-$IF ($GET_CHAR_Lvl(me,"bard") ># 17){$RETURN "N";};
+\(END)
+

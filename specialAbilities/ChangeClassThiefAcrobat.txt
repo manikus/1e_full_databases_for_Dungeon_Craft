@@ -1,0 +1,22 @@
+\(BEGIN)
+name = ChangeClassThiefAcrobat
+[CanChangeFromClass] = $RETURN "N";
+[CanChangeToClass] = $VAR me; $VAR STR; $VAR DEX; $VAR cls;
+-me = $IndexOf($CharacterContext());
+-STR = $GET_CHAR_LIMITED_STR(me);
+-DEX = $GET_CHAR_LIMITED_DEX(me);
+-cls = $GET_CHAR_Lvl(me,"thief");
+-$IF ((STR >=# 15) && (DEX >=# 16) && (cls ==# 6)) {$RETURN "Y";};
+[ChangeClassTo] = $VAR me;
+-me = $IndexOf($CharacterContext());
+-$SET_CHARACTER_SA($CharacterContext(),"class_NoSpells","acrobat");
+-$SET_CHARACTER_SA($CharacterContext(),"class_AcrobaticSkills","$acrobat");
+-$SET_CHARACTER_SA($CharacterContext(),"class_baseName","$acrobat");
+-$RUN_CHAR_SCRIPTS(me,"spawn");
+[spawn] = $VAR me; $VAR XP;
+-me = $IndexOf($CharacterContext());
+-XP = $GET_CHARACTER_SA($CharacterContext(),"preAcrobat");
+-$SET_CHAR_Lvl(me,"acrobat",6);
+-$SET_CHAR_Exp(me,"acrobat",XP);
+\(END)
+

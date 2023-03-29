@@ -1,0 +1,31 @@
+\(BEGIN)
+name = Giant Catfish
+icon file = icon_GiantCatfish.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 1
+armor class = 7
+movement rate = 18
+hit dice = 9
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 12
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 1562
+Special Ability = monsterLevel,9
+Class = Fighter
+Race = Monster
+form = large + animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 4,3,0,attacks,monsterCatfishSwallow
+Undead = none
+\(END)
+// MMII
+

@@ -1,0 +1,23 @@
+\(BEGIN)
+name = monster_AuraWhaleTailSmash
+[AURA_Create] = $VAR chr;
+-chr = $IndexOf($CharacterContext());
+-$AURA_Attach("Combatant");
+-$AURA_Combatant(chr);
+-$AURA_Size(0,2,135,225);
+-$AURA_Shape("AnnularSector");
+-$AURA_Wavelength("Xray");
+[AURA_Effect] = $VAR lvl; $VAR dmg; $VAR atk; $VAR tgt; $VAR rnd; $VAR dst; $VAR hp;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext()); lvl = $SA_PARAM_GET(); rnd = $GetCombatRound();
+-dst = $VisualDistance(atk,tgt); hp = $GET_CHAR_HITPOINTS(tgt);
+-$IF (lvl ==# 7) {dmg = $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# 7;};
+-$IF (lvl ==# 11) {dmg = $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# 11;};
+-$IF (lvl ==# 15) {dmg = $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# 15;};
+-$IF (lvl ==# 17) {dmg = $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# 17;};
+-$IF (lvl ==# 20) {dmg = $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# $RANDOM(8) +# 20;};
+-$IF ((rnd %# 16)  ==# "5") {$IF (dst ==# 1) {$SET_CHAR_HITPOINTS(tgt, hp -# dmg);};};
+[CreateMonsterCombatant] = $VAR prm;
+-prm = $SA_PARAM_GET();
+-$AURA_Create("monster_AuraElectricEelDischarge",prm,0,0,0);
+\(END)
+

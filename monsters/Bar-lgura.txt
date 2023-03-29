@@ -1,0 +1,47 @@
+\(BEGIN)
+name = Bar-lgura
+icon file = icon_Barlgura.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 14
+armor class = -3
+movement rate = 9
+hit dice = 6
+treat HD as hit points = yes
+hit dice bonus = 6
+THAC0 = 13
+magic resistance = 45
+size = medium
+morale = 40
+experience point value = 2055
+Special Ability = monsterLevel,8
+Special Ability = elemental_ImmuneSilver
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = elemental_ResistantGas
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_Infravision
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterDemonDarkness
+item = monsterMageDispelMagic
+item = monsterMageTeleportWithoutError
+item = monsterBarLguraSummonDemon
+attack = 6,1,0,hits,
+attack = 6,1,0,hits,
+attack = 6,2,0,hits,
+Undead = Special
+\(END)
+//  MMII p37
+

@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_PrimusPlaneShift
+[ComputeDamage] = $VAR tgt;
+-tgt = $IndexOf($TargetContext());
+-$SET_CHAR_STATUS(tgt,"5");
+\(END)
+

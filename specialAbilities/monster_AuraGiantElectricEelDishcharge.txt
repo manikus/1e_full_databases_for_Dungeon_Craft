@@ -1,0 +1,41 @@
+\(BEGIN)
+name = monster_AuraGiantElectricEelDischarge
+[AURA_Create] = $VAR chr;
+-chr = $IndexOf($CharacterContext());
+-$AURA_Attach("Combatant");
+-$AURA_Combatant(chr);
+-$AURA_Size(0,3,0,360);
+-$AURA_Shape("AnnularSector");
+-$AURA_Wavelength("Xray");
+[AURA_Effect] = $VAR dst; $VAR dmg1; $VAR dmg2; $VAR dmg3; $VAR rnd; $VAR atk; $VAR tgt; $VAR rndm; $VAR save; $VAR hp;
+-dmg1 = $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# 6;
+-dmg2 = $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# 4; dmg3 = $RANDOM(6) +# $RANDOM(6) +# 2;
+-rnd = $GetCombatRound(); atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-dst = $VisualDistance(atk,tgt); rndm = $RANDOM(20) +# 1; save = $SkillAdj($CombatantContext(),"Save Vs PPDM","","F",0);
+-hp = $GET_CHAR_HITPOINTS(tgt);
+-$IF ((rnd %# 8)  ==# "0")
+-	{
+-		$IF (dst ==# 1)
+-			{
+-				$SET_CHAR_HITPOINTS(tgt,hp -# dmg1);
+-				$IF (rndm <# save){$RETURN $SET_COMBATANT_SA($CombatantContext(),"IsStunned",dmg1);};
+-			};
+-		$IF (dst ==# 2)
+-			{
+-				$SET_CHAR_HITPOINTS(tgt,hp -# dmg2);
+-				$IF ((rndm +# 1) <# save){$RETURN $SET_COMBATANT_SA($CombatantContext(),"IsStunned",dmg2);};
+-			};
+-		$IF (dst ==# 3)
+-			{
+-				$SET_CHAR_HITPOINTS(tgt,hp -# dmg3);
+-				$IF ((rndm +# 2) <# save){$RETURN $SET_COMBATANT_SA($CombatantContext(),"IsStunned",dmg3);};
+-			};
+-	};
+[AURA_Round] = $VAR rnd;
+-rnd = $GetCombatRound();
+-$IF (rnd >=# "6") {$RETURN $AURA_Destroy();};
+[CreateMonsterCombatant] = $VAR prm;
+-prm = $SA_PARAM_GET();
+-$AURA_Create("monster_AuraGiantElectricEelDischarge",prm,0,0,0);
+\(END)
+

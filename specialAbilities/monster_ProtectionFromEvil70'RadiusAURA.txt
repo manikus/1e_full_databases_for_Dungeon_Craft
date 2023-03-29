@@ -1,0 +1,14 @@
+\(BEGIN)
+name = monster_ProtectionFromEvil70'RadiusAURA
+[AURA_Create] = $VAR me;
+-me = $SA_PARAM_GET();
+-$AURA_Attach("Combatant");
+-$AURA_Combatant(me);
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,7,0,360);
+-$AURA_Spell("ProtectionFromEvil70Radius");
+-$AURA_Wavelength("Xray");
+[AURA_Enter] = $VAR $SET_COMBATANT_SA($CombatantContext(),"IsMonsterProtectedEvil","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsMonsterProtectedEvil");
+\(END)
+

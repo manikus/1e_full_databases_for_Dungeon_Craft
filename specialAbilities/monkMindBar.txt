@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkMindBar
+\(END)
+// level 15 - for designer use
+

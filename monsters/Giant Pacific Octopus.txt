@@ -1,0 +1,38 @@
+\(BEGIN)
+name = Giant Pacific Octopus
+icon file = icon_GiantPacificOctopus.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 1
+armor class = 7
+movement rate = 12
+hit dice = 7
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 13
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 870
+Special Ability = monsterLevel,7
+Special Ability = baseForMonster,Giant Octopus
+Class = Fighter
+Race = Monster
+form = large + animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 4,1,0,attacks,monsterGiantOctopusConstriction
+attack = 4,1,0,attacks,monsterGiantOctopusConstriction
+attack = 4,1,0,attacks,monsterGiantOctopusConstriction
+attack = 4,1,0,attacks,monsterGiantOctopusConstriction
+attack = 4,1,0,attacks,monsterGiantOctopusConstriction
+attack = 4,1,0,attacks,monsterGiantOctopusConstriction
+attack = 6,2,0,bites,
+Undead = none
+\(END)
+// MM
+

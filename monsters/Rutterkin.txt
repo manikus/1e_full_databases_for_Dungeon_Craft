@@ -1,0 +1,43 @@
+\(BEGIN)
+name = Rutterkin
+icon file = icon_Rutterkin.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 9
+armor class = 1
+movement rate = 12
+hit dice = 5
+treat HD as hit points = yes
+hit dice bonus = 1
+THAC0 = 16
+magic resistance = 40
+size = medium
+morale = 40
+experience point value = 463
+Special Ability = monsterLevel,5
+Special Ability = elemental_ImmuneSilver
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = elemental_ResistantGas
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_Infravision
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterDemonDarkness
+item = monsterMageTeleportWithoutError
+item = monsterRutterkinGateDemon
+attack = 6,1,1,hits,
+attack = 6,1,1,hits,
+Undead = Special
+\(END)
+//  MMII p41
+

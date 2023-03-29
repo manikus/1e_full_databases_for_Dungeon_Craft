@@ -1,0 +1,49 @@
+\(BEGIN)
+name = Derghodaemon
+icon file = icon_Derghodaemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 5
+armor class = 0
+movement rate = 12
+hit dice = 11
+treat HD as hit points = no
+hit dice bonus = 22
+THAC0 = 4
+magic resistance = 80
+size = large
+morale = 40
+experience point value = 6152
+Special Ability = monsterLevel,18
+Special Ability = elemental_ResistantAcid
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneCharm
+Special Ability = monster_ImmuneParalysis
+Special Ability = monster_ImmunePoison
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Daemon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = Club
+attack = 4,1,8,hits,monsterDerghodaemonGrab
+attack = 4,1,8,hits,monsterDerghodaemonGrab
+attack = 4,1,8,hits,
+attack = 4,1,8,hits,
+attack = 4,1,8,hits,
+Undead = Special
+\(END)
+// MMII p29
+

@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkRetardedAging
+\(END)
+// level 10
+

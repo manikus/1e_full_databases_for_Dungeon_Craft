@@ -1,0 +1,27 @@
+\(BEGIN)
+name = monster_PiscodaemonSiezing
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Seizing"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[GetAdjMaxMovement] = $RETURN 0;
+[GetNumberOfAttacks] = $RETURN 0;
+[OnStartCombatantAction] = $VAR tgt; $VAR HP; $VAR time; $VAR exp;
+-tgt = $SA_PARAM_GET(); HP = $GET_CHAR_HITPOINTS(tgt);
+-exp = $SA_COMBATANT_GET("piscodaemonSiezeTime");
+-$IF (HP ># 0)
+-	{
+-		$IF time ># exp)
+-			{
+-				$SET_CHAR_HITPOINTS(tgt,"-10"); $SET_CHAR_STATUS(tgt,9);
+-				$DELETE_COMBATANT_SA($CombatantContext(),"SiezeLink");
+-				$DELETE_COMBATANT_SA($CombatantContext(),"monster_PiscodaemonSiezing");
+-				$RETURN;
+-			};
+-	};
+-$IF (HP <# 1) 
+-	{
+-		$IF ($GET_CHAR_HITPOINTS(tgt) <# "-9")  {$SET_CHAR_STATUS(tgt,2);}
+-		$ELSE {$SET_CHAR_STATUS(tgt,9);};
+-		$DELETE_COMBATANT_SA($CombatantContext(),"SiezeLink");
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_PiscodaemonSiezing");
+-	};
+\(END)
+

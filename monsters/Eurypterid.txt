@@ -1,0 +1,33 @@
+\(BEGIN)
+name = Eurypterid
+icon file = icon_Eurypterid.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 0
+armor class = 4
+movement rate = 15
+hit dice = 4
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 16
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 190
+Special Ability = monsterLevel,4
+Special Ability = baseForMonster,Giant Crayfish and Giant Scorpion
+Class = Fighter
+Race = Monster
+form = large + animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 6,2,0,attacks,
+attack = 6,2,0,attacks,
+Undead = none
+\(END)
+// MM
+

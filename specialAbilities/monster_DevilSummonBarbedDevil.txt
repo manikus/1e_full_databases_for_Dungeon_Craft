@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_DevilSummonBarbedDevil
+[InvokeSpellOnTarget] = $VAR pct;
+-pct = $RANDOM(100);
+-$IF (pct >=# 30){$RETURN;};
+-$AddCombatant("Barbed Devil",0);
+\(END)
+

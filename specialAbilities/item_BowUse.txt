@@ -1,0 +1,7 @@
+\(BEGIN)
+name = item_BowUse
+[CanReady] = $VAR prm; $VAR mon;
+-prm = $SA_PARAM_GET(); mon = $MonsterTypeContext();
+-$IF (prm != mon){$RETURN "N";};
+\(END)
+

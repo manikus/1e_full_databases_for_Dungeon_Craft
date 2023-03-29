@@ -1,0 +1,34 @@
+\(BEGIN)
+name = Nereid
+icon file = icon_Nereid.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 12
+armor class = 10
+movement rate = 12
+hit dice = 4
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 17
+magic resistance = 50
+size = medium
+morale = 35
+experience point value = 236
+Special Ability = monsterLevel,4
+Special Ability = IsInvisible,yes
+Special Ability = Summoned,inner
+Special Ability = monster_AuraNereidMesmerize
+Class = Fighter
+Race = Monster
+form = large + none
+penalty = none
+immunity = poison + death magic + vorpal weapon + none
+Misc Options = none
+item = monsterNereidSpit
+attack = 1,1,0,attacks,monsterNereidKiss
+Undead = none
+\(END)
+// MMII
+

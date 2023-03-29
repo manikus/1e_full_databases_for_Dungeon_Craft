@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkFeignDeath
+\(END)
+// level 1 - SA for designer use
+

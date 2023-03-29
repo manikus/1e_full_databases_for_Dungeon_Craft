@@ -1,0 +1,16 @@
+\(BEGIN)
+name =  Bard
+HitDiceLevelBonus = bard,Constitution,0,0,-2,-1,-1,-1,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2
+HitDiceBaseclass = *Average*
+StrengthBonusDice = 1D100
+Starting Equipment = Dagger
+Starting Equipment = Lute
+baseclass = bard
+Special Ability = class_BardBackstab,10
+Special Ability = class_BardCasterLevel,17
+Special Ability = class_BardPoetics,17
+Special Ability = class_BardSong,17
+Special Ability = class_baseName,$bard
+// Special Ability = class_ClassSuppress,"Y"
+\(END)
+

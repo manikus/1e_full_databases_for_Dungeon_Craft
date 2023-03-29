@@ -1,0 +1,30 @@
+\(BEGIN)
+name = monster_AuraSeaHagFright
+[AURA_Create] = $VAR chr;
+-chr = $IndexOf($CharacterContext());
+-$AURA_Attach("Combatant");
+-$AURA_Combatant(chr);
+-$AURA_Size(0,3,0,360);
+-$AURA_Shape("AnnularSector");
+-$AURA_Wavelength("Xray");
+[AURA_Enter] = $VAR save; $VAR rndm; $VAR exp; $VAR tgt; $VAR str; $VAR strMod;
+-$VAR adjStr; $VAR adjStrMod;
+-save = $SkillAdj($CombatantContext(),"Save Vs SP","","F",0);
+-rndm = $RANDOM(20) +# 1;
+-exp = $GetCombatRound() +# $RANDOM(6) +# 1;
+-tgt = $IndexOf($TargetContext());
+-str = $GET_CHAR_LIMITED_STR(tgt);
+-strMod = $GET_CHAR_LIMITED_STRMOD(tgt);
+-adjStr = str /# 2;
+-adjStrMod = 100 -# strMod;
+-$IF (rndm <# save)
+-	{
+-		$MODIFY_CHAR_ATTRIBUTE(tgt,"STR",adjStr,"MINUTES",99,"","MONSTER Sea Hag Fright STR");
+-		$IF (strMod != "") {$MODIFY_CHAR_ATTRIBUTE(tgt,"STRMOD",adjStrMod,"MINUTES",99,"","MONSTER Sea Hag Fright STRMOD");};
+-		$RETURN $SET_COMBATANT_SA($CombatantContext(),"IsSeaHagWeakened",exp);
+-	};
+[CreateMonsterCombatant] = $VAR prm;
+-prm = $SA_PARAM_GET();
+-$AURA_Create("monster_AuraSeaHagFright",prm,0,0,0);
+\(END)
+

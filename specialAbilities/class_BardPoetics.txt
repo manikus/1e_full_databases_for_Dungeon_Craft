@@ -1,0 +1,12 @@
+\(BEGIN)
+name = class_BardPoetics
+[CanCureOrWhatever] = $VAR atk; $VAR adj; $VAR lvl;
+-atk = $IndexOf($AttackerContext()); adj = $SA_PARAM_GET(); lvl = $GET_CHAR_Lvl(atk,"bard") -# adj;
+-$IF (lvl <=# 0){$RETURN;};
+-$IF ($GET_CHARACTER_SA($AttackerContext(),"WaxingPoetc") != "-?-?-"){$RETURN;};
+-$SET_HOOK_PARAM( 5,"POETICS");
+-$SET_HOOK_PARAM( 6,"0");
+[CureOrWhatever] = $SET_HOOK_PARAM(1,"bardPoetics");
+-$RETURN "CastSpell";
+\(END)
+

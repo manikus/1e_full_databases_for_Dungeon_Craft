@@ -1,0 +1,10 @@
+\(BEGIN)
+name = IsFloatingEyeHypnotized
+[CanCastSpells] = $RETURN "N";
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7, $SA_PARAM_GET());
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[GetAdjMaxMovement] = $RETURN "0";
+[IsCombatReady] = $RETURN "N";
+\(END)
+

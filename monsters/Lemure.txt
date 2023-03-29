@@ -1,0 +1,43 @@
+\(BEGIN)
+name = Lemure
+icon file = icon_Lemure.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 2
+armor class = 7
+movement rate = 3
+hit dice = 3
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 18
+magic resistance = 0
+size = medium
+morale = 40
+experience point value = 104
+Special Ability = combatantAlignmentEvil
+Special Ability = elemental_ImmuneFire
+Special Ability = elemental_ImmuneIron
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantGas
+Special Ability = IsImmuneCharm
+Special Ability = IsImmuneSleep
+Special Ability = monsterLevel,3
+Special Ability = monster_DevilFearAura
+Special Ability = monster_Infravision
+Special Ability = monster_Regeneration,1
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Devil
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = none
+attack = 3,1,0,attacks,
+Undead = Special
+\(END)
+// MM p23
+

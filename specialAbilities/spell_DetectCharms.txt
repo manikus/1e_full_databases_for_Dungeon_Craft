@@ -1,0 +1,8 @@
+\(BEGIN)
+name = spell_DetectCharms
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR lvl; $VAR dur; $VAR exp;
+-atk = $IndexOf($AttackerContext()); cls = $GET_CHAR_CLASS(atk); lvl = $GET_CHAR_Lvl(atk,cls);
+-dur = lvl +# 3; exp = $GET_PARTY_TIME() +# dur;
+-$SET_CHARACTER_SA($TargetContext(),"IsDetectingCharms",exp);
+\(END)
+

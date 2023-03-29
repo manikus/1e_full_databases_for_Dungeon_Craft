@@ -1,0 +1,6 @@
+\(BEGIN)
+name = ChangeClassMonk
+[CanChangeFromClass] = $RETURN "N";
+[CanChangeToClass] = $RETURN "N";
+\(END)
+

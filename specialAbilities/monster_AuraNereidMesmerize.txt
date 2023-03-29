@@ -1,0 +1,19 @@
+\(BEGIN)
+name = monster_AuraNereidMesmerize
+[AURA_Create] = $VAR chr;
+-chr = $IndexOf($CharacterContext());
+-$AURA_Attach("Combatant");
+-$AURA_Combatant(chr);
+-$AURA_Size(0,3,0,360);
+-$AURA_Shape("AnnularSector");
+-$AURA_Wavelength("Xray");
+[AURA_Enter] = $VAR tgt; $VAR gndr;
+-tgt = $IndexOf($TargetContext());
+-gndr = $GET_CHAR_GENDER(tgt);
+-$IF (gndr !=# "0") {$RETURN $SET_COMBATANT_SA($CombatantContext(),"IsStunned","");};
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsStunned");
+[CreateMonsterCombatant] = $VAR prm;
+-prm = $SA_PARAM_GET();
+-$AURA_Create("monster_AuraNereidMesmerize",prm,0,0,0);
+\(END)
+

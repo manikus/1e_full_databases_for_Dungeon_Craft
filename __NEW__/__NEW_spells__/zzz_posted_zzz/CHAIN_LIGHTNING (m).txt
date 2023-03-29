@@ -1,0 +1,91 @@
+Chain Lightning (Evocation)
+
+Level:	 6	
+Components:	V, S, M
+Range: 4" + 1/2"/level	
+Casting Time: 6 segments
+Duration: Instantaneous	
+Saving Throw: 1/2 or Neg.
+Area of Effect: Special
+Explanation/Description: When this spell is cast, the electrical discharge begins as a single stroke of lightning, 1/4" wide, commencing from the fingertips of the caster and extending to the primary target, which must lie within the maximum range of the spell as dictated by the level of the caster
+
+Chain lightning differs sharply from a lightning bolt spell in that it has a primary target as opposed to an area effect. If the primary target makes a successful saving throw versus spell, one-half damage from the bolt of chain lightning is taken; otherwise full damage (1 d6 points per level of the spell caster) will be inflicted.
+
+In addition, after striking the initial target, the bolt arcs to the nearest other object, be it animal, vegetable, or mineral. This chain of striking continues from one object to another object nearest it, possibly setting up an oscillation between two (presumably stationary or immobilized) objects, or a regular pattern involving three or more objects. If two or more possible targets are equidistant, the chain lightning will arc to metal first, then to the one with the most fluid, otherwise at random. The chain keeps building up to as many "links" (including the initial target) as the spell caster has levels. Thus, a 12th-level magic-user casting the spell would hit 12 targets: the primary target first, then 11 other (not necessarily different) targets. After the initial strike, each object subsequently struck is entitled to a saving throw versus spell, if applicable. Success on this save indicates that the stroke actually arced to the next nearest target, and the target that saved takes no damage.
+
+The arcing bolt will continue until it has struck the appropriate number of objects, as indicated by a target's failure to save or lack of the opportunity to do so (as for an inanimate object of non-magical nature), until the stroke fades out or strikes a target that grounds it. Direction is never a consideration in plotting the path of the arcing chain lightning. Distance is a factor, though; a single arc can never be longer than the range limit. If, in order to arc, the bolt must travel a greater distance than its maximum range, the stroke fades into nothing. A tree or a substantial piece of conductive metal - such as interconnecting iron bars of a large cell or cage - will ground the lightning stroke and prevent further arcing.
+
+The lightning inflicts one less dB of damage on each target it hits after striking the primary target for the first time; if the initial target was struck by a 12d6 bolt, the next target struck takes an 11d6 bolt, then 10d6, 9d6, 8d6, 7d6, and so on all the way down to 1d6 - the last spurt of energy from the bolt. (A saving throw for half damage applies on each strike, different from the save versus spell to see if the lightning actually hits a secondary target.) The caster can be struck by an arc from his or her own spell. The material components are a bit of fur; an amber, glass, or crystal rod; and as many silver pins as the spell caster has levels of experience.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = spell_ChainLightning
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR lvl; $VAR hp; $VAR dmg; $VAR next; 
+-atk = $IndexOf($AttackerContext()); cls = $GET_CHAR_CLASS(atk); lvl = $GET_CHAR_Lvl(atk,cls) -# 1;
+-$WHILE (lvl ># 0)
+-	{
+-		dmg = ($RANDOM(6) +# 1) *# lvl; next = $IndexOf($NEAREST_TO($TargetContext())); hp = $GET_CHAR_HITPOINTS(next);
+-		$SET_CHAR_HITPOINTS(next,hp -# dmg);
+-		lvl = lvl -# 1;
+-	};
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// magic user lvel 6
+\(BEGIN)
+name = Chain Lightning
+casting sound = none
+cast msg = /c zaps /t for /d points of damage.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,0,1,0,0
+missile art = spell_missile_LightningBolt.png,50,8,48,48,1,1,0,1,0,0
+target cover art = none
+target hit art = spell_hit_LightningBolt.png,150,4,48,48,0,1,2,1,0,0
+target linger art = none
+school = Magic User
+cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = yes
+lingers = no
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,electricity
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spellClass,magicUser
+Special Ability = spell_Attack,1
+Special Ability = spell_ChainLightning
+targeting type = selectByCount
+target quantity = 1
+target range = 4+level/2
+level = 6
+casting time = 6
+casting time units = initiative
+duration = 0
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = $CHAR_HITPOINTS,-(1d6)*level,delta,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

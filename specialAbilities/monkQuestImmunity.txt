@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monkQuestImmunity
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Immune to Geas and Quest"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesSpellAttackSucceed] = $VAR spl;
+-spl = $SA_SPELL_GET("spell_Quest");
+-$IF (spl != "-?-?-") {$RETURN "N";};
+\(END)
+// level 10 - Geas or Quest spells immunity
+// level 10 IsImmunePoison in default DB
+

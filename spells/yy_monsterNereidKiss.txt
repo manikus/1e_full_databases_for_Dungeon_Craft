@@ -1,0 +1,50 @@
+\(BEGIN)
+name = monsterNereidKiss
+casting sound = none
+cast msg = /c kisses /t. /t cannot breath.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = none
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Monster
+cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = no
+allow scribe = no
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = Par/Pois/DM
+save result = negates
+Special Ability = DamageMagical,wound
+Special Ability = casterLevel,$cleric$0
+targeting type = selectByCount
+target quantity = 1
+target range = 0
+level = 1
+casting time = 0
+casting time units = immediate
+duration = 0
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 900
+spell effect 1 = $CHAR_HITPOINTS,-11,absolute,target,yes
+spell effect 2 = $CHAR_STATUS,2,absolute,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = $SET_HOOK_PARAM(5,"/t is unaffected by the kiss.");
+savingThrowFailedScript = 
+begin script = $VAR tgt;$VAR sex;tgt \= $IndexOf($TargetContext());sex \= $GET_CHAR_SEX(tgt);$IF (sex !\=# 0){$RETURN "0";};$SkillAdj($TargetContext(),"Save Vs PPDM","Nereid Kiss","-","2");$RETURN "1";
+end script = 
+\(END)
+

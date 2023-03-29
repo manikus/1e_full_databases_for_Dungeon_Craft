@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_ImmuneIllusions
+[DoesSpellAttackSucceed] = $IF ($SA_SPELL_GET("DamageMagical") == "illusion"){$RETURN "N";};
+\(END)
+

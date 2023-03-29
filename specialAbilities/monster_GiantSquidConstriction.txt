@@ -1,0 +1,23 @@
+\(BEGIN)
+name = monster_GiantSquidConstriction
+[InvokeSpellOnTarget] = $VAR atk;
+-$VAR tgt;
+-$VAR roll;
+-atk = $IndexOf($AttackerContext());
+-tgt = $IndexOf($TargetContext());
+-roll = $RANDOM(4);
+-	$IF ($GET_COMBATANT_SA($TargetContext(),"IsConstricted") == "-?-?-")
+-		{
+-			$SET_COMBATANT_SA($AttackerContext(),"ConstrictLink",tgt);
+-			$SET_COMBATANT_SA($AttackerContext(),"monster_GiantSquidConstricting",tgt);
+-			$SET_COMBATANT_SA($TargetContext(),"monster_GiantSquidConstricted",atk);
+-			$SET_COMBATANT_SA($TargetContext(),"ConstrictLink",atk);
+-			$IF (roll ==# 0)
+-				{$SET_COMBATANT_SA($TargetContext(),"IsConstricted","");};
+-			$IF (roll ==# 3)
+-				{$SET_COMBATANT_SA($TargetContext(),"IsConstrictedBothArms","");}
+-			$ELSE
+-				{$SET_COMBATANT_SA($TargetContext(),"IsConstrictedOneArm","");};
+-		};
+\(END)
+

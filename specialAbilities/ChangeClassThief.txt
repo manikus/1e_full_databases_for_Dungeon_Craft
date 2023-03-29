@@ -1,0 +1,24 @@
+\(BEGIN)
+name = ChangeClassThief
+[CanChangeFromClass] = $VAR me; $VAR DEX;
+-me = $IndexOf($CharacterContext());
+-DEX = $GET_CHAR_LIMITED_DEX(me);
+-$IF (DEX >=# 15) {$RETURN "Y";};
+[CanChangeToClass] = $VAR me; $VAR DEX; $VAR align;
+-me = $IndexOf($CharacterContext());
+-DEX = $GET_CHAR_LIMITED_DEX(me);
+-align = $GET_CHAR_ALIGNMENT(me);
+-$IF ((DEX >=# 17) && (align !=# 0)) {$RETURN "Y";};
+[ChangeClassFrom] = $VAR me; $VAR lvl; $VAR XP;
+-me = $IndexOf($CharacterContext());
+-lvl = $GET_CHAR_Lvl(me,"thief");
+-XP = $GET_CHAR_Exp(me,"thief");
+-$DELETE_CHARACTER_SA($CharacterContext(),"class_NoSpells");
+-$DELETE_CHARACTER_SA($CharacterContext(),"class_ThievingSkills");
+-$DELETE_CHARACTER_SA($CharacterContext(),"class_baseName");
+-$IF (lvl ==# 6){$SET_CHARACTER_SA($CharacterContext(),"preAcrobat",XP);};
+[ChangeClassTo] = $SET_CHARACTER_SA($CharacterContext(),"class_NoSpells",thief);
+-$SET_CHARACTER_SA($CharacterContext(),"class_ThievingSkills",$thief);
+-$SET_CHARACTER_SA($CharacterContext(),"class_baseName",$thief);
+\(END)
+

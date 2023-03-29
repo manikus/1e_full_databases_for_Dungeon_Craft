@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Nymph
+icon file = icon_Nymph.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 14
+armor class = 0
+movement rate = 12
+hit dice = 3
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 18
+magic resistance = 0
+size = medium
+morale = 35
+experience point value = 389
+Special Ability = monsterLevel,3
+Special Ability = monster_NymphCharm
+Class = Fighter
+Race = Monster
+form = none
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 1,1,0,attacks,
+Undead = none
+\(END)
+// MM
+

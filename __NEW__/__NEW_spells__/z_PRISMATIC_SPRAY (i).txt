@@ -1,0 +1,128 @@
+Prismatic Spray (Abjuration, Conjuration/Summoning)
+
+Level: 7	
+Components: V, S
+Range: 0	
+Casting Time: 7 segments
+Duration: Instantaneous	
+Saving Throw: Special
+Area of Effect: 7" long plane, 1 1/2" wide at end, 1/2" wide at base
+Explanation/Description:	When this spell is cast, the illusionist causes 7 rays of the prismatic sphere spell (q.v.) to spring from his or her hand. Any creature in the area of effect will be touched by 1 or more of she rays. To determine which ray strikes the concerned creature, roll an eight-sided die:
+
+1 = red			prevents all non-magical missiles - inflicts 10 hit points of damage
+2 = orange		prevents all magical missiles - inflicts 20 hit points of damage
+3 = yellow		prevents poisons, gasses, and petrification - inflicts 40 hit points of damage
+4 = green		prevents all breath weapons - save vs. poison or dead
+5 = blue		prevents location / detection and psionics - save vs. petrification or turned to stone
+6 = indigo		prevents all magical spells - save vs. wand or insane
+7 = violet		force field protection - save vs. magic or sent to another plane
+8 = struck by 2 rays, roll again twice ignoring any 8's
+
+Saving throws apply only with respect to those prismatic color rays which call for such.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsInsane
+[CanCastSpells] = $RETURN "N";
+[Dispel] = $SA_REMOVE();
+[GetAdjMaxMovement] = $RETURN 0;
+[IsCombatReady] = $RETURN "N";
+\(END)
+
+\(BEGIN)
+name = spell_PrismaticSpray
+[InvokeSpellOnTarget] = $VAR rndm; $VAR tgt; $VAR hp; $VAR save; $VAR vsPoison; $VAR vsWand; $VAR vsMagic; $VAR time;
+-rndm = $RANDOM(8); 
+-tgt = $IndexOf($TargetContext());
+-hp = $GET_CHAR_HITPOINTS(tgt);
+-save = $RANDOM(20) +# 1;
+-vsPoison = $SkillAdj($TargetContext(), "Save Vs PPDM", "", "F", "");
+-vsWand = $SkillAdj($TargetContext(), "Save Vs RSW", "", "F", "");
+-vsMagic = $SkillAdj($TargetContext(), "Save Vs SP", "", "F", "");
+-time = $GET_PARTY_TIME();
+-$IF (rndm ==# 0){$SET_CHAR_HITPOINTS(tgt,hp -# 10);};
+-$IF (rndm ==# 1){$SET_CHAR_HITPOINTS(tgt,hp -# 20);};
+-$IF (rndm ==# 2){$SET_CHAR_HITPOINTS(tgt,hp -# 40);};
+-$IF (rndm ==# 3)
+-	{
+-		$IF (save <# vsPoison)
+-			{
+-				$SET_COMBATANT_SA($TargetContext(),"IsPoisoned",time);
+-				$SET_CHAR_STATUS(tgt,2);$SET_CHAR_HITPOINTS(tgt,"-11");
+-			};
+-	};
+-$IF (rndm ==# 4)
+-	{
+-		$IF (save <# vsPoison)
+-			{$SET_COMBATANT_SA($TargetContext(),"IsPetrified",time);	$SET_CHAR_STATUS(tgt,4);};
+-	};
+-$IF (rndm ==# 5)
+-	{ $IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);}; };
+-$IF (rndm ==# 6)
+-	{ $IF (save <# vsMagic){$SET_CHAR_STATUS(tgt,5);}; };
+-$IF (rndm ==# 7)
+-	{
+-		$SET_CHAR_HITPOINTS(tgt,hp -# 20);
+-		$IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);};
+-	};
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// illusionist level 7
+\(BEGIN)
+name = Prismatic Spray
+casting sound = sound_Cast.wav
+cast msg = /c sends forth a ray of light.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Illusionist.png,210,2,48,48,0,1,0,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = MIllusionist
+cast by = illusionist
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = yes
+save versus = spell
+save result = none
+Special Ability = DamageMagical,illusion
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$illusionist$0
+Special Ability = spellClass,illusionist
+Special Ability = spell_PrismaticSpray,illusionist
+targeting type = areacone
+target width = 2
+target length = 7
+target range = 1
+level = 7
+casting time = 7
+casting time units = initiative
+duration = 0
+duration units = immediate
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

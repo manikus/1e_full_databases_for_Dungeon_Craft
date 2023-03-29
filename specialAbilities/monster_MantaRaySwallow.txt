@@ -1,0 +1,20 @@
+\(BEGIN)
+name = monster_MantaRaySwallow
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR link; $VAR exp;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-// Attacker
+-$SET_COMBATANT_SA($AttackerContext(),"monster_MantaRaySwallower","");
+-$SET_COMBATANT_SA($AttackerContext(),"monster_MantaRaySwallowLink",tgt);
+-// Target
+-$SET_COMBATANT_SA($TargetContext(),"IsManatRaySwallowed",exp);
+-$SET_COMBATANT_SA($TargetContext(),"IsHugged","1");
+-// Link
+-link = $GET_COMBATANT_SA($TargetContext(),"monster_MantaRaySwallowLink");
+-$IF (link == "-?-?-"){$SET_COMBATANT_SA($TargetContext(),"monster_MantaRaySwallowLink","$255$" + atk);}
+-$ELSE
+-	{
+-		link = link + "$" + atk;
+-		$SET_COMBATANT_SA($TargetContext(),"monster_MantaRaySwallowLink",link);
+-	};
+\(END)
+

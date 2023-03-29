@@ -1,0 +1,6 @@
+\(BEGIN)
+name = IsPiscodaemonSiezed
+[CanCastSpells] = $RETURN "N";
+[GetAdjMaxMovement] = $RETURN 0;
+\(END)
+

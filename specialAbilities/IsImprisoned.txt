@@ -1,0 +1,8 @@
+\(BEGIN)
+name = IsImprisoned
+[IsCombatReady] = $RETURN "N";
+[OnEndCombat] = $VAR tgt;
+-tgt = $IndexOf($CombatantContext());
+-$SET_CHAR_STATUS(tgt,"5");
+\(END)
+

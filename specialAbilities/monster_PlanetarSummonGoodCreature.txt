@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_PlanetarSummonGoodCreature
+[InvokeSpellOnTarget] = // not implemented until couatl, baku or androsphinx are added
+\(END)
+

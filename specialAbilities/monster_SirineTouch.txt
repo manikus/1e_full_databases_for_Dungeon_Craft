@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_SirineTouch
+[InvokeSpellOnTarget] = $VAR tgt; $VAR trib;
+-tgt = $IndexOf($TargetContext());
+-trib = 2 -# $GET_CHAR_LIMITED_INT(tgt);
+-$MODIFY_CHAR_ATTRIBUTE(tgt,"INT", trib, "MINUTES", 999999999, "Idiot", "Sirine's Touch");
+\(END)
+

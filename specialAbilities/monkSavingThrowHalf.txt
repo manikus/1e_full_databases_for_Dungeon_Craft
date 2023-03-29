@@ -1,0 +1,24 @@
+\(BEGIN)
+name = monkSavingThrowHalf
+[ComputeDamage] = $VAR tgt; $VAR lvl; $VAR itm; $VAR sav; $VAR rndm; $VAR spl; $VAR p5;
+-tgt = $IndexOf($TargetContext()); lvl = $GET_CHAR_Lvl(tgt,"monk");
+-$IF (lvl <# 9) {$RETURN;};
+-rndm = $RANDOM(20) +# 1; spl = $SkillAdj($CharacterContext(),"Save Vs SP","","F","");
+-itm = $SA_ITEM_GET("itemType"); sav = $SA_COMBATANT_GET("itemType"+itm);
+-$IF (sav != "-?-?-") {$RETURN 0;};
+-$IF (spl <# rndm) {sav = 0;};
+-p5 = $GET_HOOK_PARAM(5);
+-$IF (sav ==# 0) {$RETURN p5 /# 2;}
+-$ELSE {$SET_COMBATANT_SA($Myself(),"itemType"+itm,"1"); $RETURN 0;};
+[ComputeSpellDamage] = $VAR tgt; $VAR lvl; $VAR itm; $VAR sav; $VAR rndm; $VAR spl; $VAR p5;
+-tgt = $IndexOf($TargetContext()); lvl = $GET_CHAR_Lvl(tgt,"monk");
+-$IF (lvl <# 9) {$RETURN;};
+-rndm = $RANDOM(20) +# 1; spl = $SkillAdj($CharacterContext(),"Save Vs SP","","F","");
+-itm = $SA_SPELL_GET("itemType"); sav = $SA_COMBATANT_GET("itemType"+itm);
+-$IF (sav != "-?-?-") {$RETURN 0;};
+-$IF (spl <# rndm) {sav = 0;};
+-p5 = $GET_HOOK_PARAM(5);
+-$IF (sav ==# 0) {$RETURN p5 /# 2;}
+-$ELSE {$SET_COMBATANT_SA($Myself(),"itemType"+itm,"1"); $RETURN 0;};
+\(END)
+

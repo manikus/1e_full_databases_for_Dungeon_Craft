@@ -1,0 +1,11 @@
+\(BEGIN)
+name = IsAbolethEnslaved
+[CanCastSpells] = $RETURN "N";
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Enslaved by Aboleth");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[Dispel] = $SA_REMOVE();
+[GetAdjMaxMovement] = $RETURN 0;
+[IsCombatReady] = $RETURN "N";
+\(END)
+

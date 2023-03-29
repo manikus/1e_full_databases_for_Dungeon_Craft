@@ -1,0 +1,33 @@
+\(BEGIN)
+name = Baird's Beaked Whale
+icon file = icon_BairdsBeakedWhale.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 6
+armor class = 4
+movement rate = 18
+hit dice = 21
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 7
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 1440
+Special Ability = monsterLevel,21
+Special Ability = monster_AuraWhaleTailSmash,11
+Special Ability = baseForMonster,Black Whale
+Class = Fighter
+Race = Monster
+form = mammal + animal
+penalty = none
+immunity = vorpal weapon
+Misc Options = can be held/charmed
+item = none
+attack = 8,4,0,attacks,
+Undead = none
+\(END)
+// MM
+

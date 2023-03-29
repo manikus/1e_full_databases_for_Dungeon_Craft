@@ -1,0 +1,38 @@
+\(BEGIN)
+name = Kraken
+icon file = icon_Kraken.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 19
+armor class = 0
+movement rate = 3
+hit dice = 20
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 7
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 19600
+Special Ability = monster_CombatantAlignment,evil
+Special Ability = monsterLevel,20
+Class = Fighter
+Race = Monster
+form = large + animal
+penalty = none
+immunity = none
+Misc Options = none
+item = none
+attack = 6,2,0,attacks,
+attack = 6,2,0,attacks,
+attack = 4,2,0,attacks,monsterKrakenConstriction
+attack = 4,2,0,attacks,monsterKrakenConstriction
+attack = 4,2,0,attacks,monsterKrakenConstriction
+attack = 4,2,0,attacks,monsterKrakenConstriction
+attack = 4,5,0,bites,
+Undead = none
+\(END)
+// MMII
+

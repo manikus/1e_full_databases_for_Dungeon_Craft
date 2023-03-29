@@ -1,0 +1,381 @@
+Pyrotechnics (Alteration)
+
+Level: 3	
+Components: V, S, M
+Range: 16"	
+Casting Time: 5 segments
+Duration: Special	
+Saving Throw: None
+Area of Effect: 10 or 100 times the fire source
+Explanation/Description: A pyrotechnics spell can have either of two effects, It produces a flashing and fiery burst of glowing, colored aerial fireworks which lasts 1 segment per experience level of the druid casting the spell and temporarily blinds those creatures in the area of effect or under it or within 12" of the area (and in any event in unobstructed line of sight); or it causes a thick writhing stream of smoke to arise from the fire source of the spell and form a choking cloud which lasts for 1 round per experience level of the druid casting it, covering a roughly globular area from the ground or floor up (or conforming to the shape of a confined area), which totally obscures vision beyond 2'. The spell requires a fire of some sort in range. The area of pyrotechnics effect is 10 times the volume of the fire source with respect to fireworks, 100 times with respect to smoke. In either case, the fire source is immediately extinguished by the employment of the spell.
+
+Pyrotechnics (Alteration)
+
+Level: 2	
+Components: V, S
+Range: 12"	
+Casting Time: 2 segments
+Duration: Special	
+Saving Throw: None
+Area of Effect: 10 or 100 times the fire source used
+Explanation/Description:	With she exception of she differences noted above, this spell is the same as the third level druid spell pyrotechnics 
+
+Incendiary Cloud (Alteration-Evocation)
+
+Level: 8	
+Components: V, S, M
+Range: 3"	
+Casting Time: 2 segments
+Duration: 4 rounds + 1-6 rounds	
+Saving Throw: 1/2
+Area of Effect: Special
+Explanation/Description:	An incendiary cloud spell exactly resembles the smoke effects of a pyrotechnics spell (q.v.), except that its minimum dimensions area cloud of 10' height by 20' length and breadth. This dense vapor cloud billows forth, and on the 3rd round of its existence it begins to flame, causing 1/2 hit point per level of the magic-user who cast it. On the 4th round it does 1 hit point of damage per level of the caster, and on the 5th round it again drops to 1/2 h.p. of damage per level of the magic-user as its flames burn out. Any successive rounds of existence are simply harmless smoke which obscures vision within its confines. Creatures within the cloud need make only 1 saving throw if it is successful, but if they fail the first, they roll again on the 4th and 5th rounds (if necessary) to attempt to reduce damage sustained by one-half. In order to cast this spell the magic-user must have an available fire source (just as with a pyrotechnics spell), scrapings from beneath a dung pile, and a pinch of dust.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsBlindPyrotechnics
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Blind");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[DoesAttackSucceed] = $IF ($GET_COMBATANT_SA($TargetContext(),"IsBlindPyrotechnics") != "-?-?-")
+-  {$SET_HOOK_PARAM(6,$GET_HOOK_PARAM(6) -# 4);};
+-$IF ($GET_HOOK_PARAM(5) >=# $GET_HOOK_PARAM(6))
+-  {$RETURN "Y";}
+-$ELSE {$RETURN "N";};
+[IsCombatReady] = $RETURN "N";
+[StartCombatRound] = $VAR exp; $VAR time;
+-exp = $SA_PARAM_GET(); time = $GET_PARTY_TIME();
+-$IF (time ># exp) {$DELETE_COMBATANT_SA($CombatantContext(),"IsBlindPyrotechnics");};
+\(END)
+
+\(BEGIN)
+name = spell_Pyrotechnics
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR lvl; $VAR adj;
+-atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET(); adj = 0;
+-$IF (cls == "ranger"){adj = 8;};
+-lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
+-$SET_CHARACTER_SA($TargetContext(),"IsBlindPyrotechnics",$GET_PARTY_TIME() +# lvl);
+\(END)
+
+////////////////////
+\(BEGIN)
+name = IsFieryCloudy
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7, "Partially blinded by smoke"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[Dispel] = $SA_REMOVE();
+[DoesAttackSucceed] = $VAR p5; $VAR p6;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$IF (p5 ># (p6 -# 4)) {$RETURN "Y";};
+[OnEndCombat] = $SA_REMOVE();
+-$DELETE_CHARACTER_SA($CombatantContext(),"FieryLevel"); $DELETE_CHARACTER_SA($CombatantContext(),"FierySave");
+[StartCombatRound] = $VAR prm; $VAR rnd; $VAR lvl; $VAR tgt; $VAR hp; $VAR save; $VAR roll;
+-prm = $SA_PARAM_GET(); rnd = $GetCombatRound(); lvl = $SA_CHARACTER_GET("FieryLevel"); roll = $RANDOM(20) +# 1;
+-tgt = $IndexOf($TargetContext()); hp = $GET_CHAR_HITPOINTS(tgt); save = $SA_CHARACTER_GET("FierySave");
+-$IF ((rnd -# prm) ==# 3) {$RETURN $SET_CHAR_HITPOINTS(tgt,hp -# (lvl /# 2));};
+-$IF ((rnd -# prm) ==# 4) {$IF (roll <=# save) {$SA_REMOVE(); $RETURN $SET_CHAR_HITPOINTS(tgt,hp -# lvl);};};
+-$IF ((rnd -# prm) ==# 5) {$IF (roll <=# save) {$SA_REMOVE(); $RETURN $SET_CHAR_HITPOINTS(tgt,hp -# (lvl /# 2));};};
+\(END)
+
+\(BEGIN)
+name = spell_IncendiaryCloud
+[Dispel] = $SA_REMOVE(); $RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR adj; $VAR lvl; $VAR rnd;
+-$IF ($GET_CHARACTER_SA($TargetContext(),"elemental_ImmuneFire") != "-?-?-"){$RETURN;};
+-$IF($GET_CHARACTER_SA($TargetContext(),"IsProtectedFireCaster") != "-?-?-"){$RETURN;};
+-$IF($GET_CHARACTER_SA($TargetContext(),"IsProtectedFireTarget") != "-?-?-"){$RETURN;};
+-atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET(); rnd = $GetCombatRound();
+-adj = $GET_CHARACTER_SA($AttackerContext(),"casterLevel"); lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
+-$SET_CHARACTER_SA($TargetContext(),"DispelLevel",lvl);
+-$SET_CHARACTER_SA($TargetContext(),"FierySave",$SkillAdj($TargetContext(), "Save Vs Spell", "", "F", ""));
+-$SET_CHARACTER_SA($TargetContext(),"IsFieryCloudy",rnd); $SET_CHARACTER_SA($TargetContext(),"FieryLevel",lvl);
+[RemoveLinger] = $RETURN "AREA";
+[SpellLingerBlockage] = $IF ($GET_CHARACTER_SA($CharacterContext(),"elemental_ImmuneFire") != "-?-?-" || $SA_CHARACTER_GET("IsProtectedFireCaster") != "-?-?-" || $SA_CHARACTER_GET("IsProtectedFireTarget") != "-?-?-"){$RETURN;};
+-$IF ($GET_CHARACTER_SA($CombatantContext(),"FierySave") != "-?-?-") {$RETURN "N";};
+\(END)
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// druid level 3
+\(BEGIN)
+name = Pyrotechncs|Druid
+casting sound = sound_Cast.wav
+cast msg = /c lights it up.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Druid.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = spell_hit_Pyrotechnics.png,190,3,48,48,0,1,2,1,0,0
+target linger art = none
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,fire
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Pyrotechnics,druid
+Special Ability = spell_Attack,1
+targeting type = areacircle
+target quantity = 625
+target range = 16
+target radius = 12
+level = 3
+casting time = 5
+casting time units = initiative
+target quantity = 
+duration = 
+duration units = instantaneous
+target duration = 
+target range = 
+price = 0
+priority = 500
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// ranger druid level 3
+\(BEGIN)
+name = Pyrotechncs|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c lights it up.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Druid.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = spell_hit_Pyrotechnics.png,190,3,48,48,0,1,2,1,0,0
+target linger art = none
+school = Druid
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,fire
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$ranger$7
+Special Ability = spell_Pyrotechnics,ranger
+Special Ability = spell_Attack,1
+targeting type = areacircle
+target quantity = 625
+target range = 16
+target radius = 12
+level = 3
+casting time = 5
+casting time units = initiative
+target quantity = 
+duration = 
+duration units = instantaneous
+target duration = 
+target range = 
+price = 0
+priority = 500
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// magic user level 2
+\(BEGIN)
+name = Pyrotechncs|Magic User
+casting sound = sound_Cast.wav
+cast msg = /c lights it up.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = spell_hit_Pyrotechnics.png,190,3,48,48,0,1,2,1,0,0
+target linger art = none
+school = Magic User
+Cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,fire
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spell_Pyrotechnics,magicUser
+Special Ability = spell_Attack,1
+targeting type = areacircle
+target quantity = 625
+target range = 12
+target radius = 12
+level = 2
+casting time = 2
+casting time units = initiative
+target quantity = 
+duration = 
+duration units = instantaneous
+target duration = 
+target range = 
+price = 0
+priority = 500
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// magic user level 8
+\(BEGIN)
+name = Incendiary Cloud
+casting sound = sound_Cast.wav
+cast msg = /c raises a thick smoke cloud.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,0,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_IncendiaryCloud.png,200,4,48,48,0,1,0,1,0,0
+target hit art = none
+target linger art = spell_linger_IncendiaryCloud.png,200,4,48,48,0,1,4,1,0,0
+school = Magic User
+cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,fire
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spellClass,magicUser
+Special Ability = spell_Attack,1
+Special Ability = spell_IncendiaryCloud,magicUser
+targeting type = areasquare
+target width = 3
+target height = 3
+target range = 3
+level = 8
+casting time = 2
+casting time units = initiative
+duration = level
+duration units = rounds
+target duration = 1d6+4
+price = 0
+priority = 500
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// ranger magic user level 2
+\(BEGIN)
+name = Pyrotechncs|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c lights it up.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = spell_hit_Pyrotechnics.png,190,3,48,48,0,1,2,1,0,0
+target linger art = none
+school = Magic User
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,fire
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$ranger$8
+Special Ability = spell_Pyrotechnics,ranger
+Special Ability = spell_Attack,1
+targeting type = areacircle
+target quantity = 625
+target range = 12
+target radius = 12
+level = 2
+casting time = 2
+casting time units = initiative
+target quantity = 
+duration = 
+duration units = instantaneous
+target duration = 
+target range = 
+price = 0
+priority = 500
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

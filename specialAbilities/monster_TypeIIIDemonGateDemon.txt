@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monster_TypeIIIDemonGateDemon
+[InvokeSpellOnTarget] = $VAR pct; $VAR rdm;
+-pct =$RANDOM(100); rdm = $RANDOM(3);
+-$IF (pct ># 30){$RETURN;};
+-$IF (rdm ==# 0){$AddCombatant("Type I Demon",0);};
+-$IF (rdm ==# 1){$AddCombatant("Type II Demon",0);};
+-$IF (rdm ==# 2){$AddCombatant("Type III Demon",0);};
+\(END)
+

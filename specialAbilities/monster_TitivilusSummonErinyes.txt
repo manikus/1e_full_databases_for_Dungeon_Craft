@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monster_TitivilusSummonErinyes
+[InvokeSpellOnTarget] = $VAR rdm; $VAR pct;
+-pct = $RANDOM(100);
+-rdm = $RANDOM(4);
+-$IF (pct >=# 50){$RETURN;};
+-$WHILE (rdm >=# 0) {$AddCombatant("Erinyes",0); rdm = rdm -# 1;};
+\(END)
+

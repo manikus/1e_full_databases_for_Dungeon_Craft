@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Demi-Shadow Yeti
+icon file = icon_DemiShadowYeti.png,0,2,48,48,0,1,0
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 9
+armor class = 8
+movement rate = 15
+hit dice = 1.600000
+treat HD as hit points = yes
+hit dice bonus = 4
+THAC0 = 15
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 535
+Special Ability = monsterLevel,5
+Special Ability = monster_CombatantAlignment,evil
+Special Ability = monster_ElementalImmunity,cold
+Class = Fighter
+form = mammal + animal + none
+penalty = none
+immunity = none
+Misc Options = none
+item = none
+attack = 2,1,0,claws,
+attack = 2,1,0,claws,
+Undead = none
+\(END)
+

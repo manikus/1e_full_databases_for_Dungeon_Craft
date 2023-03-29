@@ -1,0 +1,97 @@
+(Monster Manual II p71)
+
+GREEN HAG
+FREQUENCY:			Very rare
+NO. APPEARING:		1
+ARMOR CLASS:		-2
+MOVE:				12"//12"
+HIT DICE: 			9
+% IN LAIR: 			40%
+TREASURE TYPE:		M (xl00). N (xl0) Q (x5). X
+NO. OF ATTACKS:		2
+DAMAGE/ATTACK:		7-8/7-8
+SPECIALATTACKS:		See below
+SPECIAL DEFENSES:	See below
+MAGIC RESISTANCE:	35%
+INTELLIGENCE:		Low to very
+ALIGNMENT:			Neutral evil
+SIZE:				M
+PSlONlC ABILITY:	Nil
+Attack/Defense Modes
+	NiVnil
+LEVEUX.P. VALUE
+	VIV1600 + 12/hp
+Greenhags are a race of evil creatures related to both annis and nighthags
+(q.v.). As do the annis, greenhags dwell on the Prime Material
+Plane. While many of these horrid creatures live in forests and lonely
+moors, there are some inhabiting swamps and rivers. These latter sort
+are often called shellycoats. The lair isalways a small cave, possiblyone
+dug in earth. Greenhags of any sort attack by clawing with rock-hard
+talons. They have strength of 18/00 and thus add +6 to the damage
+inflicted by each such attack..
+In order to lure victims to them, greenhags typically use their mimic
+ability. This allows them to imitate the voice of a mature or immature
+male or female, human or demihuman. Calls for help, crying, and so
+forth are quite common deceptions employed by greenhags. They are
+also able to mimic common animal sounds, such as those of barnyard
+fowl, cats, dogs, goats, sheep and cattle.
+Greenhags havethe following spell-like powerswhich they canemploy
+1 at a time, at will, 1 per round: audibleglamer, dancinglights, invisibility,
+pass without trace, change self, speak with monsters, water breathing,
+weakness. Each power is employed at 9th level of ability.
+Because of their coloration and the fact that they are 90% likely to be
+able to move silently and hide in foliage (even of the underwater sort),
+greenhags surprise 5 in 6 (19 in 20 if attacking from invisible state).
+Because of their highly acute senses, including infra- and ultravision,
+they are surprised only 1 in 20. Greenhaqsspeak their own language (a
+dialect of Annis), Ogre, common Giant, and Common.
+A typical greenhag appears to be a nighthag with green skin. Hair color
+ranges from near black to olive green. Eye color ranges from amber to
+orange. They often dress as peasants do.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// monsters /////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = Greenhag
+icon file = icon_Greenhag.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 9
+armor class = -2
+movement rate = 12
+hit dice = 9
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 12
+magic resistance = 0
+size = medium
+morale = 35
+experience point value = 2080
+Special Ability = monsterLevel,9
+Special Ability = monster_CombatantAlignment,evil
+Special Ability = IsInvisible
+Special Ability = monsterGreenhagNotSurprised
+Class = Fighter
+Race = Monster
+form = none
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 2,1,6,attacks,
+attack = 2,1,6,attacks,
+Undead = none
+\(END)
+// mmII p71
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = monsterGreenhagNotSurprised
+[AdjustInitiative] = $RETURN "-10";
+\(END)
+

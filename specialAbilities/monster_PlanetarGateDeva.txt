@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monster_PlanetarGateDeva
+[InvokeSpellOnTarget] = $VAR rdm; $VAR rd1; $VAR rd2; $VAR rd3;
+-rdm = $RANDOM(3); rd1 = $RANDOM(3); rd2 = $RANDOM(4); rd3 = $RANDOM(6);
+-$IF (rdm ==# 0){$WHILE (rd1 >=# 0) {$AddCombatant("Astral Deva",0); rd1 = rd1 -# 1;};};
+-$IF (rdm ==# 1){$WHILE (rd1 >=# 0) {$AddCombatant("Monadic Deva",0); rd1 = rd1 -# 1;};};
+-$IF (rdm ==# 2){$WHILE (rd1 >=# 0) {$AddCombatant("Movanic Deva",0); rd1 = rd1 -# 1;};};
+\(END)
+

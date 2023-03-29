@@ -1,0 +1,30 @@
+\(BEGIN)
+name = Shade Worg
+icon file = icon_ShadeWorg.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 7
+armor class = 6
+movement rate = 18
+hit dice = 2.400000
+treat HD as hit points = yes
+hit dice bonus = 4
+THAC0 = 16
+magic resistance = 0
+size = medium
+morale = 35
+experience point value = 190
+Special Ability = monsterLevel,5
+Special Ability = monster_CombatantAlignment,evil
+Class = Fighter
+form = mammal + animal + none
+penalty = none
+immunity = none
+Misc Options = can be held/charmed + none
+item = none
+attack = 5,1,0,bites,
+Undead = none
+\(END)
+

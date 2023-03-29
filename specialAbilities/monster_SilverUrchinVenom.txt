@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_SilverUrchinVenom
+[InvokeSpellOnTarget] = $VAR rndm; $VAR exp;
+-rndm = $RANDOM(3) +# 1;
+-exp = $GET_PARTY_DAYS() +# rndm;
+-$SET_COMBATANT_SA($TargetContext(), "IsSIlverUrchinCatatonic", exp);
+\(END)
+

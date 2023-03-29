@@ -1,0 +1,5 @@
+\(BEGIN)
+name = item_Diabolic
+note = designer SA, i.e. a script can check to see if the monster has Ultravision
+\(END)
+

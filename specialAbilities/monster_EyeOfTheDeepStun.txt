@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_EyeOfTheDeepStun
+[InvokeSpellOnTarget] = $VAR rndm; $VAR exp;
+-rndm = $RANDOM(4) +# $RANDOM(4) +# 2;
+-exp = $GetCombatRound() +# rndm;
+-$SET_COMBATANT_SA($TargetContext(),"IsStunned", exp);
+\(END)
+

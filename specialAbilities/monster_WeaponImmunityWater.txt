@@ -1,0 +1,11 @@
+\(BEGIN)
+name = monster_WeaponImmunityWater
+[ComputeDamage] = $VAR item; $VAR itmNon; $VAR immune;
+-item = $SA_ITEM_GET("DamageMagical");
+-itmNon = $SA_ITEM_GET("DamageNonMagical");
+-$IF ((item == "-?-?-") && (itmNon == "-?-?-")) {$RETURN;};
+-$IF (item != "-?-?-") {immune = item;};
+-$IF (itmNon != "-?-?-") {immune = itmNon;};
+-$IF (immune == "water") {$RETURN 0;};
+\(END)
+

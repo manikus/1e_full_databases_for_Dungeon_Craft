@@ -1,0 +1,10 @@
+\(BEGIN)
+name = item_GlaiveHook
+[DoesAttackSucceed] = $VAR p5; $VAR p6; $VAR hld; $VAR tgt; $VAR rce;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$IF (p5 <=# p6) {$RETURN;};
+-hld = $RANDOM(6); tgt = $IndexOf($TargetContext()); rce = "1";
+-$IF ($GET_CHAR_RACE(tgt) != "Human") {rce = "2";};
+-$IF (hld <# rce) {$SET_COMBATANT_SA($TargetContext(),"IsGlaiveHooked","0");};
+\(END)
+

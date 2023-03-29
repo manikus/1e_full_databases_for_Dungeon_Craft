@@ -1,0 +1,21 @@
+\(BEGIN)
+name = monkHealDamage
+[CanCureOrWhatever] = $VAR pTime; $VAR cTime; $VAR eTime; $VAR tgt; $VAR lvl;
+-pTime = $GET_CHARACTER_SA($CharacterContext(),"monkHealTime"); cTime = $GET_PARTY_TIME();
+-tgt = $IndexOf($Myself()); lvl = $GET_CHAR_Lvl(tgt,"monk");
+-$IF (lvl <# 7) {$RETURN;};
+-$IF(pTime != "-?-?-"){eTime = cTime -# pTime;}
+-$ELSE{eTime = "0";};
+-$IF ((eTime >=# 0) && (eTime <# 1440)) {$RETURN;};
+-$SET_HOOK_PARAM( 5, "HEAL SELF" ); $SET_HOOK_PARAM( 6, "0");
+[CureOrWhatever] = $VAR cTime; $VAR tgt; $VAR lvl; $VAR rndm; $VAR hp; $VAR maxHP; $VAR adj;
+-cTime = $GET_PARTY_TIME(); tgt = $IndexOf($Myself()); lvl = $GET_CHAR_Lvl(tgt,"monk");
+-rndm = $RANDOM(4) +# 1; hp = $GET_CHAR_HITPOINTS(tgt); maxHP = $GET_CHAR_MAXHITPOINTS(tgt);
+-adj = rndm +# 1 + (lvl -# 7);
+-$IF ((hp +# adj) >=# maxHP) {$SET_CHAR_HITPOINTS(tgt,maxHP);}
+-$ELSE {$SET_CHAR_HITPOINTS(tgt,hp +# adj);};
+-$SET_CHARACTER_SA($CharacterContext(),"monkHealTime",cTime);
+-$RETURN;
+\(END)
+// level 4
+

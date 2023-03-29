@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_HighestInitiative
+[AdjustInitiative] = $SET_HOOK_PARAM(5,"1");
+\(END)
+

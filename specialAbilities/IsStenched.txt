@@ -1,0 +1,9 @@
+\(BEGIN)
+name = IsStenched
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Coughing"); $SET_HOOK_PARAM( 6,""); $RETURN "1";
+[ComputeDamage] = $IF ($GET_COMBATANT_SA($TargetContext(),"IsStenched") != "-?-?-")
+-	{$RETURN $GET_CHAR_HITPOINTS($IndexOf($TargetContext()));};
+[DoesAttackSucceed] = $IF ($GET_COMBATANT_SA($TargetContext(),"IsStenched") != "-?-?-") {$RETURN "Y";};
+[IsCombatReady] = $RETURN "N";
+\(END)
+

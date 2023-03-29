@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_GiantJellyfishParalyzation
+[InvokeSpellOnTarget]= $SET_COMBATANT_SA($TargetContext(),"IsParalyzed","Paralyzed");
+\(END)
+

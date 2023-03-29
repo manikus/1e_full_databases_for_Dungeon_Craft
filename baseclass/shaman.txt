@@ -1,0 +1,56 @@
+\(BEGIN)
+name = shaman
+BonusXP = Wisdom,%,0,0,0,0,0,0,0,0,100,100,100,100,100,100,100,110,110,110,110,110,110,110,110,110,110
+THAC0 = 20,20,20,18,18,18,16,16,16,14,14,14,12,12,12,10,10,10,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9
+AbilityRequirement = Wisdom 9/18
+AbilityRequirement = Strength 3/19
+AbilityRequirement = Dexterity 3/19
+AbilityRequirement = Constitution 3/19
+Allowed Race = Locathah
+Allowed Alignment = any
+ExpLevel = 0
+ExpLevel = 1501
+ExpLevel = 3001
+ExpLevel = 6001
+ExpLevel = 13001
+Base Spell Levels = 1,Cleric,1,0,0,0,0,0,0
+Base Spell Levels = 2,Cleric,2,0,0,0,0,0,0
+Base Spell Levels = 3,Cleric,2,1,0,0,0,0,0
+Base Spell Levels = 4,Cleric,3,2,0,0,0,0,0
+Base Spell Levels = 5,Cleric,3,3,1,0,0,0,0
+MaxNumSpellsByPrime = Cleric,Wisdom,0,0,0,0,0,0,0,0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99
+MaxSpellLevelByPrime = Cleric,Wisdom,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,6,7,7,7,7,7,7,7,7
+HitDice = 1,1,8,0
+HitDice = 2,1,4,0
+HitDice = 3,1,4,0
+HitDice = 4,1,4,0
+HitDice = 5,1,4,0
+Skill = Save Vs PPDM,10
+Skill = Save Vs PP,13
+Skill = Save Vs RSW,14
+Skill = Save Vs BR,16
+Skill = Save Vs SP,15
+Skill = Turn,0
+SkillAdjBaseclass = Save Vs PPDM,shaman,-,0,0,0,1,1,1,3,3,3,4,4,4,5,5,5,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+SkillAdjBaseclass = Save Vs PP,shaman,-,0,0,0,1,1,1,3,3,3,4,4,4,5,5,5,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+SkillAdjBaseclass = Save Vs RSW,shaman,-,0,0,0,1,1,1,3,3,3,4,4,4,5,5,5,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+SkillAdjBaseclass = Save Vs BR,shaman,-,0,0,0,1,1,1,3,3,3,4,4,4,5,5,5,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+SkillAdjBaseclass = Save Vs SP,shaman,-,0,0,0,1,1,1,3,3,3,4,4,4,5,5,5,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+SkillAdjRace = MaxLevel$SYS$,Locathah,\=,3
+SpellBonusAbility = Wisdom
+BonusSpells = 13,1,1
+BonusSpells = 14,1,1
+BonusSpells = 15,1,2
+BonusSpells = 16,1,2
+BonusSpells = 17,1,3
+BonusSpells = 18,1,4
+BonusSpells = 19,1,4
+BonusSpells = 20,1,2,1,4
+BonusSpells = 21,1,3,1,5
+BonusSpells = 22,1,4,1,5
+BonusSpells = 23,2,5
+BonusSpells = 24,2,6
+BonusSpells = 25,1,6,1,7
+Special Ability = baseclass_NameSuppress,"Y"
+\(END)
+

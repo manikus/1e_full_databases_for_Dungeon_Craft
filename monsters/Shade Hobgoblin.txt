@@ -1,0 +1,31 @@
+\(BEGIN)
+name = Shade Hobgoblin
+icon file = icon_Shade Hobgoblin.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 10
+armor class = 6
+movement rate = 9
+hit dice = .600000
+treat HD as hit points = yes
+hit dice bonus = 1
+THAC0 = 18
+magic resistance = 0
+size = medium
+morale = 30
+experience point value = 30
+Special Ability = IsPerson,monster
+Special Ability = monsterLevel,2
+Special Ability = monster_CombatantAlignment,evil
+Class = Fighter
+form = mammal + none
+penalty = DwarfTHAC0 + RangerDmg + none
+immunity = none
+Misc Options = can be held/charmed + none
+item = Short Sword
+attack = 5,1,0,attacks,
+Undead = none
+\(END)
+

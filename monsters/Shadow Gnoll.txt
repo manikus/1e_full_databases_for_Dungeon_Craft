@@ -1,0 +1,31 @@
+\(BEGIN)
+name = Shadow Gnoll
+icon file = icon_ShadowGnoll.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 6
+armor class = 10
+movement rate = 9
+hit dice = .600000
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 18
+magic resistance = 0
+size = large
+morale = 27
+experience point value = 50
+Special Ability = IsPerson,monster
+Special Ability = monsterLevel,2
+Special Ability = monster_CombatantAlignment,evil
+Class = Fighter
+form = mammal + large + none
+penalty = GnomeAC + RangerDmg + none
+immunity = none
+Misc Options = can be held/charmed + none
+item = Halberd
+attack = 3,1,0,attacks,
+Undead = none
+\(END)
+

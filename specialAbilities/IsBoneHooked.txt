@@ -1,0 +1,5 @@
+\(BEGIN)
+name = IsBoneHoooked
+[GetAdjMaxMovement] = $RETURN "0";
+\(END)
+

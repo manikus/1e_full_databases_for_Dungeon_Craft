@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monster_SlaadGateGreenSlaad
+[InvokeSpellOnTarget] = $VAR pct; $VAR rdm;
+-pct = $RANDOM(100); rdm = $RANDOM(100);
+-$IF (pct >=# 50){$RETURN;};
+-$IF (rdm <# 35){$AddCombatant("Red Slaad",0);$RETURN;};
+-$IF (rdm <# 70){$AddCombatant("Blue Slaad",0);$RETURN;};
+-$IF (rdm >=# 70){$AddCombatant("Green Slaad",0);$RETURN;};
+\(END)
+

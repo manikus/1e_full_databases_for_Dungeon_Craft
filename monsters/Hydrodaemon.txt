@@ -1,0 +1,50 @@
+\(BEGIN)
+name = Hydrodaemon
+icon file = icon_Hydrodaemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 5
+armor class = 2
+movement rate = 6
+hit dice = 9
+treat HD as hit points = yes
+hit dice bonus = 36
+THAC0 = 4
+magic resistance = 70
+size = large
+morale = 40
+experience point value = 4510
+Special Ability = monsterLevel,18
+Special Ability = elemental_ImmuneWater
+Special Ability = elemental_ResistantAcid
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneCharm
+Special Ability = monster_ImmuneParalysis
+Special Ability = monster_ImmunePoison
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Daemon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterHydrodaemonDarkness
+item = monsterHydrodaemonGateHydrodaemon
+item = monsterHydrodaemonSummonWaterElemental
+attack = 8,1,0,hits,
+attack = 8,1,0,hits,
+attack = 10,1,0,bites,monsterVampireDrainLevel
+Undead = Special
+\(END)
+// MMII p30
+

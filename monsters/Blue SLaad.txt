@@ -1,0 +1,36 @@
+\(BEGIN)
+name = Blue SLaad
+icon file = icon_BlueSlaad.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 6
+armor class = 7
+movement rate = 7
+hit dice = 8
+treat HD as hit points = yes
+hit dice bonus = 4
+THAC0 = 12
+magic resistance = 40
+size = large
+morale = 40
+experience point value = 2432
+Special Ability = monsterLevel,9
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Slaad
+form = large
+penalty = none
+immunity = none
+Misc Options = can be held/charmed + affected by dispel evil
+item = monsterSlaadGateBlueSlaad
+attack = 6,2,0,claws,
+attack = 6,2,0,claws,
+attack = 6,2,0,claws,
+attack = 6,2,0,claws,
+attack = 8,2,0,bites,
+Undead = none
+\(END)
+// FF p80
+

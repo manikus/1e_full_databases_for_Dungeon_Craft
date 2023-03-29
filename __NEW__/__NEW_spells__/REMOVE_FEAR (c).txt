@@ -1,0 +1,244 @@
+Remove Fear (Abjuration) Reversible
+Level: 1	
+Components: V, S
+Range: Touch	
+Casting Time: 4 segments
+Duration: Special	
+Saving Throw: None
+Area of Effect: Creature touched
+Explanation/Description: By touch, the cleric instills courage in the spell recipient, raising the creature's saving throw against magical fear attacks by +4 on dice rolls for 1 turn, If the recipient has already been affected by fear, and failed the appropriate saving throw, the touch allows another saving throw to be made, with a bonus of + 1 on the dice for every level of experience of the caster, i.e. a 2nd level cleric gives a +2 bonus, a 3rd level +3, etc. A "to hit" dice roll must be made to touch an unwilling recipient. The reverse of the spell, cause fear, causes the victim to flee in panic at maximum movement speed away from the caster for 1 round pet level of the cleric causing such fear. Of course, cause fear can be countered by remove fear and vice versa.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsBrave
+[Dispel] = $SA_REMOVE();
+[DoesSpellAttackSucceed] = $VAR sav; $VAR rdm;
+-sav = $SkillAdj($CharacterContext(),"Save Vs Spell","","F","") -# 4;
+-rdm = $RANDOM(20) +# 1;
+-$IF ($GET_SPELL_SA($SpellContext(),"DamageMagical") == "fear")
+-	{
+-		$IF (sav <# rdm) {$RETURN "Y";}
+-		$ELSE {$RETURN "N";};
+-	};
+\(END)
+
+\(BEGIN)
+name =spell_CauseFearCleric
+[InvokeSpellOnTarget] = $VAR exp;
+-exp = $GET_PARTY_TIME() +# 10;
+-$SET_COMBATANT_SA($TargetContext(),"IsAfraid",exp);
+\(END)
+
+\(BEGIN)
+name = spell_RemoveFearCleric
+[InvokeSpellOnTarget] = $VAR exp; $VAR afr;
+-exp = $GET_PARTY_TIME() +# 10;
+-afr = $GET_COMBATANT_SA($TargetContext(),"IsAfraid");
+-$IF (afr != "-?-?-") {$RETURN $DELETE_COMBATANT_SA($TargetContext(),"IsAfraid");};
+-$SET_COMBATANT_SA($TargetContext(),"IsBrave",exp);
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 1
+\(BEGIN)
+name = Cause Fear|Cleric
+casting sound = sound_Cast.wav
+cast msg = /t flees from /c in fear.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+cast by = cleric
+can target friend = no
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = use THAC0
+Special Ability = DamageMagical,fear
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = spell_CauseFearCleric
+targeting type = touch
+target quantity = 1
+level = 1
+casting time = 4
+casting time units = initiative
+duration = level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = $SET_HOOK_PARAM(5,"/c misses /t.");
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Remove Fear|Cleric
+casting sound = sound_Cast.wav
+cast msg = /t gains courage from /c.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = casterLevel,$cleric$0
+Special Ability = spellRemoveFearCleric
+targeting type = touch
+target quantity = 1
+level = 1
+casting time = 4
+casting time units = initiative
+duration = 10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = $SET_HOOK_PARAM(5,"/c misses /t.");
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// paladin level 1
+\(BEGIN)
+name = Cause Fear|Paladin
+casting sound = sound_Cast.wav
+cast msg = /t flees from /c in fear.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+cast by = paladin
+can target friend = no
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = use THAC0
+Special Ability = DamageMagical,fear
+Special Ability = casterLevel,$paladin$8
+Special Ability = spell_Attack,1
+Special Ability = spell_CauseFearCleric
+targeting type = touch
+target quantity = 1
+level = 1
+casting time = 4
+casting time units = initiative
+duration = level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = $SET_HOOK_PARAM(5,"/c misses /t.");
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Remove Fear|Paladin
+casting sound = sound_Cast.wav
+cast msg = /t gains courage from /c.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+cast by = paladin
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = no
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = casterLevel,$paladin$8
+Special Ability = spellRemoveFearCleric
+targeting type = touch
+target quantity = 1
+level = 1
+casting time = 4
+casting time units = initiative
+duration = 10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = $SET_HOOK_PARAM(5,"/c misses /t.");
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+

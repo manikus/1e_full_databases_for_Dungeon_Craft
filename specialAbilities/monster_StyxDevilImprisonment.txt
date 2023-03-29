@@ -1,0 +1,13 @@
+\(BEGIN)
+name = monster_StyxDevilImprisonment
+[InvokeSpellOnTarget] = $VAR rdm; $VAR tgt; $VAR lvl; $VAR adj;
+-rdm = $RANDOM(2); tgt = $IndexOf($TargetContext()); lvl = $GetHighestLevelBaseclass(tgt);
+-pct = $RANDOM(100) +# 1; adj = "0";
+-$IF (lvl ># 22) {adj = lvl -# 22;};
+-$IF ((rdm ==# 1) && (pct ># adj))
+-	{
+-		$SET_CHARACTER_SA($TargetContext(),"IsImprisoned","1");
+-		$SET_CHAR_STATUS(tgt,"7");
+-	};
+\(END)
+

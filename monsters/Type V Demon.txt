@@ -1,0 +1,56 @@
+\(BEGIN)
+name = Type V Demon
+icon file = icon_TypeVDemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 14
+armor class = -7
+movement rate = 12
+hit dice = 7
+treat HD as hit points = yes
+hit dice bonus = 7
+THAC0 = 12
+magic resistance = 60
+size = large
+morale = 40
+experience point value = 3420
+Special Ability = monsterLevel,9
+Special Ability = elemental_ImmuneSilver
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = elemental_ResistantGas
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_Infravision
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = monster_WeaponImmunity,2
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterDemonDarkness
+item = monsterMageTeleportWithoutError
+item = monsterTypeVDemonGateDemon
+item = monsterMageCharmPerson
+item = Long Sword|2
+item = Long Sword|1
+item = Short Sword|2
+item = Short Sword|1
+item = Battle Axe|2
+item = Battle Axe|1
+attack = 2,1,0,hits,
+attack = 2,1,0,hits,
+attack = 2,1,0,hits,
+attack = 2,1,0,hits,
+attack = 2,1,0,hits,
+attack = 2,1,0,hits,
+attack = 4,2,0,hits,
+Undead = Special
+\(END)
+//  MM p19
+

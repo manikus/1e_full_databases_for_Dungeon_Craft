@@ -1,0 +1,33 @@
+\(BEGIN)
+name = Triceratops
+icon file = icon_Triceratops.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 0
+armor class = 4
+movement rate = 9
+hit dice = 16
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 7
+magic resistance = 0
+size = large
+morale = 25
+experience point value = 5280
+Special Ability = monsterLevel,16
+Class = Fighter
+Race = Monster
+form = animal + large
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 8,1,0,attacks,
+attack = 12,1,0,attacks,
+attack = 12,1,0,attacks,
+Undead = none
+\(END)
+// MM
+

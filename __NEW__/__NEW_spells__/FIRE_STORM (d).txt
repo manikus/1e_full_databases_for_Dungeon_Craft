@@ -1,0 +1,136 @@
+Fire Storm (Evocation) Reversible
+
+Level: 7	
+Components: V, S, M
+Range: 16"	
+Casting Time: 9 segments
+Duration: 1 round	
+Saving Throw: 1/2
+Area of Effect: 2" cube/level, minimum 16 cubic"
+Explanation/Description: When a fire storm spell is cast by a druid, a whole area is shot through with sheets of roaring flame which are equal to a wall of fire (q.v.) in effect. Creatures within the area of fire and 1" or less from she edge of she affected area receive 2 to 16 hit points of damage plus additional hit points equal so the number of levels of experience of the druid unless they make a saving throw, in which case they take only one-half damage. The area of effect is equal to 2 cubic" per level of she druid, i.e. a 13th level druid can cast a fire storm which measures 13" by 2" by 1". The height of the storm is 1" or 2"; the balance of its area must be in length and width. The reverse spell, fire quench, smothers double the area of effect of a fire storm with respect so normal fires, and with respect so magical fires is has a 5% chance per level of the caster of extinguishing a magical fire (such as a fire storm) of proportions up to the normal area of effect of the non-reversed spell.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = spell_FireQuench
+[InvokeSpellOnTarget] = $RUN_CHAR_SE_SCRIPTS($CharacterContext(),"Dispel Fire");
+[SpellLingeringScripts] = $RETURN "RemoveFireLinger";
+\(END)
+
+\(BEGIN)
+name = spell_FireStorm
+[Dispel Fire] = $REMOVE_SPELL_EFFECT($CharacterContext(), $GET_HOOK_PARAM(5));
+[RemoveFireLinger] = $RETURN "AREA";
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// druid level 7
+\(BEGIN)
+name = Fire Quench
+casting sound = sound_Cast.wav
+cast msg = /c quenches fire.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Druid.png,50,8,48,48,1,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Attack,1
+Special Ability = spell_FireQuench
+targeting type = areasquare
+target width = 4
+target height = level
+target range = 16
+level = 7
+casting time = 9
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Fire Storm
+casting sound = sound_Cast.wav
+cast msg = /c calls forth a storm of fire.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Fireball.png,50,8,48,48,1,1,0,1,0,0
+target cover art = none
+target hit art = spell_hit_Fireball.png,200,2,48,48,0,1,4,1,0,0
+target linger art = spell_hit_Fireball.png,200,2,48,48,0,1,4,1,0,0
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Attack,1
+Special Ability = spell_FireStorm
+targeting type = areasquare
+target width = 4
+target height = level / 2
+target range = 16
+level = 7
+casting time = 9
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = $CHAR_HITPOINTS,-(2d8+level),delta,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

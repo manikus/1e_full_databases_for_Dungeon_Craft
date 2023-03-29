@@ -1,0 +1,21 @@
+\(BEGIN)
+name = monster_LampreyDrainBlood
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR link;
+-atk = $IndexOf($AttackerContext());
+-tgt = $IndexOf($TargetContext());
+-// Attacker
+-$SET_COMBATANT_SA($AttackerContext(),"monster_LampreyDrain","");
+-$SET_COMBATANT_SA($AttackerContext(),"monster_LampreyLink",tgt);
+-// Target
+-$SET_COMBATANT_SA($TargetContext(),"monster_LampreyDrainee","");
+-$SET_COMBATANT_SA($TargetContext(),"IsHugged",1);
+-// Link
+-link = $GET_COMBATANT_SA($TargetContext(),"monster_LampreyLink");
+-$IF (link == "-?-?-"){$SET_COMBATANT_SA($TargetContext(),"monster_LampreyLink","$255$" + atk);}
+-$ELSE
+-	{
+-		link = link + "$" + atk;
+-		$SET_COMBATANT_SA($TargetContext(),"monster_LampreyLink",link);
+-	};
+\(END)
+

@@ -1,0 +1,12 @@
+\(BEGIN)
+name = IsColorStun
+[AdjustInitiative] = $RETURN "9";
+[CanCastSpells] = $RETURN "N";
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Stunned");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[StartCombatRound] = $VAR prm; $VAR exp;
+-prm = $SA_PARAM_GET(); exp = $GET_PARTY_TIME();
+-$IF (prm ># exp){$RETURN $SA_REMOVE();};
+\(END)
+

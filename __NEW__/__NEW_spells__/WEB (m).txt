@@ -1,0 +1,229 @@
+Web (Evocation)
+
+Level: 2	
+Components: V, S, M
+Range: 1/2'"/level	
+Casting Time: 2 segments
+Duration: 2 turns/level	
+Saving Throw: Neg. or 1/2
+Area of Effect: Special
+Explanation/Description:	A web spell creates a many-layered mass of strong, sticky strands similar so spider webs, but far larger and tougher. These masses must be anchored so two or more points - floor and ceiling, opposite walls, etc. - diametrically opposed.
+
+The web spell covers a maximum area of B cubic inches, and the webs must be as least 1" thick, to a mass 4" high, 2" wide, and 1" deep may be cast. Creatures caught within webs, or simply touching them, become stuck amongst she gluey fibers. Creatures with less than 13 strength must remain fast until freed by another or until the spell wears off. For every full turn entrapped by a web, a creature has a 5% cumulative chance of suffocating to death. 
+Creatures with strength between 13 and 17 can break through 1' of webs per turn. 
+Creatures with 18 or greaser strength break through 1' of webs per round. (N.B. Sufficient mass equates so great strength in this case, and great mass will hardly notice webs.) Strong and huge creatures will break through 1' of webs per segment. It is important to note that the strands of a web spell are flammable. A magic flaming sword will slash them away as easily as a hand brushes away cobwebs. Any fire - torch, flaming oil, flaming sword, etc. - will set them alight and burn them away in a single round. All creatures within she webs will take 2-8 hit points of damage from the flames, but those freed of the strands will not be harmed. Saving throw is made as -2. If the saving throw versus web is made, two results may have occurred, If the creature has room to escape then he is assumed so have jumped free, If there is no room so escape then the webs are only 1/2 strength. The material component of this spell is a bit of spider web.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsWebbed
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Stuck in Webbing");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[ComputeDamage] = $RETURN $GET_CHAR_HITPOINTS($IndexOf($TargetContext())) +# 1;
+[Dispel] = $SA_REMOVE();
+[DoesAttackSucceed] = $VAR item; $VAR itmNon; $VAR monster; $VAR monNon; $VAR immune;
+-item = $SA_ITEM_GET("DamageMagical");
+-itmNon = $SA_ITEM_GET("DamageNonMagical");
+-monster = $SA_MONSTERTYPE_GET("DamageMagical");
+-monNon = $SA_MONSTERTYPE_GET("DamageNonMagical");
+-$IF ((item == "-?-?-") && (itmNon == "-?-?-") && (monster == "-?-?-") && (monNon == "-?-?-")) {$RETURN;};
+-$IF (item != "-?-?-") {immune = item;};
+-$IF (itmNon != "-?-?-") {immune = itmNon;};
+-$IF (monster != "-?-?-") {immune = monster;};
+-$IF (monNon != "-?-?-") {immune = monNon;};
+-$IF (immune == "fire") 
+-	{
+-		$SA_REMOVE();
+-		$DELETE_CHARACTER_SA($Myself(),"IsWebbedTime");
+-	};
+[DoesSpellAttackSucceed] = $VAR spell; $VAR splNon; $VAR immune;
+-spell = $SA_SPELL_GET("DamageMagical");
+-splNon = $SA_SPELL_GET("DamageNonMagical");
+-$IF ((spell == "-?-?-") && (splNon == "-?-?-")){$RETURN;};
+-$IF (spell != "-?-?-") {immune = spell;};
+-$IF (splNon != "-?-?-") {immune = splNon;};
+-$IF (immune == "fire")
+-	{
+-		$SA_REMOVE();
+-		$DELETE_CHARACTER_SA($Myself(),"IsWebbedTime");
+-	};
+[GetAdjMaxMovement] = $RETURN "0";
+[IsCombatReady] = $VAR exp; $VAR chr; $VAR str; $VAR rnd;
+-exp = $SA_PARAM_GET();
+-chr = $MyIndex();
+-str = $GET_CHAR_LIMITED_STR(chr);
+-rnd = $SA_CHARACTER_GET("IsWebbedTime");
+-$IF (str ># 12 && str <# 18) 
+-	{
+-		$IF ($GET_PARTY_TIME() >=# (rnd +# 10))
+-			{
+-				$SA_REMOVE();
+-				$DELETE_CHARACTER_SA($Myself(),"IsWebbedTime");
+-				$RETURN "Y";
+-			};
+-	};
+-$IF (str ># 17) 
+
+-	{
+-		$IF ($GET_PARTY_TIME() >=# (rnd +# 1))
+-			{
+-				$SA_REMOVE();
+-				$DELETE_CHARACTER_SA($Myself(),"IsWebbedTime");
+-				$RETURN "Y";
+-			};
+-	};
+-$IF ($GET_PARTY_TIME() >=# exp) {$SA_REMOVE(); $RETURN "Y";}
+-$ELSE {$RETURN "N";};
+[StartCombatRound] = $VAR time; $VAR now; $VAR n; $VAR rnd; $VAR tgt;
+-time = $SA_CHARACTER_GET("IsWebbedTime");
+-now = $GET_PARTY_TIME();
+-n = "10";
+-rnd = $RANDOM(20);
+-tgt = $MyIndex();
+-$IF (now -# time ># n)
+-	{
+-		$IF (((now -# time) %# n ==# 0) && (rnd ==# 0))
+-			{
+-				$SET_CHAR_HITPOINTS(tgt,-11);
+-				$SET_CHAR_STATUS(tgt,"2");
+-	};
+\(END)
+
+\(BEGIN)
+name = spell_Web
+[Dispel] = $SA_REMOVE();
+-$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR cls; $VAR adj; $VAR lvl;
+-$VAR exp; $VAR time;
+-atk = $IndexOf($AttackerContext());
+-tgt = $IndexOf($TargetContext());
+-cls = $SA_PARAM_GET();
+-adj = $GET_CHARACTER_SA($AttackerContext(),"casterLevel");
+-lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
+-exp = $GET_PARTY_TIME() +# 10;
+-time = $GET_PARTY_TIME();
+-$SET_CHARACTER_SA($TargetContext(),"DispelLevel",lvl);
+-$IF ($GET_CHARACTER_SA($TargetContext(),"webSaveFailed") != "-?-?-")
+-	{
+-		$SET_CHARACTER_SA($TargetContext(),"IsWebbed",exp);
+-		$SET_CHARACTER_SA($TargetContext(),"IsWebbedTime",time);
+-		$DELETE_CHARACTER_SA($TargetContext(),"webSaveFailed");
+-	};
+[RemoveLinger] = $RETURN "AREA";
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// magic user level 2
+\(BEGIN)
+name = Web
+casting sound = sound_Cast.wav
+cast msg = /c spins a web.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_Web.png,210,43,48,48,0,1,4,1,0,0
+target linger art = spell_linger_Web.png,0,1,48,48,0,1,4,1,0,0
+school = Magic User
+Cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = no
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = negates
+Special Ability = DamageMagical,bind
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spell_Attack,1
+Special Ability = spell_Web,magicUser
+targeting type = areasquare
+target width = 4
+target height = 2
+target range = level/2
+level = 2
+casting time = 2
+casting time units = initiative
+duration = 2*level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = $SET_CHARACTER_SA($TargetContext(),"webSaveFailed","1");
+begin script = 
+end script = 
+\(END)
+
+// ranger magic user level 2
+\(BEGIN)
+name = Web|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c spins a web.
+missile sound = none
+coverage sound = none
+hit sound = sound_Hit.wav
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_Web.png,210,43,48,48,0,1,4,1,0,0
+target linger art = spell_linger_Web.png,0,1,48,48,0,1,4,1,0,0
+school = Magic User
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = no
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = negates
+Special Ability = DamageMagical,bind
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$ranger$8
+Special Ability = spell_RangerlevelMU,2
+Special Ability = spell_Attack,1
+Special Ability = spell_Web,ranger
+targeting type = areasquare
+target width = 4
+target height = 2
+target range = level/2
+level = 2
+casting time = 2
+casting time units = initiative
+duration = 2*level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = $SET_CHARACTER_SA($TargetContext(),"webSaveFailed","1");
+begin script = 
+end script = 
+\(END)
+

@@ -1,0 +1,7 @@
+\(BEGIN)
+name = IsMonkImmuneHaste
+[CharDisplayStatus] = $SET_HOOK_PARAM(7,"Immune to Haste");$SET_HOOK_PARAM(6,"");$RETURN 1;
+[DoesSpellAttackSucceed] = $IF ($SA_SPELL_GET("DamageMagical") == "haste" || $SA_SPELL_GET("DamageNonMagical") == "haste"){$RETURN "N";};
+\(END)
+// level 4
+

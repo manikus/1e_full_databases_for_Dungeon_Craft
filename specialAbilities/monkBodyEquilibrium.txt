@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkBodyEquilibrium
+\(END)
+// level 5 - for designer use out of combat
+

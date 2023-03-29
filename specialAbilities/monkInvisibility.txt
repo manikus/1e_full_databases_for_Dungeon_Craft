@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkInvisibility
+\(END)
+// level 7
+

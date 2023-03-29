@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monsterTypeVIDemonImmolationAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm;
+-atk = $AURA_GetData(0); tgt = $AURA_GetData(1);
+-$AURA_Attach("Combatant"); $AURA_Shape("AnnularSector");
+-$AURA_Size(0,1,0,360); $AURA_Spell("TypeVIDemonImmolationAura"); $AURA_Wavelength("Xray");
+[AURA_Enter] = $SET_COMBATANT_SA($CombatantContext(),"IsImmolated","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsImmolated");
+\(END)
+

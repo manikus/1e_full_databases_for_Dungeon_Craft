@@ -1,0 +1,46 @@
+\(BEGIN)
+name = Piscodaemon
+icon file = icon_Piscodaemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 11
+armor class = -1
+movement rate = 6
+hit dice = 6
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 15
+magic resistance = 60
+size = medium
+morale = 40
+experience point value = 631
+Special Ability = monsterLevel,6
+Special Ability = elemental_ResistantAcid
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneCharm
+Special Ability = monster_ImmuneParalysis
+Special Ability = monster_ImmunePoison
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Daemon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = none
+attack = 8,2,0,hits,monsterPiscodaemonSieze1
+attack = 8,2,0,hits,monsterPiscodaemonSieze2
+Undead = Special
+\(END)
+// MMII p30
+

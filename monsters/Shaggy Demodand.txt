@@ -1,0 +1,55 @@
+\(BEGIN)
+name = Shaggy Demodand|Shator
+icon file = icon_ShaggyDemodand.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 18
+armor class = -3
+movement rate = 9
+movement rate = 18
+hit dice = 15
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 6
+magic resistance = 60
+size = large
+morale = 40
+experience point value = 6770
+Special Ability = monsterLevel,15
+Special Ability = elemental_ImmuneAcid
+Special Ability = elemental_ImmunePoison
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantFire
+Special Ability = IsDetectingGood
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneFear
+Special Ability = monster_ImmuneIllusion
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,3
+Special Ability = monster_WeaponResistantCutting,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demodand
+form = large
+penalty = none
+immunity = none
+Misc Options = can be held/charmed + affected by dispel evil
+item = monsterDemodandRayOfEnfeeblement
+item = monsterDemodandFogCloud
+item = monsterDemodandWeaken
+item = monsterDemodandBeguile
+item = monsterDemodandCloudkill
+item = monsterDemodandStinkingCloud
+item = monsterDemodandSummonShaggyDemodand
+attack = 8,1,1,claws,
+attack = 8,1,1,claws,
+attack =4,5,0,bites,
+Undead = none
+\(END)
+// MMII p34
+

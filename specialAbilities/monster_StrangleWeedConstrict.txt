@@ -1,0 +1,19 @@
+\(BEGIN)
+name = monster_StrangleWeedConstrict
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt; $VAR roll; $VAR isw;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext()); roll = $RANDOM(4);
+-isw = $GET_COMBATANT_SA($TargetContext(),"IsStrangleWeeded");
+-$IF (isw == "-?-?-")
+-	{
+-		$SET_COMBATANT_SA($AttackerContext(),"StrangleLink",tgt);
+-		$SET_COMBATANT_SA($AttackerContext(),"monster_GiantOctopusConstricting",tgt);
+-		$SET_COMBATANT_SA($TargetContext(),"monster_StrangleWeedConstricted",atk);
+-		$SET_COMBATANT_SA($TargetContext(),"StrangleLink",atk);
+-		$SET_COMBATANT_SA($TargetContext(),"IsStrangleWeeded",roll);
+-	}
+-$ELSE
+-	{
+-		$SET_COMBATANT_SA($TargetContext(),"IsStrangleWeeded",isw +# roll);
+-	};
+\(END)
+

@@ -1,0 +1,6 @@
+\(BEGIN)
+name = monster_ImmuneDomination
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Immune Domination"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesSpellAttackSucceed] = $IF ($SpellContext() == "Domination"){$RETURN "N";};
+\(END)
+

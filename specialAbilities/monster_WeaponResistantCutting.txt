@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_WeaponResistantCutting
+[ComputeDamage] = $VAR weapon;
+-weapon = $GET_ITEM_SA($ItemContext(),"item_WeaponType");
+-$IF (weapon == "cutting"){$RETURN $GET_HOOK_PARAM(5) /# 2;};
+\(END)
+

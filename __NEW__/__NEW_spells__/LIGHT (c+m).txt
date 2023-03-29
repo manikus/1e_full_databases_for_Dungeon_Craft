@@ -1,0 +1,1097 @@
+(cleric)
+Light (Alteration) Reversible
+Level: 1	
+Components: V, S
+Range: 12"	
+Casting Time: 4 segments
+Duration: 6 turns + 1 turn/level	
+Saving Throw: None
+Area of Effect: 2" radius globe
+Explanation/Description: This spell causes excitation of molecules so as to make them brightly luminous. The light thus caused is equal to torch light in brightness, but its sphere is limited to 4" in diameter. It lasts for the duration indicated (7 turns at 1st experience level, 8 at 2nd, 9 at 3rd, etc.) or until the caster utters a word to extinguish the light. The light spell is reversible, causing darkness in the same area and under the same conditions, except the blackness persists for only one-half the duration that light would last, If this spell is cast upon a creature, the applicable magic resistance and saving throw dice rolls must be made. Success indicates that the spell affects the area immediately behind the creature, rather than the creature itself. In all other cases, the spell takes effect where the caster directs as long as he or she has a line of sight or unobstructed path for the spell; light can spring from air, rock, metal, wood, or almost any similar substance.
+
+Continual Light (Alteration) Reversible
+Level: 3	
+Components: V, S
+Range: 12"	
+Casting Time: 6 segments
+Duration: Permanent	
+Saving Throw: None
+Area of Effect: 6" radius globe
+Explanation/Description: This spell is similar to a light spell, except that it lasts until negated (by a continual darkness or dispel magic spell) and its brightness is very great, being nearly as illuminating as full daylight. It con be cast into air, onto an object, or at a creature. In the third case, the continual light affects the space about one foot behind the creature if the latter makes its saving throw. Note that this spell will blind a creature if it is successfully cast upon the visual organs, for example. Its reverse causes complete absence of light.
+
+(magic user)
+Light (Alteration)
+Level: 1	
+Components: V. S
+Range: 6"	
+Casting Time:	1 segment
+Duration: 1 turn/level	
+Saving Throw: None
+Area of Effect: 2' radius globe
+Explanation/Description: With she exceptions noted above, this spell is she same as the first level cleric light spell (q.v.).
+
+Continual Light (Alteration)
+Level: 2	
+Components: V, S
+Range: 6"	
+Casting Time: 2 segments
+Duration: Permanent	
+Saving Throw: None
+Area of Effect: 6" radius globe
+Explanation/Description:	This spell is the same as the third level cleric spell continual light, except that the range is only 6", not 12", and it cannot be reversed by the caster.
+
+
+Darkness, 15' Radius (Alteration)
+Level: 2
+Components: V, M
+Range: 1 "/level	
+Casting Time: 2 segments
+Duration: 1 turn + 1 round/level	
+Saving Throw: None
+Area of Effect:	 1/2' radius globe
+Explanation/Description:	This spell causes total, impenetrable darkness in the area of its effect. Infravision or ultravision are useless. Neither normal nor magical light will work unless a light or continual light spell is used. In the former event, the darkness spell is negated by the light spell and vice versa. The material components of this spell are a bit of bat fur and either a drop of pitch or a piece of coal.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsDarkBlinded
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Blind in the dark");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[DoesAttackSucceed] = $IF ($GET_COMBATANT_SA($TargetContext(),"IsDarkBlinded") != "-?-?-")
+-  {$SET_HOOK_PARAM(6,$GET_HOOK_PARAM(6) -# 4);};
+-$IF ($GET_HOOK_PARAM(5) >=# $GET_HOOK_PARAM(6))
+-  {$RETURN "Y";}
+-$ELSE {$RETURN "N";};
+[IsCombatReady] = $RETURN "N";
+\(END)
+
+\(BEGIN)
+name = IsLightBlinded
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Blind in the light");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[DoesAttackSucceed] = $IF ($GET_COMBATANT_SA($TargetContext(),"IsLightBlinded") != "-?-?-")
+-  {$SET_HOOK_PARAM(6,$GET_HOOK_PARAM(6) -# 4);};
+-$IF ($GET_HOOK_PARAM(5) >=# $GET_HOOK_PARAM(6))
+-  {$RETURN "Y";}
+-$ELSE {$RETURN "N";};
+[IsCombatReady] = $RETURN "N";
+\(END)
+
+\(BEGIN)
+name = spell_ContinualDarknessCleric
+[OverrideSpellTargeting] = $VAR p5; $VAR p6; $VAR lst; $VAR loc;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$SET_HOOK_PARAM(1,"Select one of the following;");
+-loc = "$"+p5+"$"+p6;
+-lst = "$Map$Combatant";
+-$SET_COMBATANT_SA($AttackerContext(),"ContinualDarknessClericTargetXY",loc);
+-$RETURN lst;
+[ProcessSpellTargetOverride] = $VAR p5; $VAR atk; $VAR tgt;
+-p5 = $GET_HOOK_PARAM(5);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-$AURA_Create("spell_ContinualDarknessClericAURA",p5,atk,tgt,"");
+\(END)
+
+\(BEGIN)
+name = spell_ContinualDarknessClericAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-atk = $AURA_GetData(0);
+-tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET();
+-pXY = $SA_COMBATANT_GET("ContinualDarknessClericTargetXY");
+-X = $DelimitedStringSubstring(pXY,0);
+-Y = $DelimitedStringSubstring(pXY,1);
+-$IF (prm == "Combatant") {$AURA_Attach("Combatant"); $AURA_Combatant(tgt);};
+-$IF (prm == "Map") {$AURA_Attach("XY"); $AURA_Location(X,Y);};
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,6,0,360);
+-$AURA_Spell("Continual Darkness|Cleric");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"ContinualDarknessClericTargetXY");
+[AURA_Enter] = $VAR IR; $VAR UV; $VAR pIR; $VAR pUV;
+-IR = $GET_COMBATANT_SA($CombatantContext(),"monster_Infravision");
+-UV = $GET_COMBATANT_SA($CombatantContext(),"monster_Ultravision");
+-pIR = $SkillAdj($CharacterContext(),"Infravsion" , "", "F", 0 );
+-pUV = $SkillAdj($CharacterContext(),"Ultravision" , "", "F", 0 );
+-$IF (IR != "-?-?-"){$RETURN;}; $IF (UV != "-?-?-"){$RETURN;};
+-$IF (pIR ># 0){$RETURN;}; $IF (pUV ># 0){$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsDarkBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");
+[Dispel] = $AURA_Destroy(); $DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_ContinualLightCleric
+[OverrideSpellTargeting] = $VAR p5; $VAR p6; $VAR lst; $VAR loc;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$SET_HOOK_PARAM(1,"Select one of the following;");
+-loc = "$"+p5+"$"+p6;
+-lst = "$Map$Combatant";
+-$SET_COMBATANT_SA($AttackerContext(),"ContinualLightClericTargetXY",loc);
+-$RETURN lst;
+[ProcessSpellTargetOverride] = $VAR p5; $VAR atk; $VAR tgt;
+-p5 = $GET_HOOK_PARAM(5);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-$AURA_Create("spell_ContinualLightClericAURA",p5,atk,tgt,"");
+\(END)
+
+\(BEGIN)
+name = spell_ContinualLightClericAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-$DEBUG ("Light - AURA_Create");
+-atk = $AURA_GetData(0);
+-tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET();
+-pXY = $SA_COMBATANT_GET("ContinualLightClericTargetXY");
+-X = $DelimitedStringSubstring(pXY,0);
+-Y = $DelimitedStringSubstring(pXY,1);
+-$DEBUG ("choice made = " +prm);
+-$IF (prm == "Combatant") {$AURA_Attach("Combatant"); $AURA_Combatant(tgt);};
+-$IF (prm == "Map") {$AURA_Attach("XY"); $AURA_Location(X,Y);};
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,6,0,360);
+-$AURA_Spell("Continual Light|Cleric");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"ContinualLightClericTargetXY");
+[AURA_Enter] = $VAR sus;
+-sus = $GET_COMBATANT_SA($CombatantContext(),"monster_LightSusceptible");
+-$IF (sus == "-?-?-"){$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsLightBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[Dispel] = $AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_ContinualLightMage
+[OverrideSpellTargeting] = $VAR p5; $VAR p6; $VAR lst; $VAR loc;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$SET_HOOK_PARAM(1,"Select one of the following;");
+-loc = "$"+p5+"$"+p6;
+-lst = "$Map$Combatant";
+-$SET_COMBATANT_SA($AttackerContext(),"ContinualLightMageTargetXY",loc);
+-$RETURN lst;
+[ProcessSpellTargetOverride] = $VAR p5; $VAR atk; $VAR tgt;
+-p5 = $GET_HOOK_PARAM(5);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-$AURA_Create("spell_ContinualLightMageAURA",p5,atk,tgt,"");
+\(END)
+
+\(BEGIN)
+name = spell_ContinualLightMageAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-$DEBUG ("Light - AURA_Create");
+-atk = $AURA_GetData(0);
+-tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET();
+-pXY = $SA_COMBATANT_GET("ContinualLightMageTargetXY");
+-X = $DelimitedStringSubstring(pXY,0);
+-Y = $DelimitedStringSubstring(pXY,1);
+-$DEBUG ("choice made = " +prm);
+-$IF (prm == "Combatant") {$AURA_Attach("Combatant"); $AURA_Combatant(tgt);};
+-$IF (prm == "Map") {$AURA_Attach("XY"); $AURA_Location(X,Y);};
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,6,0,360);
+-$AURA_Spell("Continual Light|Mage");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"ContinualLightMageTargetXY");
+[AURA_Enter] = $VAR sus;
+-sus = $GET_COMBATANT_SA($CombatantContext(),"monster_LightSusceptible");
+-$IF (sus == "-?-?-"){$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsLightBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[Dispel] = $AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_DarknessCleric
+[OverrideSpellTargeting] = $VAR p5; $VAR p6; $VAR lst; $VAR loc;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$SET_HOOK_PARAM(1,"Select one of the following;");
+-loc = "$"+p5+"$"+p6;
+-lst = "$Map$Combatant";
+-$SET_COMBATANT_SA($AttackerContext(),"DarknessClericTargetXY",loc);
+-$RETURN lst;
+[ProcessSpellTargetOverride] = $VAR p5; $VAR atk; $VAR tgt;
+-$VAR cls; $VAR lvl; $VAR adj; $VAR exp;
+-p5 = $GET_HOOK_PARAM(5);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-cls = $GET_CHAR_CLASS(atk); lvl = $GET_CHAR_Lvl(atk,cls) *# 10;
+-adj = $DelimitedStringSubstring($SA_SPELL_GET("casterLevel"),1) *# 10;
+-exp = $GET_PARTY_TIME() +# lvl -# adj;
+-$AURA_Create("spell_DarknessClericAURA",p5,atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = spell_DarknessClericAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-$DEBUG ("Light - AURA_Create");
+-atk = $AURA_GetData(0);
+-tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET();
+-pXY = $SA_COMBATANT_GET("DarknessClericTargetXY");
+-X = $DelimitedStringSubstring(pXY,0);
+-Y = $DelimitedStringSubstring(pXY,1);
+-$DEBUG ("choice made = " +prm);
+-$IF (prm == "Combatant") {$AURA_Attach("Combatant"); $AURA_Combatant(tgt);};
+-$IF (prm == "Map") {$AURA_Attach("XY"); $AURA_Location(X,Y);};
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,2,0,360);
+-$AURA_Spell("Darkness|Cleric");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"DarknessClericTargetXY");
+[AURA_Enter] = $VAR IR; $VAR UV; $VAR pIR; $VAR pUV;
+-IR = $GET_COMBATANT_SA($CombatantContext(),"monster_Infravision");
+-UV = $GET_COMBATANT_SA($CombatantContext(),"monster_Ultravision");
+-pIR = $SkillAdj($CharacterContext(),"Infravsion" , "", "F", 0 );
+-pUV = $SkillAdj($CharacterContext(),"Ultravision" , "", "F", 0 );
+-$IF (IR != "-?-?-"){$RETURN;};
+-$IF (UV != "-?-?-"){$RETURN;};
+-$IF (pIR ># 0){$RETURN;};
+-$IF (pUV ># 0){$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsDarkBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");
+[AURA_Round] = $VAR exp;
+-exp = $AURA_GetData(2);
+-$IF ($GET_PARTY_TIME() ># exp)
+-	{$AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");};
+[Dispel] = $AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_Darkness15RadiusMage
+[OverrideSpellTargeting] = $VAR p5; $VAR p6; $VAR lst; $VAR loc;
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
+-$SET_HOOK_PARAM(1,"Select one of the following;");
+-loc = "$"+p5+"$"+p6;
+-lst = "$Map$Combatant";
+-$SET_COMBATANT_SA($AttackerContext(),"Darkness15RadiusMageTargetXY",loc);
+-$RETURN lst;
+[ProcessSpellTargetOverride] = $VAR p5; $VAR atk; $VAR tgt;
+-$VAR cls; $VAR lvl; $VAR adj; $VAR exp;
+-p5 = $GET_HOOK_PARAM(5);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-cls = $GET_CHAR_CLASS(atk); lvl = $GET_CHAR_Lvl(atk,cls) +# 10;
+-adj = $DelimitedStringSubstring($SA_SPELL_GET("casterLevel"),1);
+-exp = $GET_PARTY_TIME() +# lvl -# adj;
+-$AURA_Create("spell_Darkness15RadiusMageAURA",p5,atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = spell_Darkness15RadiusMageAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-$DEBUG ("Light - AURA_Create");
+-atk = $AURA_GetData(0);
+-tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET();
+-pXY = $SA_COMBATANT_GET("Darkness15RadiusMageTargetXY");
+-X = $DelimitedStringSubstring(pXY,0);
+-Y = $DelimitedStringSubstring(pXY,1);
+-$IF (prm == "Combatant") {$AURA_Attach("Combatant"); $AURA_Combatant(tgt);};
+-$IF (prm == "Map") {$AURA_Attach("XY"); $AURA_Location(X,Y);};
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,1,0,360);
+-$AURA_Spell("Darkness 15' Radius|Mage");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"Darkness15RadiusMageTargetXY");
+[AURA_Enter] = $SET_COMBATANT_SA($CombatantContext(),"IsDarkBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");
+[AURA_Round] = $VAR exp;
+-exp = $AURA_GetData(2);
+-$IF ($GET_PARTY_TIME() ># exp)
+-	{$AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");};
+[Dispel] = $AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsDarkBlinded");
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_LightCleric
+[InvokeSpellOnTarget] = $VAR X; $VAR Y; $VAR atk; $VAR tgt; $VAR cls; $VAR lvl; $VAR adj; $VAR exp;
+-X = $GET_HOOK_PARAM(5); Y = $GET_HOOK_PARAM(6);
+-$SET_COMBATANT_SA($AttackerContext(),"LightClericTargetXY","$"+X+"$"+Y);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-cls = $GET_CHAR_CLASS(atk); lvl = $GET_CHAR_Lvl(atk,cls) *# 10;
+-adj = $DelimitedStringSubstring($SA_SPELL_GET("casterLevel"),1) *# 10;
+-exp = $GET_PARTY_TIME() +# lvl -# adj;
+-$AURA_Create("spell_LightClericAURA","",atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = spell_LightClericAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-$DEBUG ("Light - AURA_Create");
+-atk = $AURA_GetData(0);
+-tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET();
+-pXY = $SA_COMBATANT_GET("LightClericTargetXY");
+-X = $DelimitedStringSubstring(pXY,0);
+-Y = $DelimitedStringSubstring(pXY,1);
+-$DEBUG ("choice made = " +prm);
+-$IF (prm == "Combatant") {$AURA_Attach("Combatant"); $AURA_Combatant(tgt);};
+-$IF (prm == "Map") {$AURA_Attach("XY"); $AURA_Location(X,Y);};
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,2,0,360);
+-$AURA_Spell("Light|Cleric");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"LightClericTargetXY");
+[AURA_Enter] = $VAR sus;
+-sus = $GET_COMBATANT_SA($CombatantContext(),"monster_LightSusceptible");
+-$IF (sus == "-?-?-"){$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsLightBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[AURA_Round] = $VAR exp;
+-exp = $AURA_GetData(2);
+-$IF ($GET_PARTY_TIME() ># exp)
+-	{$AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");};
+[Dispel] = $AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");};
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_LightMage
+[InvokeSpellOnTarget] = $VAR X; $VAR Y; $VAR atk; $VAR tgt; $VAR cls; $VAR lvl; $VAR adj; $VAR exp;
+-X = $GET_HOOK_PARAM(5); Y = $GET_HOOK_PARAM(6);
+-$SET_COMBATANT_SA($AttackerContext(),"LightMageTargetXY","$"+X+"$"+Y);
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-cls = $GET_CHAR_CLASS(atk); lvl = $GET_CHAR_Lvl(atk,cls) *# 10;
+-adj = $DelimitedStringSubstring($SA_SPELL_GET("casterLevel"),1) *# 10;
+-exp = $GET_PARTY_TIME() +# lvl -# adj;
+-$AURA_Create("spell_LightMageAURA","",atk,tgt,exp);
+\(END)
+
+\(BEGIN)
+name = spell_LightMageAURA
+[AURA_Create] = $VAR atk; $VAR tgt; $VAR prm; $VAR pXY; $VAR X; $VAR Y;
+-atk = $AURA_GetData(0); tgt = $AURA_GetData(1);
+-prm = $SA_PARAM_GET(); pXY = $SA_COMBATANT_GET("LightMageTargetXY");
+-X = $DelimitedStringSubstring(pXY,0); Y = $DelimitedStringSubstring(pXY,1);
+-$AURA_Attach("XY");
+-$AURA_Location(X,Y);
+-$AURA_Shape("AnnularSector");
+-$AURA_Size(0,2,0,360);
+-$AURA_Spell("Light|MonsterMage");
+-$AURA_Wavelength("Xray");
+-$DELETE_COMBATANT_SA($IndexToActor(atk),"LightMageTargetXY");
+[AURA_Enter] = $VAR sus;
+-sus = $GET_COMBATANT_SA($CombatantContext(),"monster_LightSusceptible");
+-$IF (sus == "-?-?-"){$RETURN;};
+-$SET_COMBATANT_SA($CombatantContext(),"IsLightBlinded","");
+[AURA_Exit] = $DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[AURA_Round] = $VAR exp;
+-exp = $AURA_GetData(2);
+-$IF ($GET_PARTY_TIME() ># exp)
+-	{$AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");};
+[Dispel] = $AURA_Destroy();$DELETE_COMBATANT_SA($CombatantContext(),"IsLightBlinded");
+[SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 1
+\(BEGIN)
+name = Darkness|Cleric
+casting sound = sound_Cast.wav
+cast msg = /c makes it darker.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Darkness.png,210,2,240,240,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Darkness.png,210,2,240,240,0,1,4,1,0,0
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_DarknessCleric
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 1
+casting time = 4
+casting time units = initiative
+duration = (3+(level/2))*10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Light|Cleric
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Light.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+school = Cleric
+cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = no
+can memorize = yes
+allow scribe = yes
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_LightCleric
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 1
+casting time = 4
+casting time units = initiative
+duration = (6+level)*10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// cleric level 3
+\(BEGIN)
+name = Continual Darkness|Cleric
+casting sound = sound_Cast.wav
+cast msg = /c makes it darker.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Darkness.png,210,2,624,624,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Darkness.png,210,2,624,624,0,1,4,1,0,0
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_ContinualDarknessCleric
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 3
+casting time = 6
+casting time units = initiative
+duration = 1
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Continual Light|Cleric
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_ContinualLightCleric
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 3
+casting time = 6
+casting time units = initiative
+duration = 1
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// paladin level 1
+\(BEGIN)
+name = Darkness|Paladin
+casting sound = sound_Cast.wav
+cast msg = /c makes it darker.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Darkness.png,210,2,240,240,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Darkness.png,210,2,240,240,0,1,4,1,0,0
+school = Cleric
+Cast by = paladin
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_DarknessCleric
+Special Ability = casterLevel,$paladin$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 1
+casting time = 4
+casting time units = initiative
+duration = (3+(level/2))*10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Light|Paladin
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+school = Cleric
+Cast by = paladin
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_LightCleric
+Special Ability = casterLevel,$paladin$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 1
+casting time = 4
+casting time units = initiative
+duration = (6+level)*10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// paladin level 3
+\(BEGIN)
+name = Continual Darkness|Paladin
+casting sound = sound_Cast.wav
+cast msg = /c makes it darker.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Darkness.png,210,2,624,624,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Darkness.png,210,2,624,624,0,1,4,1,0,0
+school = Cleric
+Cast by = paladin
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_ContinualDarknessCleric
+Special Ability = casterLevel,$paladin$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 3
+casting time = 6
+casting time units = initiative
+duration = 1
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Continual Light|Paladin
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+school = Cleric
+Cast by = paladin
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_ContinualLightCleric
+Special Ability = casterLevel,$paladin$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 12
+level = 3
+casting time = 6
+casting time units = initiative
+duration = 1
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// magic user level 1
+\(BEGIN)
+name = Light|Mage
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+school = Magic User
+Cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_LightMage
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 6
+level = 1
+casting time = 1
+casting time units = initiative
+duration = level*10
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// magic user level 2
+\(BEGIN)
+name = Continual Light|Mage
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+school = Magic User
+Cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_ContinualLightMage
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 6
+level = 2
+casting time = 2
+casting time units = initiative
+duration = 1
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Darkness 15' Radius|Mage
+casting sound = sound_Cast.wav
+cast msg = /c makes it darker.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Darkness15Radius.png,210,2,144,144,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Darkness15Radius.png,210,2,144,144,0,1,4,1,0,0
+school = Magic User
+Cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_Darkness15RadiusMage
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = level
+level = 1
+casting time = 1
+casting time units = initiative
+duration = 10+level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// ranger magic user level 1
+\(BEGIN)
+name = Light|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Light.png,210,2,240,240,0,1,4,1,0,0
+school = Magic User
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_LightMage
+Special Ability = casterLevel,$ranger$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 6
+level = 1
+casting time = 1
+casting time units = initiative
+duration = level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+// ranger magic user level 2
+\(BEGIN)
+name = Continual Light|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c makes it lighter.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_ContinualLight.png,210,2,624,624,0,1,4,1,0,0
+school = Magic User
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_ContinualLightMage
+Special Ability = casterLevel,$ranger$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = 6
+level = 2
+casting time = 2
+casting time units = initiative
+duration = 1
+duration units = instantaneous
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Darkness 15' Radius|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c makes it darker.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_MU.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Darkness15Radius.png,210,2,144,144,0,1,4,1,0,0
+target hit art = none
+target linger art = spell_linger_Darkness15Radius.png,210,2,144,144,0,1,4,1,0,0
+school = Magic User
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_Darkness15RadiusMage
+Special Ability = casterLevel,$ranger$8
+targeting type = areasquare
+target width = 1
+target height = 1
+target range = level
+level = 1
+casting time = 1
+casting time units = initiative
+duration = 10+level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_ImmuneEnchantment
+[DoesSpellAttackSucceed] = $IF ($SA_SPELL_GET("DamageMagical") == "enchantment"){$RETURN "N";};
+\(END)
+

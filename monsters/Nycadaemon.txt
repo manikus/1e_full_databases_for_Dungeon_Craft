@@ -1,0 +1,48 @@
+\(BEGIN)
+name = Nycadaemon
+icon file = icon_Nycadaemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 16
+armor class = -4
+movement rate = 36
+hit dice = 12
+treat HD as hit points = yes
+hit dice bonus = 36
+THAC0 = 3
+magic resistance = 90
+size = large
+morale = 40
+experience point value = 8240
+Special Ability = monsterLevel,18
+Special Ability = elemental_ResistantAcid
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = IsInvisible
+Special Ability = IsSeeingInvisible
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_ImmuneCharm
+Special Ability = monster_ImmuneParalysis
+Special Ability = monster_ImmunePoison
+Special Ability = monster_Infravision
+Special Ability = monster_Ultravision
+Special Ability = monster_WeaponImmunity,2
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Daemon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = Battle Axe|3
+item = Shield|3
+item = monsterMageMirrorImage
+attack = 8,1,8,hits,monsterNycadaemonFear
+attack = 8,1,8,hits,monsterNycadaemonFear
+Undead = Special
+\(END)
+// FF p69
+

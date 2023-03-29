@@ -1,0 +1,24 @@
+\(BEGIN)
+name = monster_MantaRaySwallower
+[GetAdjMaxMovement] = $RETURN 0;
+[OnStartCombatantAction] = $VAR tgt; $VAR exp; $VAR par;
+-// Test Target and Compute & Apply Swallow
+-tgt = $GET_COMBATANT_SA($CombatantContext(),"monster_MantaRaySwallowLink"); exp = $GetCombatRound(); par = $SA_PARAM_GET();
+-$IF ($GET_CHAR_STATUS(tgt) ==# 0) 
+-	{
+-		$IF (exp ># par)
+-			{
+-				$SET_CHAR_STATUS(tgt,1);
+-				$DELETE_COMBATANT_SA($CombatantContext(),"monster_MantaRaySwallower");
+-				$DELETE_COMBATANT_SA($CombatantContext(),"monster_MantaRaySwallowLink");
+-				$DELETE_CHARACTER_SA($Name(tgt),"IsHugged");
+-			};
+-	}
+-$ELSE
+-	{
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_MantaRaySwallower");
+-		$DELETE_COMBATANT_SA($CombatantContext(),"monster_MantaRayLink");
+-		$DELETE_CHARACTER_SA($Name(tgt),"IsHugged");
+-	};
+\(END)
+

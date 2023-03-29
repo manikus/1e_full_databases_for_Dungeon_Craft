@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Demi-Shadow Orc
+icon file = icon_DemiShadowOrc.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 9
+armor class = 8
+movement rate = 12
+hit dice = .400000
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 20
+magic resistance = 0
+size = medium
+morale = 30
+experience point value = 15
+Special Ability = IsPerson,monster
+Special Ability = monsterLevel,1
+Special Ability = monster_CombatantAlignment,evil
+Class = Fighter
+form = mammal + none
+penalty = DwarfTHAC0 + RangerDmg + none
+immunity = none
+Misc Options = can be held/charmed + none
+item = Spear
+item = Helm
+attack = 3,1,0,attacks,
+Undead = none
+\(END)
+

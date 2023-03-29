@@ -1,0 +1,30 @@
+\(BEGIN)
+name = Shadow Ogre
+icon file = icon_Ogre.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathLarge.wav
+intelligence = 8
+armor class = 10
+movement rate = 9
+hit dice = 1.200000
+treat HD as hit points = yes
+hit dice bonus = 1
+THAC0 = 15
+magic resistance = 0
+size = large
+morale = 50
+experience point value = 175
+Special Ability = monsterLevel,5
+Special Ability = monster_CombatantAlignment,evil
+Class = Fighter
+form = giant + large + none
+penalty = DwarfAC + GnomeAC + RangerDmg + none
+immunity = none
+Misc Options = can be held/charmed + none
+item = none
+attack = 3,1,1,attacks,
+Undead = none
+\(END)
+

@@ -1,0 +1,57 @@
+\(BEGIN)
+name = class_Monk
+[TrainingCharacter] = $VAR me; $VAR lvl;
+-me = $IndexOf($CharacterContext()); lvl = $GET_CHAR_Lvl(me,"monk");
+-$IF (lvl ==# 2) {$SET_CHARACTER_SA($CharacterContext(),"monkESPShield",lvl); $SET_CHAR_AC(me,"5"); $SET_CHAR_MAXMOVE(me,"15");};
+-$IF (lvl ==# 3) {$SET_CHARACTER_SA($CharacterContext(),"monkSpeakWithAnimals",lvl); $SET_CHAR_AC(me,"4"); $SET_CHAR_MAXMOVE(me,"16");};
+-$IF (lvl ==# 4) {$SET_CHARACTER_SA($CharacterContext(),"monkHealDamage",lvl); $SET_CHARACTER_SA($CharacterContext(),"IsMonkImmuneDisease",lvl); $SET_CHARACTER_SA($CharacterContext(),"IsMonkImmuneHaste",lvl); $SET_CHARACTER_SA($CharacterContext(),"IsMonkImmuneSlow",lvl); $SET_CHAR_AC(me,"3"); $SET_CHAR_MAXMOVE(me,"16");};
+-$IF (lvl ==# 5) {$SET_CHARACTER_SA($CharacterContext(),"monkBodyEquilibrium",lvl);$SET_CHARACTER_SA($CharacterContext(),"monkMindOverBody",lvl); $SET_CHAR_AC(me,"3"); $SET_CHAR_MAXMOVE(me,"17");};
+-$IF (lvl ==# 6) {$SET_CHARACTER_SA($CharacterContext(),"monkEmpathy",lvl); $SET_CHAR_AC(me,"2"); $SET_CHAR_MAXMOVE(me,"17");};
+-$IF (lvl ==# 7) {$SET_CHARACTER_SA($CharacterContext(),"monkInvisibility",lvl); $SET_CHAR_AC(me,"2");$SET_CHAR_MAXMOVE(me,"18");};
+-$IF (lvl ==# 8) {$SET_CHARACTER_SA($CharacterContext(),"monkMolecularManipulation",lvl); $SET_CHAR_AC(me,"1");$SET_CHAR_MAXMOVE(me,"18");};
+-$IF (lvl ==# 9) {$SET_CHARACTER_SA($CharacterContext(),"monkCharmResistance",lvl);$SET_CHARACTER_SA($CharacterContext(),"monkMindFlayerBlastResistance",lvl); $SET_CHAR_AC(me,"1"); $SET_CHAR_MAXMOVE(me,"19");};
+-$IF (lvl ==# 10) {$SET_CHARACTER_SA($CharacterContext(),"monkRetardedAging",lvl);$SET_CHARACTER_SA($CharacterContext(),"IsImmunePoison",lvl);$SET_CHARACTER_SA($CharacterContext(),"monkQuestImmunity",lvl); $SET_CHAR_AC(me,"0"); $SET_CHAR_MAXMOVE(me,"19");};
+-$IF (lvl ==# 11) {$SET_CHARACTER_SA($CharacterContext(),"monkBodyControl",lvl); $SET_CHAR_AC(me,"0"); $SET_CHAR_MAXMOVE(me,"20");};
+-$IF (lvl ==# 12) {$SET_CHARACTER_SA($CharacterContext(),"monkQuiveringPalmAttack",lvl); $SET_CHAR_AC(me,"-1"); $SET_CHAR_MAXMOVE(me,"21");};
+-$IF (lvl ==# 13) {$SET_CHARACTER_SA($CharacterContext(),"monkDimensionDoor",lvl); $SET_CHAR_AC(me,"-1"); $SET_CHAR_MAXMOVE(me,"22");};
+-$IF (lvl ==# 14) {$SET_CHARACTER_SA($CharacterContext(),"monkSpeakWithPlants",lvl); $SET_CHAR_AC(me,"-2"); $SET_CHAR_MAXMOVE(me,"23");};
+-$IF (lvl ==# 15) {$SET_CHARACTER_SA($CharacterContext(),"monkMindBar",lvl); $SET_CHAR_AC(me,"-2"); $SET_CHAR_MAXMOVE(me,"24");};
+-$IF (lvl ==# 16) {$SET_CHARACTER_SA($CharacterContext(),"monkObjectReading",lvl); $SET_CHAR_AC(me,"-3"); $SET_CHAR_MAXMOVE(me,"25");};
+-$IF (lvl ==# 17) {$SET_CHARACTER_SA($CharacterContext(),"monkDimensioinWalk",lvl); $SET_CHAR_AC(me,"-3"); $SET_CHAR_MAXMOVE(me,"26");};
+-$IF (lvl ==# 18) {$SET_CHARACTER_SA($CharacterContext(),"monkAstralProjection",lvl); $SET_CHAR_AC(me,"-4"); $SET_CHAR_MAXMOVE(me,"27");};
+-$IF (lvl ==# 19) {$SET_CHARACTER_SA($CharacterContext(),"monkPremonition",lvl); $SET_CHAR_AC(me,"-4"); $SET_CHAR_MAXMOVE(me,"28");};
+-$IF (lvl ==# 20) {$SET_CHARACTER_SA($CharacterContext(),"monkTowerIronWill",lvl); $SET_CHAR_AC(me,"-5"); $SET_CHAR_MAXMOVE(me,"29");};
+-$IF (lvl ==# 21) {$SET_CHARACTER_SA($CharacterContext(),"monkPlaneshift",lvl); $SET_CHAR_AC(me,"-5"); $SET_CHAR_MAXMOVE(me,"30");};
+[PostCreateCharacter] = $VAR me; $VAR lvl;
+-me = $IndexOf($CharacterContext()); lvl = $GET_CHAR_Lvl(me,"monk");
+-$SET_CHAR_HITBONUS(me,0); $SET_CHAR_DAMAGEBONUS(me,0); 
+-$SET_CHARACTER_SA($CharacterContext(),"monkDodgeNormalMissiles",lvl);
+-$SET_CHARACTER_SA($CharacterContext(),"monkMovement",lvl);
+-$SET_CHARACTER_SA($CharacterContext(),"monkSavingThrowHalf",lvl);
+-$SET_CHARACTER_SA($CharacterContext(),"monkSurprise",lvl);
+-$SET_CHARACTER_SA($CharacterContext(),"monkUnarmedCombat",lvl);
+-$SET_CHARACTER_SA($CharacterContext(),"monkWeaponDamage",lvl);
+-$SET_CHARACTER_SA($CharacterContext(),"monkFeignDeath",lvl);
+-$SET_CHAR_AC(me,"6");
+-$IF (lvl >=# 2) {$SET_CHARACTER_SA($CharacterContext(),"monkESPShield",lvl); $SET_CHAR_AC(me,"5"); $SET_CHAR_MAXMOVE(me,"15");};
+-$IF (lvl >=# 3) {$SET_CHARACTER_SA($CharacterContext(),"monkSpeakWithAnimals",lvl); $SET_CHAR_AC(me,"4"); $SET_CHAR_MAXMOVE(me,"16");};
+-$IF (lvl >=# 4) {$SET_CHARACTER_SA($CharacterContext(),"monkHealDamage",lvl); $SET_CHARACTER_SA($CharacterContext(),"IsMonkImmuneDisease",lvl); $SET_CHARACTER_SA($CharacterContext(),"IsMonkImmuneHaste",lvl); $SET_CHARACTER_SA($CharacterContext(),"IsMonkImmuneSlow",lvl); $SET_CHAR_AC(me,"3"); $SET_CHAR_MAXMOVE(me,"16");};
+-$IF (lvl >=# 5) {$SET_CHARACTER_SA($CharacterContext(),"monkBodyEquilibrium",lvl);$SET_CHARACTER_SA($CharacterContext(),"monkMindOverBody",lvl); $SET_CHAR_AC(me,"3"); $SET_CHAR_MAXMOVE(me,"17");};
+-$IF (lvl >=# 6) {$SET_CHARACTER_SA($CharacterContext(),"monkEmpathy",lvl); $SET_CHAR_AC(me,"2"); $SET_CHAR_MAXMOVE(me,"17");};
+-$IF (lvl >=# 7) {$SET_CHARACTER_SA($CharacterContext(),"monkInvisibility",lvl); $SET_CHAR_AC(me,"2"); $SET_CHAR_MAXMOVE(me,"18");};
+-$IF (lvl >=# 8) {$SET_CHARACTER_SA($CharacterContext(),"monkMolecularManipulation",lvl); $SET_CHAR_AC(me,"1"); $SET_CHAR_MAXMOVE(me,"18");};
+-$IF (lvl >=# 9) {$SET_CHARACTER_SA($CharacterContext(),"monkCharmResistance",lvl);$SET_CHARACTER_SA($CharacterContext(),"monkMindFlayerBlastResistance",lvl); $SET_CHAR_AC(me,"1"); $SET_CHAR_MAXMOVE(me,"19");};
+-$IF (lvl >=# 10) {$SET_CHARACTER_SA($CharacterContext(),"monkRetardedAging",lvl);$SET_CHARACTER_SA($CharacterContext(),"IsImmunePoison",lvl);$SET_CHARACTER_SA($CharacterContext(),"monkQuestImmunity",lvl); $SET_CHAR_AC(me,"0"); $SET_CHAR_MAXMOVE(me,"19");};
+-$IF (lvl >=# 11) {$SET_CHARACTER_SA($CharacterContext(),"monkBodyControl",lvl); $SET_CHAR_AC(me,"0"); $SET_CHAR_MAXMOVE(me,"20");};
+-$IF (lvl >=# 12) {$SET_CHARACTER_SA($CharacterContext(),"monkQuiveringPalmAttack",lvl); $SET_CHAR_AC(me,"-1"); $SET_CHAR_MAXMOVE(me,"21");};
+-$IF (lvl >=# 13) {$SET_CHARACTER_SA($CharacterContext(),"monkDimensionDoor",lvl); $SET_CHAR_AC(me,"-1"); $SET_CHAR_MAXMOVE(me,"22");};
+-$IF (lvl >=# 14) {$SET_CHARACTER_SA($CharacterContext(),"monkSpeakWithPlants",lvl); $SET_CHAR_AC(me,"-2"); $SET_CHAR_MAXMOVE(me,"23");};
+-$IF (lvl >=# 15) {$SET_CHARACTER_SA($CharacterContext(),"monkMindBar",lvl); $SET_CHAR_AC(me,"-2"); $SET_CHAR_MAXMOVE(me,"24");};
+-$IF (lvl >=# 16) {$SET_CHARACTER_SA($CharacterContext(),"monkObjectReading",lvl); $SET_CHAR_AC(me,"-3"); $SET_CHAR_MAXMOVE(me,"25");};
+-$IF (lvl >=# 17) {$SET_CHARACTER_SA($CharacterContext(),"monkDimensioinWalk",lvl); $SET_CHAR_AC(me,"-3"); $SET_CHAR_MAXMOVE(me,"26");};
+-$IF (lvl >=# 18) {$SET_CHARACTER_SA($CharacterContext(),"monkAstralProjection",lvl); $SET_CHAR_AC(me,"-4"); $SET_CHAR_MAXMOVE(me,"27");};
+-$IF (lvl >=# 19) {$SET_CHARACTER_SA($CharacterContext(),"monkPremonition",lvl); $SET_CHAR_AC(me,"-4"); $SET_CHAR_MAXMOVE(me,"28");};
+-$IF (lvl >=# 20) {$SET_CHARACTER_SA($CharacterContext(),"monkTowerIronWill",lvl); $SET_CHAR_AC(me,"-5"); $SET_CHAR_MAXMOVE(me,"29");};
+-$IF (lvl ==# 21) {$SET_CHARACTER_SA($CharacterContext(),"monkPlaneshift",lvl); $SET_CHAR_AC(me,"-5"); $SET_CHAR_MAXMOVE(me,"30");};
+\(END)
+

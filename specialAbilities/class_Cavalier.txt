@@ -1,0 +1,6 @@
+\(BEGIN)
+name = class_Cavalier
+[PostCreateCharacter] = $SET_CHARACTER_SA($CharacterContext(),"class_cavalierParry","1");
+-$SET_CHARACTER_SA($CharacterContext(),"isImmuneFear","1");
+\(END)
+

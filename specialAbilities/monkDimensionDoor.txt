@@ -1,0 +1,19 @@
+\(BEGIN)
+name = monkDimensionDoor
+[CanCureOrWhatever] = $VAR tgt; $VAR lvl; $VAR prevTime; $VAR curTime; $VAR elapsedTime; $VAR waitTime;
+-tgt = $IndexOf($CharacterContext()); lvl = $GET_CHAR_Lvl(tgt,"monk");
+-$IF (lvl <# 13) {$RETURN;};
+-prevTime = $GET_CHARACTER_SA($CharacterContext(),"monkDDtime"); curTime = $GET_PARTY_TIME();
+-$IF(prevTime != "-?-?-"){elapsedTime = curTime -# prevTime;}
+-$ELSE{elapsedTime = 999;};
+-waitTime = 1440;
+-$IF ((elapsedTime >= 0) && (elapsedTime <# waitTime)) {$RETURN;};
+-$SET_HOOK_PARAM( 5, "DIMENSION DOOR" ); $SET_HOOK_PARAM( 6, "0");
+[CureOrWhatever] = $VAR curTime;
+-curTime = $GET_PARTY_TIME();
+-$SET_CHARACTER_SA($CharacterContext(),"monkDDtime",curTime);
+-$SET_HOOK_PARAM(1,"monkDimensionDoor");
+-$RETURN "CastSpell";
+\(END)
+// level 13 - as magic user spell
+

@@ -1,0 +1,13 @@
+\(BEGIN)
+name = Barbarian
+HitDiceLevelBonus = barbarian,Constitution,0,0,-2,-1,-1,-1,0,0,0,0,0,0,0,0,1,2,3,4,5,5,6,6,6,7,7
+HitDiceBaseclass = *Average*
+StrengthBonusDice = 1D100
+Starting Equipment = Spear
+Baseclass = barbarian
+Special Ability = class_NoSpells,Barbarian
+Special Ability = class_Barbarian,Barbarian
+Special Ability = ChangeClassBarbarian
+// Special Ability = class_ClassSuppress,"Y"
+\(END)
+

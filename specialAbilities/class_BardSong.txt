@@ -1,0 +1,12 @@
+\(BEGIN)
+name = class_BardSong
+[CanLayOrWhatever] = $VAR atk; $VAR adj; $VAR lvl;
+-atk = $IndexOf($AttackerContext()); adj = $SA_PARAM_GET(); lvl = $GET_CHAR_Lvl(atk,"bard") -# adj;
+-$IF (lvl <=# 0){$RETURN;};
+-$IF ($GET_CHARACTER_SA($AttackerContext(),"Singing") != "-?-?-"){$RETURN;};
+-$SET_HOOK_PARAM( 5,"SING");
+-$SET_HOOK_PARAM( 6,"0");
+[LayOrWhatever] = $SET_HOOK_PARAM(1,"bardSong");
+-$RETURN "CastSpell";
+\(END)
+

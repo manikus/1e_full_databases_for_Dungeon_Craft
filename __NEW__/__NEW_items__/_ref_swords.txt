@@ -1,0 +1,310 @@
+DMG p165
+
+SWORDS (III G)
+All magic swords receive their stated bonus both for purposes of hitting (as
+a bonus to the "to hit" die) and for damage (as + 1, +2, +3, etc. addition
+to hit points of damage scored). The special features of listed swords are
+described below. Thereafter, considerations of unusuol aspects of swords
+are listed, i.e. intelligence, abilities, powers, purpose, alignment, languages,
+and ego. Finally, the effects of unusuol swords are dealt with. Note
+that few swords will have any unusual aspects.
+All +5 Holy Avenger swords are lawful good. All Swords of Sharpness are
+of chaotic alignment. All Vorpal Weapons are lawfully aligned.
+Most swords (and all daggers) of magical nature shed light when drawn
+from their scabbard (see ADVANCED DUNGEONS 8 DRAGONS, PLAYERS
+HANDBOOK, THE ADVENTURE, Light). The sale exceptions are the Flame
+Tongue, Frost Brand, Holy Avenger, Life Steoling, and Sharpness swords,
+and these will be dealt with individually.
+Whenever a sword has some unknown quality - such as the wishes in a
+Luck Blade or a sword with unusual aspects, you should prepare a special 3
+X 5 index card on it and keep the information handy whenever the
+possessor of the weapon is playing.
+
+Sword +1, +2 vs. magic-using and enchanted creatures, gives its + 1
+bonus always, +2 when employed against magic-users, monsters which
+can cast spells, conjured, created, goted, or summoned creatures. Note
+that the +2 would not operate against a creature magically empowered
+by some item to cast spells- such as a ring of spell storing.
+
+Sword +1, +3 vs. lycanthropes and shape changers, gives its +3 agoinst
+were creatures, those able to assume the form of another creature (such as
+a vampire or a druid), or any creature under the influence of a polymorph
+or shape change spell.
+
+Sword +1, +3 vs. regenerating creatures, will give the +3 bonus to its
+wielder even when the regenerating creature does so because of a
+magical device - such as a ring of regeneration.
+
+Sword +1, +4 vs. reptiles, gives the +4 against such creatures as dinosaurs,
+dragons, hydras, lizards, snakes, wyverns, etc.
+
+Sword + 1, Flame Tongue, +2 VS. regenerating creatures, + 3 vs. cold using,
+inflammable, or avian creatures, +4 vs. undead, sheds light only
+when its possessor speaks a command word or phrase, and this flame illuminates
+the area as brightly as a torch. Note that the flame from this
+sword easily ignites oil, burns webs, or sets fire to paper, parchment, dry
+wood, etc. Cold-using creatures are those whose attack mode involves
+cold (ice toads, white dragons, winter wolves, yeti, etc.)
+
+Sword +1, Luck Blade, gives its possessor +1 on a11 saving throws and
+will have from 2-5 wishes (you must keep a secret note of the number and
+their use) determined by d4 +l.
+
+Sword +2, Giant Slayer, has a +3 bonus versus any giant, ettin, ogre
+mage, or titan. Against any of the true giants (hill, stone, frost, fire, cloud,
+storm) the sword does double domage, i.e. 2-24 + 3 or 5-27.
+
+Sword +2, Dragon Slayer, has a +4 against any sort of true dragon and
+against 1 sort it will do triple damage i.e. 3-36 + 4 or 7-40. Note that an
+unusuol sword with intelligence and alignment will not be made to slay
+dragons of the same alignment. Determine dragon type-by random roll,
+excluding the singular ones (Bahamut and Tiamat):
+	black (CE)			gold (LG)
+	blue (LE)			green (LE)
+	brass (CG)			red (CE)
+	bronze (LG)			silver (LG)
+	copper (CG)			white (CE)
+
+Sword +2. Nine lives Stealer, will always perform as a +2 weapon, but
+it also has the power to draw the life force from an opponent, and it can do
+so only a total of 9 times before the ability is lost. A natural 20 must be
+scored on the wielder's "to hit" die roll for the sword to function. The
+opponent is entitled to a saving throw versus magic in such case, and if it is
+successful the sword does not function, no charge is used, and normal
+damage is determined.
+
+Sword +3, Frost Brand, +6 vs. fire using/dwelling creatures, bestows
+the +6 bonus in a self-explanatory manner. The weapon does not shed
+any light, except when the air temperature is below 0" F, but it does give
+special benefits against fire, for its wielder is protected os if he or she were
+wearing a ring of fire resistance and whenever it is thrust into fires it has a
+50% chance of extinguishing them in a 10' radius - including a wall of
+fire but excluding a fireball, meteor swarm, or flame strike.
+
+Sword +4, Defender, gives its wielder the option of using all, some, or
+none of the +4 bonus in defense against any opponent using a hand held
+weapon such as a dagger, mace, spear (not hurled), sword, etc. For
+example, the wielder can on the 1st round of battle opt to use the sword as
++2 and save the other 2 bonus factors to be added on to his or her armor
+class. This can be done each round.
+
+Sword, +5. Holy Avenger, is a holy sword. In the hands of any character
+other than a paladin, it will perform only as a +2 sword. In the hands of a
+paladin, however, it creates a magic resistance of 50% in a 5' radius,
+dispels magic in a 5' radius at the level of magic use equal to the experience
+level of the paladin, and inflicts +10 hit points of bonus damage
+upon chaotic evil opponents. (Cf. also ADVANCED DUNGEONS 8 DRAGONS,
+PLAYERS HANDBOOK, CHARACTER CLASSES, The Paladin.)
+
+Sword of Dancing is progressively and doubly dangerous. On the 1st round
+of melee it is +l, on the 2nd +2, on the 3rd +3, and on the 4th it is +4,
+but it then drops to + 1 on the 5th round and again goes upwards. After 4
+rounds of melee its wielder can opt to allow it to "dance". "Dancing" cansists
+of loosing the sword on any round when its bonus is + 1. The sword
+then fights at the same level of experience as its wielder, doing so for 4
+rounds. Thereafter, it must again be grasped, as it returns to its wielder, i.e.
+it is loosed to "dance" far 4 rounds, going from + 1 to +4, and must be
+again held by its wielder at a +1 stage and physically used for 4
+successive rounds of melee combat. When "dancing", the sword will
+leave its owner's hand and may be up to 3" distant, and at the end of its
+4th round of solo combat it will move to its possessor's hand automatically.
+Note that when "dancing" the sword cannot be physically hit, although
+certain magic attacks such as a fireball, lightning bolt, or transmute metal
+to wood could affect it. Finally, remember that the dancing sword fights
+alone at the same level (and class) of its possessor - if a 4th level fighter,
+the sword fights alone exactly the same; if a 7th level thief is the wielder,
+the sword will so fight when "dancing". Thus relieved of his or her
+weapon for 4 melee rounds, the possessor may act in virtually any manner
+desired, as dictated by circumstances, and so long as he or she remains
+within 3" or less of the sword (otherwise it falls "lifeless" to the ground
+and is a +1 weapon when again grasped). The possessor can rest, discharge
+missiles, draw another weapon and engage in hand-to-hand
+combat, etc.
+
+Sword of Wounding is a sword of only + 1 bonus, but any hit it makes cannot
+be healed by regeneration, and the opponent so wounded loses 1 additional
+hit point per round for each wound inflicted by the sword on the
+round after such a wound is received. Thus,' an opponent hit for 4 points of
+damage on the 1st melee round will automatically lose 1 additional hit
+point on the 2nd and each successive round of combat. Loss of 1 point stops
+only when the creature so wounded bandages its wound or after 10 melee
+rounds (1 turn). Damage from a sword of wounding can be healed only by
+normal means (rest and time) - never by potion, spell, or other magical
+means short of a wish. Note that successive wounds will damage in the
+same manner as the first.
+
+Sword of life Stealing is a +2 weapon which will eliminate 1 level of experience
+(or hit die) and its accompanying hit die and abilities when it
+strikes any opponent with a score of a natural 20 on the "to hit" die roll.
+This function is exactly the same as the life energy level draining ability of
+certain undead creatures. The sword wielder will gain as many hit points
+as an opponent loses to this function of the weapon, subiect to the limit of
+his or her maximum number of hit points predetermined by rolling hit
+dice, i.e. only a character who has somehow suffered loss of hit points can
+benefit from the function.
+
+Sword of Sharpness is a weapon which is treated as +3 or better for
+purposes of who or what can be hit by it, even though it gets only +1
+bonus "to hit" and on damage inflicted. Its power is great, however, for on
+a very high "to hit" die roll as shown below it will sever an extremity -
+arm, leg, neck, tail, tentacle, whatever- determined by random dice roll:
+	Opponent is				Modified score to sever*
+	norma/armored				19-21
+	larger than man-sized		20-21
+	solid metal or stone		21
+A sword of sharpness will respond to its wielder's desire with respect to the
+light it sheds - none, a 5' circle of dim illumination, a 15' light, or a 30'
+radius glow equal to o light spell.
+Considers only the sword's bonus of + 1.
+
+Sword, Vorpal Weapon, is similar but superior to a sword of sharpness. A
+vorpal weapon is +3 "to hit" and for damage bonus. When a score on the
+"to hit" die as shown below is made, it will sever the neck/head of its opponent:
+	Opponent is				Modified score to sever*
+	normal/armored				20-23
+	larger than man-sized		21-23
+	solid metal or stone		22-23
+Considers only the sword's bonus of +3.
+The DM will note that there are many creatures that cannot suffer
+decapitation due to lack or mutability of form. There are also certain
+creatures that may have heads but will not necessarily be killed by
+decapitation (among these are dopplegangers, elementals, and golems).
+
+Sword +1, cursed, performs in all respects as a +1 weapon, but when its
+wielder is faced by an enemy the sword will weld itself to the cahracters
+hand and force him or her to fight until the enemy or the wielder is slain.
+Thereafter, the possessor can loose, but never rid himself or herself of the
+cursed sword. No matter what is done, it will appear in his or her hand
+whenever an opponent is faced. To be free of the weapon, the character
+must have a cleric exorcise it.
+
+Sword -2, cursed, is a sword which gives off a magical aura and performs
+well against targets in practice, but when it is used against an opponent in
+combat it lowers hit probability by-2 for its user, although only by careful
+observation can this lowering of probability be detected; all damage
+scored is likewise reduced by 2 hit points, but never below a 1 in any
+event. The sword will always force the character to employ it against
+enemies, teleporting to the character's hand. It can be gotten rid of only by
+means of limited wish, wish, or alter reality.
+
+Sword, Cursed Berserking performs by every test, save that of the heat of
+battle, as a +2 magic sword of some sort. However, in actual battle its
+wielder will go berserk, attacking the nearest creature and continuing to
+fight until dead or until no living thing remains within 6" of him or her. The
+sword has a +2 bonus and otherwise acts as a +1 cursed sword. The
+possessor of a Cursed Beserking Sword can be rid of it only if it is exorcised
+or wished away.
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+UA p104
+
+SWORDS (lll.G.2.)
+
+Sword, Short, of Quickness is a specially dweomered blade that enables
+the wielder to strike first in every combat round. It is also a + 2
+magic weapon, with the bonus applicable to both hitting and damage.
+
+Sword of the Planes is only forged as a broadsword. Its particular enchantment
+is such that it has a base bonus of + 1 when operating on
+the Prime Material Plane - but when it is on any of the Inner Planes
+its dweomer increases to +2, and this bonus also applies on the
+Prime Material Plane when the weapon is used against opponents
+from the Inner Planes. Similarly, when it is used on one of the Outer
+Planes or against creatures from the Outer Planes, the sword becomes
+a +3 weapon. And it operates as a +4 weapon when employed
+on the Astral or Ethereal Plane or against opponents from
+either of those planes.
+
+Sun Blade swords are all of great size and must be treated as bastard
+swords. Their dweomer is such, however, that an individual possesing
+a sun blade may wield it as if it were a short sword with respect to
+encumbrance, weight, speed factor, and ease of use. In other words,
+the weapon appears to all viewers to be a bastard sword, and it inflicts
+damage as if it were a true sword of that sort, but the individual using a
+sun blade feels and reacts as if the weapon were a short sword. Any
+individual able to use either a bastard sword or a short sword with proficiency
+or expertise will be able to use a sun blade. In normal combat,
+the glowing golden blade of the weapon is equal to a +2 magic
+sword. Against evil creatures, its bonus is doubled to +4. When it is
+used against creatures from the Negative Material Plane or those that
+draw power from that plane (such as many of the undead), the sword
+will inflict double normal damage, regardless of whether the bonus of
+the weapon is + 2 or + 4. Furthermore, upon command, a sun blade
+can be swung vigorously through the air, and the blade will shed a
+bright yellow radiance which equals full daylight. The radiance will begin
+shining within a 10-foot radius around the sword-wielder and will
+spread outward at 5 feet per round for 10 rounds thereafter, thus englobing
+an area of 60-foot radius. Thereafter, the radiance fades to a
+dim glow which persists for another 10 rounds before disappearing
+entirely. This sunray power of the blade can only be used once per
+day. All sun blades are of good alignment.
+
+Sword, Anything will originally appear to be a sword +1 of any type
+- short, long, etc. Upon command, however, it will change into any
+desired type of magic sword of any power (for instance, from a short
+sword + 1 to a holy avenger + 5 of long, bastard. or even twohanded
+sort). The sword will remain as commanded for 1 day (24
+hours) or until it performs a special, highly powerful function such as
+draining a level, severing some body part, etc. The sword can be
+commanded to assume another form no more than three times, and
+each form is singular and may not be repeated; i.e., the weapon can
+be a dancing sword but once, a frost brand but once, and a vorpal
+blade but once. After changing upon ciomrnand for a third time and
+then reverting to its original form, the anything sword loses all of its
+dweomer and is thereafter an ordinary blade. This type of sword can
+never have intelligence, ego, communication power, or any other sort
+of special ability.
+
+Sword, Broad, “Final Word” Type is a very rare item -only nine of
+these blades are known to exist. Each is patterned after the legendary
+broadsword Fragarach (which means “final word” in the tongue of
+the ancient Oeridians). Each of these weapons is thought to have a
+differing alignment, but in all other respects each is alike. If a creature
+of an alignment different from that of the sword attempts to wield it in
+battle, the weapon has no bonuses. In the hands of a creature of like
+alignment, the sword becomes a +3 blade which always strikes last
+in any round, but which will strike unerringly and do damage to any opponent
+that struck at the wielder earlier in the same round, regardless
+of whether the opponent(s) successfully hit the wielder, up to the
+wielder’s allowable number of attacks per round. (Of course, since
+the weapon is a + 3 blade, opponents immune to weapons of less
+than + 4 value will not be harmed.) Each of these swords has a gem of
+10,000 gp value set in its pommel, and each gem is different in type
+from all the others. Each sword also bears an identifying name; the
+nine appellations are “Answerer,” “Back-talker,” “Concluder,” “Lastquip,”
+“Rebutter,” “Replier,” “Retorter,” “Scather,” and “Squelcher
+
+from Tables
+								XP Value	GP Value
+Sword + 1, + 3 vs. regenerating creatures 800 4,000
+Sword + 1, + 4 vs. reptiles		800			4,000
+Sword + 1, Flame Tongue: +2 vs. regenerating creatures + 3 vs. cold-using, inflammable, or avian creatures + 4 vs. undead 						900 		4,500
+Sword + 1, Luck Blade			1,000 		5,000
+Sword + 2 ’						800 		4,000
+Sword + 2, Giant Slayer			900 		4,500
+Sword +2, Dragon Slayer			900			4,500
+Sword, Short, Quickness (+2)	1,000		8,000
+Sword +3						1,400		7,000
+Sword + 3, Frost Brand: + 6 vs. fire using/dwelling creatures 1,600 8,000
+Sword of the Planes				2,000		15,000
+Sword + 4						2,000		10,000
+Sword + 4, Defender				3,000		15,000
+Sword + 5						3,000		15,000
+Sword + 1, Cursed				400			---
+Sword -2, Cursed				600			---
+Sword, Cursed Berserking		900			---
+Sun Blade						3,000		20,000
+Sword, Anything					5,000		35,000
+Sword, Broad, “Final Word” Type 10,000		50,000*
+Sword of Dancing				4,400		22,000
+Sword + 5, Defender				3,600		18,000
+Sword + 6, Defender				5,000		30,000
+Sword + 5, Holy Avenger			4,000		20,000
+Sword + 6, Holy Avenger			7,000		40,000
+Sword of Life Stealing			5,000		25,000
+Sword + 2, Nine Lives Stealer	1,600		8,000
+Sword of Sharpness				7,000		35,000
+Sword, Vorpal Weapon			10,000		50,000
+Sword of Wounding				4,400		22,000
+
+

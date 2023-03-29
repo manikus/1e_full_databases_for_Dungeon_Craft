@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkTowerIronWill
+\(END)
+// level 20 - for designer use
+

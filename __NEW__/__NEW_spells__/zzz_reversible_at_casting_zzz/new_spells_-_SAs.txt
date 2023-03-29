@@ -1,0 +1,242 @@
+// 1st level cleric
+\(BEGIN)
+name = spellReversibleBlessCurse
+[OverrideSpellSelection] = $VAR list;
+-list = "$Bless$Curse";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleCureLightWoundsCauseLightWounds
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Light Wounds$Cause Light Wounds";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleProtectionFromEvilClericProtectionFromGoodCleric
+[OverrideSpellSelection] = $VAR list;
+-list = "$Protection From Evil|Cleric$Protection From Good|Cleric";
+-$RETURN list;
+\(END)
+
+// 3rd level cleric
+\(BEGIN)
+name = SpellReversibleCureBlindnessCauseBlindness
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Blindness$Cause Blindness";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleCureDiseaseCauseDisease
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Disease$Cause Disease";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleRemoveCurseBestowCurse
+[OverrideSpellSelection] = $VAR list;
+-list = "$Remove Curse$Bestow Curse";
+-$RETURN list;
+\(END)
+
+// 4th level cleric
+\(BEGIN)
+name = spellReversibleCureSeriousWOundsCauseSeriousWounds
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Serious Wounds$Cause Serious Wounds";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleNeutralizePoisonPoison
+[OverrideSpellSelection] = $VAR list;
+-list = "$Neutralize Poison$Poison";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleProtectionFromEvilRadiusProtectionFromGood10Radius
+[OverrideSpellSelection] = $VAR list;
+-list = "$Protection From Evil 10' Radius|Cleric$Protection From Good 10' Radius|Cleric";
+-$RETURN list;
+\(END)
+
+// 5th level cleric
+\(BEGIN)
+name = spellReversibleCureCriticalWOundsCauseCriticalWounds
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Critical Wounds$Cause Critical Wounds";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleDispelEvilDispelGood
+[OverrideSpellSelection] = $VAR list;
+-list = "$Dispel Evil$Dispel Good";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleRaiseDeadSlayLving
+[OverrideSpellSelection] = $VAR list;
+-list = "$Raise Dead$Slay Living";
+-$RETURN list;
+\(END)
+
+// 6th level cleric
+\(BEGIN)
+name = spellReversibleHealHarm
+[OverrideSpellSelection] = $VAR list;
+-list = "$Heal$Harm";
+-$RETURN list;
+\(END)
+
+// 7th level cleric
+\(BEGIN)
+name = spellReversibleRestorationEnergyDrain
+[OverrideSpellSelection] = $VAR list;
+-list = "$Restoraton$Energy Drain";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleResurrectionDestruction
+[OverrideSpellSelection] = $VAR list;
+-list = "$Resurrection$Destruction";
+-$RETURN list;
+\(END)
+
+// 2nd level druid
+\(BEGIN)
+name = spellReversible
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Light Wounds|Druid$Cause Light Wounds|Druid";
+-$RETURN list;
+\(END)
+
+// 3rd level druid
+\(BEGIN)
+name = spellReversibleCureDiseaseDruidCauseDiseaseDruid
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Disease|Druid$Cause Disease|Druid";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleNeutralizePoisonDruidPoisonDruid
+[OverrideSpellSelection] = $VAR list;
+-list = "$Neutralize Poison|Druid$Poison|Druid";
+-$RETURN list;
+\(END)
+
+// 4th level druid
+\(BEGIN)
+name = spellRevrsibleCureSeriousWoundsDruidCauseSeriousWoundsDruid
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Serious Wounds|Druid$Cause Serious Wounds|Druid";
+-$RETURN list;
+\(END)
+
+// 6th level druid
+\(BEGIN)
+name = spellReversibleCureCriticalWoundsDruidCauseCriticalWoundsDruid
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Critical Wounds|Druid$Cause Critical Wounds|Druid";
+-$RETURN list;
+\(END)
+
+// 1st level magic user
+\(BEGIN)
+name = spellReversibleEnlargeReduce
+[OverrideSpellSelection] = $VAR list;
+-list = "$Enlarge$Reduce";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleProtectionFromEvilMagicUserProtectionFromGoodMagicUser
+[OverrideSpellSelection] = $VAR list;
+-list = "$Protection From Evil|MagicUser$Protection From Good|MagicUser";
+-$RETURN list;
+\(END)
+
+// 2nd level magic user
+\(BEGIN)
+name = spellReversibleDetectEvilDetectGood
+[OverrideSpellSelection] = $VAR list;
+-list = "$Detect Evil$Detect Good";
+-$RETURN list;
+\(END)
+
+// 3rd level magic user
+\(BEGIN)
+name = spellReversibleHasteSlow
+[OverrideSpellSelection] = $VAR list;
+-list = "$Hast$Slow";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleProtectionFromEvil10RadiusMagicUserProtectionFromGood10RadiusMagicUser
+[OverrideSpellSelection] = $VAR list;
+-list = "$Protection From Evil 10' Radius| Magic User$Protection From Good 10' Radius| Magic User";
+-$RETURN list;
+\(END)
+
+// 5th level magic user
+\(BEGIN)
+name = spellMultiConjureAirEarthFireWaterElemental
+[OverrideSpellSelection] = $VAR list;
+-list = "$Conjure Air Elemental$Conjure Earth Elemental$Conjure Fire Elemental$Conjure Water Elemental";
+-$RETURN list;
+\(END)
+
+// 6th level magic user
+\(BEGIN)
+name = spellReversibleStoneToFlexhFleshToStone
+[OverrideSpellSelection] = $VAR list;
+-list = "$Stone to Flesh$Flesh to Stone";
+-$RETURN list;
+\(END)
+
+// 2nd level ranger->druid
+\(BEGIN)
+name = spellReversibleCureLightWoundsRangerCauseLightWoundsRanger
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Light Wounds|Ranger$Cause Light Wounds|Ranger";
+-$RETURN list;
+\(END)
+
+// 3rd level ranger->druid
+\(BEGIN)
+name = spellReversibleCureDiseaseRangerCauseDiseaseRanger
+[OverrideSpellSelection] = $VAR list;
+-list = "$Cure Disease|Ranger$Cause Disease|Ranger";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleNeutralizePoisonRangerPoisonRanger
+[OverrideSpellSelection] = $VAR list;
+-list = "$Neutralize Poison|Ranger$Poison|Ranger";
+-$RETURN list;
+\(END)
+
+// 1st level ranger->mu
+\(BEGIN)
+name = spellReversibleEnlargeRangerReduceRanger
+[OverrideSpellSelection] = $VAR list;
+-list = "$Enlarge|Ranger$";
+-$RETURN list;
+\(END)
+
+\(BEGIN)
+name = spellReversibleProtectionFromEvilRangerProtectionFromGoodRanger
+[OverrideSpellSelection] = $VAR list;
+-list = "$Protection From Evil|Ranger$Protection From Good|Ranger";
+-$RETURN list;
+\(END)
+

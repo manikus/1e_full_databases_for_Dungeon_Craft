@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monkMindOverBody
+\(END)
+// level 5 - for desiner use out of combat
+

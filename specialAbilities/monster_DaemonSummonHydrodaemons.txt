@@ -1,0 +1,6 @@
+\(BEGIN)
+name = monster_DaemonSummonHydrodaemons
+[InvokeSpellOnTarget] = $VAR rdm; rdm = $RANDOM(6);
+-$WHILE (rdm >=# 0){$AddCombatant("Hydrodaemon",0);rdm = rdm -# 1;};
+\(END)
+

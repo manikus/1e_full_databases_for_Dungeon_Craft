@@ -1,0 +1,6 @@
+\(BEGIN)
+name = monster_AnthraxusDisease
+[InvokeSpellOnTarget] = $IF($GET_CHARACTER_SA($TargetContext(),"IsImmuneDisease") != "-?-?-"){$RETURN;};
+-$SET_CHARACTER_SA($TargetContext(),"IsDiseased","Diseased");
+\(END)
+

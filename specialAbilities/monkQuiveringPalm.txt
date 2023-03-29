@@ -1,0 +1,17 @@
+\(BEGIN)
+name = monkQuiveringPalm
+[CombatSpecialAction] = $VAR dst; $VAR atk; $VAR tgt; $VAR und; $VAR aLvl; $VAR tLvl; $VAR tCls;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-$IF ($GET_COMBATANT_SA($AttackerContext(),"IsInvisible") != "-?-?-")
+-	{$DELETE_COMBATANT_SA($AttackerContext(),"IsInvisibleSpell"); $DELETE_COMBATANT_SA($AttackerContext(),"IsInvisible");};
+-$IF (tgt ==# -#2){$SET_HOOK_PARAM(5,"Strikes");$RETURN;}; // first call
+-$IF (tgt ==# -#1){$SET_HOOK_PARAM(5,"Strikes");$RETURN;}; // last call
+-dst = $VisualDistance(atk,tgt); und = $IsUndead($TargetContext());
+-$IF(dst ># 2) {$RETURN;}; $IF (und ==# 1) {$RETURN;};
+-aLvl = $GET_CHAR_Lvl(atk,"monk"); tCls = $GetHighestLevelBaseclass(tgt); tLvl = $GET_CHAR_Lvl(tgt,tCls);
+-$IF (tLvl ==# 0) {tLvl = $GET_COMBATANT_SA($TargetContext(),"monsterLevel");};
+-$IF (tLvl ># aLvl) {$RETURN;};
+-$SET_CHAR_HITPOINTS(tgt,"-11"); $SET_CHAR_STATUS(tgt,"2");
+\(END)
+// level 12
+

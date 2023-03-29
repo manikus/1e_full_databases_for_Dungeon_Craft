@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monster_StingRayPoison
+[InvokeSpellOnTarget] = $VAR rnd; $VAR exp; $VAR tgt;
+-rnd = $GetCombatRound();
+-exp = $RANDOM(4) +# $RANDOM(4) +# $RANDOM(4) +# $RANDOM(4) +# $RANDOM(4) +# 5;
+-tgt = $IndexOf($TargetContext());
+-$SET_CHAR_HITPOINTS(tgt, $GET_CHAR_HITPOINTS(tgt) -# rnd);
+-$SET_COMBATANT_SA($TargetContext(),"IsStingRayParalyzed", rnd *# 8);
+\(END)
+

@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monster_CharonSummonCharonodaemonsTime
+[StartCombatRound] = $VAR exp; $VAR rdm;
+-exp = $SA_PARAM_GET();
+-rdm = $RANDOM(6) +# $RANDOM(6) +# $RANDOM(6) +# 3;
+-$IF (exp ==# $GetCombatRound())
+-	{$WHILE (rdm ># 0){$AddCombatant("Charonodaemon",0);rdm = rdm -# 1;};$SA_REMOVE();};
+\(END)
+

@@ -1,0 +1,40 @@
+\(BEGIN)
+name = ChangeClassIllusionist
+[CanChangeFromClass] = $RETURN "Y";
+[CanChangeToClass] = $VAR me; $VAR INT; $VAR DEX; $VAR race;
+-me = $IndexOf($CharacterContext());
+-$DEBUG($SA_NAME()+" - CanChangeToClass");
+-INT = $GET_CHAR_LIMITED_INT(me);
+-INT = $GET_CHAR_LIMITED_DEX(me);
+-race = $GET_CHAR_RACE(me);
+-$IF (race != "Human") {$RETURN "N";};
+-$IF ((INT >=# 17) && (DEX >=# 17)) {$RETURN "Y";};
+[ChangeClassFrom] = $DELETE_CHARACTER_SA($CharacterContext(),"class_IllusionistScribe");
+-$DELETE_CHARACTER_SA($CharacterContext(),"class_baseName");
+-$SA_REMOVE();
+-$DEBUG($SA_NAME()+" - ChangeClassFrom");
+[ChangeClassTo] = $SET_CHARACTER_SA($CharacterContext(),"class_IllusionistScribe","illusionist");
+-$SET_CHARACTER_SA($CharacterContext(),"class_baseName","$illusionist");
+-$KNOW_SPELL($CharacterContext(),"Detect Illusion|illusionist","1");
+-$KNOW_SPELL($CharacterContext(),"Detect Invisibility|illusionist","1");
+-$KNOW_SPELL($CharacterContext(),"Gaze Reflection|illusionist","1");
+[TrainingCharacter] = $VAR me; $VAR cls; $VAR lvl;
+-me = $IndexOf($CharacterContext()); cls = $SA_PARAM_GET(); lvl = $GET_CHAR_Lvl(me,cls);
+$IF (lvl ==# 14)
+-	{
+-		$KNOW_SPELL($CharacterContext(),"Detect Magic|MagicUser-illusionist","1");
+-		$KNOW_SPELL($CharacterContext(),"Magic Missile|illusionist","1");
+-		$KNOW_SPELL($CharacterContext(),"Read Magic|illusionist","1");
+-		$KNOW_SPELL($CharacterContext(),"Sleep|illusionist","1");
+-	};
+$IF (lvl ==# 15) {$KNOW_SPELL($CharacterContext(),"Charm Person|illusionist","1");};
+$IF (lvl ==# 16) {$KNOW_SPELL($CharacterContext(),"Protection From Evil|illusionist","1");};
+$IF (lvl ==# 17) {$KNOW_SPELL($CharacterContext(),"Friends|illusionist","1");};
+$IF (lvl ==# 18) {$KNOW_SPELL($CharacterContext(),"Burning Hands|illusionist","1");};
+$IF (lvl ==# 19) {$KNOW_SPELL($CharacterContext(),"Enlarge|illusionist","1");};
+$IF (lvl ==# 20) {$KNOW_SPELL($CharacterContext(),"Shield|illusionist","1");};
+$IF (lvl ==# 21) {$KNOW_SPELL($CharacterContext(),"Shocking Grasp|illusionist","1");};
+$IF (lvl ==# 22) {$KNOW_SPELL($CharacterContext(),"Protection From Good|illusionist","1");};
+$IF (lvl ==# 23) {$KNOW_SPELL($CharacterContext(),"Reduce|illusionist","1");};
+\(END)
+

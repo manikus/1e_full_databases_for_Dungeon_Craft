@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_RedUrchinVenom
+[InvokeSpellOnTarget] = $VAR rndm; $VAR exp;
+-rndm = $RANDOM(4) +# 1;
+-exp = $GetCombatRound() +# rndm;
+-$SET_COMBATANT_SA($TargetContext(), "IsRedUrchinSleeping", exp);
+\(END)
+

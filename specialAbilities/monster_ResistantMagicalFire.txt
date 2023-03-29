@@ -1,0 +1,12 @@
+\(BEGIN)
+name = monster_ResistantMagicalFire
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7, "Fire Resistant");
+-$SET_HOOK_PARAM( 6, "");
+-$RETURN 1;
+[ComputeSpellDamage] = $VAR spl; $VAR par5;
+-spl = $SA_SPELL_GET("DamageMagical");
+-$IF (spl == "-?-?-"){$RETURN;};
+-par5 = $GET_HOOK_PARAM(5);
+-$IF (spl == "fire") {$RETURN par5 /# 2;};
+\(END)
+

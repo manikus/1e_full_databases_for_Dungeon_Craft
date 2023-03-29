@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monster_MorkothSpellReflection
+[RedirectSpell] = $VAR atk; $VAR tgt; $VAR cName; $VAR tName;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-cName = $GET_CHAR_NAME (atk); tName = $GET_CHAR_NAME (tgt);
+-$SET_HOOK_PARAM(5,atk); $SET_HOOK_PARAM(6, tName + " reflects spell back at " + cName);
+\(END)
+

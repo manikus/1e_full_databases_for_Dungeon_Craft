@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_GreaterVodyanoiSummonSharks
+[InvokeSpellOnTarget] = $VAR n;
+-n = $RANDOM(4) +# $RANDOM(4) +# 2;
+-$WHILE (n ># 0) {$AddCombatant("Bull Shark",2); n = n -# 1;};
+\(END)
+

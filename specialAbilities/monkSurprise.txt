@@ -1,0 +1,8 @@
+\(BEGIN)
+name = monkSurprise
+[AdjustInitiative] = $VAR atk; $VAR lvl; $VAR adj;
+-atk = $IndexOf($CombatantContext()); lvl = $GET_CHAR_Lvl(atk,"monk");
+-adj = -#(lvl -# 1);
+-$IF (lvl ># 1) {$RETURN adj;};
+\(END)
+

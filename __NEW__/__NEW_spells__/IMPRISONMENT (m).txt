@@ -1,0 +1,69 @@
+Imprisonment (Abjuration) Reversible
+
+Level: 9	
+Components: V, S
+Range: Touch	
+Casting Time: 9 segments
+Duration: Permanent	
+Saving Throw: None
+Area of Effect: 1 creature
+Explanation/Description: When an imprisonment spell is cast and the victim is touched, the recipient is entombed in a state of suspended animation (cf. temporal stasis) in a small sphere far below the surface of she earth. The victim remains there unless a reverse of the spell, with the creature's name and background, is cast. Magical search by crystal ball, a locate objects spell or similar means will not reveal the fact that a creature is imprisoned. The reverse (freedom) spell will cause the appearance of the victim at the spot he, she or it was entombed and sunk into the earth. There is a 10% chance that 1 to 100 other creatures will be freed from imprisonment at the same time if the magic-user does not perfectly get the name and background of the creature to be freed. The spell only works if the name and background of the victim are known.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// magic user level 9
+\(BEGIN)
+name = Imprisonment
+casting sound = none
+cast msg = /c sends /t into the earth.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_MU.png,210,2,48,48,0,1,0,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Magic User
+cast by = magicUser
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = no
+lingers = yes
+linger affects once = yes
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spellClass,magicUser
+targeting type = touch
+target quantity = 1
+level = 9
+casting time = 9
+casting time units = initiative
+duration = 0
+duration units = immediate
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = $CHAR_STATUS,5,delta,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

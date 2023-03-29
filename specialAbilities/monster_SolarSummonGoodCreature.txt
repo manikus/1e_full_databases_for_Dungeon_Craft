@@ -1,0 +1,10 @@
+\(BEGIN)
+name = monster_SolarSummonGoodCreature
+[InvokeSpellOnTarget] = $VAR rdm; $VAR rd1; $VAR rd2;
+-rdm = $RANDOM(2); rd1 = $RANDOM(2); rd2 = $RANDOM(2); 
+-// for when phoenix is added
+-//$IF (rdm ==# 0){$WHILE (rd1 >=# 0){$AddCombatant("Phoenix",0);rd1 = rd1 -# 1;};};
+-//$IF (rdm ==# 1){$WHILE (rd2 >=# 0){$AddCombatant("Titan",0);rd2 = rd2 -# 1;};};
+-$WHILE (rd2 >=# 0){$AddCombatant("Titan",0);rd2 = rd2 -# 1;};
+\(END)
+

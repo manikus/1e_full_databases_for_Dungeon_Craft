@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monkMindFlayerBlastResistance
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Mental Resistance"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesSpellAttackSucceed] = $VAR spl; $VAR rndm;
+-spl = $SA_SPELL_GET("spell_MindBlast"); rndm = $RANDOM(20) +# 1;
+-$IF ((spl != "-?-?-") && (rndm <# 18)) {$RETURN "N";};
+\(END)
+// level 9
+

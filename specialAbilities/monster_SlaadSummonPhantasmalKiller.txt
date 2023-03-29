@@ -1,0 +1,5 @@
+\(BEGIN)
+name = monster_SlaadSummonPhantasmalKiller
+[InvokeSpellOnTarget] = $AddCombatant("Phantasmal Killer",0);
+\(END)
+

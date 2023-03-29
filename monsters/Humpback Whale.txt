@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Humpback Whale
+icon file = icon_HumpbackWhale.png,0,2,48,48,0,1,0
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 6
+armor class = 4
+movement rate = 18
+hit dice = 30
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 7
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 1850
+Special Ability = monsterLevel,30
+Special Ability = monster_AuraWhaleTailSmash,15
+Class = Fighter
+Race = Monster
+form = mammal + animal
+penalty = none
+immunity = vorpal weapon
+Misc Options = can be held/charmed
+item = none
+attack = 10,4,0,attacks,
+Undead = none
+\(END)
+// MM
+

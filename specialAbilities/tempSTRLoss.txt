@@ -1,0 +1,7 @@
+\BEGIN)
+name = tempSTRLoss
+[StartCombatRound] = $VAR time; $VAR exp;
+-time = $GET_PARTY_TIME(); exp = $SA_PARAM_GET();
+-$IF (time ># exp) {$REMOVE_CHAR_MODIFICATION(tgt,"MONSTER Bone Devil Strength Loss"); $SA_REMOVE();};
+\(END)
+

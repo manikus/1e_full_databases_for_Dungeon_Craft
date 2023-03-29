@@ -1,0 +1,32 @@
+\(BEGIN)
+name = Afanc
+icon file = icon_Afanc.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 6
+armor class = 6
+movement rate = 15
+hit dice = 15
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 7
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 5340
+Special Ability = monsterLevel,8
+Class = Fighter
+Race = Monster
+form = large + animal
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 4,3,0,attacks,
+attack = 4,3,0,attacks,
+Undead = none
+\(END)
+// MMII
+

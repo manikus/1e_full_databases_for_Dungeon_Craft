@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_StenchKowAura
+[InvokeSpellOnTarget] = $VAR atk; $VAR tgt;
+-atk = $IndexOf($AttackerContext()); tgt = $IndexOf($TargetContext());
+-$AURA_Create("StenchKowAURA","",atk,tgt,"");
+\(END)
+

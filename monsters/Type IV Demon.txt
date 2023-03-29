@@ -1,0 +1,45 @@
+\(BEGIN)
+name = Type IV Demon
+icon file = icon_TypeIVDemon.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 12
+armor class = -1
+movement rate = 12
+hit dice = 11
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 10
+magic resistance = 65
+size = large
+morale = 40
+experience point value = 3800
+Special Ability = monsterLevel,11
+Special Ability = elemental_ImmuneSilver
+Special Ability = elemental_ResistantCold
+Special Ability = elemental_ResistantElectricity
+Special Ability = elemental_ResistantFire
+Special Ability = elemental_ResistantGas
+Special Ability = combatantAlignmentEvil
+Special Ability = monster_Infravision
+Special Ability = monster_VulnerableToHolyWater
+Special Ability = monster_WeaponImmunity,1
+Special Ability = Summoned,plane
+Class = Fighter
+Race = Demon
+form = none
+penalty = none
+immunity = death magic + confusion
+Misc Options = affected by dispel evil
+item = monsterDemonDarkness
+item = monsterMageTeleportWithoutError
+item = monsterTypeIVDemonGateDemon
+item = monsterSymbolOfDiscord
+item = monsterSymbolOfSleep
+attack = 2,1,0,hits,
+Undead = Special
+\(END)
+//  MM p19
+

@@ -1,0 +1,204 @@
+Holy (Unholy) Word (Conjuration/Summoning)
+
+Level: 7	
+Components: V
+Range: 0	
+Casting Time: 1 segment
+Duration: Special	
+Saving Throw: None
+Area of Effect: 3" radius
+Explanation/Description:	The utterance of a holy (unholy) word has tremendous power. It drives off evil (good) creatures from other planes, forcing them to return to their own plane(s) of existence. It further affects other creatures of differing alignment as follows:
+
+Creatures Hit Dice Or Level	Effects
+										Attack
+				General					Move	Dice	Spells
+Less than 4		kills
+4 to 7+			paralyzes 1-4 turns
+8 to 11+		stuns 2-8 rounds		-50%	-4
+12 or more		deafens 1-4 rounds		-25%	-2		50% chance of failure
+Affected creatures must be within the 6" diameter area of effect centering on the cleric casting the spell.	
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsHolyDeafened
+[CanCastSpells] = $VAR rdm;
+-rdm = $RANDOM(2);
+-$IF (rdm ==# 1) {$RETURN "N";};
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Deagened"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesAttackSucceed] = $VAR p5; $VAR p6;
+-p5 = $GET_HOOK_PARAM(5) -# 2;
+-p6 = $GET_HOOK_PARAM(6);
+-$IF (p5 <=# p6) {$RETURN "N";};
+[GetAdjMaxMovement] = $VAR p5;
+-p5 = $SA_PARAM_GET(5);
+-$RETURN p5 /# 4 *# 3;
+[StartCombatRound] = $VAR exp;
+-exp = $SA_PARAM_GET();
+-$IF ($GET_PARTY_TIME() ># exp){$SA_REMOVE();$RETURN;};
+\(END)
+
+\(BEGIN)
+name = IsHolyStunned
+[CanCastSpells] = $RETURN "N";
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Stunned"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[DoesAttackSucceed] = $VAR p5; $VAR p6;
+-p5 = $GET_HOOK_PARAM(5) -# 4;
+-p6 = $GET_HOOK_PARAM(6);
+-$IF (p5 <=# p6) {$RETURN "N";};
+[GetAdjMaxMovement] = $VAR p5;
+-p5 = $SA_PARAM_GET(5);
+-$RETURN p5 /# 2;
+[StartCombatRound] = $VAR exp;
+-exp = $SA_PARAM_GET();
+-$IF ($GET_PARTY_TIME() ># exp){$SA_REMOVE();$RETURN;};
+\(END)
+
+\(BEGIN)
+name = spell_HolyWord
+[InvokeSpellOnTarget] = $VAR pln; $VAR evl; $VAR tgt; $VAR lvl; $VAR rD; $VAR rS; $VAR rP;
+-pln = $GET_COMBATANT_SA($TargetContext(),"Summoned");
+-evl = $GET_COMBATANT_SA($TargetContext(),"monster_CombatantAlignment");
+-$IF (pln != "plane"){$RETURN;};
+-$IF (evl != "evil"){$RETURN;};
+-tgt = $IndexOf($TargetContext());
+-lvl = $GetHighestLevelBaseclass(tgt);
+-rD = $RANDOM(4) +# 1;
+-rD = $RANDOM(4) +#$RANDOM(4) +# 2;
+-rD = ($RANDOM(4) +# 1) *# 10;
+-$IF (lvl ># 11){$RETURN $SET_COMBATANT_SA($TargetContext(),"IsHolyDeafened",rD);};
+-$IF (lvl ># 7){$RETURN $SET_COMBATANT_SA($TargetContext(),"IsHolyStunned",rS);};
+-$IF (lvl ># 3){$RETURN $SET_COMBATANT_SA($TargetContext(),"IsParalyzed",rP);};
+-$SET_CHAR_HITPOINTS(tgt,-11); $SET_CHAR_STATUS(tgt,5);
+\(END)
+
+\(BEGIN)
+name = spell_UnholyWord
+[InvokeSpellOnTarget] = $VAR pln; $VAR good; $VAR tgt; $VAR lvl; $VAR rD; $VAR rS; $VAR rP;
+-pln = $GET_COMBATANT_SA($TargetContext(),"Summoned");
+-good = $GET_COMBATANT_SA($TargetContext(),"monster_CombatantAlignment");
+-$IF (pln != "plane"){$RETURN;};
+-$IF (good != "good"){$RETURN;};
+-tgt = $IndexOf($TargetContext());
+-lvl = $GetHighestLevelBaseclass(tgt);
+-rD = $RANDOM(4) +# 1;
+-rD = $RANDOM(4) +#$RANDOM(4) +# 2;
+-rD = ($RANDOM(4) +# 1) *# 10;
+-$IF (lvl ># 11){$RETURN $SET_COMBATANT_SA($TargetContext(),"IsHolyDeafened",rD);};
+-$IF (lvl ># 7){$RETURN $SET_COMBATANT_SA($TargetContext(),"IsHolyStunned",rS);};
+-$IF (lvl ># 3){$RETURN $SET_COMBATANT_SA($TargetContext(),"IsParalyzed",rP);};
+-$SET_CHAR_HITPOINTS(tgt,-11); $SET_CHAR_STATUS(tgt,5);
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 7
+\(BEGIN)
+name = Holy Word
+casting sound = sound_Cast.wav
+cast msg = /c utters a holy word.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = spell_HolyWord
+targeting type = areacircle
+target quantity = 49
+target range = 1
+target radius = 3
+level = 7
+casting time = 1
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Unholy Word
+casting sound = sound_Cast.wav
+cast msg = /c utters an unholy word.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Priest.png,100,4,48,48,0,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = spell_UnholyWord
+targeting type = areacircle
+target quantity = 49
+target range = 1
+target radius = 3
+level = 7
+casting time = 1
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+

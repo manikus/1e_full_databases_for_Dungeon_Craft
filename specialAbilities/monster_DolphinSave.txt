@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monster_DolphinSave
+[OnStartCombat] = $SkillAdj($CharacterContext(), "Save Vs BR", "", "-", "2");
+-$SkillAdj($CharacterContext(), "Save Vs PP", "", "-", "2");
+-$SkillAdj($CharacterContext(), "Save Vs PPDM", "", "-", "2");
+-$SkillAdj($CharacterContext(), "Save Vs RSW", "", "-", "2");
+-$SkillAdj($CharacterContext(), "Save Vs SP", "", "-", "2");
+\(END)
+

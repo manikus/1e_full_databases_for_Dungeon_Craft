@@ -1,0 +1,19 @@
+\(BEGIN)
+name = ChangeClassBard
+[CanChangeFromClass] = $RETURN "N";
+[CanChangeToClass] = $VAR me; $VAR STR; $VAR INT; $VAR WIS; $VAR DEX; $VAR CON; $VAR CHA; $VAR race;
+-me = $IndexOf($CharacterContext());
+-STR = $GET_CHAR_LIMITED_STR(me); INT = $GET_CHAR_LIMITED_INT(me);
+-WIS = $GET_CHAR_LIMITED_WIS(me); DEX = $GET_CHAR_LIMITED_DEX(me);
+-CON = $GET_CHAR_LIMITED_CON(me); CHA = $GET_CHAR_LIMITED_CHA(me);
+-race = $GET_CHAR_RACE(me);
+-$IF ((race != "Human") || (race != "Half-Elf")) {$RETURN "N";};
+-$IF ((STR >=# 15) && (INT >=# 12) && (WIS >=# 15) && (DEX >=# 15) && (CON >=# 10) && (CHA >=# 15))
+-	{$RETURN "Y";};
+[ChangeClassTo] = $SET_CHARACTER_SA($CharacterContext(),"class_Backstab","bard");
+-$SET_CHARACTER_SA($CharacterContext(),"class_BardCasterLevel","$17$10$0");
+-$SET_CHARACTER_SA($CharacterContext(),"class_BardPoetics","bard");
+-$SET_CHARACTER_SA($CharacterContext(),"class_BardSong","bard");
+-$SET_CHARACTER_SA($CharacterContext(),"class_baseName","$bard");
+\(END)
+

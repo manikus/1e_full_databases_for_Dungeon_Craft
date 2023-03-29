@@ -1,0 +1,8 @@
+\(BEGIN)
+name = class_BardCasterLevel
+[SpellCasterLevel] = $VAR atk; $VAR adj; $VAR lvl;
+-atk = $IndexOf($AttackerContext()); adj = $SA_PARAM_GET(); lvl = $GET_CHAR_Lvl(atk,"bard") -# adj;
+-$IF (lvl >=# 12){$RETURN lvl = 12;};
+-$RETURN lvl;
+\(END)
+

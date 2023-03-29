@@ -1,0 +1,36 @@
+\(BEGIN)
+name = Saltwater Scrag
+icon file = icon_SaltwaterScrag.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveAquatic.wav
+death sound = sound_MonsterDeathAquatic.wav
+intelligence = 6
+armor class = 2
+movement rate = 12
+hit dice = 6
+treat HD as hit points = yes
+hit dice bonus = 12
+THAC0 = 13
+magic resistance = 0
+size = large
+morale = 35
+experience point value = 1508
+Special Ability = monsterLevel,9
+Special Ability = monster_CombatantAlignment,evil
+Special Ability = monster_TrollRegeneration,3
+Special Ability = baseForMonster,
+Class = Fighter
+Race = Monster
+form = large
+penalty = none
+immunity = none
+Misc Options = can be held/charmed
+item = none
+attack = 4,1,1,attacks,
+attack = 4,1,1,attacks,
+attack = 8,1,1,bites,
+Undead = none
+\(END)
+// MMII
+

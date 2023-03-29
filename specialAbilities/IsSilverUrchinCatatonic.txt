@@ -1,0 +1,16 @@
+\(BEGIN)
+name = IsSilverUrchinCatatonic
+[CanCastSpells] = $RETURN "N";
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Catatonic");
+-$SET_HOOK_PARAM( 6,"");
+-$RETURN 1;
+[DoesAttackSucceed] = $RETURN "Y";
+[GetAdjMaxMovement] = $RETURN 0;
+[GetItemTargetHitBonus] = $RETURN $GET_CHAR_HITPOINTS($IndexOf($TargetContext())) +# 15;
+[IsCombatReady] = $RETURN "N";
+[StartCombatRound] = $VAR exp; $VAR rnd;
+-exp = $SA_PARAM_GET();
+-rnd = $GET_PARTY_DAYS();
+-$IF (rnd >=# exp) {$RETURN $SA_REMOVE();};
+\(END)
+

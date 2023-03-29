@@ -1,0 +1,20 @@
+Endure Cold/Endure Heat (Alteration) Reversible
+Level: 1	
+Components: V, S
+Range: Touch	
+Casting Time: 1 round
+Duration: 9 turns/level	
+Saving Throw: None
+Area of Effect: One creature
+Explanation/Description: The recipient of this spell is provided with protection from normal extremes of cold or heat (depending on which application is used). He or she can stand unclothed in temperatures as low as -30 F. or as high as 130 F (depending on application) with no ill effect. A temperature extreme beyond either of those limits will cause 1 hit point of exposure damage per hour for every degree above or below those limits. (Without the benefit of protection such as this, exposure damage is 1 hit point per turn for each degree of temperature.) The spell will last for the prescribed duration, or until the recipient is affected by any form of magical cold (including white dragon breath) or magical heat. The cancellation of the spell will occur regardless of which application was used and regardless of which type of magical effect hits the character (e.g endure cold will be cancelled by magical heat or fire as well as by magical cold). The recipient of the spell will not suffer damage from the magical heat or cold during the round in which the spell is broken, but will be vulnerable to all such attacks starting on the following round. The spell will be cancelled instantly if either resist f/re or resist cold is cast upon the recipient.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 1
+
+

@@ -1,0 +1,9 @@
+\(BEGIN)
+name = monster_DevilSummonAbishai
+[InvokeSpellOnTarget] = $VAR pct; $VAR me; $VAR smn;
+-pct = $RANDOM(100); rdm = $RANDOM(10);
+-me = $MyIndex(); smn = $GET_CHAR_NAME(me);
+-$IF (pct >=# 20){$RETURN;};
+-$AddCombatant(smn,0);
+\(END)
+

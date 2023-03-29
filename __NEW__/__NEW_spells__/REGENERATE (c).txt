@@ -1,0 +1,147 @@
+Regenerate (Wither) (Necromantic) Reversible
+
+Level: 7	
+Components: V, S, M
+Range: Touch	
+Casting Time: 3 rounds
+Duration: Permanent	
+Saving Throw: None
+Area of Effect: Creature touched
+Explanation/Description:	When a regenerate spell is cast, body members (fingers, toes, hands, feet, arms, legs, tails, or even the heads of multi-headed creatures), bones, or organs will grow back. The process of regeneration requires but 1 round if the member(s) severed is (are) present and touching the creature, 2-8 turns otherwise. The reverse, wither, causes the member or organ touched to shrivel and cease functioning in 1 round, dropping off into dust in 2-8 turns. As is usual, creatures must be touched in order to have harmful effect occur. The material components of this spell are a prayer device and holy/unholy water.
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Special Abilities ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = IsWithered
+[DoesAttackSucceed]= $VAR p5;
+-p5 = $GET_HOOK_PARAM(5);
+-$RETURN p5 -# 4;
+\(END)
+// this represents the withering of the weapon hand or arm
+
+\(BEGIN)
+name = spell_Regenerate
+[InvokeSpellOnTarget]= $VAR tgt; $VAR hp; $VAR maxHp;
+-tgt = $IndexOf($TargetContext()); hp = $GET_CHAR_HITPOINTS(tgt); maxHp = $GET_CHAR_MAXHITPOINTS(tgt);
+-$IF (hp <# maxHp) {$SET_CHAR_HITPOINTS(tgt,maxHp);};
+-$DELETE_CHARACTER_SA($TargetContext(),"IsWithered");
+-$DELETE_CHARACTER_SA($TargetContext(),"IsMissingFinger");
+\(END)
+
+\(BEGIN)
+name = spell_Wither
+[InvokeSpellOnTarget]= $VAR tgt; $VAR rndm; $VAR hp;
+-tgt = $IndexOf($TargetContext()); rndm = $RANDOM(20); hp = $GET_CHAR_HITPOINTS(tgt);
+-$IF (rndm ==# 19){$SET_CHAR_HITPOINTS(tgt,"-11");$SET_CHAR_STATUS(tgt,"5");$RETURN;};
+-$IF (rndm >=# 9){$SET_CHAR_HITPOINTS(tgt,hp /# 3);$SET_CHAR_STATUS(tgt,"9");$SET_CHARACTER_SA($TargetContext(),"IsWithered","");$RETURN;};
+-$SET_CHAR_HITPOINTS(tgt,hp /# 2);$SET_CHAR_STATUS(tgt,"1");
+-$RETURN;
+\(END)
+
+////////////////////////////////////////////////////////////////////////////////////
+///// Spells ///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+// cleric level 7
+\(BEGIN)
+name = Regeneration
+casting sound = sound_Cast.wav
+cast msg = /c utters a holy word.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = spell_Regenerate
+targeting type = touch
+target quantity = 1
+level = 7
+casting time = 3
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
+name = Wither
+casting sound = sound_Cast.wav
+cast msg = /c withers /t.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Priest.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Cleric
+Cast by = cleric
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$cleric$0
+Special Ability = spell_Attack,1
+Special Ability = spell_Wither
+targeting type = touch
+target quantity = 1
+level = 7
+casting time = 3
+casting time units = initiative
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+

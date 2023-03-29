@@ -1,0 +1,15 @@
+\(BEGIN)
+name = monster_ImmuneNormalFire
+[CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Immune Normal Fire"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
+[ComputeDamage] = $VAR itm; $VAR mon; $VAR immune;
+-itm = $GET_ITEM_SA($ItemContext(),"DamageNonMagical");
+-mon = $GET_MONSTERTYPE_SA($MonsterTypeContext(),"DamageNonMagical");
+-$IF (itm != "-?-?-") {immune = itm;}; $IF (mon != "-?-?-") {immune = mon;};
+-$IF (immune == "fire") {$RETURN 0;};
+[ComputeSpellDamage] = $VAR spl; $VAR mon; $VAR immune;
+-spl = $GET_SPELL_SA($SpellContext(),"DamageNonMagical");
+-mon = $GET_MONSTERTYPE_SA($MonsterTypeContext(),"DamageNonMagical");
+-$IF (spl != "-?-?-") {immune = spl;}; $IF (mon != "-?-?-") {immune = mon;};
+-$IF (immune == "fire") {$RETURN 0;};
+\(END)
+
