@@ -1,12 +1,12 @@
 \(BEGIN)
-name = Long Sword|vs Lycanthropes
+name = Long Sword|VsLycanthropes
 id name = Long Sword vs Lycanthropes
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 800
 hands to carry = 1
@@ -46,14 +46,14 @@ spell effect = none
 // Sword +1, +3 vs. lycanthropes and shape changers, gives its +3 agoinst were creatures, those able to assume the form of another creature (such as a vampire or a druid), or any creature under the influence of a polymorph or shape change spell.
 
 \(BEGIN)
-name = Long Sword|vs Reptiles
+name = Long Sword|VsReptiles
 id name = Long Sword vs Reptiles
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 800
 hands to carry = 1
@@ -93,14 +93,14 @@ spell effect = none
 // Sword +1, +4 vs. reptiles, gives the +4 against such creatures as dinosaurs, dragons, hydras, lizards, snakes, wyverns, etc.
 
 \(BEGIN)
-name = Long Sword|Flame Tongue
+name = Long Sword|FlameTongue
 id name = Long Sword +1 Flame Tongue
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 900
 hands to carry = 1
@@ -140,14 +140,14 @@ spell effect = none
 // Sword + 1, Flame Tongue, +2 VS. regenerating creatures, + 3 vs. cold using, inflammable, or avian creatures, +4 vs. undead, sheds light only when its possessor speaks a command word or phrase, and this flame illuminates the area as brightly as a torch. Note that the flame from this sword easily ignites oil, burns webs, or sets fire to paper, parchment, dry wood, etc. Cold-using creatures are those whose attack mode involves cold (ice toads, white dragons, winter wolves, yeti, etc.)
 
 \(BEGIN)
-name = Long Sword|vs Magic-Users and Enchanted Creatrues
+name = Long Sword|VsMagic-UsersandEnchantedCreatrues
 id name = Long Sword vs Magic-Users and Enchanted Creatures
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 600
 hands to carry = 1
@@ -187,14 +187,14 @@ spell effect = none
 // Sword +1, +2 vs. magic-using and enchanted creatures, gives its + 1 bonus always, +2 when employed against magic-users, monsters which can cast spells, conjured, created, goted, or summoned creatures. Note that the +2 would not operate against a creature magically empowered by some item to cast spells- such as a ring of spell storing.
 
 \(BEGIN)
-name = Long Sword|vs Regenerating Creatures
+name = Long Sword|VsRegeneratingCreatures
 id name = Long Sword vs Regenerating Creatures
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 800
 hands to carry = 1
@@ -234,14 +234,14 @@ spell effect = none
 // Sword +1, +3 vs. regenerating creatures, will give the +3 bonus to its wielder even when the regenerating creature does so because of a magical device - such as a ring of regeneration.
 
 \(BEGIN)
-name = Long Sword|+2 Dragon Slayer
+name = Long Sword|+2DragonSlayer
 id name = Long Sword +2 Dragon Slayer
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 900
 hands to carry = 1
@@ -287,14 +287,14 @@ spell effect = none
 
 
 \(BEGIN)
-name = Long Sword|Frost Brand
+name = Long Sword|+3FrostBrand
 id name = Long Sword +3 Frost Brand
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 1600
 hands to carry = 1
@@ -334,14 +334,14 @@ spell effect = none
 // Sword +3, Frost Brand, +6 vs. fire using/dwelling creatures, bestows the +6 bonus in a self-explanatory manner. The weapon does not shed any light, except when the air temperature is below 0" F, but it does give special benefits against fire, for its wielder is protected os if he or she were wearing a ring of fire resistance and whenever it is thrust into fires it has a 50% chance of extinguishing them in a 10' radius - including a wall of fire but excluding a fireball, meteor swarm, or flame strike.
 
 \(BEGIN)
-name = Long Sword|Holy Avenger
+name = Long Sword|HolyAvenger
 id name = Long Sword Holy Avenger
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 4000
 hands to carry = 1
@@ -381,52 +381,6 @@ spell effect = none
 // Sword, +5. Holy Avenger, is a holy sword. In the hands of any character other than a paladin, it will perform only as a +2 sword. In the hands of a paladin, however, it creates a magic resistance of 50% in a 5' radius, dispels magic in a 5' radius at the level of magic use equal to the experience level of the paladin, and inflicts +10 hit points of bonus damage upon chaotic evil opponents. (Cf. also ADVANCED DUNGEONS 8 DRAGONS, PLAYERS HANDBOOK, CHARACTER CLASSES, The Paladin.)
 
 \(BEGIN)
-name = Long Sword|-2 Cursed
-id name = Cursed Long Sword -2
-launch sound = none
-hit sound = sound_Hit.wav
-miss sound = sound_Miss.wav
-missile sprite = none
-hit sprite = none
-ROF per round = 0.000000
-combat range = 1
-cost = 600
-hands to carry = 1
-baseclass = assassin
-baseclass = fighter
-baseclass = paladin
-baseclass = ranger
-baseclass = thief
-small/medium damage dice = 1D8 + 0
-large damage dice = 1D12 + 0
-AC base = 0
-AC bonus = 0
-attack bonus = 1
-experience = 0
-encumbrance = 60
-cursed = no
-non lethal = no
-readied location = WEAPON
-bundle quantity = 1
-Special Ability = item_ElfBonus,Long Sword +1
-Special Ability = item_MagicalWeapon,1
-Special Ability = item_WeaponType,slashing
-weapon type = hand held cutting
-ammo type = 
-usable = no
-not magical = no
-scribtable = no
-can drop = yes
-CanHalveJoin = no
-number of charges = 0
-Examine Event ID = 0
-Examine Label = EXAMINE
-recharge rate = never
-spell effect = none
-\(END)
-// 
-
-\(BEGIN)
 name = Long Sword|Sharpness
 id name = Long Sword of Sharpness
 launch sound = none
@@ -434,7 +388,7 @@ hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 7000
 hands to carry = 1
@@ -478,14 +432,14 @@ spell effect = none
 // A sword of sharpness will respond to its wielder's desire with respect to the light it sheds - none, a 5' circle of dim illumination, a 15' light, or a 30' radius glow equal to o light spell. Considers only the sword's bonus of + 1.
 
 \(BEGIN)
-name = Long Sword|Cursed Berserking
+name = Long Sword|CursedBerserking
 id name = Cursed Long Sword of Berserking
 launch sound = none
 hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 900
 hands to carry = 1
@@ -505,9 +459,10 @@ cursed = no
 non lethal = no
 readied location = WEAPON
 bundle quantity = 1
+Special Ability = item_CursedLongSwordOfBerserking,2
 Special Ability = item_ElfBonus,Long Sword +1
 Special Ability = item_MagicalWeapon,1
-Special Ability = item_WeaponType,slashing
+Special Ability = item_WeaponTypeSlashing
 weapon type = hand held cutting
 ammo type = 
 usable = no
@@ -531,7 +486,7 @@ hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 3000
 hands to carry = 1
@@ -553,7 +508,7 @@ readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_ElfBonus,Long Sword +1
 Special Ability = item_MagicalWeapon,1
-Special Ability = item_SwordOfThePlanes
+Special Ability = item_SwordOfThePlanes,+2 inner +3 outer +4 astral
 Special Ability = item_WeaponType,slashing
 weapon type = hand held cutting
 ammo type = 
@@ -578,7 +533,7 @@ hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 1600
 hands to carry = 1
@@ -591,17 +546,17 @@ small/medium damage dice = 1D6 + 0
 large damage dice = 1D8 + 0
 AC base = 0
 AC bonus = 0
-attack bonus = 1
+attack bonus = 2
 experience = 0
 encumbrance = 35
 cursed = no
 non lethal = no
 readied location = WEAPON
 bundle quantity = 1
-Special Ability = item_ElfBonus,Short Sword +1
+Special Ability = item_ElfBonus,Short Sword +2
 Special Ability = item_MagicalWeapon,1
 Special Ability = item_ShortSwordOfQuickness
-Special Ability = item_WeaponType,piercing
+Special Ability = item_WeaponTypePiercing
 weapon type = hand held cutting
 ammo type = 
 usable = no
@@ -625,7 +580,7 @@ hit sound = sound_Hit.wav
 miss sound = sound_Miss.wav
 missile sprite = none
 hit sprite = none
-ROF per round = 0.000000
+ROF per round = 0
 combat range = 1
 cost = 4000
 hands to carry = 2
