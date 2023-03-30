@@ -4,12 +4,20 @@ name = item_LongSwordVsLycanthropes
 -$VAR par5; // Hook parameter 5
 -$VAR mNm; // monster name
 -tgt = $IndexOf($TargetContext()); par5 = $GET_HOOK_PARAM(5); mNm = $GET_CHAR_NAME(tgt);
+<<<<<<< HEAD
 -$IF ($GET_MONSTERTYPE_SA(mNm,"IsLycanthrope") != "-?-?-"){$SET_HOOK_PARAM(5,par5 +# 3);};
+=======
+-$IF ($GET_MONSTERTYPE_SA(mNm,"Lycanthrope") != "-?-?-"){$SET_HOOK_PARAM(5,par5 +# 3);};
+>>>>>>> main
 [DoesAttackSucceed] = $VAR tgt; // target
 -$VAR mNm; // monster name
 -$VAR par5; // Hook parameter 5
 -$VAR par6; // Hook parameter 6
 -tgt = $IndexOf($TargetContext()); mNm = $GET_CHAR_NAME(tgt); par5 = $GET_HOOK_PARAM(5); par6 = $GET_HOOK_PARAM(6);
+<<<<<<< HEAD
 -$IF ($GET_MONSTERTYPE_SA(mNm,"IsLycanthrope")){$IF (par5 >=# (par6 -# 2)){$RETURN "Y";} $ELSE {$RETURN "N";};};
+=======
+-$IF ($GET_MONSTERTYPE_SA(mNm,"Lycanthrope")){$IF (par5 >=# (par6 -# 2)){$RETURN "Y";} $ELSE {$RETURN "N";};};
+>>>>>>> main
 \(END)
 

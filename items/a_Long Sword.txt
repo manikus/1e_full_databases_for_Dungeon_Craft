@@ -389,7 +389,11 @@ bundle quantity = 1
 Special Ability = item_ElfBonus,Long Sword +1
 Special Ability = item_MagicalWeapon,1
 Special Ability = item_LongSwordVsLycanthropes
+<<<<<<< HEAD
 Special Ability = item_WeaponTypeSlashing
+=======
+Special Ability = item_WeaponType,slashing
+>>>>>>> main
 weapon type = hand held cutting
 ammo type = 
 usable = no
@@ -403,6 +407,10 @@ Examine Label = EXAMINE
 recharge rate = never
 spell effect = none
 \(END)
+<<<<<<< HEAD
+=======
+// Sword +1, +3 vs. lycanthropes and shape changers, gives its +3 agoinst were creatures, those able to assume the form of another creature (such as a vampire or a druid), or any creature under the influence of a polymorph or shape change spell.
+>>>>>>> main
 
 \(BEGIN)
 name = Long Sword|VorpalLongSword
@@ -542,6 +550,57 @@ bundle quantity = 1
 Special Ability = item_ElfBonus,Long Sword +1
 Special Ability = item_MagicalWeapon,1
 Special Ability = item_WeaponTypeSlashing
+weapon type = hand held cutting
+ammo type = 
+usable = no
+not magical = no
+scribtable = no
+can drop = yes
+CanHalveJoin = no
+number of charges = 0
+Examine Event ID = 0
+Examine Label = EXAMINE
+recharge rate = never
+spell effect = none
+\(END)
+// 
+
+//	cursed long swords
+\(BEGIN)
+name = Long Sword|CursedLongSword-2
+id name = Cursed Long Sword -2
+launch sound = none
+hit sound = sound_Hit.wav
+miss sound = sound_Miss.wav
+missile sprite = none
+hit sprite = none
+ROF per round = 0.000000
+combat range = 1
+cost = 600
+hands to carry = 1
+baseclass = assassin
+baseclass = bard
+baseclass = barbarian
+baseclass = cavalier
+baseclass = fighter
+baseclass = paladin
+baseclass = ranger
+baseclass = acrobat
+baseclass = thief
+small/medium damage dice = 1D8 + 0
+large damage dice = 1D12 + 0
+AC base = 0
+AC bonus = 0
+attack bonus = 1
+experience = 0
+encumbrance = 60
+cursed = no
+non lethal = no
+readied location = WEAPON
+bundle quantity = 1
+Special Ability = item_ElfBonus,Long Sword +1
+Special Ability = item_MagicalWeapon,1
+Special Ability = item_WeaponType,slashing
 weapon type = hand held cutting
 ammo type = 
 usable = no

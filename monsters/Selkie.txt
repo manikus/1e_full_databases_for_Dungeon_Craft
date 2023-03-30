@@ -16,7 +16,11 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 111
+<<<<<<< HEAD
 Special Ability = IsLycanthrope,Selkie
+=======
+Special Ability = Lycanthrope,Selkie
+>>>>>>> main
 Special Ability = monsterLevel,3
 Class = Fighter
 Race = Monster
