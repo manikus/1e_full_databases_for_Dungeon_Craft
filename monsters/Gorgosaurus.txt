@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 2736
+Special Ability = IsReptile,Gorgosaurus
 Special Ability = monsterLevel,13
 Class = Fighter
 Race = Monster

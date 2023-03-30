@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 30
 experience point value = 2560
+Special Ability = IsReptile,Dracolisk
 Special Ability = monsterLevel,8
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = IsImmuneDragonBreathWeapon,$acid

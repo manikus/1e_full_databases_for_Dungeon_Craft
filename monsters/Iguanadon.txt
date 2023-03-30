@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 294
+Special Ability = IsReptile,Iguanadon
 Special Ability = monsterLevel,6
 Class = Fighter
 Race = Monster

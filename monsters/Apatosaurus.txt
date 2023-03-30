@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 8150
+Special Ability = IsReptile,Apatosaurus
 Special Ability = monsterLevel,30
 Class = Fighter
 Race = Monster

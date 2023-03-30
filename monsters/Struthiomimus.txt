@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 435
+Special Ability = IsReptile,Struthiomimus
 Special Ability = monsterLevel,7
 Class = Fighter
 Race = Monster

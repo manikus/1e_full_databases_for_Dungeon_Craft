@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 10040
+Special Ability = IsReptile,Brachiosaurus
 Special Ability = monsterLevel,36
 Class = Fighter
 Race = Monster

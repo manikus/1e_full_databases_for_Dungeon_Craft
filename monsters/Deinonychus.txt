@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 215
+Special Ability = IsReptile,Deinonychus
 Special Ability = monsterLevel,5
 Class = Fighter
 Race = Monster

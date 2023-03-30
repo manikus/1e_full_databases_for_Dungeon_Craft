@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 2068
+Special Ability = IsReptile,Anatosaurus
 Special Ability = monsterLevel,12
 Class = Fighter
 Race = Monster

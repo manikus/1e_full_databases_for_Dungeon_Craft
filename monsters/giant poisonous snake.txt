@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 35
 experience point value = 480
+Special Ability = IsReptile,Giant Poisonous Snake
 Special Ability = IsSnake,1
 Special Ability = monsterLevel,5
 Class = Fighter

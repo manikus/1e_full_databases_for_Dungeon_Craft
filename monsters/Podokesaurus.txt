@@ -16,6 +16,7 @@ magic resistance = 0
 size = small
 morale = 25
 experience point value = 65
+Special Ability = IsReptile,Podokesaurus
 Special Ability = monsterLevel,3
 Class = Fighter
 Race = Monster

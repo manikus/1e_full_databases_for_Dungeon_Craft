@@ -16,6 +16,7 @@ magic resistance = 0
 size = small
 morale = 25
 experience point value = 30
+Special Ability = IsReptile,Euparkeria
 Special Ability = monsterLevel,2
 Class = Fighter
 Race = Monster

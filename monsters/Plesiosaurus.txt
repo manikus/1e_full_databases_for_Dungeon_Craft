@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 6400
+Special Ability = IsReptile,Plesiosaurus
 Special Ability = monsterLevel,20
 Class = Fighter
 Race = Monster

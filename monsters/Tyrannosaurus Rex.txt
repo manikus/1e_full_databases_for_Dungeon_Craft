@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 7100
+Special Ability = IsReptile,Tyrannosaurus Rex
 Special Ability = monsterLevel,18
 Class = Fighter
 Race = Monster

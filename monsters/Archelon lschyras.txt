@@ -1,5 +1,5 @@
 \(BEGIN)
-name = Archelon lschyras
+name = Archelon Ischyras
 icon file = icon_ArchelonIschyras.png,0,2,48,48,0,1,2
 miss sound = sound_Miss.wav
 hit sound = sound_Hit.wav
@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 449
+Special Ability = IsReptile,Archelon Ischyras
 Special Ability = monsterLevel,7
 Class = Fighter
 Race = Monster

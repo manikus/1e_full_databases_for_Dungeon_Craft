@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 40
 experience point value = 870
+Special Ability = IsReptile,Lizard Man King
 Special Ability = IsPerson,monster
 Special Ability = monsterLevel,8
 Special Ability = monster_CombatantAlignment,evil

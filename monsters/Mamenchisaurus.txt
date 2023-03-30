@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 4800
+Special Ability = IsReptile,Mamenchisaurus
 Special Ability = monsterLevel,18
 Class = Fighter
 Race = Monster

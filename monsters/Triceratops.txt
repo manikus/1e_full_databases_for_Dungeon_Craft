@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 5280
+Special Ability = IsReptile,Triceratops
 Special Ability = monsterLevel,16
 Class = Fighter
 Race = Monster

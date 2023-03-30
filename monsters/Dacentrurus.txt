@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 1460
+Special Ability = IsReptile,Dacentrurus
 Special Ability = monsterLevel,10
 Class = Fighter
 Race = Monster

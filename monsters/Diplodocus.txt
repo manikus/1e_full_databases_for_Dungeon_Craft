@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 8360
+Special Ability = IsReptile,Diplodocus
 Special Ability = monsterLevel,24
 Class = Fighter
 Race = Monster

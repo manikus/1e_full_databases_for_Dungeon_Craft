@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 1732
+Special Ability = IsReptile,Paleoscinus
 Special Ability = monsterLevel,9
 Class = Fighter
 Race = Monster

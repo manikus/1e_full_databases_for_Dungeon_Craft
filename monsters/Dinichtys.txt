@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 2060
+Special Ability = IsReptile,Dinichtys
 Special Ability = monsterLevel,10
 Class = Fighter
 Race = Monster

@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 145
+Special Ability = IsReptile,Pteranodon
 Special Ability = monsterLevel,4
 Class = Fighter
 Race = Monster

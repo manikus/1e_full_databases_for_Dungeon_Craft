@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 1808
+Special Ability = IsReptile,Nothosaurus
 Special Ability = monsterLevel,14
 Class = Fighter
 Race = Monster

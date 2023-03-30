@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 1332
+Special Ability = IsReptile,Ankylosaurus
 Special Ability = monsterLevel,9
 Class = Fighter
 Race = Monster

@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 25
 experience point value = 27
+Special Ability = IsReptile,Camptosaurus
 Special Ability = monsterLevel,3
 Class = Fighter
 Race = Monster

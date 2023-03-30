@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 45
 experience point value = 2000
+Special Ability = IsReptile,Brass Dragon
 Special Ability = IsSeeingInvisible,mdragon
 Special Ability = monsterLevel,7
 Special Ability = monster_AuraDragon,Brass Dragon

@@ -16,6 +16,7 @@ magic resistance = 15
 size = large
 morale = 45
 experience point value = 2500
+Special Ability = IsReptile,Copper Dragon
 Special Ability = IsSeeingInvisible,dragon
 Special Ability = monsterLevel,8
 Special Ability = monster_AuraDragon,Copper Dragon

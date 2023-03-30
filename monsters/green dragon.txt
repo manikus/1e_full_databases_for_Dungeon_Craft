@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 40
 experience point value = 1400
+Special Ability = IsReptile,Green Dragon
 Special Ability = IsSeeingInvisible,dragon
 Special Ability = monsterLevel,8
 Special Ability = monster_AuraDragon,Green Dragon

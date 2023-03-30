@@ -16,6 +16,7 @@ magic resistance = 0
 size = large
 morale = 35
 experience point value = 624
+Special Ability = IsReptile,Giant Crocodile
 Special Ability = monsterLevel,7
 Class = Fighter
 Race = Monster
