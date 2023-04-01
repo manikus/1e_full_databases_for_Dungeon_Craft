@@ -15,24 +15,15 @@ name = spell_PrismaticSpray
 -$IF (rndm ==# 3)
 -	{
 -		$IF (save <# vsPoison)
--			{
--				$SET_COMBATANT_SA($TargetContext(),"IsPoisoned",time);
--				$SET_CHAR_STATUS(tgt,2);$SET_CHAR_HITPOINTS(tgt,"-11");
--			};
+-			{$SET_COMBATANT_SA($TargetContext(),"IsPoisoned",time); $SET_CHAR_STATUS(tgt,2);$SET_CHAR_HITPOINTS(tgt,"-11");};
 -	};
 -$IF (rndm ==# 4)
--	{
--		$IF (save <# vsPoison)
--			{$SET_COMBATANT_SA($TargetContext(),"IsPetrified",time);	$SET_CHAR_STATUS(tgt,4);};
--	};
+-	{$IF (save <# vsPoison){$SET_COMBATANT_SA($TargetContext(),"IsPetrified",time); $SET_CHAR_STATUS(tgt,4);};};
 -$IF (rndm ==# 5)
 -	{ $IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);}; };
 -$IF (rndm ==# 6)
--	{ $IF (save <# vsMagic){$SET_CHAR_STATUS(tgt,5);}; };
+-	{ $IF (save <# vsMagic){$SET_CHAR_STATUS(tgt,5);};};
 -$IF (rndm ==# 7)
--	{
--		$SET_CHAR_HITPOINTS(tgt,hp -# 20);
--		$IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);};
--	};
+-	{$SET_CHAR_HITPOINTS(tgt,hp -# 20); $IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);};};
 \(END)
 

@@ -418,6 +418,7 @@ end script =
 
 // cleric spells
 // cleric level 1
+// Bless, Cause Fear, cause light wounds, Command, cure light wounds, curse, Darkness, detect magic, Light, protection from evil, protection from good, Remove Fear, Resist Cold
 \(BEGIN)
 name = Bless
 casting sound = sound_Cast.wav
@@ -1073,7 +1074,7 @@ end script =
 \(END)
 
 // cleric level 2
-\(BEGIN)
+// Aid, Continual Darkness, Continual Light, find traps, hold person, resist fire, silence, slow poison, snake charm, spiritual hammer\(BEGIN)
 name = Aid|Cleric
 casting sound = sound_Cast.wav
 cast msg = /c aids /t.
@@ -1565,7 +1566,7 @@ targeting type = self
 level = 2
 casting time = 5
 casting time units = initiative
-duration = 3
+duration = level
 duration units = rounds
 target duration = 0
 price = 0
@@ -1579,7 +1580,7 @@ end script = $VAR num;num \= $GET_COMBATANT_SA($AttackerContext(),"spellSpiritHa
 \(END)
 
 // cleric level 3
-\(BEGIN)
+// Bestow Curse, Cause Blindness, Cause Disease, Cure Blindness, Cure Disease, Dispel Magic, Prayer, Remove Curse\(BEGIN)
 name = Bestow Curse
 casting sound = sound_Cast.wav
 cast msg = /c curses /t.
@@ -1987,6 +1988,7 @@ end script =
 \(END)
 
 // cleric level 4
+// Cause Serious Wounds, Cure Serious Wounds, Neutralize Poison, Poison, Protection From Evil 10' Radius, Protection From Good 10' Radius, Sticks to Snakes
 \(BEGIN)
 name = Cause Serious Wounds
 casting sound = sound_Cast.wav
@@ -2348,6 +2350,7 @@ end script =
 \(END)
 
 // cleric level 5
+// Cause Critical Wounds, Cure Critical Wounds, Dispel Evil, Dispel Good, False Seeing, Flame Strike, Raise Dead, Slay Living, True Seeing
 \(BEGIN)
 name = Cause Critical Wounds
 casting sound = sound_Cast.wav
@@ -2809,6 +2812,7 @@ end script =
 \(END)
 
 // cleric level 6
+// Blade Barrier, Harm, Heal
 \(BEGIN)
 name = Blade Barrier
 casting sound = none
@@ -2968,6 +2972,7 @@ end script =
 \(END)
 
 // cleric level 7
+// Destruction, Energy Drain, Holy Word, Regeneration, Restoration, Resurrection, Symbol, Unholy Word, Wither
 \(BEGIN)
 name = Destruction
 casting sound = none
@@ -5358,6 +5363,57 @@ end script =
 
 // druid level 3
 \(BEGIN)
+name = Call Lightning|Druid
+casting sound = sound_Cast.wav
+cast msg = /c calls down a bolt of lightning.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = spell_hit_LightningBolt.png,150,4,48,48,0,1,2,1,0,0
+target linger art = none
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,electricity
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Attack,1
+targeting type = selectByCount
+target quantity = level/3
+target range = 72
+level = 3
+casting time = 1
+casting time units = rounds
+duration = 1
+duration units = immediate
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = $CHAR_HITPOINTS,-(1d8)*level,delta,target,yes
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
 name = Cause Disease|Druid
 casting sound = sound_Cast.wav
 cast msg = /c diseases /t.
@@ -6693,6 +6749,59 @@ end script =
 \(END)
 
 \(BEGIN)
+name = Fire Quench
+casting sound = sound_Cast.wav
+cast msg = /c quenches fire.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = spell_missile_Druid.png,50,8,48,48,1,1,0,1,0,0
+target cover art = none
+target hit art = none
+target linger art = none
+school = Druid
+Cast by = druid
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = half damage
+Special Ability = DamageMagical,spell
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$druid$0
+Special Ability = spell_Attack,1
+Special Ability = spell_FireQuench
+targeting type = areasquare
+target width = 4
+target height = level
+target range = 16
+level = 7
+casting time = 9
+casting time units = initiative
+duration = 1
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
 name = Fire Storm|Druid
 casting sound = sound_Cast.wav
 cast msg = /c calls forth a storm of fire.
@@ -7694,6 +7803,61 @@ end script =
 \(END)
 
 \(BEGIN)
+name = Fog Cloud
+casting sound = sound_Cast.wav
+cast msg = /c creates a cloud of fog.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Illusionist.png,210,2,48,48,0,1,0,1,0,0
+missile art = spell_missile_Illusionist.png,100,4,48,48,0,1,0,1,0,0
+target cover art = spell_linger_Cloudkill.png,250,4,48,48,0,1,0,1,0,0
+target hit art = spell_linger_Cloudkill.png,250,4,48,48,0,1,0,1,0,0
+target linger art = spell_linger_Cloudkill.png,250,4,48,48,0,1,4,1,0,0
+school = Illusionist
+cast by = illusionist
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = yes
+auto scribe = no
+in camp = no
+in combat = yes
+can be dispelled = yes
+lingers = yes
+linger affects once = yes
+save versus = spell
+save result = none
+Special Ability = DamageMagical,illusion
+Special Ability = StandardDisplaySpellEffect
+Special Ability = casterLevel,$magicUser$0
+Special Ability = spellClass,magicUser
+Special Ability = spell_Attack,1
+targeting type = areasquare
+target width = 4
+target height = 2
+target range = 1
+level = 2
+casting time = 2
+casting time units = initiative
+duration = 4 + level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 500
+spell effect 1 = $CHAR_THAC0,4,delta,target,yes
+activate script 1 = 
+modify script 1 = 
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = 
+end script = 
+\(END)
+
+\(BEGIN)
 name = Invisibility|illusionist
 casting sound = sound_Cast.wav
 cast msg = 
@@ -8175,46 +8339,45 @@ end script =
 \(END)
 
 \(BEGIN)
-name = Improved Invisibility|illusionist
+name = Improved Invisibility
 casting sound = sound_Cast.wav
-cast msg = 
+cast msg = /t is invisible.
 missile sound = none
 coverage sound = none
 hit sound = none
 linger sound = none
-cast art = spell_cast_Illusionist.png,210,2,48,48,0,1,4,1,0,0
+cast art = spell_cast_Illusionist.png,210,2,48,48,0,1,0,1,0,0
 missile art = none
 target cover art = none
 target hit art = none
-target linger art = none
+target linger art = spell_linger_Invisibility.png,200,2,48,48,0,1,4,1,0,0
 school = Illusionist
 cast by = illusionist
-can target friend = no
+can target friend = yes
 can target enemy = yes
 cumulative = yes
 can memorize = yes
 allow scribe = yes
 auto scribe = no
-in camp = yes
+in camp = no
 in combat = yes
 can be dispelled = yes
-lingers = no
-linger affects once = no
+lingers = yes
+linger affects once = yes
 save versus = spell
 save result = none
 Special Ability = DamageMagical,illusion
 Special Ability = StandardDisplaySpellEffect
 Special Ability = casterLevel,$illusionist$0
 Special Ability = spellClass,illusionist
-Special Ability = spell_Attack,1
-Special Ability = spell_Invisible,illusionist
+Special Ability = spell_ImprovedInvisible,illusionist
 targeting type = touch
 target quantity = 1
 level = 4
 casting time = 4
 casting time units = initiative
 duration = 4+level
-duration units = instantaneous
+duration units = rounds
 target duration = 0
 price = 0
 priority = 500
@@ -9664,6 +9827,7 @@ end script =
 
 // magic-user spells:
 // magic-user level 1
+// Burning Hands, Charm Person, Detect Magic, Enlarge, Friends, Light, Magic Missile, Protection From Evil, Protection From Good, Read Magic, Reduce, Shield, Shocking Grasp, Sleep
 \(BEGIN)
 name = Burning Hands
 casting sound = sound_Cast.wav
@@ -10376,6 +10540,7 @@ end script =
 \(END)
 
 // magic-user level 2
+// Continual Light, Darkness 15' Radius, Detect Evil, Detect Good, Detect Invisibility, Invisibility, Knock, Know Alignment, Mirror Image, Pyrotechncs, Ray of Enfeeblement, Stinking Cloud, Strength, Web
 \(BEGIN)
 name = Continual Light|Mage
 casting sound = sound_Cast.wav
@@ -11099,6 +11264,7 @@ end script =
 \(END)
 
 // magic-user level 3
+// Blink, Dispel Magic, Fireball, Haste, Hold Person, Incendiary Cloud, Invisibility 10' Radius, Lightning Bolt, Monster Summoning I, Protection From Evil 10' Radius, Protection From Good 10' Radius, Protection from Normal Missiles, Slow
 \(BEGIN)
 name = Blink
 casting sound = sound_Cast.wav
@@ -11888,6 +12054,7 @@ end script =
 \(END)
 
 // magic-user level 4
+// Bestow Curse, Charm Monster, Confusion, Dimension Door, Fear, Fire Shield, Fumble, Ice Storm, Minor Globe of Invulnerability, Monster Summoning II, Remove Curse
 \(BEGIN)
 name = Bestow Curse|Magic User
 casting sound = sound_Cast.wav
@@ -12568,6 +12735,7 @@ end script =
 //Explanation/Description: When this spell is cast, a sheet of strong, flexible ice is created. The wall is primarily defensive, stopping pursuers and the like. The wall is one inch thick per level of experience of the magic-user. It covers a 1" square area per level, i.e. a 10th level magic-user would cause a wall of ice up to 10,' long and 1" high, or 5" long and 2" high, and so forth. Any creature breaking through the ice will suffer 2 hit points of damage per inch of thickness of the wall, fire-using creatures will suffer 3 hit points, cold-using creatures only 1 hit point when breaking through. If this spell is cast so form a horizontal sheet to fall upon opponents, it has the same effect as an ice storm's (q.v.) hail stones in the area over which it falls. Magical fires such as fireballs and fiery dragon breath will melt a wall of ice in 1 round, though they will cause a great cloud of steamy fog which will last 1 turn, but normal fires or lesser magical ones will not hasten its melting. The material component of this spell is a small piece of quartz or similar rock crystal.
 
 // magic-user level 5
+// Cloudkill, Cone of Cold, Conjure Air Elemental, Conjure Earth Elemental, Conjure Fire Elemental, Conjure Water Elemental, Feeblemind, Fire Touch, Hold Monster, Monster Summoning III, Protection from Acid, Transmute Rock To Mud, Wall Of Stone
 \(BEGIN)
 name = Cloudkill
 casting sound = sound_Cast.wav
@@ -13257,6 +13425,7 @@ end script =
 \(END)
 
 // magic-user level 6
+// Chain Lightning, Death Spell, Disintegrate, Flesh to Stone, Geas, Globe of Invulnerability, Invisible Stalker, Monster Summoning IV, Power Word, Silence, Stone to Flesh
 \(BEGIN)
 name = Chain Lightning|Mage
 casting sound = none
@@ -13782,6 +13951,7 @@ end script =
 \(END)
 
 // magic-user level 7
+// Charm Plants, Delayed Blast Fireball, Mass Invisibility, Monster Summoning V, Power Word, Stun
 \(BEGIN)
 name = Charm Plants
 casting sound = sound_Cast.wav
@@ -14045,6 +14215,7 @@ end script =
 \(END)
 
 // magic-user level 8
+// Mass Charm, Mind Blank, Monster Summoning VI, Otto's Irresistible Dance, Power Word, Blind
 \(BEGIN)
 name = Mass Charm
 casting sound = sound_Cast.wav
@@ -14308,6 +14479,7 @@ end script =
 \(END)
 
 // magic-user level 9
+// Imprisonment, Meteor Swarm, Monster Summoning VII, Power Word, Kill
 \(BEGIN)
 name = Imprisonment|Mage
 casting sound = none
@@ -16597,6 +16769,56 @@ savingThrowSucceededScript =
 savingThrowFailedScript = 
 begin script = 
 end script = 
+\(END)
+
+\(BEGIN)
+name = Flame Blade|Ranger
+casting sound = sound_Cast.wav
+cast msg = /c summons a fiery blade.
+missile sound = none
+coverage sound = none
+hit sound = none
+linger sound = none
+cast art = spell_cast_Druid.png,210,2,48,48,0,1,4,1,0,0
+missile art = none
+target cover art = none
+target hit art = none
+target linger art = none
+school = Druid
+Cast by = ranger
+can target friend = yes
+can target enemy = yes
+cumulative = yes
+can memorize = yes
+allow scribe = no
+auto scribe = yes
+in combat = yes
+in camp = no
+can be dispelled = yes
+lingers = yes
+linger affects once = no
+save versus = spell
+save result = none
+Special Ability = spell_Attack,1
+Special Ability = DamageMagical,fire
+Special Ability = casterLevel,$ranger$7
+targeting type = 
+target quantity = 
+target range = 
+level = 2
+casting time = 3
+casting time units = initiative
+duration = 4*level
+duration units = rounds
+target duration = 0
+price = 0
+priority = 950
+spell effect 1 = none
+savingThrowScript = 
+savingThrowSucceededScript = 
+savingThrowFailedScript = 
+begin script = $GIVE_CHAR_ITEM($Myself(), "Flame Blade");
+end script = $TAKE_CHAR_ITEM($Myself(), "Flame Blade");
 \(END)
 
 \(BEGIN)
@@ -64363,7 +64585,7 @@ end script =
 
 \(BEGIN)
 name = $$Help
-Special Ability = Date,"March 29, 2023"
+Special Ability = Date,"March 31, 2023"
 Special Ability = Updates1_01,"added Cause Critical Wounds|MonsterCleric, updated many AoE for various spells, corrected misnamed special abilities in multiple cleric and monster spells"
 Special Ability = Updates1_02,"updated Sleep spell for rangers, monsters and beholders"
 Special Ability = Updates1_03,"added druidShapeChange, added Blade Barrier|MonsterCleric, Bless|MonsterCleric, Cure Critical Wounds|MonsterCleric, Cure Light Wounds|MonsterCleric, Cure Serious Wounds|MonsterCleric, Curse|MonsterCleric, Destruction|MonsterCleric, Dispel Magic|MonsterCleric, Energy Drain|MonsterCleric, Find Traps|MonsterCleric, Harm|MonsterCleric, Heal|MonsterCleric, Poison|MonsterCleric, Prayer|MonsterCleric, Protection from Evil|MonsterCleric, Protection from Evil 10' Radius|MonsterCleric, Resist Cold|MonsterCleric, Resist Fire|MonsterCleric, Entangle|MonsterDruid, Faerie Fire|MonsterDruid, Bestow Curse|MonsterMage, Burning Hands|MonsterMage, Cloudkill|MonsterMage, Cone of Cold|MonsterMage, Confusion|MonsterMage, Death Spell|MonsterMage, Delayed Blast Fireball|MonsterMage, Detect Invisibility|MonsterMage, Detect Magic|MonsterMage, Disintegrate|MonsterMage, Dispel Magic|MonsterMage, Enlarge|MonsterMage, Feeblemind|MonsterMage, Fire Shield|MonsterMage, Fire Touch|MonsterMage, Fumble|MonsterMage, Globe of Invulnerability|MonsterMage, Haste|MonsterMage, Invisibility|MonsterMage, Iron Skin|MonsterMage, Knock|MonsterMage, Lightning Bolt|MonsterMage, Mass Charm|MonsterMage, Meteor Swarm|MonsterMage, Minor Globe of Invulnerability|MonsterMage, Mind Blank|MonsterMage, Otto's Irresistible Dance|MonsterMage, Power Word, Kill|MonsterMage, Protection from Evil 10' Radius|MonsterMage, Ray of Enfeeblement|MonsterMage, Shield|MonsterMage, Shocking Grasp|MonsterMage, removed Spiritual Hammer|MonsterCleric; fixed Sleep, Sleep|Ranger, Sleep|MonsterBeholder, Sleep|MonsterMage"
@@ -64374,7 +64596,8 @@ Special Ability = Updates_170720,"corrected context for several savingThrowFaile
 Special Ability = Updates_170804,"fixed ranger lvl 3 druid spells and djinni and marid abilities"
 Special Ability = Updates_1800628,"fixed error in Stinking Cloud|MonterMage"
 Special Ability = Updates_180727,"fixed errors in Fireball|MonsterMage, Silence|MonsterCleric, itemNecklaceMissiles"
-Special Ability = Updates_200916,"I added the following spells: cleric - Aid, Cause Fear, Command, Continual Darkness, Continual Light, Darkness, False Seeing, Holy Word, Light, Regeneration, Remove Fear, Symbol, True Seeing, Unholy Word, Wither; druid - Dismiss Earth Elemental, Dismiss Fire Elemental, Pyrotechncs; magic user - Chain Lightning, Continual Light, Darkness 15' Radius, Geas, Imprisonment, Incendiary Cloud, Light, Pyrotechncs, Web; paladin - Aid, Cause Fear, Command, Continual Darkness, Continual Light, Darkness, Light, Remove Fear; ranger - Continual Light, Darkness 15' Radius, Light, Pyrotechncs, Pyrotechncs, Web"
+Special Ability = Updates_200916,"I added the following spells: cleric - Aid, Cause Fear, Command, Continual Darkness, Continual Light, Darkness, False Seeing, Holy Word, Light, Regeneration, Remove Fear, Symbol, True Seeing, Unholy Word, Wither; druid - Dismiss Earth Elemental, Dismiss Fire Elemental, Pyrotechncs; magic user - Chain Lightning, Continual Light, Darkness 15' Radius, Geas, Imprisonment, Incendiary Cloud, Light, Pyrotechncs, Web; paladin - Aid, Cause Fear, Command, Continual Darkness, Continual Light, Darkness, Light, Remove Fear; ranger - Continual Light, Darkness 15' Radius, Light, Pyrotechncs, Web"
 Special Ability = Updates_230329,"added monster spell for Gelatinous Cube"
+Special Ability = Updates_230331,"updated various spells including Spiritual Hammer and Chain Lightning, added Fog Cloud"
 \(END)
 

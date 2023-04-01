@@ -4416,23 +4416,21 @@ name = IsImprisoned
 
 \(BEGIN)
 name = IsImprovedInvisible
-[Dispel] = $SA_REMOVE();
+[Dispel] = $SA_REMOVE(); $RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
 [DoesAttackSucceed] = $VAR p5; $VAR p6; $VAR iii;
 -p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
 -iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
 -$IF (iii != "-?-?-"){p5 = p5 -# 4;};
 -$IF (p5 >=# p6){$RETURN "Y";};
 [DoesSpellAttackSucceed] = $VAR p5; $VAR p6; $VAR iii;
--p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
--iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6); iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
 -$IF (iii != "-?-?-"){p5 = p5 -# 4;};
 -$IF (p5 >=# p6){$RETURN "Y";};
 [IsValidTarget] = $IF ($SA_COMBATANT_GET("IsSeeingInvisible") != "-?-?-"){$RETURN "Y";};
 -$IF ($GET_CHARACTER_SA($TargetContext(),"IsFaerieFire") != "-?-?-"){$RETURN;}
 -$ELSE {$RETURN "N";};
-[RemoveFireLinger] = $RETURN "TARGETS";
 \(END)
-
 \(BEGIN)
 name = IsInsane
 [CanCastSpells] = $RETURN "N";
@@ -5980,6 +5978,14 @@ note = designer SA, i.e. a script can check to see if the monster has Ultravisio
 \(END)
 
 \(BEGIN)
+name = item_DoubleVsUndead
+[ComputeDamage] = $VAR tgt; $VAR p5;
+-tgt = $IndexOf($TargetContext());
+-p5 = $GET_HOOK_PARAM(5);
+-$IF ($GET_CHAR_UNDEAD(tgt) != "none") {$RETURN p5 *# 2;};
+\(END)
+
+\(BEGIN)
 name = item_DrowEquipment
 [item_DrowEquipment] = $TAKE_CHAR_ITEM($CharacterContext(), $ItemContext());
 -$RETURN "2";
@@ -6086,13 +6092,21 @@ name = item_LongSwordVsLycanthropes
 -$VAR par5; // Hook parameter 5
 -$VAR mNm; // monster name
 -tgt = $IndexOf($TargetContext()); par5 = $GET_HOOK_PARAM(5); mNm = $GET_CHAR_NAME(tgt);
+<<<<<<< HEAD
 -$IF ($GET_MONSTERTYPE_SA(mNm,"IsLycanthrope") != "-?-?-"){$SET_HOOK_PARAM(5,par5 +# 3);};
+=======
+-$IF ($GET_MONSTERTYPE_SA(mNm,"Lycanthrope") != "-?-?-"){$SET_HOOK_PARAM(5,par5 +# 3);};
+>>>>>>> main
 [DoesAttackSucceed] = $VAR tgt; // target
 -$VAR mNm; // monster name
 -$VAR par5; // Hook parameter 5
 -$VAR par6; // Hook parameter 6
 -tgt = $IndexOf($TargetContext()); mNm = $GET_CHAR_NAME(tgt); par5 = $GET_HOOK_PARAM(5); par6 = $GET_HOOK_PARAM(6);
+<<<<<<< HEAD
 -$IF ($GET_MONSTERTYPE_SA(mNm,"IsLycanthrope")){$IF (par5 >=# (par6 -# 2)){$RETURN "Y";} $ELSE {$RETURN "N";};};
+=======
+-$IF ($GET_MONSTERTYPE_SA(mNm,"Lycanthrope")){$IF (par5 >=# (par6 -# 2)){$RETURN "Y";} $ELSE {$RETURN "N";};};
+>>>>>>> main
 \(END)
 
 \(BEGIN)
@@ -11482,6 +11496,12 @@ name = spell_Fear
 \(END)
 
 \(BEGIN)
+name = spell_FireQuench
+[InvokeSpellOnTarget] = $RUN_CHAR_SE_SCRIPTS($CharacterContext(),"Dispel Fire");
+[SpellLingeringScripts] = $RETURN "RemoveFireLinger";
+\(END)
+
+\(BEGIN)
 name = spell_FireResistant
 [Dispel] = $SA_REMOVE();
 -$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
@@ -11545,6 +11565,12 @@ name = spell_FireShieldHot
 -$RETURN $SET_CHARACTER_SA($TargetContext(),"IsFireShieldedHot", exp);
 [RemoveLinger] = $RETURN "TARGETS";
 [SpellDuration] = $SA_PARAM_SET($GET_HOOK_PARAM(5));
+\(END)
+
+\(BEGIN)
+name = spell_FireStorm
+[Dispel Fire] = $REMOVE_SPELL_EFFECT($CharacterContext(), $GET_HOOK_PARAM(5));
+[RemoveFireLinger] = $RETURN "AREA";
 \(END)
 
 \(BEGIN)
@@ -11927,16 +11953,12 @@ name = spell_ImmuneSpellsMinor
 
 \(BEGIN)
 name = spell_ImprovedInvisible
-[Dispel] = $SA_REMOVE();
--$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
-[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
 [InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR adj; $VAR lvl;
 -atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET();
 -adj = $GET_CHARACTER_SA($AttackerContext(),"casterLevel"); lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
 -$SET_CHARACTER_SA($TargetContext(),"DispelLevel",lvl);
 -$SET_CHARACTER_SA($TargetContext(),"IsInvisibleSpell",2);
 -$SET_CHARACTER_SA($TargetContext(),"IsInvisible",2);
-[RemoveLinger] = $RETURN "TARGETS";
 \(END)
 
 \(BEGIN)
@@ -12353,25 +12375,16 @@ name = spell_PrismaticSpray
 -$IF (rndm ==# 3)
 -	{
 -		$IF (save <# vsPoison)
--			{
--				$SET_COMBATANT_SA($TargetContext(),"IsPoisoned",time);
--				$SET_CHAR_STATUS(tgt,2);$SET_CHAR_HITPOINTS(tgt,"-11");
--			};
+-			{$SET_COMBATANT_SA($TargetContext(),"IsPoisoned",time); $SET_CHAR_STATUS(tgt,2);$SET_CHAR_HITPOINTS(tgt,"-11");};
 -	};
 -$IF (rndm ==# 4)
--	{
--		$IF (save <# vsPoison)
--			{$SET_COMBATANT_SA($TargetContext(),"IsPetrified",time);	$SET_CHAR_STATUS(tgt,4);};
--	};
+-	{$IF (save <# vsPoison){$SET_COMBATANT_SA($TargetContext(),"IsPetrified",time); $SET_CHAR_STATUS(tgt,4);};};
 -$IF (rndm ==# 5)
 -	{ $IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);}; };
 -$IF (rndm ==# 6)
--	{ $IF (save <# vsMagic){$SET_CHAR_STATUS(tgt,5);}; };
+-	{ $IF (save <# vsMagic){$SET_CHAR_STATUS(tgt,5);};};
 -$IF (rndm ==# 7)
--	{
--		$SET_CHAR_HITPOINTS(tgt,hp -# 20);
--		$IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);};
--	};
+-	{$SET_CHAR_HITPOINTS(tgt,hp -# 20); $IF (save <# vsWand){$SET_COMBATANT_SA($TargetContext(),"IsInsane",time);};};
 \(END)
 
 \(BEGIN)
@@ -14167,7 +14180,7 @@ name = _PaladinAuraSA
 
 \(BEGIN)
 name = $$Help
-Date = "March 29, 2023"
+Date = "March 31, 2023"
 Updates1_01 = "fixed spell_HoldAnimal, spell_HoldMonster, spell_HoldPersonCleric and spell_HoldPersonMU, updated/fixed FreeAttack-AttackOver and FreeAttack-CanFreeAttack, updated monster_SpellImmunity, IsImmuneSpells and IsImmuneSpellsMinor, fixed Global_Display to correctly show all character statuses"
 Updates1_02 = "fixed display issue to show dmg done by weapons in party members possession, updated STATUS display to reflect chganges to Damage Event, fixed context issue with spell_NeutralizePoison, all instances of $SET_CHARACTER_SA for IsHugged now $SET_COMBATANT_SA"
 Updates1_02 = "fixed spell_Sleep, changed Competing so that now roll of 20 always hits and roll of 1 always misses, monster_WeaponImmunity changed so that weapons will hit monster but only do damage if of appropriate magical level"
@@ -14204,5 +14217,6 @@ Updates181010 = "updated class_MageScribe LearnSpellsNum script to allow magic u
 Updates200307 = "fixed item_FineLongBow, monster_LightSusceptible, elemental_GrowthAcid, elemental_GrowthCold, elemental_GrowthElectricity, elemental_GrowthFire, item_LongSwordVsGiants, _PaladinAuraSA, IsEnfeebled, IsEnfeebledHit, spell_Enfeeble"
 Updates200916 = "I added the following SAs: spell_Web, IsWebbed, IsHolyDeafened, IsHolyStunned, spell_HolyWord, spell_UnholyWord, IsDarkBlinded, IsLightBlinded, spell_ContinualDarknessCleric, spell_ContinualDarknessClericAURA, spell_ContinualLightCleric, spell_ContinualLightClericAURA, spell_ContinualLightMage, spell_ContinualLightMageAURA, spell_DarknessCleric, spell_DarknessClericAURA, spell_Darkness15RadiusMage, spell_Darkness15RadiusMageAURA, spell_LightCleric, spell_LightClericAURA, spell_LightMage, spell_LightMageAURA, IsFalseSeeing, spell_FalseSeeing, spell_TrueSeeing, IsSymbolHopelessnessed, IsSymbolHopelessnessedDone, IsSymbolPained, IsSymbolPersuaded, spell_Symbol, SymbolOfHopelessness, SymbolOfHopelessnessAURA, SymbolOfPain, SymbolOfPainAURA, SymbolOfPersuasion, SymbolOfPersuasionAURA, IsBrave, spell_CauseFearCleric, spell_RemoveFearCleric, IsWithered, spell_Regenerate, spell_Wither, IsBlindPyrotechnics, spell_Pyrotechnics, IsFieryCloudy, spell_IncendiaryCloud, spell_GeasAttack, IsGeasFlee, spell_Geas, spell_GeasFlee, spell_DismissElementalEarth, spell_DismissElementalFire, IsCommanded, spell_Command, spell_ChainLightning, spell_Aid, IsAided"
 Updates230329 = "added item_LongSwordVsReptiles, item_LongSwordVsLycanthropes, IsAnesthetized, IsDetectingIllusion, IsDetectingSecretDoors, IsHolyParalyzed, IsKnowingAlignment, IsSeeingAstral, IsSeeingDisplaced, IsSeeingEthereal, IsSeeingInvisible, spell_Enlarge, spell_GelatinousCubeParalysis; modified IsBarkskinned, IsBestowedCurse, IsBrave, IsCharmed, IsConfused, IsConfusedExtended, IsDetectingEvil, IsDetectingGood, IsDetectingMagic, IsDispellingEvil, IsDispellingGood, IsEnlarged, IsEntangled0, IsFast, IsHolyDeafened, IsHolyParalyzed, IsHolyStunned, IsParalyzed, IsPraying, IsReduced, IsSilenced, IsSleeping, IsSlow, IsStunned, IsWebbed, monster_WeaponImmunity, spell_Confusion, spell_Enlarge, spell_HolyWord, spell_Paralysis, spell_Prayer, spell_Reduce, spell_Sleep, spell_UnholyWord"
+Updates230331 = "updated from default databases"
 \(END)
 

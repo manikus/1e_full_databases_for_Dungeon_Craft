@@ -875,7 +875,7 @@ magic resistance = 15
 size = medium
 morale = 45
 experience point value = 145
-Special Ability = monsterLevel,4
+Special Ability = monsterLevel,3
 Special Ability = elemental_ImmuneFire
 Special Ability = elemental_VulnerableCold
 Special Ability = Summoned,plane
@@ -1756,7 +1756,7 @@ size = large
 morale = 35
 experience point value = 1400
 Special Ability = IsImmunePoison
-Special Ability = monsterLevel,9
+Special Ability = monsterLevel,4
 Class = Fighter
 Race = Monster
 form = animal + large
@@ -4513,6 +4513,39 @@ attack = 8,1,0,bites,
 Undead = Ghast
 \(END)
 // MM p43
+
+\(BEGIN)
+name = Ghost
+icon file = icon_Ghost.png,0,2,48,48,0,1,2
+miss sound = sound_Miss.wav
+hit sound = sound_Hit.wav
+move sound = sound_MonsterMoveStep.wav
+death sound = sound_MonsterDeathMedium.wav
+intelligence = 14
+armor class = 0
+movement rate = 9
+hit dice = 10
+treat HD as hit points = yes
+hit dice bonus = 0
+THAC0 = 11
+magic resistance = 0
+size = medium
+morale = 50
+experience point value = 10
+Special Ability = alignmentEvil,1
+Special Ability = monsterAgingAura,10
+Special Ability = monsterLevel,10
+Class = Fighter
+Race = Monster
+form = none
+penalty = none
+immunity = none
+Misc Options = none
+item = none
+attack = 1,1,0,hits,monsterAge
+Undead = Ghost
+\(END)
+//	MM p43
 
 \(BEGIN)
 name = Ghoul
@@ -10455,8 +10488,8 @@ penalty = none
 immunity = none
 Misc Options = can be held/charmed
 item = none
-attack = 6,1,0,attacks,monsterBearHug1
-attack = 6,1,0,attacks,monsterBearHug2
+attack = 6,1,0,claws,monsterBearHug1
+attack = 6,1,0,claws,monsterBearHug2
 attack = 6,2,0,bites,
 Undead = none
 \(END)
@@ -12235,7 +12268,11 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 111
+<<<<<<< HEAD
 Special Ability = IsLycanthrope,Selkie
+=======
+Special Ability = Lycanthrope,Selkie
+>>>>>>> main
 Special Ability = monsterLevel,3
 Class = Fighter
 Race = Monster
@@ -15305,7 +15342,11 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 202
+<<<<<<< HEAD
 Special Ability = IsLycanthrope,Wererat
+=======
+Special Ability = Lycanthrope,Wererat
+>>>>>>> main
 Special Ability = monsterLevel,4
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1
@@ -15339,7 +15380,11 @@ magic resistance = 0
 size = large
 morale = 35
 experience point value = 2172
+<<<<<<< HEAD
 Special Ability = IsLycanthrope,Wereshark
+=======
+Special Ability = Lycanthrope,Wereshark
+>>>>>>> main
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1
 Special Ability = monsterLevel,11
@@ -15373,7 +15418,11 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 300
+<<<<<<< HEAD
 Special Ability = IsLycanthrope,Werewolf
+=======
+Special Ability = Lycanthrope,Werewolf
+>>>>>>> main
 Special Ability = monsterLevel,5
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1
@@ -15700,8 +15749,8 @@ penalty = none
 immunity = none
 Misc Options = can be held/charmed
 item = none
-attack = 6,2,0,attacks,
-attack = 6,2,0,attacks,
+attack = 6,2,0,stomps,
+attack = 6,2,0,stomps,
 Undead = none
 \(END)
 // MM p65
@@ -16121,6 +16170,7 @@ Special Ability = Updates1_03, "added IsWoodlandCreature to Centaur, Satyr and U
 Special Ability = Updates1_04, "corrected number of javelins"
 Special Ability = Updates1_05,"updated modrons" 
 Special Ability = Updates1_06,"added cat, cheetah, crysmal, dao, djinni, eagle, goat, hybsil, marid, mandragora, wild cat. UPdated galeb duhr." 
-Special Ability = Updates_230329,"added stag, giant stag, wemic, giant bee, giant crane, greenhag, harpy, falcon, dragonnel, cyclopskin; added IsLycanthrope to lycanthropes and shapechangers, added IsReptile to all reptiles" 
+Special Ability = Updates_230329,"added stag, giant stag, wemic, giant bee, giant crane, greenhag, harpy, falcon, dragonnel, cyclopskin; added IsLycanthrope to lycanthropes and shapechangers, added IsReptile to all reptiles"
+Special Ability = Updates_230331,"added ghost"
 \(END)
 

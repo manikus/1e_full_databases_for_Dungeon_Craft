@@ -1,0 +1,6 @@
+\(BEGIN)
+name = spell_FireQuench
+[InvokeSpellOnTarget] = $RUN_CHAR_SE_SCRIPTS($CharacterContext(),"Dispel Fire");
+[SpellLingeringScripts] = $RETURN "RemoveFireLinger";
+\(END)
+

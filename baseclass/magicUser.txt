@@ -6,7 +6,6 @@ AbilityRequirement = Intelligence 9/18
 AbilityRequirement = Dexterity 6/19
 AbilityRequirement = Strength 3/19
 Allowed Race = Elf
-Allowed Race = Gnome
 Allowed Race = Half-Elf
 Allowed Race = Human
 Allowed Alignment = any

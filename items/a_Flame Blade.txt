@@ -1,0 +1,43 @@
+\(BEGIN)
+name = Flame Blade
+id name = Flame Blade
+launch sound = none
+hit sound = sound_Hit.wav
+miss sound = sound_Miss.wav
+missile sprite = none
+hit sprite = none
+ROF per round = 1
+combat range = 1
+cost = 0
+hands to carry = 1
+baseclass = druid
+baseclass = ranger
+small/medium damage dice = 1D4 + 4
+large damage dice = 1D4 + 4
+AC base = 0
+AC bonus = 0
+attack bonus = 0
+experience = 0
+encumbrance = 50
+cursed = no
+non lethal = no
+readied location = WEAPON
+bundle quantity = 1
+Special Ability = item_MagicalWeapon,fire
+Special Ability = DamageMagical,fire
+Special Ability = item_DoubleVsUndead
+Special Ability = item_WeaponType,slashing
+weapon type = hand held cutting
+ammo type = 
+usable = no
+not magical = no
+scribtable = no
+can drop = yes
+CanHalveJoin = no
+number of charges = 0
+Examine Event ID = 0
+Examine Label = EXAMINE
+recharge rate = never
+spell effect = none
+\(END)
+

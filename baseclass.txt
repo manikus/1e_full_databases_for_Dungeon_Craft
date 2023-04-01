@@ -1260,7 +1260,6 @@ AbilityRequirement = Intelligence 9/18
 AbilityRequirement = Dexterity 6/19
 AbilityRequirement = Strength 3/19
 Allowed Race = Elf
-Allowed Race = Gnome
 Allowed Race = Half-Elf
 Allowed Race = Human
 Allowed Alignment = any
@@ -2005,8 +2004,9 @@ Special Ability = baseclass_NameSuppress,"Y"
 
 \(BEGIN)
 name = $$Help
-Special Ability = Date,"December 16, 2017"
+Special Ability = Date,"March 31, 2023"
 Special Ability = Updates1_02,"minor corrections for druid, fighter, magic user, paladin, ranger and thief"
 Special Ability = Updates_171216,"fixed MaxLevel$SYS$ for all baseclasses"
+Special Ability = Updates_230331,"changed magic user to not allow gnomes"
 \(END)
 

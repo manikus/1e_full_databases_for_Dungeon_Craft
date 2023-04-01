@@ -1,19 +1,17 @@
 \(BEGIN)
 name = IsImprovedInvisible
-[Dispel] = $SA_REMOVE();
+[Dispel] = $SA_REMOVE(); $RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
 [DoesAttackSucceed] = $VAR p5; $VAR p6; $VAR iii;
 -p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
 -iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
 -$IF (iii != "-?-?-"){p5 = p5 -# 4;};
 -$IF (p5 >=# p6){$RETURN "Y";};
 [DoesSpellAttackSucceed] = $VAR p5; $VAR p6; $VAR iii;
--p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
--iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
+-p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6); iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
 -$IF (iii != "-?-?-"){p5 = p5 -# 4;};
 -$IF (p5 >=# p6){$RETURN "Y";};
 [IsValidTarget] = $IF ($SA_COMBATANT_GET("IsSeeingInvisible") != "-?-?-"){$RETURN "Y";};
 -$IF ($GET_CHARACTER_SA($TargetContext(),"IsFaerieFire") != "-?-?-"){$RETURN;}
 -$ELSE {$RETURN "N";};
-[RemoveFireLinger] = $RETURN "TARGETS";
 \(END)
-

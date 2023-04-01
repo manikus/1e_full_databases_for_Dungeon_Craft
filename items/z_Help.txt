@@ -1,7 +1,7 @@
 \(BEGIN)
 name = $$Help
 id name = 
-Special Ability = Date,"May 4, 2017"
+Special Ability = Date,"March 31, 2023"
 Special Ability = Version,"1.05"
 Special Ability = Updates1_01,"added monsterClericCauseCriticalWounds spellcaster item"
 Special Ability = Updates1_03,"added monsterClericBladeBarrier, monsterClericBless, monsterClericCureCriticalWounds, monsterCureLightWounds, monsterCureASeriousWounds, monsterClericCurse, monsterClericDestruction, monsterClericDispelMagic, monsterClericEnergyDrain, monsterClericFindTraps, monsterClericHarm, monsterClericHeal, monsterClericIronSkin, monsterClericPoison, monsterClericPrayer, monsterCLericProtectionFromEvil, monsterClericResistCold, monsterClericResistFire, monsterDruidEntangle, monsterDruidFaerieFire, monsterMageBestowCurse, monsterMageBurningHands, monsterMageCloudkill, monsterMageConeofCold, monsterMageConfusion, monsterMageDeath, monsterMageDelayedBlastFireball, monsterMageDetectInvisibility, monsterMageDetectMagic, monsterMageDisintegrate, monsterMageDispelMagic, monsterMageEnlarge, monsterMageFear, monsterMageFeeblemind, monsterMageFireShield, monsterMageFireTouch, monsterMageFleshtoStone, monsterMageFumble, monsterMageGlobeofInvulnerability, monsterMageHaste, monsterMageInvisibility, monsterMageKnock, monsterMageLightningBolt, monsterMassCharm, monsterMeteorSwarm, monsterMinorGlobeofInvulnerability, monsterMageMindBlank, monsterMageOttosIrresistibleDance, monsterMagePowerWordKill, monsterMageProtectionfromEvil10Radius, monsterMageRayofEnfeeblement, monsterMageShield, monsterMageShockingGrasp, monsterMageSlow, removed monsterClericSpiritualHammer"
@@ -10,6 +10,6 @@ Special Ability = Updates1_05,"removed item_wand from all wands to match 1e rule
 Special Ability = Update170504,"updated all potions to not use EXAMINE events"
 Special Ability = Update200831,"fixed about two dozen monster spell items to use correct baseclass."
 Special Ability = Update200916,"I have added the following items: monsterClericAid, monsterClericCauseFear, monsterClericCommand, monsterClericContinualDarkness, monsterClericContinualLight, monsterClericDarkness, monsterClericFalseSeeing, monsterClericHolyWord, monsterClericLight, monsterClericRegeneration, monsterClericSymbol, monsterClericTrueSeeing, monsterClericUnholyWord, monsterClericWither, monsterDruidDismissEarthElemental, monsterDruidDismissFireElemental, monsterDruidPyrotechnics, monsterMageChainLightning, monsterMageContinualLight, monsterMageDarkness15Radius, monsterMageGeas, monsterMageImprisonment, monsterMageIncendiaryCloud, monsterMageLight, monsterMagePyrotechnics, monsterMageWeb"
-
+Special Ability = Update230331,"added scrolls as per default databases"
 \(END)
 

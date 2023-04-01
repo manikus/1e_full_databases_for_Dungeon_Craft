@@ -13,14 +13,6 @@ Explanation/Description: A geas spell places a magical command upon she creature
 ///// Special Abilities ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 \(BEGIN)
-name = spell_GeasAttack
-[InvokeSpellOnTarget] = $VAR tgt; $VAR iq;
--tgt = $IndexOf($TargetContext()); iq = $GET_CHAR_LIMITED_INT(tgt);
--$IF (iq ># 1) {$SET_COMBATANT_SA($TargetContext(),"IsGeasAttack","F");};
--$SetFriendly(tgt, $GET_COMBATANT_SA($Myself(),"side"));
-\(END)
-
-\(BEGIN)
 name = IsGeasFlee
 [AutoAction] = $RETURN "F" + $SA_PARAM_GET();
 [CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Geased Fleeing"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
@@ -29,6 +21,14 @@ name = IsGeasFlee
 \(BEGIN)
 name = spell_Geas
 [OverrideSpellSelection] = $RETURN "$Attack Your Enemies|Geas$Flee Combat|Geas";
+\(END)
+
+\(BEGIN)
+name = spell_GeasAttack
+[InvokeSpellOnTarget] = $VAR tgt; $VAR iq;
+-tgt = $IndexOf($TargetContext()); iq = $GET_CHAR_LIMITED_INT(tgt);
+-$IF (iq ># 1) {$SET_COMBATANT_SA($TargetContext(),"IsGeasAttack","F");};
+-$SetFriendly(tgt, $GET_COMBATANT_SA($Myself(),"side"));
 \(END)
 
 \(BEGIN)

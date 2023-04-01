@@ -8,6 +8,7 @@ Special Ability = Updates1_03, "added IsWoodlandCreature to Centaur, Satyr and U
 Special Ability = Updates1_04, "corrected number of javelins"
 Special Ability = Updates1_05,"updated modrons" 
 Special Ability = Updates1_06,"added cat, cheetah, crysmal, dao, djinni, eagle, goat, hybsil, marid, mandragora, wild cat. UPdated galeb duhr." 
-Special Ability = Updates_230329,"added stag, giant stag, wemic, giant bee, giant crane, greenhag, harpy, falcon, dragonnel, cyclopskin; added IsLycanthrope to lycanthropes and shapechangers, added IsReptile to all reptiles" 
+Special Ability = Updates_230329,"added stag, giant stag, wemic, giant bee, giant crane, greenhag, harpy, falcon, dragonnel, cyclopskin; added IsLycanthrope to lycanthropes and shapechangers, added IsReptile to all reptiles"
+Special Ability = Updates_230331,"added ghost"
 \(END)
 

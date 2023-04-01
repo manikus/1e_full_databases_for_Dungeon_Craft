@@ -14,7 +14,7 @@ Explanation/Description: When a call lightning spell is cast, there must be a st
 ////////////////////////////////////////////////////////////////////////////////////
 // druid level 3
 \(BEGIN)
-name = Call Lightning
+name = Call Lightning|Druid
 casting sound = sound_Cast.wav
 cast msg = /c calls down a bolt of lightning.
 missile sound = none

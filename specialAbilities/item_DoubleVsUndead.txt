@@ -1,0 +1,8 @@
+\(BEGIN)
+name = item_DoubleVsUndead
+[ComputeDamage] = $VAR tgt; $VAR p5;
+-tgt = $IndexOf($TargetContext());
+-p5 = $GET_HOOK_PARAM(5);
+-$IF ($GET_CHAR_UNDEAD(tgt) != "none") {$RETURN p5 *# 2;};
+\(END)
+

@@ -1,0 +1,6 @@
+\(BEGIN)
+name = spell_FireStorm
+[Dispel Fire] = $REMOVE_SPELL_EFFECT($CharacterContext(), $GET_HOOK_PARAM(5));
+[RemoveFireLinger] = $RETURN "AREA";
+\(END)
+

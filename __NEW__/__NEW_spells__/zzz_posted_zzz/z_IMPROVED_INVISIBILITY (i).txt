@@ -14,7 +14,8 @@ Explanation/Description: This spell is similar to invisibility, bus the recipien
 ////////////////////////////////////////////////////////////////////////////////////
 \(BEGIN)
 name = IsImprovedInvisible
-[Dispel] = $SA_REMOVE();
+[Dispel] = $SA_REMOVE(); $RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
 [DoesAttackSucceed] = $VAR p5; $VAR p6; $VAR iii;
 -p5 = $GET_HOOK_PARAM(5); p6 = $GET_HOOK_PARAM(6);
 -iii = $GET_COMBATANT_SA($TargetContext(),"IsImprovedInvisible");
@@ -28,20 +29,16 @@ name = IsImprovedInvisible
 [IsValidTarget] = $IF ($SA_COMBATANT_GET("IsSeeingInvisible") != "-?-?-"){$RETURN "Y";};
 -$IF ($GET_CHARACTER_SA($TargetContext(),"IsFaerieFire") != "-?-?-"){$RETURN;}
 -$ELSE {$RETURN "N";};
-[RemoveFireLinger] = $RETURN "TARGETS";
 \(END)
 
 \(BEGIN)
 name = spell_ImprovedInvisible
-[Dispel] = $SA_REMOVE();
--$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
-[Dispel SE] = $REMOVE_SPELL_EFFECT($CharacterContext(),$GET_HOOK_PARAM(5));
-[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR adj; $VAR lvl;
--atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET();
--adj = $GET_CHARACTER_SA($AttackerContext(),"casterLevel"); lvl = $GET_CHAR_Lvl(atk,cls) -# adj;
+[InvokeSpellOnTarget] = $VAR atk; $VAR cls; $VAR adj; $VAR lvl; $VAR exp;
+-atk = $IndexOf($AttackerContext()); cls = $SA_PARAM_GET(); adj = $GET_CHARACTER_SA($AttackerContext(),"casterLevel");
+-lvl = $GET_CHAR_Lvl(atk,cls) -# adj; exp = $GET_PARTY_TIME() +# 4 +# lvl;
 -$SET_CHARACTER_SA($TargetContext(),"DispelLevel",lvl);
 -$SET_CHARACTER_SA($TargetContext(),"IsInvisibleSpell",2);
--$SET_CHARACTER_SA($TargetContext(),"IsInvisible",2);
+-$SET_CHARACTER_SA($TargetContext(),"IsImprovedInvisible",exp);
 [RemoveLinger] = $RETURN "TARGETS";
 \(END)
 
