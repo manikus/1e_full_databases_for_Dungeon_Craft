@@ -28,6 +28,7 @@ name = spell_Dispel
 -	{
 -		$RUN_CHAR_SCRIPTS(tgt,"Dispel");
 -		$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+-		$CALL_GLOBAL_SCRIPT("StandardDisplaySpellEffect","Dispel");
 -		$RETURN;
 -	};
 [SpellLingeringScripts] = $VAR cLvl; // caster's level (creator)

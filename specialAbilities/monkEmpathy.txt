@@ -1,5 +1,5 @@
 \(BEGIN)
 name = monkEmpathy
 \(END)
-// level 6 for desiner use out of combat
+// level 6 for designer use out of combat
 

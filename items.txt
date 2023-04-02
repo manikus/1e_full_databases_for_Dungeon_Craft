@@ -6048,10 +6048,7 @@ Examine Label = EXAMINE
 recharge rate = never
 spell effect = none
 \(END)
-<<<<<<< HEAD
-=======
 // Sword +1, +3 vs. lycanthropes and shape changers, gives its +3 agoinst were creatures, those able to assume the form of another creature (such as a vampire or a druid), or any creature under the influence of a polymorph or shape change spell.
->>>>>>> main
 
 \(BEGIN)
 name = Long Sword|VorpalLongSword

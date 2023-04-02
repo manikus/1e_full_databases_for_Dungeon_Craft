@@ -4,7 +4,7 @@ name = monkSpeakWithPlants
 -$AURA_Attach("Combatant"); $AURA_Combatant(chr); $AURA_Size(0,10,0,360);
 -$AURA_Shape("AnnularSector"); $AURA_Wavelength("Xray");
 [AURA_Enter] = $VAR plnt;
-=plnt = $SA_COMBATANT_GET("isPlant");
+-plnt = $SA_COMBATANT_GET("isPlant");
 -$IF (plnt == "-?-?-") {$RETURN;};
 -$SET_COMBATANT_SA($CombatantContext(),"IsCharmed","");};
 [CharDisplayStatus] = $SET_HOOK_PARAM( 7,"Speak with Plants"); $SET_HOOK_PARAM( 6,""); $RETURN 1;
