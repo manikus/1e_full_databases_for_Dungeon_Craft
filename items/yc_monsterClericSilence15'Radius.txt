@@ -34,6 +34,6 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Silence 5' Radius|MonsterCleric
+spell effect = Silence 15' Radius|MonsterCleric
 \(END)
 

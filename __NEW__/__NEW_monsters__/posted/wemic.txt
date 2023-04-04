@@ -33,3 +33,9 @@ Undead = none
 \(END)
 // MMII p126
 
+///// SA ///////////////////////////////////////////////////////////////////////////
+\(BEGIN)
+name = monster_WemicAwareness
+[AdjustInitiative] = $RETURN "-2";
+\(END)
+

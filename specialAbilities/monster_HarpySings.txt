@@ -1,0 +1,6 @@
+\(BEGIN)
+name = monster_HarpySings
+[InvokeSpellOnTarget] = $VAR exp; exp = $GET_PARTY_TIME() +# $RANDOM(6) +# $RANDOM(6) +# 2;
+-$SET_CHARACTER_SA($TargetContext(),"IsStunned",exp);
+\(END)
+

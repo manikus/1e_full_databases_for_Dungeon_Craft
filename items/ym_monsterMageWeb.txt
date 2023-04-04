@@ -1,4 +1,4 @@
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageWeb
 id name = monsterMageWeb
 launch sound = none

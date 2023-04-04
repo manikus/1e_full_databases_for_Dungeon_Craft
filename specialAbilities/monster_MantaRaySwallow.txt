@@ -6,7 +6,7 @@ name = monster_MantaRaySwallow
 -$SET_COMBATANT_SA($AttackerContext(),"monster_MantaRaySwallower","");
 -$SET_COMBATANT_SA($AttackerContext(),"monster_MantaRaySwallowLink",tgt);
 -// Target
--$SET_COMBATANT_SA($TargetContext(),"IsManatRaySwallowed",exp);
+-$SET_COMBATANT_SA($TargetContext(),"IsMantaRaySwallowed",exp);
 -$SET_COMBATANT_SA($TargetContext(),"IsHugged","1");
 -// Link
 -link = $GET_COMBATANT_SA($TargetContext(),"monster_MantaRaySwallowLink");

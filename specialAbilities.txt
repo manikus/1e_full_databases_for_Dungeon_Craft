@@ -2664,50 +2664,28 @@ name = Global_CreateMonsterCombatant
 name = Global_Display
 [FacingText] = $VAR sWidth;
 -sWidth = $GET_CONFIG("Screen_Width");
--$SET_HOOK_PARAM(5,650);
--$SET_HOOK_PARAM(6,490);
--$IF (sWidth ==# 1024)
--	{
--		$SET_HOOK_PARAM(5,1030);
--		$SET_HOOK_PARAM(6,490);
--	};
+-$SET_HOOK_PARAM(5,650); $SET_HOOK_PARAM(6,490);
+-$IF (sWidth ==# 1024) {$SET_HOOK_PARAM(5,1030); $SET_HOOK_PARAM(6,490);};
 -$RETURN;
 [LocationText] = $VAR sWidth;
 -sWidth = $GET_CONFIG("Screen_Width");
--$SET_HOOK_PARAM(5,440);
--$SET_HOOK_PARAM(6,275);
--$IF (sWidth ==# 1024)
--	{
--		$SET_HOOK_PARAM(5,620);
--		$SET_HOOK_PARAM(6,542);
--	};
+-$SET_HOOK_PARAM(5,440); $SET_HOOK_PARAM(6,275);
+-$IF (sWidth ==# 1024) {$SET_HOOK_PARAM(5,620); $SET_HOOK_PARAM(6,542);};
 -$SET_HOOK_PARAM(8,"Yellow");
 -$RETURN;
 [SearchingText] = $VAR look; $VAR sWidth;
 -look = $GET_HOOK_PARAM(1);
 -sWidth = $GET_CONFIG("Screen_Width");
--$SET_HOOK_PARAM(5,360);
--$SET_HOOK_PARAM(6,275);
--$IF (sWidth ==# 1024)
--	{
--		$SET_HOOK_PARAM(5,620);
--		$SET_HOOK_PARAM(6,522);
--	};
+-$SET_HOOK_PARAM(5,360); $SET_HOOK_PARAM(6,275);
+-$IF (sWidth ==# 1024) {$SET_HOOK_PARAM(5,620); $SET_HOOK_PARAM(6,522);};
 -$IF (look !=# "0"){$SET_HOOK_PARAM( 7,"Searching...");};
 -$SET_HOOK_PARAM( 8, "Yellow" );
 -$RETURN;
 [TimeText] = $VAR p1; $VAR p2; $VAR p3; $VAR day; $VAR dayList; $VAR dow; $VAR sWidth;
 -sWidth = $GET_CONFIG("Screen_Width");
--$SET_HOOK_PARAM(5,480);
--$SET_HOOK_PARAM(6,275);
--$IF (sWidth ==# 1024)
--	{
--		$SET_HOOK_PARAM(5,660);
--		$SET_HOOK_PARAM(6,542);
--	};
--p1 = $GET_HOOK_PARAM(1);
--p2 = $GET_HOOK_PARAM(2);
--p3 = $GET_HOOK_PARAM(3);
+-$SET_HOOK_PARAM(5,480); $SET_HOOK_PARAM(6,275);
+-$IF (sWidth ==# 1024) {$SET_HOOK_PARAM(5,660); $SET_HOOK_PARAM(6,542);};
+-p1 = $GET_HOOK_PARAM(1); p2 = $GET_HOOK_PARAM(2); p3 = $GET_HOOK_PARAM(3);
 -dow = p1 %# 7;
 -dayList = "$Sunday$Monday$Tuesday$Wednesday$Thursday$Friday$Saturday";
 -day = $DelimitedStringSubstring(dayList, dow);
@@ -2716,34 +2694,26 @@ name = Global_Display
 -	{
 -		$IF (p2 ==# 0)
 -			{
--				$IF (p3 <# 10)
--					{$SET_HOOK_PARAM(7,"12" + ":" + "0" + p3 + " am" + "  " + day);}
--				$ELSE
--					{$SET_HOOK_PARAM(7,"12" + ":" + p3 + " am" + "  " + day);};
+-				$IF (p3 <# 10) {$SET_HOOK_PARAM(7,"12" + ":" + "0" + p3 + " am" + "  " + day);}
+-				$ELSE {$SET_HOOK_PARAM(7,"12" + ":" + p3 + " am" + "  " + day);};
 -				$RETURN;
 -			};
 -		$IF (p2 <# 10)
 -			{
--				$IF (p3 <# 10)
--					{$SET_HOOK_PARAM(7," " + p2 + ":" + "0" + p3 + " am" + "  " + day);}
--				$ELSE
--					{$SET_HOOK_PARAM(7," " + p2 + ":" + p3 + " am" + "  " + day);};
+-				$IF (p3 <# 10) {$SET_HOOK_PARAM(7," " + p2 + ":" + "0" + p3 + " am" + "  " + day);}
+-				$ELSE {$SET_HOOK_PARAM(7," " + p2 + ":" + p3 + " am" + "  " + day);};
 -				$RETURN;
 -			};
 -		$IF (p2 <# 12)
 -			{
--				$IF (p3 <# 10)
--					{$SET_HOOK_PARAM(7,p2 + ":" + "0" + p3 + " am" + "  " + day);}
--				$ELSE
--					{$SET_HOOK_PARAM(7,p2 + ":" + p3 + " am" + "  " + day);};
+-				$IF (p3 <# 10) {$SET_HOOK_PARAM(7,p2 + ":" + "0" + p3 + " am" + "  " + day);}
+-				$ELSE {$SET_HOOK_PARAM(7,p2 + ":" + p3 + " am" + "  " + day);};
 -				$RETURN;
 -			}
 -		$ELSE
 -			{
--				$IF (p3 <# 10)
--					{$SET_HOOK_PARAM(7,p2 + ":" + "0" + p3 + " pm" + "  " + day);}
--				$ELSE
--					{$SET_HOOK_PARAM(7,p2 + ":" + p3 + " pm" + "  " + day);};
+-				$IF (p3 <# 10) {$SET_HOOK_PARAM(7,p2 + ":" + "0" + p3 + " pm" + "  " + day);}
+-				$ELSE {$SET_HOOK_PARAM(7,p2 + ":" + p3 + " pm" + "  " + day);};
 -				$RETURN;
 -			};
 -	}
@@ -2751,26 +2721,19 @@ name = Global_Display
 -	{
 -		$IF (p2 <# 22)
 -			{
--				$IF (p3 <# 10)
--					{$SET_HOOK_PARAM(7," " + p2 %# 12 + ":" + "0" + p3 + " pm" + "  " + day);}
--				$ELSE
--					{$SET_HOOK_PARAM(7," " + p2 %# 12 + ":" + p3 + " pm" + "  " + day);};
+-				$IF (p3 <# 10) {$SET_HOOK_PARAM(7," " + p2 %# 12 + ":" + "0" + p3 + " pm" + "  " + day);}
+-				$ELSE {$SET_HOOK_PARAM(7," " + p2 %# 12 + ":" + p3 + " pm" + "  " + day);};
 -				$RETURN;
 -			}
 -		$ELSE
 -			{
--				$IF (p3 <# 10)
--					{$SET_HOOK_PARAM(7,p2 %# 12 + ":" + "0" + p3 + " pm" + "  " + day);}
--				$ELSE
--					{$SET_HOOK_PARAM(7,p2 %# 12 + ":" + p3 + " pm" + "  " + day);};
+-				$IF (p3 <# 10) {$SET_HOOK_PARAM(7,p2 %# 12 + ":" + "0" + p3 + " pm" + "  " + day);}
+-				$ELSE {$SET_HOOK_PARAM(7,p2 %# 12 + ":" + p3 + " pm" + "  " + day);};
 -				$RETURN;
 -			};
 -	};
 [CharacterViewScreen] = $VAR char; // character
--$VAR nm;
--$VAR age; $VAR sex;
--$VAR align; $VAR alignList; $VAR alignName;
--$VAR class;
+-$VAR nm; $VAR age; $VAR sex; $VAR align; $VAR alignList; $VAR alignName; $VAR class;
 -$VAR cbnList; // class_baseName parameter
 -$VAR cbnCount; // number of baseclasses
 -$VAR cbn; // first baseclass
@@ -2778,26 +2741,16 @@ name = Global_Display
 -$VAR cbn3; // third baseclass
 -$VAR hbl; // highest baseclass level
 -$VAR hbn; // highest baseclass name
--$VAR lvl; $VAR lvl2; $VAR lvl3;
--$VAR xp; $VAR xp2; $VAR xp3;
--$VAR status;
--$VAR hp; $VAR maxHp;
--$VAR race;
--$VAR ac; $VAR acEff; $VAR acAdj;
--$VAR thac0; $VAR thac0Adj;
--$VAR str; $VAR strMod; $VAR int; $VAR wis; $VAR dex; $VAR con; $VAR cha;
+-$VAR lvl; $VAR lvl2; $VAR lvl3; $VAR xp; $VAR xp2; $VAR xp3; $VAR status; $VAR hp; $VAR maxHp; $VAR race; $VAR ac; $VAR acEff; $VAR acAdj;
+-$VAR thac0; $VAR thac0Adj; $VAR str; $VAR strMod; $VAR int; $VAR wis; $VAR dex; $VAR con; $VAR cha;
 -$VAR dmgList; // weapon
 -$VAR dmg1; $VAR dmg2; $VAR dmg3;
 -$VAR dmgPlus; // weapon plus if applicable
 -$VAR dmgBns; // damage bonus
 -$VAR enc;	// encumbrance
--$VAR mvmt;
--$VAR weight; $VAR height;
--$VAR wpn; $VAR shield; $VAR armor;
+-$VAR mvmt; $VAR weight; $VAR height; $VAR wpn; $VAR shield; $VAR armor; $VAR skilled; $VAR mpc; $VAR mp;
 -$VAR sWidth; // screen width
 -$VAR psnd; // Poisoned
--$VAR skilled;
--$VAR mpc; $VAR mp;
 -char = $IndexOf($CharacterContext());
 -nm = $GET_CHAR_NAME(char);
 -age = $GET_CHAR_AGE(char); sex = $GET_CHAR_SEX(char);
@@ -2807,11 +2760,8 @@ name = Global_Display
 -class = $GET_CHAR_CLASS(char);
 -cbnList = $DAT_Class_Baseclasses(class);
 -cbnCount = $DelimitedStringCount(cbnList);
--cbn = $DelimitedStringSubstring(cbnList,0);
--cbn2 = $DelimitedStringSubstring(cbnList,1);
--cbn3 = $DelimitedStringSubstring(cbnList,2);
--hbn = $GetHighestLevelBaseclass(char);
--hbl = $GetBaseclassLevel(char,hbn);
+-cbn = $DelimitedStringSubstring(cbnList,0); cbn2 = $DelimitedStringSubstring(cbnList,1); cbn3 = $DelimitedStringSubstring(cbnList,2);
+-hbn = $GetHighestLevelBaseclass(char); hbl = $GetBaseclassLevel(char,hbn);
 -xp = $GET_CHAR_Exp(char,cbn); xp2 = $GET_CHAR_Exp(char,cbn2); xp3 = $GET_CHAR_Exp(char,cbn3);
 -lvl = $GetBaseclassLevel(char,cbn); lvl2 = $GetBaseclassLevel(char,cbn2); lvl3 = $GetBaseclassLevel(char,cbn3);
 -status = $GET_CHAR_STATUS(char);
@@ -2944,18 +2894,18 @@ name = Global_Display
 -$GrPrtLF($UpCase(class));
 -$IF (cbnCount ==# 3)
 -	{
--		$GrPrint("LEVEL/XP " + lvl + "/" + xp);
--		$GrPrint(" " + lvl2 + "/" + xp2);
--		$GrPrtLF(" " + lvl3 + "/" + xp3);
+-		$GrPrint("LEVEL / XP " + lvl + " / " + xp);
+-		$GrPrint(" " + lvl2 + " / " + xp2);
+-		$GrPrtLF(" " + lvl3 + " / " + xp3);
 -	};
 -$IF (cbnCount ==# 2 && cbnList != "-?-?-")
 -	{
--		$GrPrint("LEVEL/XP " + lvl + "/" + xp);
--		$GrPrtLF(" " + lvl2 + "/" + xp2);
+-		$GrPrint("LEVEL / XP " + lvl + " / " + xp);
+-		$GrPrtLF(" " + lvl2 + " / " + xp2);
 -	};
 -$IF (cbnCount ==# 1)
 -	{
--		$GrPrtLF("LEVEL/XP " + lvl + "/" + xp);
+-		$GrPrtLF("LEVEL / XP " + lvl + " / " + xp);
 -	};
 -$GrMark("Level");
 -
@@ -6090,21 +6040,15 @@ name = item_LongSwordVsLycanthropes
 -$VAR par5; // Hook parameter 5
 -$VAR mNm; // monster name
 -tgt = $IndexOf($TargetContext()); par5 = $GET_HOOK_PARAM(5); mNm = $GET_CHAR_NAME(tgt);
-<<<<<<< HEAD
 -$IF ($GET_MONSTERTYPE_SA(mNm,"IsLycanthrope") != "-?-?-"){$SET_HOOK_PARAM(5,par5 +# 3);};
-=======
 -$IF ($GET_MONSTERTYPE_SA(mNm,"Lycanthrope") != "-?-?-"){$SET_HOOK_PARAM(5,par5 +# 3);};
->>>>>>> main
 [DoesAttackSucceed] = $VAR tgt; // target
 -$VAR mNm; // monster name
 -$VAR par5; // Hook parameter 5
 -$VAR par6; // Hook parameter 6
 -tgt = $IndexOf($TargetContext()); mNm = $GET_CHAR_NAME(tgt); par5 = $GET_HOOK_PARAM(5); par6 = $GET_HOOK_PARAM(6);
-<<<<<<< HEAD
 -$IF ($GET_MONSTERTYPE_SA(mNm,"IsLycanthrope")){$IF (par5 >=# (par6 -# 2)){$RETURN "Y";} $ELSE {$RETURN "N";};};
-=======
 -$IF ($GET_MONSTERTYPE_SA(mNm,"Lycanthrope")){$IF (par5 >=# (par6 -# 2)){$RETURN "Y";} $ELSE {$RETURN "N";};};
->>>>>>> main
 \(END)
 
 \(BEGIN)
@@ -6933,7 +6877,7 @@ name = monkSpeakWithPlants
 [OnStartCombat] = $VAR me; $VAR lvl;
 -me = $IndexOf($Myself(); lvl = $GET_CHAR_Lvl(me,"monk");
 -$IF (lvl <# 8) {$RETURN;};
-$AURA_Create("baseclass_MonkSpeakWithPlants",me,0,0,0);
+-$AURA_Create("baseclass_MonkSpeakWithPlants",me,0,0,0);
 \(END)
 // level 14
 
@@ -8478,6 +8422,19 @@ name = monster_GreaterVodyanoiSummonSharks
 \(END)
 
 \(BEGIN)
+name = monster_HarpyCharm
+[InvokeSpellOnTarget] = $VAR tgt; tgt = $IndexOf($TargetContext());
+-$SetFriendly(tgt,$GET_COMBATANT_SA($Myself(),"side"));
+-$SET_CHARACTER_SA($TargetContext(),"IsCharmed","");
+\(END)
+
+\(BEGIN)
+name = monster_HarpySings
+[InvokeSpellOnTarget] = $VAR exp; exp = $GET_PARTY_TIME() +# $RANDOM(6) +# $RANDOM(6) +# 2;
+-$SET_CHARACTER_SA($TargetContext(),"IsStunned",exp);
+\(END)
+
+\(BEGIN)
 name = monster_HellHoundAttack
 [StartCombatRound] = $GIVE_CHAR_ITEM( $CombatantContext(), "monsterHellHoundBreath" );
 \(END)
@@ -8905,7 +8862,7 @@ name = monster_MantaRaySwallow
 -$SET_COMBATANT_SA($AttackerContext(),"monster_MantaRaySwallower","");
 -$SET_COMBATANT_SA($AttackerContext(),"monster_MantaRaySwallowLink",tgt);
 -// Target
--$SET_COMBATANT_SA($TargetContext(),"IsManatRaySwallowed",exp);
+-$SET_COMBATANT_SA($TargetContext(),"IsMantaRaySwallowed",exp);
 -$SET_COMBATANT_SA($TargetContext(),"IsHugged","1");
 -// Link
 -link = $GET_COMBATANT_SA($TargetContext(),"monster_MantaRaySwallowLink");
@@ -11221,6 +11178,7 @@ name = spell_Dispel
 -	{
 -		$RUN_CHAR_SCRIPTS(tgt,"Dispel");
 -		$RUN_CHAR_SE_SCRIPTS($TargetContext(),"Dispel SE");
+-		$CALL_GLOBAL_SCRIPT("StandardDisplaySpellEffect","Dispel");
 -		$RETURN;
 -	};
 [SpellLingeringScripts] = $VAR cLvl; // caster's level (creator)
@@ -14216,5 +14174,6 @@ Updates200307 = "fixed item_FineLongBow, monster_LightSusceptible, elemental_Gro
 Updates200916 = "I added the following SAs: spell_Web, IsWebbed, IsHolyDeafened, IsHolyStunned, spell_HolyWord, spell_UnholyWord, IsDarkBlinded, IsLightBlinded, spell_ContinualDarknessCleric, spell_ContinualDarknessClericAURA, spell_ContinualLightCleric, spell_ContinualLightClericAURA, spell_ContinualLightMage, spell_ContinualLightMageAURA, spell_DarknessCleric, spell_DarknessClericAURA, spell_Darkness15RadiusMage, spell_Darkness15RadiusMageAURA, spell_LightCleric, spell_LightClericAURA, spell_LightMage, spell_LightMageAURA, IsFalseSeeing, spell_FalseSeeing, spell_TrueSeeing, IsSymbolHopelessnessed, IsSymbolHopelessnessedDone, IsSymbolPained, IsSymbolPersuaded, spell_Symbol, SymbolOfHopelessness, SymbolOfHopelessnessAURA, SymbolOfPain, SymbolOfPainAURA, SymbolOfPersuasion, SymbolOfPersuasionAURA, IsBrave, spell_CauseFearCleric, spell_RemoveFearCleric, IsWithered, spell_Regenerate, spell_Wither, IsBlindPyrotechnics, spell_Pyrotechnics, IsFieryCloudy, spell_IncendiaryCloud, spell_GeasAttack, IsGeasFlee, spell_Geas, spell_GeasFlee, spell_DismissElementalEarth, spell_DismissElementalFire, IsCommanded, spell_Command, spell_ChainLightning, spell_Aid, IsAided"
 Updates230329 = "added item_LongSwordVsReptiles, item_LongSwordVsLycanthropes, IsAnesthetized, IsDetectingIllusion, IsDetectingSecretDoors, IsHolyParalyzed, IsKnowingAlignment, IsSeeingAstral, IsSeeingDisplaced, IsSeeingEthereal, IsSeeingInvisible, spell_Enlarge, spell_GelatinousCubeParalysis; modified IsBarkskinned, IsBestowedCurse, IsBrave, IsCharmed, IsConfused, IsConfusedExtended, IsDetectingEvil, IsDetectingGood, IsDetectingMagic, IsDispellingEvil, IsDispellingGood, IsEnlarged, IsEntangled0, IsFast, IsHolyDeafened, IsHolyParalyzed, IsHolyStunned, IsParalyzed, IsPraying, IsReduced, IsSilenced, IsSleeping, IsSlow, IsStunned, IsWebbed, monster_WeaponImmunity, spell_Confusion, spell_Enlarge, spell_HolyWord, spell_Paralysis, spell_Prayer, spell_Reduce, spell_Sleep, spell_UnholyWord"
 Updates230331 = "updated from default databases"
+Updates230401 = "modified spell_Dispel, Global_Display"
 \(END)
 

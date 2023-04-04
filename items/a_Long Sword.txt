@@ -389,11 +389,8 @@ bundle quantity = 1
 Special Ability = item_ElfBonus,Long Sword +1
 Special Ability = item_MagicalWeapon,1
 Special Ability = item_LongSwordVsLycanthropes
-<<<<<<< HEAD
 Special Ability = item_WeaponTypeSlashing
-=======
 Special Ability = item_WeaponType,slashing
->>>>>>> main
 weapon type = hand held cutting
 ammo type = 
 usable = no

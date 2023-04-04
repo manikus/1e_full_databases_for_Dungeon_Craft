@@ -7,7 +7,7 @@ move sound = sound_MonsterMoveStep.wav
 death sound = sound_MonsterDeathMedium.wav
 intelligence = 3
 armor class = 6
-movement rate = 9//30
+movement rate = 9
 hit dice = 3
 treat HD as hit points = yes
 hit dice bonus = 1
@@ -28,4 +28,4 @@ attack = 3,1,0,stings,monsterPoison
 Undead = none
 \(END)
 // MMII p17
-
+// 30 movement rate when flying

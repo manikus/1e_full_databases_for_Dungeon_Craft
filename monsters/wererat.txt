@@ -16,11 +16,8 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 202
-<<<<<<< HEAD
 Special Ability = IsLycanthrope,Wererat
-=======
 Special Ability = Lycanthrope,Wererat
->>>>>>> main
 Special Ability = monsterLevel,4
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1

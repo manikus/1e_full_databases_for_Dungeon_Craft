@@ -2848,7 +2848,7 @@ form = mammal + animal
 penalty = none
 immunity = none
 Misc Options = can be held/charmed
-item = Club +2
+item = Club|2
 attack = 6,1,2,attacks,
 Undead = none
 \(END)
@@ -3526,7 +3526,7 @@ move sound = sound_MonsterMoveStep.wav
 death sound = sound_MonsterDeathMedium.wav
 intelligence = 2
 armor class = 3
-movement rate = 12 //18
+movement rate = 12
 hit dice = 8
 treat HD as hit points = yes
 hit dice bonus = 4
@@ -3550,7 +3550,7 @@ attack = 4,4,0,bites,
 Undead = none
 \(END)
 // MMII p60
-
+// 18 movement whent flying
 \(BEGIN)
 name = Dretch
 icon file = icon_Dretch.png,0,2,48,48,0,1,2
@@ -4625,7 +4625,7 @@ move sound = sound_MonsterMoveStep.wav
 death sound = sound_MonsterDeathMedium.wav
 intelligence = 3
 armor class = 6
-movement rate = 9//30
+movement rate = 9
 hit dice = 3
 treat HD as hit points = yes
 hit dice bonus = 1
@@ -4646,7 +4646,7 @@ attack = 3,1,0,stings,monsterPoison
 Undead = none
 \(END)
 // MMII p17
-
+// 30 movement rate when flying
 \(BEGIN)
 name = Giant Black Squirrel
 icon file = icon_GiantBlackSquirrel.png,0,2,48,48,0,1,0
@@ -6340,37 +6340,6 @@ Undead = none
 // MMII p71
 
 \(BEGIN)
-name = Grippli
-icon file = icon_Grippli.png,0,2,48,48,0,1,0
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveStep.wav
-death sound = sound_MonsterDeathMedium.wav
-intelligence = 14
-armor class = 9
-movement rate = 9
-hit dice = 1.000000
-treat HD as hit points = yes
-hit dice bonus = 1
-THAC0 = 18
-magic resistance = 0
-size = medium
-morale = 40
-experience point value = 55
-Special Ability = monsterLevel,2
-Class = Fighter
-Race = Monster
-form = none
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = none
-attack = 4,1,0,attacks,
-Undead = none
-\(END)
-// MMII p71
-
-\(BEGIN)
 name = Grizzly Bear
 icon file = icon_GrizzlyBear.png,0,2,48,48,0,1,2
 miss sound = sound_Miss.wav
@@ -6481,29 +6450,6 @@ Undead = none
 \(END)
 // MM
 
-Harpy - Monster Manual p51
-FREQUENCY: Rare
-ARMOR CLASS: 7
-MOVE: 6"/15"
-HIT DICE: 3
-Yo IN LAIR: 25%
-TREASURE TYPE: C
-NO. OF ATTACKS: 3
-SPECIAL ATTACKS: Singing & Charm
-SPECIAL DEFENSES: Nil
-MAGIC RESISTANCE: Standard
-INTELLIGENCE: low
-ALIGNMENT: Chaotic evil
-SIZE: M
-PSlONlCABlLlTY: Nil
-NO. APPEARING: 2- 12
-DAMAGE/ATTACK: J-3/1-3/1-6
-Attack/Defense Modes: Nil
-Harpies have the bodies of vultures but the upper torsos and heads of women. They are voracious carnivores and foul creatures. Those that dwell along seacoasts are generally known as sirens. All harpies are able to emit sweet-sounding calls. Any creature hearing these calls will proceed towards the harpies unless they save versus magic. Similarly, the touch of a harpy charms those creatures which fail to make their saving throw versus magic. The harpies attack, torture, and devour their charmed prey. What they do not want they foul with excrement. A harpy attacks with her vulture claws and some form of weapon - often a bone club or some weapon left from one of her farmer victims. They speak their own language and none other.
-
-////////////////////////////////////////////////////////////////////////////////////
-///// monster //////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////
 \(BEGIN)
 name = Harpy
 icon file = icon_Harpy.png,0,2,48,48,0,1,0
@@ -6539,167 +6485,6 @@ Undead = none
 \(END)
 // MM p51
 
-////////////////////////////////////////////////////////////////////////////////////
-///// items ////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////
-\(BEGIN)
-name = monsterHarpySinging
-id name = monsterHarpySinging
-launch sound = none
-hit sound = sound_Hit.wav
-miss sound = sound_Miss.wav
-missile sprite = none
-hit sprite = none
-ROF per round = 1.000000
-combat range = 1
-cost = 
-hands to carry = 1
-baseclass = magicUser
-small/medium damage dice = 1D2 + 0
-large damage dice = 1D2 + 0
-AC base = 0
-AC bonus = 0
-attack bonus = 0
-experience = 0
-encumbrance = 0
-cursed = no
-non lethal = no
-readied location = WEAPON
-bundle quantity = 1
-Special Ability = 
-weapon type = Spell-like Ability
-ammo type = 
-usable = no
-not magical = yes
-scribtable = no
-can drop = no
-CanHalveJoin = no
-number of charges = 2
-Examine Event ID = 0
-Examine Label = EXAMINE
-recharge rate = never
-spell effect = monsterHarpySinging
-\(END)
-
-////////////////////////////////////////////////////////////////////////////////////
-///// spells ///////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////
-\(BEGIN)
-name = monsterHarpyCharm
-casting sound = none
-cast msg = /c charms /t.
-missile sound = none
-coverage sound = none
-hit sound = none
-linger sound = none
-cast art = none
-missile art = none
-target cover art = none
-target hit art = none
-target linger art = none
-school = Cleric
-cast by = cleric
-can target friend = yes
-can target enemy = yes
-cumulative = no
-can memorize = no
-allow scribe = no
-auto scribe = no
-in camp = no
-in combat = yes
-can be dispelled = yes
-lingers = no
-linger affects once = no
-save versus = spell
-save result = negates
-Special Ability = DamageMagical,spell
-Special Ability = casterLevel,$cleric$0
-Special Ability = monster_HarpyCharm
-targeting type = touch
-target quantity = 1
-level = 1
-casting time = 1
-casting time units = initiative
-duration = 0
-duration units = instantaneous
-target duration = 0
-price = 0
-priority = 500
-spell effect 1 = 
-activate script 1 = 
-savingThrowScript = 
-savingThrowSucceededScript = 
-savingThrowFailedScript = 
-begin script = 
-end script = 
-\(END)
-
-\(BEGIN)
-name = monsterHarpySinging
-casting sound = none
-cast msg = /c sings to /t.
-missile sound = none
-coverage sound = none
-hit sound = none
-linger sound = none
-cast art = none
-missile art = none
-target cover art = none
-target hit art = none
-target linger art = none
-school = Cleric
-cast by = cleric
-can target friend = yes
-can target enemy = yes
-cumulative = no
-can memorize = no
-allow scribe = no
-auto scribe = no
-in camp = no
-in combat = yes
-can be dispelled = yes
-lingers = no
-linger affects once = no
-save versus = spell
-save result = none
-Special Ability = DamageMagical,spell
-Special Ability = monster_HarpySings
-targeting type = areacircle
-target quantity = 139
-target range = 0
-target radius = 6
-level = 1
-casting time = 1
-casting time units = initiative
-duration = 0
-duration units = instantaneous
-target duration = 0
-price = 0
-priority = 500
-spell effect 1 = 
-activate script 1 = 
-savingThrowScript = 
-savingThrowSucceededScript = 
-savingThrowFailedScript = 
-begin script = 
-end script = 
-\(END)
-
-////////////////////////////////////////////////////////////////////////////////////
-///// special abilities ////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////
-\(BEGIN)
-name = monster_HarpyCharm
-[InvokeSpellOnTarget] = $VAR tgt; tgt = $IndexOf($TargetContext());
--$SetFriendly(tgt,$GET_COMBATANT_SA($Myself(),"side"));
--$SET_CHARACTER_SA($TargetContext(),"IsCharmed","");
-\(END)
-
-\(BEGIN)
-name = monster_HarpySings
-[InvokeSpellOnTarget] = $VAR exp; exp = $GET_PARTY_TIME() +# $RANDOM(6) +# $RANDOM(6) +# 2;
--$SET_CHARACTER_SA($TargetContext(),"IsStunned",exp);
-\(END)
 \(BEGIN)
 name = Hell Hound
 icon file = icon_HellHound.png,0,2,48,48,0,1,2
@@ -7442,141 +7227,6 @@ attack = 10,4,0,attacks,
 Undead = none
 \(END)
 // MM p48
-
-\(BEGIN)
-name = Ixithxachitl|small
-icon file = icon_IxithxachitlSmall.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveAquatic.wav
-death sound = sound_MonsterDeathAquatic.wav
-intelligence = 6
-armor class = 6
-movement rate = 12
-hit dice = 1
-treat HD as hit points = yes
-hit dice bonus = 1
-THAC0 = 19
-magic resistance = 0
-size = medium
-morale = 35
-experience point value = 40
-Special Ability = monster_CombatantAlignment,evil
-Special Ability = monsterLevel,2
-Class = Fighter
-Race = Monster
-form = animal
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = none
-attack = 4,3,0,attacks,
-Undead = none
-\(END)
-// MM
-
-\(BEGIN)
-name = Ixithxachitl|large
-icon file = icon_IxithxachitlLarge.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveAquatic.wav
-death sound = sound_MonsterDeathAquatic.wav
-intelligence =11
-armor class = 6
-movement rate = 12
-hit dice = 3
-treat HD as hit points = yes
-hit dice bonus = 3
-THAC0 = 17
-magic resistance = 0
-size = large
-morale = 35
-experience point value = 1000
-Special Ability = monster_CombatantAlignment,evil
-Special Ability = monsterLevel,4
-Class = Fighter
-Race = Monster
-form = large + animal
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = monsterClericCauseLightWounds
-item = monsterClericCauseLightWounds
-item = monsterClericCurse
-item = monsterClericCurse
-item = monsterClericHoldPerson
-item = monsterClericSilence
-item = monsterClericCauseBlindness
-item = monsterClericCauseDisease
-attack = 4,3,2,attacks,
-Undead = none
-\(END)
-// MM
-
-\(BEGIN)
-name = Ixithxachitl|medium
-icon file = icon_IxithxachitlMedium.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveAquatic.wav
-death sound = sound_MonsterDeathAquatic.wav
-intelligence = 9
-armor class = 6
-movement rate = 12
-hit dice = 2
-treat HD as hit points = yes
-hit dice bonus = 2
-THAC0 = 18
-magic resistance = 0
-size = large
-morale = 35
-experience point value = 200
-Special Ability = monster_CombatantAlignment,evil
-Special Ability = monsterLevel,3
-Class = Fighter
-Race = Monster
-form = mammal + animal
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = monsterClericCauseLightWounds
-attack = 4,3,1,attacks,
-Undead = none
-\(END)
-// MM
-
-\(BEGIN)
-name = Ixithxachitl|small
-icon file = icon_IxithxachitlSmall.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveAquatic.wav
-death sound = sound_MonsterDeathAquatic.wav
-intelligence = 6
-armor class = 6
-movement rate = 12
-hit dice = 1
-treat HD as hit points = yes
-hit dice bonus = 1
-THAC0 = 19
-magic resistance = 0
-size = medium
-morale = 35
-experience point value = 40
-Special Ability = monster_CombatantAlignment,evil
-Special Ability = monsterLevel,2
-Class = Fighter
-Race = Monster
-form = animal
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = none
-attack = 4,3,0,attacks,
-Undead = none
-\(END)
-// MM
 
 \(BEGIN)
 name = Ixitxachitl|large
@@ -11217,37 +10867,6 @@ Undead = none
 // MM p80
 
 \(BEGIN)
-name = Purple Worm
-icon file = icon_PurpleWorm.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveStep.wav
-death sound = sound_MonsterDeathLarge.wav
-intelligence = 0
-armor class = 6
-movement rate = 9
-hit dice = 15.000000
-treat HD as hit points = yes
-hit dice bonus = 0
-THAC0 = 8
-magic resistance = 0
-size = large
-morale = 30
-experience point value = 6100
-Special Ability = monsterLevel,15
-Class = Fighter
-Race = Monster
-form = large
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = none
-attack = 12,2,0,bites,monsterPurpleWormSwallow
-Undead = none
-\(END)
-// MM p80
-
-\(BEGIN)
 name = Pyrolisk
 icon file = icon_Pyrolisk.png,0,2,48,48,0,1,2
 miss sound = sound_Miss.wav
@@ -12268,11 +11887,8 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 111
-<<<<<<< HEAD
 Special Ability = IsLycanthrope,Selkie
-=======
 Special Ability = Lycanthrope,Selkie
->>>>>>> main
 Special Ability = monsterLevel,3
 Class = Fighter
 Race = Monster
@@ -13348,55 +12964,6 @@ Undead = none
 // FF p82
 
 \(BEGIN)
-name = Ssendam - Lord of the Insane
-icon file = icon_Ssendam.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveStep.wav
-death sound = sound_MonsterDeathLarge.wav
-intelligence = 20
-armor class = -6
-movement rate = 16
-hit dice = 197
-treat HD as hit points = no
-hit dice bonus = 0
-THAC0 = 4
-magic resistance = 85
-size = medium
-morale = 40
-experience point value = 20695
-Special Ability = monsterLevel,32
-Special Ability = IsBlinking
-Special Ability = IsSeeingInvisible
-Special Ability = monster_GreySlaadSpellImmunity
-Special Ability = monster_Infravision
-Special Ability = monster_Regeneration,3
-Special Ability = monster_WeaponImmunity,3
-Special Ability = Summoned,plane
-Class = Fighter
-Race = Slaad
-form = large
-penalty = none
-immunity = none
-Misc Options = can be held/charmed + affected by dispel evil
-item = monsterClericUnholyWord
-item = monsterMageFear
-item = monsterMageMassCharm
-item = monsterMagePowerWordBlind
-item = monsterMagePowerWordKill
-item = monsterMagePowerWordStun
-item = monsterSlaadDarkness15r
-item = monsterSlaadGateSsendam
-item = monsterSlaadSymbolInsanity
-item = monsterSsendamFlameStrike
-attack = 8,2,0,hit,monsterSsendamDrain
-attack = 8,2,0,hit,monsterSsendamDrain
-attack = 8,2,0,hit,monsterSsendamDrain
-Undead = none
-\(END)
-// FF p82
-
-\(BEGIN)
 name = Stag
 icon file = DEFAULT // ,0,2,48,48,0,1,2
 miss sound = sound_Miss.wav
@@ -14416,39 +13983,6 @@ Undead = none
 // MM
 
 \(BEGIN)
-name = Triton|with Trident
-icon file = icon_TritonTrident.png,0,2,48,48,0,1,2
-miss sound = sound_Miss.wav
-hit sound = sound_Hit.wav
-move sound = sound_MonsterMoveAquatic.wav
-death sound = sound_MonsterDeathAquatic.wav
-intelligence = 16
-armor class = 5
-movement rate = 15
-hit dice = 3
-treat HD as hit points = yes
-hit dice bonus = 0
-THAC0 = 18
-magic resistance = 0
-size = medium
-morale = 35
-experience point value = 144
-Special Ability = monsterLevel,3
-Special Ability = Summoned,inner
-Class = Fighter
-Race = Monster
-form = mammal + animal
-penalty = none
-immunity = none
-Misc Options = can be held/charmed
-item = Dagger
-item = Trident
-attack = 2,1,0,attacks,
-Undead = none
-\(END)
-// MM
-
-\(BEGIN)
 name = Triton
 icon file = icon_Triton.png,0,2,48,48,0,1,2
 miss sound = sound_Miss.wav
@@ -15318,12 +14852,6 @@ Undead = none
 \(END)
 // MMII p126
 
-///// SA ///////////////////////////////////////////////////////////////////////////
-\(BEGIN)
-name = monster_WemicAwareness
-[AdjustInitiative] = $RETURN "-2";
-\(END)
-
 \(BEGIN)
 name = Wererat
 icon file = icon_Wererat.png,0,2,48,48,0,1,2
@@ -15342,11 +14870,8 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 202
-<<<<<<< HEAD
 Special Ability = IsLycanthrope,Wererat
-=======
 Special Ability = Lycanthrope,Wererat
->>>>>>> main
 Special Ability = monsterLevel,4
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1
@@ -15380,11 +14905,8 @@ magic resistance = 0
 size = large
 morale = 35
 experience point value = 2172
-<<<<<<< HEAD
 Special Ability = IsLycanthrope,Wereshark
-=======
 Special Ability = Lycanthrope,Wereshark
->>>>>>> main
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1
 Special Ability = monsterLevel,11
@@ -15418,11 +14940,8 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 300
-<<<<<<< HEAD
 Special Ability = IsLycanthrope,Werewolf
-=======
 Special Ability = Lycanthrope,Werewolf
->>>>>>> main
 Special Ability = monsterLevel,5
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1

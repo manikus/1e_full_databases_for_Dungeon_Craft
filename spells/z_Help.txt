@@ -14,5 +14,6 @@ Special Ability = Updates_180727,"fixed errors in Fireball|MonsterMage, Silence|
 Special Ability = Updates_200916,"I added the following spells: cleric - Aid, Cause Fear, Command, Continual Darkness, Continual Light, Darkness, False Seeing, Holy Word, Light, Regeneration, Remove Fear, Symbol, True Seeing, Unholy Word, Wither; druid - Dismiss Earth Elemental, Dismiss Fire Elemental, Pyrotechncs; magic user - Chain Lightning, Continual Light, Darkness 15' Radius, Geas, Imprisonment, Incendiary Cloud, Light, Pyrotechncs, Web; paladin - Aid, Cause Fear, Command, Continual Darkness, Continual Light, Darkness, Light, Remove Fear; ranger - Continual Light, Darkness 15' Radius, Light, Pyrotechncs, Web"
 Special Ability = Updates_230329,"added monster spell for Gelatinous Cube"
 Special Ability = Updates_230331,"updated various spells including Spiritual Hammer and Chain Lightning, added Fog Cloud"
+Special Ability = Updates_230403,"disambiguation of ranger spells, header lists for druids, paladins, and rangers"
 \(END)
 

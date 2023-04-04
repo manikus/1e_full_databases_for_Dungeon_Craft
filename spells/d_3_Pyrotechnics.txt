@@ -1,5 +1,5 @@
 \(BEGIN)
-name = Pyrotechncs|Druid
+name = Pyrotechnics|Druid
 casting sound = sound_Cast.wav
 cast msg = /c lights it up.
 missile sound = none

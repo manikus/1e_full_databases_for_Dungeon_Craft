@@ -11,7 +11,7 @@ name = monkSpeakWithPlants
 [OnStartCombat] = $VAR me; $VAR lvl;
 -me = $IndexOf($Myself(); lvl = $GET_CHAR_Lvl(me,"monk");
 -$IF (lvl <# 8) {$RETURN;};
-$AURA_Create("baseclass_MonkSpeakWithPlants",me,0,0,0);
+-$AURA_Create("baseclass_MonkSpeakWithPlants",me,0,0,0);
 \(END)
 // level 14
 

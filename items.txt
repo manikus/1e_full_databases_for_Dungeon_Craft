@@ -3781,49 +3781,6 @@ spell effect = none
 \(END)
 
 \(BEGIN)
-name = Flame Whip
-id name = Flame Whip
-launch sound = none
-hit sound = sound_Hit.wav
-miss sound = sound_Miss.wav
-missile sprite = none
-hit sprite = none
-ROF per round = 1
-combat range = 2
-cost = 
-hands to carry = 1
-baseclass = barbarian
-baseclass = cavalier
-baseclass = fighter
-baseclass = paladin
-baseclass = ranger
-small/medium damage dice = 1D2 + 6
-large damage dice = 1D2 + 6
-AC base = 0
-AC bonus = 0
-attack bonus = 1
-experience = 0
-encumbrance = 75
-cursed = no
-non lethal = no
-readied location = WEAPON
-bundle quantity = 1
-Special Ability = DamageTypeFire
-weapon type = hand held blunt
-ammo type = 
-usable = no
-not magical = yes
-scribtable = no
-can drop = yes
-CanHalveJoin = no
-number of charges = 0
-Examine Event ID = 0
-Examine Label = EXAMINE
-recharge rate = never
-spell effect = none
-\(END)
-
-\(BEGIN)
 name = Halberd
 id name = Halberd
 launch sound = none
@@ -6030,11 +5987,8 @@ bundle quantity = 1
 Special Ability = item_ElfBonus,Long Sword +1
 Special Ability = item_MagicalWeapon,1
 Special Ability = item_LongSwordVsLycanthropes
-<<<<<<< HEAD
 Special Ability = item_WeaponTypeSlashing
-=======
 Special Ability = item_WeaponType,slashing
->>>>>>> main
 weapon type = hand held cutting
 ammo type = 
 usable = no
@@ -9999,50 +9953,6 @@ weapon type = hand held cutting
 ammo type = 
 usable = no
 not magical = no
-scribtable = no
-can drop = yes
-CanHalveJoin = no
-number of charges = 0
-Examine Event ID = 0
-Examine Label = EXAMINE
-recharge rate = never
-spell effect = none
-\(END)
-
-\(BEGIN)
-name = Ygorl's Death Sickle
-id name = Ygorl's Death Sickle
-launch sound = none
-hit sound = sound_Hit.wav
-miss sound = sound_Miss.wav
-missile sprite = none
-hit sprite = none
-ROF per round = 0
-combat range = 2
-cost = 50000
-hands to carry = 2
-baseclass = barbarian
-baseclass = cavalier
-baseclass = fighter
-small/medium damage dice = 6D6 + 0
-large damage dice = 6D6 + 0
-AC base = 0
-AC bonus = 0
-attack bonus = 5
-experience = 0
-encumbrance = 
-cursed = no
-non lethal = no
-readied location = WEAPON
-bundle quantity = 1
-Special Ability = item_WeaponType,slashing
-Special Ability = item_SickleUse,Ygorl
-Special Ability = item_MagicWeapon,sickle
-Special Ability = item_SickleDeath,save vs poison or die instantly
-weapon type = hand held cutting
-ammo type = 
-usable = no
-not magical = yes
 scribtable = no
 can drop = yes
 CanHalveJoin = no
@@ -23802,8 +23712,8 @@ spell effect = Remove Curse
 \(END)
 
 \(BEGIN)
-name = Scroll| Serious Wounds
-id name = Scroll of  Serious Wounds
+name = Scroll|Cause Serious Wounds
+id name = Scroll of Cause Serious Wounds
 launch sound = none
 hit sound = none
 miss sound = none
@@ -23837,7 +23747,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect =  Serious Wounds
+spell effect = Cause Serious Wounds
 \(END)
 
 \(BEGIN)
@@ -25791,7 +25701,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Dispel Magic|Wizard
+Special Ability = scribeSpell,Dispel Magic|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -25803,7 +25713,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Dispel Magic|Wizard
+spell effect = Dispel Magic|Magic User
 \(END)
 
 \(BEGIN)
@@ -25873,7 +25783,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Hold Person|Wizard
+Special Ability = scribeSpell,Hold Person|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -25885,7 +25795,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Hold Person|Wizard
+spell effect = Hold Person|Magic User
 \(END)
 
 \(BEGIN)
@@ -25996,7 +25906,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Protection From Evil 10' Radius|Wizard
+Special Ability = scribeSpell,Protection From Evil 10' Radius|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -26008,7 +25918,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Protection From Evil 10' Radius|Wizard
+spell effect = Protection From Evil 10' Radius|Magic User
 \(END)
 
 \(BEGIN)
@@ -26037,7 +25947,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Protection From Good 10' Radius|Wizard
+Special Ability = scribeSpell,Protection From Good 10' Radius|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -26049,7 +25959,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Protection From Good 10' Radius|Wizard
+spell effect = Protection From Good 10' Radius|Magic User
 \(END)
 
 \(BEGIN)
@@ -26160,7 +26070,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Bestow Curse|Wizard
+Special Ability = scribeSpell,Bestow Curse|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -26172,7 +26082,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Bestow Curse|Wizard
+spell effect = Bestow Curse|Magic User
 \(END)
 
 \(BEGIN)
@@ -26529,7 +26439,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Remove Curse|Wizard
+Special Ability = scribeSpell,Remove Curse|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -26541,7 +26451,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Remove Curse|Wizard
+spell effect = Remove Curse|Magic User
 \(END)
 
 \(BEGIN)
@@ -26939,7 +26849,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Transmute Rock To Mud|Wizard
+Special Ability = scribeSpell,Transmute Rock To Mud|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -26951,7 +26861,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Transmute Rock To Mud|Wizard
+spell effect = Transmute Rock To Mud|Magic User
 \(END)
 
 \(BEGIN)
@@ -26980,7 +26890,7 @@ non lethal = no
 readied location = WEAPON
 bundle quantity = 1
 Special Ability = item_Scroll,magicUser
-Special Ability = scribeSpell,Wall Of Stone|Wizard
+Special Ability = scribeSpell,Wall Of Stone|Magic User
 weapon type = not weapon
 ammo type = 
 usable = yes
@@ -26992,7 +26902,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Wall Of Stone|Wizard
+spell effect = Wall Of Stone|Magic User
 \(END)
 
 \(BEGIN)
@@ -27689,7 +27599,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Imprisonment
+spell effect = Imprisonment|Mage
 \(END)
 
 \(BEGIN)
@@ -28296,7 +28206,7 @@ not magical = no
 scribtable = no
 can drop = yes
 CanHalveJoin = yes
-1number of charges = 0
+number of charges = 0
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
@@ -30047,7 +29957,7 @@ number of charges = 1
 Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
-spell effect = Silence 5' Radius|MonsterCleric
+spell effect = Silence 15' Radius|MonsterCleric
 \(END)
 
 \(BEGIN)
@@ -30668,44 +30578,6 @@ spell effect = Pyrotechnics|Druid
 \(END)
 
 \(BEGIN)
-name = monsterGiantSlugSpit
-id name = monsterGiantSlugSpit
-launch sound = none
-hit sound = none
-miss sound = none
-missile sprite = none
-hit sprite = none
-ROF per round = 1
-combat range = 1
-cost = 0
-hands to carry = 1
-baseclass = fighter
-small/medium damage dice = 1D6 + 0
-large damage dice = 1D6 + 0
-AC base = 0
-AC bonus = 0
-attack bonus = 0
-experience = 0
-encumbrance = 0
-cursed = no
-non lethal = no
-readied location = WEAPON
-bundle quantity = 1
-weapon type = Spell-like Ability
-ammo type = 
-usable = yes
-not magical = no
-scribtable = no
-can drop = no
-CanHalveJoin = no
-number of charges = 99
-Examine Event ID = 0
-Examine Label = EXAMINE
-recharge rate = never
-spell effect = monsterGiantSlugSpit
-\(END)
-
-\(BEGIN)
 name = monsterMageBanishment
 id name = monsterMageBanishment
 launch sound = none
@@ -30861,7 +30733,7 @@ recharge rate = never
 spell effect = Death Spell|MonsterMage
 \(END)
 
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageChainLightning
 id name = monsterMageChainLightning
 launch sound = none
@@ -31133,7 +31005,7 @@ recharge rate = never
 spell effect = Confusion|MonsterMage
 \(END)
 
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageContinualLight
 id name = monsterMageContinualLight
 launch sound = none
@@ -32299,7 +32171,7 @@ recharge rate = never
 spell effect = Improved Invisibility|MonsterIllusionist
 \(END)
 
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageIncendiaryCloud
 id name = monsterMageIncendiaryCloud
 launch sound = none
@@ -32727,8 +32599,8 @@ spell effect = Mind Blank|MonsterMage
 \(END)
 
 \(BEGIN)
-name = monsterMageMinGlobeofInvulnerability
-id name = monsterMageMinGlobeofInvulnerability
+name = monsterMageMinorGlobeofInvulnerability
+id name = monsterMageMinorGlobeofInvulnerability
 launch sound = none
 hit sound = none
 miss sound = none
@@ -33039,8 +32911,8 @@ spell effect = Prismatic Spray|MonsterIllusionist
 \(END)
 
 \(BEGIN)
-name = monsterMageProtectionfromEvil10Radius
-id name = monsterMageProtectionfromEvil10Radius
+name = monsterMageProtectionFromEvil10Radius
+id name = monsterMageProtectionFromEvil10Radius
 launch sound = none
 hit sound = none
 miss sound = none
@@ -33077,7 +32949,7 @@ recharge rate = never
 spell effect = Protection from Evil 10' Radius|MonsterMage
 \(END)
 
-n\(BEGIN)
+\(BEGIN)
 name = monsterMagePyrotechnics
 id name = monsterMagePyrotechnics
 launch sound = none
@@ -33583,7 +33455,7 @@ recharge rate = never
 spell effect = Wall Of Ice|MonsterMage
 \(END)
 
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageWeb
 id name = monsterMageWeb
 launch sound = none
@@ -37447,6 +37319,45 @@ spell effect = none
 \(END)
 
 \(BEGIN)
+name = monsterHarpySinging
+id name = monsterHarpySinging
+launch sound = none
+hit sound = sound_Hit.wav
+miss sound = sound_Miss.wav
+missile sprite = none
+hit sprite = none
+ROF per round = 1.000000
+combat range = 1
+cost = 
+hands to carry = 1
+baseclass = magicUser
+small/medium damage dice = 1D2 + 0
+large damage dice = 1D2 + 0
+AC base = 0
+AC bonus = 0
+attack bonus = 0
+experience = 0
+encumbrance = 0
+cursed = no
+non lethal = no
+readied location = WEAPON
+bundle quantity = 1
+Special Ability = 
+weapon type = Spell-like Ability
+ammo type = 
+usable = no
+not magical = yes
+scribtable = no
+can drop = no
+CanHalveJoin = no
+number of charges = 2
+Examine Event ID = 0
+Examine Label = EXAMINE
+recharge rate = never
+spell effect = monsterHarpySinging
+\(END)
+
+\(BEGIN)
 name = monsterHellHoundBreath
 id name = monsterHellHoundBreath
 launch sound = none
@@ -37635,45 +37546,6 @@ Examine Event ID = 0
 Examine Label = EXAMINE
 recharge rate = never
 spell effect = monsterKelpieCharm
-\(END)
-
-\(BEGIN)
-name = monsterMageTeleportWithoutError
-id name = monsterMageTeleportWithoutError
-launch sound = none
-hit sound = sound_Hit.wav
-miss sound = sound_Miss.wav
-missile sprite = none
-hit sprite = none
-ROF per round = 1
-combat range = 1
-cost = 
-hands to carry = 
-baseclass = magicUser
-small/medium damage dice = 1D2 + 0
-large damage dice = 1D2 + 0
-AC base = 0
-AC bonus = 0
-attack bonus = 0
-experience = 0
-encumbrance = 0
-cursed = no
-non lethal = no
-readied location = WEAPON
-bundle quantity = 1
-Special Ability = item_Noisy,spellcaster
-weapon type = SpellCaster
-ammo type = 
-usable = no
-not magical = no
-scribtable = no
-can drop = no
-CanHalveJoin = no
-number of charges = 1
-Examine Event ID = 0
-Examine Label = EXAMINE
-recharge rate = never
-spell effect = Teleport Without Error|MonsterMage
 \(END)
 
 \(BEGIN)

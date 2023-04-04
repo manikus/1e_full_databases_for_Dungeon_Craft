@@ -1,4 +1,4 @@
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageIncendiaryCloud
 id name = monsterMageIncendiaryCloud
 launch sound = none

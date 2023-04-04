@@ -1,6 +1,6 @@
 \(BEGIN)
-name = monsterMageProtectionfromEvil10Radius
-id name = monsterMageProtectionfromEvil10Radius
+name = monsterMageProtectionFromEvil10Radius
+id name = monsterMageProtectionFromEvil10Radius
 launch sound = none
 hit sound = none
 miss sound = none

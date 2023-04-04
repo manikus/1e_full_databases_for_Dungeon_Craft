@@ -16,11 +16,8 @@ magic resistance = 0
 size = medium
 morale = 35
 experience point value = 300
-<<<<<<< HEAD
 Special Ability = IsLycanthrope,Werewolf
-=======
 Special Ability = Lycanthrope,Werewolf
->>>>>>> main
 Special Ability = monsterLevel,5
 Special Ability = monster_CombatantAlignment,evil
 Special Ability = monster_WeaponImmunity,1

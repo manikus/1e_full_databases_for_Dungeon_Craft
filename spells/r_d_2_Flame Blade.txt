@@ -1,5 +1,5 @@
 \(BEGIN)
-name = Flame Blade|Ranger
+name = Flame Blade|RangerDruid
 casting sound = sound_Cast.wav
 cast msg = /c summons a fiery blade.
 missile sound = none

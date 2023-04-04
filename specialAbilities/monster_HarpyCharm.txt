@@ -1,0 +1,7 @@
+\(BEGIN)
+name = monster_HarpyCharm
+[InvokeSpellOnTarget] = $VAR tgt; tgt = $IndexOf($TargetContext());
+-$SetFriendly(tgt,$GET_COMBATANT_SA($Myself(),"side"));
+-$SET_CHARACTER_SA($TargetContext(),"IsCharmed","");
+\(END)
+

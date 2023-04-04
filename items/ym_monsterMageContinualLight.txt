@@ -1,4 +1,4 @@
-n\(BEGIN)
+\(BEGIN)
 name = monsterMageContinualLight
 id name = monsterMageContinualLight
 launch sound = none
